@@ -1,9 +1,9 @@
 {
-  "designerVersion" : "1.7.25",
-  "previousDesignerVersion" : "1.7.11",
+  "designerVersion" : "1.8.29",
+  "previousDesignerVersion" : "1.7.25",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1543511320103,
+  "lastUpdate" : 1549376551798,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {

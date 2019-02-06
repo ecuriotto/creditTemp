@@ -5,6 +5,7 @@ import org.bonitasoft.engine.bpm.data.DataNotFoundException
 import org.bonitasoft.engine.bpm.flownode.ActivityInstance
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ActivityStates
+import org.bonitasoft.engine.bpm.flownode.ManualTaskInstance
 import org.bonitasoft.engine.search.SearchOptionsBuilder
 import org.bonitasoft.engine.search.SearchResult
 import com.bonitasoft.engine.api.ProcessAPI
@@ -21,6 +22,9 @@ trait CaseActivityHelper {
 	def getState(ActivityInstance activityInstance, ProcessAPI processAPI) {
 		try {
 			def defaultState = activityInstance.getState()
+			if(activityInstance instanceof ManualTaskInstance) {
+				return [name: 'Optional', id: idOfState('Optional')]
+			}
 			def instance = processAPI.getActivityTransientDataInstance('$activityState', activityInstance.id)
 			if (defaultState == ActivityStates.ABORTED_STATE || defaultState == ActivityStates.FAILED_STATE) {
 				return [name: defaultState, id: idOfState(instance.value)]

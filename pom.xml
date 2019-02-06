@@ -9,7 +9,7 @@
 	<name>Bonita Case Management Demo</name>
 
 	<properties>
-		<bonita.version>7.8.0.beta-03</bonita.version>
+		<bonita.version>7.9.0-SNAPSHOT</bonita.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<target.platform.username>install</target.platform.username>
 		<target.platform.password>install</target.platform.password>

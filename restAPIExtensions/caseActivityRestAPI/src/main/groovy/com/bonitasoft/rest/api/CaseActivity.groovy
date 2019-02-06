@@ -64,7 +64,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 				
 		//Retrieve pending activities
 		def result = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
-				.findAll{it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY }
+				.findAll{ it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY }
 				.collect{ HumanTaskInstance task ->
 					[
 						id:task.name,
@@ -75,14 +75,12 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 						state:task.state.capitalize(),
 						metadata:getMetadata(task,processAPI)
 					]
-				}.sort{ t1,t2 -> valueOf(t1.metadata.$activityState) <=> valueOf(t2.metadata.$activityState) }
+				}
 
 		def containerInstance = processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, 1)
 				.filter(HumanTaskInstanceSearchDescriptor.PROCESS_INSTANCE_ID, caseId)
 				.filter(HumanTaskInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
 				.done()).result[0]
-
-		println "$containerInstance.name=$containerInstance.id"
 
 		//Retrieve adhoc activities
 		result.addAll(processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, Integer.MAX_VALUE)
@@ -100,6 +98,8 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 						metadata:getMetadata(task,processAPI)
 					]
 				})
+		
+		result = result.sort{ t1,t2 -> valueOf(t1.metadata.$activityState) <=> valueOf(t2.metadata.$activityState) }
 
 		//Retrieve finished activities
 		result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
@@ -135,10 +135,14 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 
 	def getMetadata(HumanTaskInstance task, ProcessAPI processAPI) {
 		def res = [:]
-		processAPI.getActivityTransientDataInstances(task.id, 0, Integer.MAX_VALUE)
-				.findAll{ it.name.startsWith(PREFIX) }
-				.collect{ res.put(it.name,it.value) }
-		res
+		if(task instanceof ManualTaskInstance) {
+			res.put('$activityState', 'Optional')
+		}else {
+			processAPI.getActivityTransientDataInstances(task.id, 0, Integer.MAX_VALUE)
+			.findAll{ it.name.startsWith(PREFIX) }
+			.collect{ res.put(it.name,it.value) }
+		}
+		return res
 	}
 
 

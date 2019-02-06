@@ -10,12 +10,12 @@
 	<description>A Bonita event handler for case management</description>
 
 	<properties>
-		<bonita.version>7.8.0.beta-01</bonita.version>
-		<groovy.version>2.4.3-01</groovy.version>
+		<bonita.version>7.8.1</bonita.version>
+		<groovy.version>2.4.16-02</groovy.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- WARNING for Windows users: keep forward slashes like below (instead of backslashes) -->
 		<bonita.project.name>bonita-case-management</bonita.project.name>
-		<studio.workspace.path>/home/romain/BonitaStudioSubscription-7.8.1-SNAPSHOT/workspace</studio.workspace.path>
+		<studio.workspace.path>/home/romain/Téléchargements/BonitaStudioSubscription-7.9.0-ACM/workspace</studio.workspace.path>
 		<platform.setup.dir>${studio.workspace.path}/tomcat/setup</platform.setup.dir>
 		<target.db.path>${studio.workspace.path}/${bonita.project.name}/h2_database</target.db.path>
 	</properties>
@@ -30,7 +30,7 @@
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>
 			<artifactId>groovy-all</artifactId>
-			<version>2.4.4</version>
+			<version>2.4.16</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -66,7 +66,7 @@
 					<dependency>
 						<groupId>org.codehaus.groovy</groupId>
 						<artifactId>groovy-eclipse-compiler</artifactId>
-						<version>2.9.2-01</version>
+						<version>3.0.0-01</version>
 					</dependency>
 					<dependency>
 						<groupId>org.codehaus.groovy</groupId>

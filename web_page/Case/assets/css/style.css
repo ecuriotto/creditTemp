@@ -73,4 +73,11 @@ ul {
 
 .auto-width{
     width: 240px;
+}.bonita-modal{
+    overflow-y: auto;
+}
+
+.modal-open .datepicker,
+.modal-open .timepicker {
+    z-index: 9999;
 }
