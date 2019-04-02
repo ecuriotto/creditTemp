@@ -1,9 +1,9 @@
 {
-  "designerVersion" : "1.8.29",
-  "previousDesignerVersion" : "1.7.25",
-  "id" : "01ad4bbc-cb13-42d3-bd19-ebf3a98fb477",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.8.29",
+  "id" : "CaseManagementLayout",
   "name" : "CaseManagementLayout",
-  "lastUpdate" : 1549376551851,
+  "lastUpdate" : 1554213541810,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {

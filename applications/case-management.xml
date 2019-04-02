@@ -7,7 +7,15 @@
             <applicationPage customPage="custompage_Case" token="case"/>
             <applicationPage customPage="custompage_ExecuteManualTask" token="do"/>
             <applicationPage customPage="custompage_CaseList" token="home"/>
+            <applicationPage customPage="custompage_processlistBonita" token="processes"/>
         </applicationPages>
-        <applicationMenus/>
+        <applicationMenus>
+            <applicationMenu applicationPage="home">
+                <displayName>Cases</displayName>
+            </applicationMenu>
+            <applicationMenu applicationPage="processes">
+                <displayName>Processes</displayName>
+            </applicationMenu>
+        </applicationMenus>
     </application>
 </applications>

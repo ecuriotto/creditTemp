@@ -1,9 +1,9 @@
 {
-  "designerVersion" : "1.8.29",
-  "previousDesignerVersion" : "1.7.38",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.8.29",
   "id" : "newForm",
   "name" : "newForm",
-  "lastUpdate" : 1549376551687,
+  "lastUpdate" : 1554212886609,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {

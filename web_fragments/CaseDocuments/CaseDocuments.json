@@ -1,9 +1,9 @@
 {
-  "designerVersion" : "1.7.25",
-  "previousDesignerVersion" : "1.7.11",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.7.25",
   "id" : "CaseDocuments",
   "name" : "CaseDocuments",
-  "lastUpdate" : 1543499447278,
+  "lastUpdate" : 1554212886831,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -32,6 +32,22 @@
       "alignment" : {
         "type" : "constant",
         "value" : "left"
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : ""
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
       }
     },
     "reference" : "3b6e04cd-651b-4fc2-9e8b-846ca747ebe8",
@@ -194,6 +210,22 @@
           "alignment" : {
             "type" : "constant",
             "value" : "left"
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : ""
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
           }
         },
         "reference" : "880c26b1-be94-4a13-9472-0853c785777e",

@@ -64,7 +64,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 				
 		//Retrieve pending activities
 		def result = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
-				.findAll{ it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY }
+				.findAll{ it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY && it.parentProcessInstanceId ==  caseId.toLong()}
 				.collect{ HumanTaskInstance task ->
 					[
 						id:task.name,
@@ -78,7 +78,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 				}
 
 		def containerInstance = processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, 1)
-				.filter(HumanTaskInstanceSearchDescriptor.PROCESS_INSTANCE_ID, caseId)
+				.filter(HumanTaskInstanceSearchDescriptor.PROCESS_INSTANCE_ID, caseId.toLong())
 				.filter(HumanTaskInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
 				.done()).result[0]
 

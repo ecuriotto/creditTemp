@@ -1,9 +1,9 @@
 {
-  "designerVersion" : "1.7.25",
-  "previousDesignerVersion" : "1.7.11",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.7.25",
   "id" : "CreateActivity",
   "name" : "CreateActivity",
-  "lastUpdate" : 1543419112298,
+  "lastUpdate" : 1554212886739,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -32,6 +32,22 @@
       "alignment" : {
         "type" : "constant",
         "value" : "left"
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : ""
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
       }
     },
     "reference" : "d2454d8d-80c1-4f6c-a335-b900a05f04f6",

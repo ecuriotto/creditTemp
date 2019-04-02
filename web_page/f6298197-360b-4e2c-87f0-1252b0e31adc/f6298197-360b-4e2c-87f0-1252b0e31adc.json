@@ -1,9 +1,9 @@
 {
-  "designerVersion" : "1.8.29",
-  "previousDesignerVersion" : "1.7.25",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.8.29",
   "id" : "f6298197-360b-4e2c-87f0-1252b0e31adc",
   "name" : "AddCommentForm",
-  "lastUpdate" : 1549376551751,
+  "lastUpdate" : 1554212886644,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -86,6 +86,22 @@
             "alignment" : {
               "type" : "constant",
               "value" : "center"
+            },
+            "labelHidden" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "label" : {
+              "type" : "interpolation",
+              "value" : ""
+            },
+            "labelPosition" : {
+              "type" : "constant",
+              "value" : "top"
+            },
+            "labelWidth" : {
+              "type" : "constant",
+              "value" : 4
             }
           },
           "reference" : "852c4884-5aa2-40b9-b5b1-3c4a380dd394",
@@ -102,7 +118,7 @@
           "propertyValues" : {
             "labelHidden" : {
               "type" : "constant",
-              "value" : false
+              "value" : true
             },
             "readonly" : {
               "type" : "constant",
@@ -121,7 +137,8 @@
               "value" : true
             },
             "label" : {
-              "type" : "interpolation"
+              "type" : "interpolation",
+              "value" : ""
             },
             "text" : {
               "type" : "interpolation",
@@ -146,6 +163,14 @@
             "allowHTML" : {
               "type" : "constant",
               "value" : true
+            },
+            "labelPosition" : {
+              "type" : "constant",
+              "value" : "top"
+            },
+            "labelWidth" : {
+              "type" : "constant",
+              "value" : 4
             }
           },
           "reference" : "a927bb62-e857-4906-971d-1a793268002d",

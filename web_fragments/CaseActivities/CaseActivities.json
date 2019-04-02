@@ -1,9 +1,9 @@
 {
-  "designerVersion" : "1.7.25",
-  "previousDesignerVersion" : "1.7.11",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.7.25",
   "id" : "CaseActivities",
   "name" : "CaseActivities",
-  "lastUpdate" : 1543507809925,
+  "lastUpdate" : 1554212886804,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -32,6 +32,22 @@
       "alignment" : {
         "type" : "constant",
         "value" : "left"
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : ""
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
       }
     },
     "reference" : "6d1c8ddb-7b68-4f08-b50d-cef75b1ee72a",

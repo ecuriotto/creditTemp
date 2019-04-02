@@ -1,9 +1,9 @@
 {
-  "designerVersion" : "1.8.29",
-  "previousDesignerVersion" : "1.7.25",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.8.29",
   "id" : "CaseListOriginal",
   "name" : "CaseListOriginal",
-  "lastUpdate" : 1549376551822,
+  "lastUpdate" : 1554212886709,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {

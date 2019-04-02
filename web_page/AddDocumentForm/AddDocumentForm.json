@@ -1,9 +1,9 @@
 {
-  "designerVersion" : "1.8.29",
-  "previousDesignerVersion" : "1.7.29",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.8.29",
   "id" : "AddDocumentForm",
   "name" : "AddDocumentForm",
-  "lastUpdate" : 1549376551871,
+  "lastUpdate" : 1554212886729,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -41,6 +41,22 @@
         "alignment" : {
           "type" : "constant",
           "value" : "center"
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : ""
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
         }
       },
       "reference" : "1fda73cb-f28c-46f0-8cf8-ee950e08c298",
@@ -57,7 +73,7 @@
       "propertyValues" : {
         "labelHidden" : {
           "type" : "constant",
-          "value" : false
+          "value" : true
         },
         "readonly" : {
           "type" : "constant",
@@ -76,7 +92,8 @@
           "value" : true
         },
         "label" : {
-          "type" : "interpolation"
+          "type" : "interpolation",
+          "value" : ""
         },
         "text" : {
           "type" : "interpolation",
@@ -93,6 +110,14 @@
         "dimension" : {
           "type" : "constant",
           "value" : 12
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
         }
       },
       "reference" : "43d0bf8d-0117-49ed-8eca-273ab8882deb",

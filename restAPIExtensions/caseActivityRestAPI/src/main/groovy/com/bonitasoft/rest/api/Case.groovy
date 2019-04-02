@@ -26,7 +26,6 @@ class Case implements RestApiController, CaseActivityHelper {
                 .collect {
             [id: it.id, name: processName(it.processDefinitionId, processAPI), state: asLabel(it.state.toUpperCase(), "info"), viewAction: viewActionLink(it.id, processAPI, contextPath)]
         }
-
         processAPI.searchArchivedProcessInstances(searchOptions).getResult()
                 .collect {
             result << [id: it.sourceObjectId, name: processName(it.processDefinitionId, processAPI), state: asLabel(it.state.toUpperCase(), "default"), viewAction: viewActionLink(it.sourceObjectId, processAPI, contextPath)]
@@ -52,9 +51,7 @@ class Case implements RestApiController, CaseActivityHelper {
         def openTasks = searchOpenedTasks(caseId, processAPI).result
                 .findAll { canExecute(getState(it, processAPI)) }
         if (openTasks.size() > 0) {
-            return """<a class="btn btn-primary btn-sm" href="${
-                contextPath
-            }/apps/cases/case?id=$caseId" target="_target">Open <span class="badge"> $openTasks.size</span></a>"""
+            return """<a class="btn btn-primary btn-sm" href="$contextPath/apps/cases/case?id=$caseId" target="_target">Open <span class="badge"> $openTasks.size</span></a>"""
         } else {
             return ""
         }
