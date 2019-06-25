@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1554212886689,
+  "lastUpdate" : 1561476611426,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -56,7 +56,7 @@
       }
     } ] ]
   }, {
-    "type" : "fragment",
+    "type" : "container",
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
@@ -71,16 +71,66 @@
       "hidden" : {
         "type" : "constant",
         "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
       }
     },
-    "reference" : "32caed50-6b87-4afd-9b02-5b720c8db40b",
+    "reference" : "87140a56-f8f6-40a6-a547-6525f4eca1a2",
     "hasValidationError" : false,
-    "id" : "CreateActivity",
-    "binding" : {
-      "caseId" : "caseId",
-      "activities" : "activities",
-      "newActivityCreated" : "newActivityCreated"
-    }
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "fragment",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        }
+      },
+      "reference" : "32caed50-6b87-4afd-9b02-5b720c8db40b",
+      "hasValidationError" : false,
+      "id" : "CreateActivity",
+      "binding" : {
+        "caseId" : "caseId",
+        "activities" : "activities",
+        "newActivityCreated" : "newActivityCreated"
+      }
+    } ], [ {
+      "type" : "fragment",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        }
+      },
+      "reference" : "04cfbffd-6e3a-4df8-ba8c-a11912badf9b",
+      "hasValidationError" : false,
+      "id" : "CaseData",
+      "binding" : {
+        "caseId" : "caseId"
+      }
+    } ] ]
   } ], [ {
     "type" : "tabsContainer",
     "dimension" : {

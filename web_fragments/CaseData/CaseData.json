@@ -1,0 +1,126 @@
+{
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.7.25",
+  "id" : "CaseData",
+  "name" : "CaseData",
+  "lastUpdate" : 1561477019556,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 6
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<h3><span class=\"glyphicon glyphicon-folder-open\" aria-hidden=\"true\"> </span> Case data</h3>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : ""
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      }
+    },
+    "reference" : "a988647f-08c5-4eef-ba24-31d7d749ed5f",
+    "hasValidationError" : false,
+    "id" : "pbText"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : ""
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 1
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<table style=\"width:100%\">\n  <tr>\n <td><strong>Customer</strong></td>\n <td>{{customer.firstName}} {{customer.lastName}}</td>\n  </tr>\n  <tr>\n <td><strong>Account</strong></td>\n <td> {{customer.accountId}}</td>\n  </tr>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "706215c1-6ab8-4c89-9f65-37439a3f0e61",
+    "hasValidationError" : false,
+    "id" : "pbText"
+  } ] ],
+  "assets" : [ ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "caseId" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "caseIdPayload" : {
+      "type" : "expression",
+      "value" : "return {\n    \"caseId\" : $data.caseId\n};",
+      "exposed" : false
+    },
+    "customer" : {
+      "type" : "url",
+      "value" : "../API/extension/customerInfo?caseId={{caseId}}",
+      "exposed" : false
+    }
+  },
+  "hasValidationError" : false,
+  "type" : "fragment"
+}

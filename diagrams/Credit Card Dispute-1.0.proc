@@ -165,13 +165,26 @@
         <elements xmi:type="process:TextAnnotation" xmi:id="_EA-EIAdfEeiGn-a9BKu52g" text="Could be replaced by an API call in the App&#xA;But would not be visible in the case history"/>
       </elements>
       <data xmi:type="process:BusinessObjectData" xmi:id="_mRGqAPUrEeeJbuCjYn0Nqw" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer">
-        <defaultValue xmi:type="expression:Expression" xmi:id="_mRGqAfUrEeeJbuCjYn0Nqw" name="" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Object"/>
+        <defaultValue xmi:type="expression:Expression" xmi:id="_mRGqAfUrEeeJbuCjYn0Nqw" name="init_customer()" content="customerDAO.findByPersistenceId(customerId.toLong())" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Customer">
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_UTxggJdQEemS2vHmcHFszw" name="customerId">
+            <mapping xmi:type="process:ContractInputMapping" xmi:id="_UTxggZdQEemS2vHmcHFszw"/>
+          </referencedElements>
+          <referencedElements xmi:type="expression:Expression" xmi:id="_GVluYJdQEemS2vHmcHFszw" name="customerDAO" content="customerDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.CustomerDAO" returnTypeFixed="true"/>
+        </defaultValue>
       </data>
-      <formMapping xmi:type="process:FormMapping" xmi:id="_x5qCE_SMEeeYpYD60oU_zA" type="NONE">
-        <targetForm xmi:type="expression:Expression" xmi:id="_5fzXYODnEeiqro8MYznsHA" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+      <data xmi:type="process:BusinessObjectData" xmi:id="__3lJIJdPEemS2vHmcHFszw" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute">
+        <defaultValue xmi:type="expression:Expression" xmi:id="__3lJIZdPEemS2vHmcHFszw" name="init_dispute()" content="disputeDAO.newInstance(customerId.toLong() , 'New')" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Dispute">
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_VTuhoJdQEemS2vHmcHFszw" name="customerId">
+            <mapping xmi:type="process:ContractInputMapping" xmi:id="_VTuhoZdQEemS2vHmcHFszw"/>
+          </referencedElements>
+          <referencedElements xmi:type="expression:Expression" xmi:id="__3lJIpdPEemS2vHmcHFszw" name="disputeDAO" content="disputeDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.DisputeDAO" returnTypeFixed="true"/>
+        </defaultValue>
+      </data>
+      <formMapping xmi:type="process:FormMapping" xmi:id="_x5qCE_SMEeeYpYD60oU_zA">
+        <targetForm xmi:type="expression:Expression" xmi:id="_YhGckJdQEemS2vHmcHFszw" name="NewDisputeCase" content="cf2691b0-85cf-453c-93fb-5e49cd4b3f44" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
       <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_x5qCFvSMEeeYpYD60oU_zA">
-        <targetForm xmi:type="expression:Expression" xmi:id="_x5qCF_SMEeeYpYD60oU_zA" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+        <targetForm xmi:type="expression:Expression" xmi:id="_x5qCF_SMEeeYpYD60oU_zA" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </overviewFormMapping>
       <connections xmi:type="process:SequenceFlow" xmi:id="_DWOHYPUeEeeREboOt7l4UQ" target="_Rc8KcPUeEeeREboOt7l4UQ" source="_x5qB2fSMEeeYpYD60oU_zA">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_DWOHYfUeEeeREboOt7l4UQ"/>
@@ -254,7 +267,11 @@
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_RlF_x_IoEeiAVslBKvhhLg" id="VALIDATOR"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_RlF_yPIoEeiAVslBKvhhLg" id="OTHER"/>
       </configurations>
-      <contract xmi:type="process:Contract" xmi:id="_x5qCJPSMEeeYpYD60oU_zA"/>
+      <contract xmi:type="process:Contract" xmi:id="_x5qCJPSMEeeYpYD60oU_zA">
+        <inputs xmi:type="process:ContractInput" xmi:id="_RjVZMJdQEemS2vHmcHFszw" name="customerId">
+          <mapping xmi:type="process:ContractInputMapping" xmi:id="_RjVZMZdQEemS2vHmcHFszw"/>
+        </inputs>
+      </contract>
       <documents xmi:type="process:Document" xmi:id="_iF-48PUhEeeREboOt7l4UQ" name="caseDocuments" multiple="true">
         <mimeType xmi:type="expression:Expression" xmi:id="_iF-48fUhEeeREboOt7l4UQ" name="" content="" returnTypeFixed="true"/>
         <url xmi:type="expression:Expression" xmi:id="_iF-48vUhEeeREboOt7l4UQ" name="" content="" returnTypeFixed="true"/>
