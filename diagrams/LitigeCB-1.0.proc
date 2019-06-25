@@ -225,7 +225,7 @@
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_At-e2QdeEeiGn-a9BKu52g" id="VALIDATOR"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_At-e2gdeEeiGn-a9BKu52g" id="OTHER"/>
       </configurations>
-      <configurations xmi:type="configuration:Configuration" xmi:id="_ZbqSYCeQEei7d4O1CuuFSg" name="Demo" version="7.8.0-002" username="walter.bates" password="bpm">
+      <configurations xmi:type="configuration:Configuration" xmi:id="_ZbqSYCeQEei7d4O1CuuFSg" name="Demo" version="7.9.0-002" username="walter.bates" password="bpm">
         <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_ZbqSYSeQEei7d4O1CuuFSg">
           <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_ZbqSYieQEei7d4O1CuuFSg" name="Customer">
             <groups xmi:type="actormapping:Groups" xmi:id="_ZbqSYyeQEei7d4O1CuuFSg">
@@ -364,7 +364,7 @@
               <styles xmi:type="notation:DescriptionStyle" xmi:id="_EA_5UQdfEeiGn-a9BKu52g"/>
               <styles xmi:type="notation:FontStyle" xmi:id="_EA_5UgdfEeiGn-a9BKu52g" fontName="Ubuntu"/>
               <styles xmi:type="notation:LineStyle" xmi:id="_EA_5UwdfEeiGn-a9BKu52g"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EA_5VAdfEeiGn-a9BKu52g" x="639" y="122"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EA_5VAdfEeiGn-a9BKu52g" x="593" y="122" width="167" height="77"/>
             </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_x5qCXPSMEeeYpYD60oU_zA"/>

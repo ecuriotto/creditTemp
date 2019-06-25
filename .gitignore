@@ -1,3 +1,4 @@
+
 bin
 .classpath
 /src-providedGroovy
@@ -27,3 +28,7 @@ target/
 /database_connectors_properties
 /bonita-la-builder.jar
 /bonita-la-deployer.jar
+
+
+node/
+node_modules/
