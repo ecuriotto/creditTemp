@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseData",
   "name" : "CaseData",
-  "lastUpdate" : 1561477019556,
+  "lastUpdate" : 1561533883711,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -54,7 +54,7 @@
     "hasValidationError" : false,
     "id" : "pbText"
   } ], [ {
-    "type" : "component",
+    "type" : "container",
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
@@ -70,38 +70,162 @@
         "type" : "constant",
         "value" : false
       },
-      "labelHidden" : {
-        "type" : "constant",
-        "value" : true
-      },
-      "label" : {
-        "type" : "interpolation",
+      "repeatedCollection" : {
+        "type" : "variable",
         "value" : ""
-      },
-      "labelPosition" : {
-        "type" : "constant",
-        "value" : "left"
-      },
-      "labelWidth" : {
-        "type" : "constant",
-        "value" : 1
-      },
-      "allowHTML" : {
-        "type" : "constant",
-        "value" : true
-      },
-      "text" : {
-        "type" : "interpolation",
-        "value" : "<table style=\"width:100%\">\n  <tr>\n <td><strong>Customer</strong></td>\n <td>{{customer.firstName}} {{customer.lastName}}</td>\n  </tr>\n  <tr>\n <td><strong>Account</strong></td>\n <td> {{customer.accountId}}</td>\n  </tr>"
-      },
-      "alignment" : {
-        "type" : "constant",
-        "value" : "left"
       }
     },
-    "reference" : "706215c1-6ab8-4c89-9f65-37439a3f0e61",
+    "reference" : "046fa316-a7c0-4376-8a1c-c4524d78f058",
     "hasValidationError" : false,
-    "id" : "pbText"
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Customer"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "left"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 1
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "{{customer.firstName}} {{customer.lastName}}"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "9523cf9a-26f5-4416-98e3-9e8877333cd8",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Phone"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "left"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 1
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<a href=\"tel:{{customer.phoneNumber}}\">{{customer.phoneNumber}} </a>"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "1c9c3d68-3cf8-40a0-a901-cdd745c151f8",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Account"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "left"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 1
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "{{customer.accountId}}"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "5aad9403-82ae-4590-adac-ff31eb39ab79",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ] ]
   } ] ],
   "assets" : [ ],
   "inactiveAssets" : [ ],

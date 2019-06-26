@@ -19,48 +19,41 @@ import groovy.json.JsonBuilder
 class CaseHistory implements RestApiController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CaseHistory.class)
-	private static final String ACTIVITY_CONTAINER = "Dymanic Activity Container"
-	private static final String CREATE_ACTIVITY = "Create Activity"
+    static final String ACTIVITY_CONTAINER = "Dymanic Activity Container"
 
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
         def caseId = request.getParameter "caseId"
         if (!caseId) {
-            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter caseId is missing"}""")
+			return responseBuilder.with {
+				withResponseStatus(HttpServletResponse.SC_BAD_REQUEST)
+				withResponse("""{"error" : "the parameter caseId is missing"}""")
+				build()
+			}
         }
 
 		def processAPI = context.apiClient.getProcessAPI()
-		//Retrieve finished activities
+		//Retrieve archived activities
 		def result = processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-			filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
+			filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId.toLong())
 			differentFrom(ArchivedActivityInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
 			sort(ArchivedActivityInstanceSearchDescriptor.REACHED_STATE_DATE, Order.DESC)
 			done()
-		}).getResult().collect{
+		}).getResult()
+		.collect{
 			def user = context.apiClient.getIdentityAPI().getUser(it.executedBy)
-			[displayName:it.displayName,displayDescription:it.displayDescription ?  it.displayDescription : "",reached_state_date:it.reachedStateDate,executedBy:user]
+			[
+				displayName:it.displayName,
+				displayDescription:it.displayDescription ?: "",
+				reached_state_date:it.reachedStateDate,
+				executedBy:user
+			]
 		}
-
-        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
+		return responseBuilder.with {
+			withResponseStatus(HttpServletResponse.SC_OK)
+			withResponse(new JsonBuilder(result).toString())
+			build()
+		}
     }
-	
-	
-
-    /**
-     * Build an HTTP response.
-     *
-     * @param  responseBuilder the Rest API response builder
-     * @param  httpStatus the status of the response
-     * @param  body the response body
-     * @return a RestAPIResponse
-     */
-    RestApiResponse buildResponse(RestApiResponseBuilder responseBuilder, int httpStatus, Serializable body) {
-        return responseBuilder.with {
-            withResponseStatus(httpStatus)
-            withResponse(body)
-            build()
-        }
-    }
-
 
 }

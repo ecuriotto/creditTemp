@@ -43,6 +43,7 @@ class CustomerInfo implements RestApiController, CaseActivityHelper {
 				[
 					firstName:customer.firstName,
 					lastName:customer.lastName,
+					phoneNumber:customer.phoneNumber,
 					accountId:customer.account.id
 				]
 			).toString())

@@ -69,7 +69,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 					[
 						id:task.name,
 						name:task.displayName ?: task.name,
-						url:forge(pDef.name,pDef.version,task,contextPath),
+						url: canExecute(getState(task,processAPI)) ? forge(pDef.name,pDef.version,task,contextPath) : null,
 						description:task.description,
 						target:linkTarget(task),
 						state:task.state.capitalize(),
@@ -91,7 +91,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 					[
 						id:task.name,
 						name:task.displayName ?: task.name,
-						url:forge(pDef.name,pDef.version,task,contextPath),
+						url: canExecute(getState(task,processAPI)) ? forge(pDef.name,pDef.version,task,contextPath) : null,
 						description:task.description,
 						target:linkTarget(task),
 						state:task.state.capitalize(),

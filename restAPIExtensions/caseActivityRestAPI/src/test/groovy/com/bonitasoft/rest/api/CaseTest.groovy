@@ -12,6 +12,7 @@ import org.bonitasoft.engine.bpm.flownode.ActivityInstance
 import org.bonitasoft.engine.bpm.flownode.FlowNodeType
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
 import org.bonitasoft.engine.bpm.flownode.impl.internal.ActivityInstanceImpl
+import org.bonitasoft.engine.bpm.flownode.impl.internal.HumanTaskInstanceImpl
 import org.bonitasoft.engine.bpm.process.ProcessDefinition
 import org.bonitasoft.engine.bpm.process.ProcessInstance
 import org.bonitasoft.engine.bpm.process.impl.internal.ProcessDefinitionImpl
@@ -22,9 +23,6 @@ import spock.lang.Specification
 
 class CaseTest extends Specification {
 
-    RestApiResponseBuilder responseBuilder = new RestApiResponseBuilder()
-    ProcessDefinition processDefinition = new ProcessDefinitionImpl("name", "version")
-
     ProcessAPI processAPI = Mock()
     APIClient apiClient = Mock()
     HttpServletRequest request = Mock()
@@ -32,54 +30,39 @@ class CaseTest extends Specification {
     SearchResult<ProcessInstance> result = Mock()
     SearchResult<HumanTaskInstance> taskResult = Mock()
     DataInstance dataInstance = Mock()
+	SearchResult EMPTY_RESULT =  Mock()
 
     def "setup"() {
-        request.contextPath >> "/bonitaExpenseReport"
         context.apiClient >> apiClient
         apiClient.getProcessAPI() >> processAPI
         processAPI.searchProcessInstances(_) >> result
-        processAPI.searchArchivedProcessInstances(_) >> result
-        processAPI.getProcessDefinition(_) >> processDefinition
+        processAPI.searchArchivedProcessInstances(_) >> EMPTY_RESULT
+        processAPI.getProcessDefinition(_) >>  Mock(ProcessDefinition)
         processAPI.searchHumanTaskInstances(_) >> taskResult
-        processAPI.getActivityTransientDataInstance(_, _) >> dataInstance
+        processAPI.getActivityTransientDataInstance('$activityState', _) >> dataInstance
+        result.getResult() >> [[id: 45L, processDefinitionId: 56L, sourceObjectId: 78L, state: 'state']]
 
-        def list = [id: 45L, processDefinitionId: 56L, sourceObjectId: 78L, state: 'state']
-        result.getResult() >> [list]
-
-        ActivityInstance activityInstance = new ActivityInstanceImpl("activity name", 65464L) {
-            @Override
-            FlowNodeType getType() {
-                return "*"
-            }
-
-            @Override
-            long getId() {
-                45L
-            }
-
-            @Override
-            String getState() {
-                'state'
-            }
-        }
-        taskResult.getResult() >> [activityInstance]
-        dataInstance.value >> "data value"
+		def HumanTaskInstance taskInstance = Mock()
+		taskInstance.name >> 'activity name'
+		taskInstance.id >> 45L
+		
+        taskResult.getResult() >> [taskInstance]
     }
 
-    def "should keep server name"() {
+    def "should response contains a proper case url"() {
         given:
-
-        Case aCase = new Case()
+        def aCase = new Case()
+		request.contextPath >> "myAppContext"
 
         when:
-        RestApiResponse restApiResponse = aCase.doHandle(request, responseBuilder, context)
+        RestApiResponse restApiResponse = aCase.doHandle(request, new RestApiResponseBuilder(), context)
 
-        then: 'this is no more references to localhost '
+        then:
         JsonSlurper slurper = new JsonSlurper()
-        def parsedResponse = slurper.parseText(restApiResponse.response)
-        parsedResponse.each { result ->
-            assert result.viewAction.contains("""href="/bonitaExpenseReport/apps/cases/case?id=${result.id}" """)
-
+        def response = slurper.parseText(restApiResponse.response)
+		assert response.size() > 0
+        response.each { c ->
+            assert c.viewAction.contains("href=\"myAppContext/apps/cases/case?id=${c.id}\"")
         }
     }
 }
