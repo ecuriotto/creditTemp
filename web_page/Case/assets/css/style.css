@@ -68,7 +68,7 @@ ul {
 .fixed-scrollable{
     min-height: 50px;
     max-height: 50px;
-    overflow-y: scroll;
+    overflow-y:  auto;
 }
 
 .auto-width{

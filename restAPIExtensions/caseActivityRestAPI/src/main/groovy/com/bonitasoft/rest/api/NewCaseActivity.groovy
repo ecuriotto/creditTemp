@@ -3,8 +3,11 @@ package com.bonitasoft.rest.api;
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
+import org.bonitasoft.engine.api.ProcessAPI
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.FlowNodeType
+import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
+import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor
 import org.bonitasoft.engine.search.SearchOptionsBuilder
 import org.bonitasoft.web.extension.rest.RestApiResponse
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
@@ -27,25 +30,35 @@ class NewCaseActivity implements RestApiController {
 	@Override
 	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
 		def jsonBody = new JsonSlurper().parse(request.getReader())
+		if(!jsonBody.name) {
+			return responseBuilder.with {
+				withResponse("""{"error" : "the parameter name is missing"}""")
+				withResponseStatus(HttpServletResponse.SC_BAD_REQUEST)
+				build()
+			}
+		}
+		if(!jsonBody.caseId) {
+			return responseBuilder.with {
+				withResponse("""{"error" : "the parameter caseId is missing"}""")
+				withResponseStatus(HttpServletResponse.SC_BAD_REQUEST)
+				build()
+			}
+		}
+		
 		def processAPI = context.apiClient.getProcessAPI()
 
-		def res = processAPI.searchActivities(new SearchOptionsBuilder(0, 1).with {
-			filter(ActivityInstanceSearchDescriptor.PROCESS_INSTANCE_ID, jsonBody.caseId)
-			filter(ActivityInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
-			done()
-		}).getResult()
-	
-		if(res.isEmpty()) {
+		def activityContainerInstance = findTaskInstance(jsonBody.caseId.toLong(), ACTIVITY_CONTAINER, processAPI)
+		if(!activityContainerInstance) {
 			return responseBuilder.with {
 				withResponseStatus(HttpServletResponse.SC_NOT_FOUND)
 				withResponse("No Dymanic Activity Container found")
 				build()
 			}
 		}
-		def containerId = res.get(0).id;
-		processAPI.assignUserTask(containerId, context.apiSession.userId)
-		def task = processAPI
-				.addManualUserTask(new ManualTaskCreator(containerId, jsonBody.name).with{
+
+		processAPI.assignUserTask(activityContainerInstance.id, context.apiSession.userId)
+		processAPI
+				.addManualUserTask(new ManualTaskCreator(activityContainerInstance.id, jsonBody.name).with{
 					setDisplayName( "&#x2795 $jsonBody.name" )
 					setDescription(jsonBody.description)
 					setAssignTo(context.apiSession.userId)
@@ -53,28 +66,31 @@ class NewCaseActivity implements RestApiController {
 				})
 		
 				
-	    res = processAPI.searchActivities(new SearchOptionsBuilder(0, 1).with {
-					filter(ActivityInstanceSearchDescriptor.PROCESS_INSTANCE_ID, jsonBody.caseId)
-					filter(ActivityInstanceSearchDescriptor.NAME, CREATE_ACTIVITY)
-					filter(ActivityInstanceSearchDescriptor.ACTIVITY_TYPE, FlowNodeType.USER_TASK)
-					done()
-				}).getResult()
-		if(res.isEmpty()) {
+	    def createActivityInstance = findTaskInstance(jsonBody.caseId.toLong(), CREATE_ACTIVITY, processAPI)
+		if(!createActivityInstance) {
 			return responseBuilder.with {
 				withResponseStatus(HttpServletResponse.SC_NOT_FOUND)
 				withResponse("No Create Activity found")
 				build()
 			}
 		}
-		def createActivityTaskId = res[0].id;
-		processAPI.assignUserTask(createActivityTaskId, context.apiSession.userId)
-		processAPI.executeUserTask(createActivityTaskId, [name:jsonBody.name])
+
+		processAPI.assignAndExecuteUserTask(context.apiSession.userId, createActivityInstance.id, [name:jsonBody.name])
 		
 		return responseBuilder.with {
 			withResponse(new JsonBuilder([name:jsonBody.name]).toString())
 			withResponseStatus(HttpServletResponse.SC_CREATED)
 			build()
 		}
+	}
+	
+	def HumanTaskInstance findTaskInstance(long caseId, String name, ProcessAPI processAPI) {
+		def result = processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, 1).with {
+			filter(HumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
+			filter(HumanTaskInstanceSearchDescriptor.NAME, name)
+			done()
+		}).getResult()
+		return result.isEmpty() ? null : result[0]
 	}
 	
 }

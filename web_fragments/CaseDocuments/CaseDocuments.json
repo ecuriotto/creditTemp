@@ -3,14 +3,14 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseDocuments",
   "name" : "CaseDocuments",
-  "lastUpdate" : 1554212886831,
+  "lastUpdate" : 1561640959585,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
       "xs" : 12,
       "sm" : 1,
       "md" : 1,
-      "lg" : 1
+      "lg" : 2
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -126,6 +126,13 @@
         "type" : "constant"
       },
       "removeItem" : {
+        "type" : "variable"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "responseStatusCode" : {
         "type" : "variable"
       }
     },

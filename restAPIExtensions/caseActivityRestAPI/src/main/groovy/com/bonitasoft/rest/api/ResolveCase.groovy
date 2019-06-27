@@ -31,7 +31,6 @@ class ResolveCase implements RestApiController {
 			}
 		}
 		
-		
 		def processAPI = context.apiClient.getProcessAPI()
 		def id = jsonBody.caseId.toLong()
 		processAPI.cancelProcessInstance(id)
