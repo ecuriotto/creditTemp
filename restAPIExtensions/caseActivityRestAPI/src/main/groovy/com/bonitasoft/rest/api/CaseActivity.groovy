@@ -34,8 +34,6 @@ import groovy.sql.DataSet
 class CaseActivity implements RestApiController,CaseActivityHelper {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CaseActivity.class)
-	private static final String ACTIVITY_CONTAINER = "Dymanic Activity Container"
-	private static final String CREATE_ACTIVITY = "Create Activity"
 	private static final String PREFIX = '$'
 
 	@Override

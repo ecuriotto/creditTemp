@@ -11,7 +11,10 @@ import org.bonitasoft.engine.search.SearchResult
 import com.bonitasoft.engine.api.ProcessAPI
 
 trait CaseActivityHelper {
-
+	
+	public static final String ACTIVITY_CONTAINER = "Dymanic Activity Container"
+	public static final String CREATE_ACTIVITY = "Create Activity"
+	
 	def canExecute(String state) {
 		return state != "N/A" &&
 				state != ActivityStates.COMPLETED_STATE &&
