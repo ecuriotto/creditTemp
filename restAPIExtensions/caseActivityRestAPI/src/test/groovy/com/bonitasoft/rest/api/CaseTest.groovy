@@ -28,8 +28,6 @@ class CaseTest extends Specification {
     HttpServletRequest request = Mock()
     RestAPIContext context = Mock()
     SearchResult<ProcessInstance> result = Mock()
-    SearchResult<HumanTaskInstance> taskResult = Mock()
-    DataInstance dataInstance = Mock()
 	SearchResult EMPTY_RESULT =  Mock()
 
     def "setup"() {
@@ -38,21 +36,14 @@ class CaseTest extends Specification {
         processAPI.searchProcessInstances(_) >> result
         processAPI.searchArchivedProcessInstances(_) >> EMPTY_RESULT
         processAPI.getProcessDefinition(_) >>  Mock(ProcessDefinition)
-        processAPI.searchHumanTaskInstances(_) >> taskResult
-        processAPI.getActivityTransientDataInstance('$activityState', _) >> dataInstance
         result.getResult() >> [[id: 45L, processDefinitionId: 56L, sourceObjectId: 78L, state: 'state']]
-
-		def HumanTaskInstance taskInstance = Mock()
-		taskInstance.name >> 'activity name'
-		taskInstance.id >> 45L
-		
-        taskResult.getResult() >> [taskInstance]
     }
 
     def "should response contains a proper case url"() {
         given:
         def aCase = new Case()
 		request.contextPath >> "myAppContext"
+		processAPI.getProcessInstance(_) >> Stub(ProcessInstance)
 
         when:
         def restApiResponse = aCase.doHandle(request, new RestApiResponseBuilder(), context)

@@ -21,8 +21,6 @@ import groovy.json.JsonBuilder
 
 class CaseDocument implements RestApiController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CaseDocument.class)
-
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
         def caseId = request.getParameter "caseId"

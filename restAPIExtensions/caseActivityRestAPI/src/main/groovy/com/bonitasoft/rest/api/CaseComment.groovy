@@ -19,8 +19,6 @@ import groovy.json.JsonBuilder
 
 class CaseComment implements RestApiController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CaseComment.class)
-
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
         def caseId = request.getParameter "caseId"

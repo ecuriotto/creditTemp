@@ -17,9 +17,6 @@ import groovy.json.JsonSlurper
 
 class ResolveCase implements RestApiController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ResolveCase.class)
-	private static final String ACTIVITY_CONTAINER = "Dymanic Activity Container"
-
 	@Override
 	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
 		def jsonBody = new JsonSlurper().parse(request.getReader())

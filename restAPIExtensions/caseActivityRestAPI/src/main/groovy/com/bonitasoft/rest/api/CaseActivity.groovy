@@ -31,9 +31,8 @@ import com.bonitasoft.web.extension.rest.RestApiController
 import groovy.json.JsonBuilder
 import groovy.sql.DataSet
 
-class CaseActivity implements RestApiController,CaseActivityHelper {
+class CaseActivity implements RestApiController,CaseActivityHelper,TaskNameConstants {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(CaseActivity.class)
 	private static final String PREFIX = '$'
 
 	@Override

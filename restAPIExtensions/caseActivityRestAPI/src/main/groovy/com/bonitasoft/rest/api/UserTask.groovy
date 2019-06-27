@@ -15,8 +15,6 @@ import groovy.json.JsonSlurper
 
 class UserTask implements RestApiController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserTask.class)
-	
 	@Override
 	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
 		def jsonBody = new JsonSlurper().parse(request.getReader())

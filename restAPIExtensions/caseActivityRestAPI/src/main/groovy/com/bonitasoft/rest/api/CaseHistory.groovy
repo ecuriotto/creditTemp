@@ -16,10 +16,9 @@ import com.bonitasoft.web.extension.rest.RestApiController
 
 import groovy.json.JsonBuilder
 
-class CaseHistory implements RestApiController {
+class CaseHistory implements RestApiController, TaskNameConstants {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CaseHistory.class)
-    static final String ACTIVITY_CONTAINER = "Dymanic Activity Container"
 
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {

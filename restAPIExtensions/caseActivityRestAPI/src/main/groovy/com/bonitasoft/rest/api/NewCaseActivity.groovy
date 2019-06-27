@@ -21,12 +21,8 @@ import com.bonitasoft.web.extension.rest.RestApiController
 import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
 
-class NewCaseActivity implements RestApiController {
+class NewCaseActivity implements RestApiController, TaskNameConstants {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(NewCaseActivity.class)
-	private static final String ACTIVITY_CONTAINER = "Dymanic Activity Container"
-	private static final String CREATE_ACTIVITY = "Create Activity"
-	
 	@Override
 	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
 		def jsonBody = new JsonSlurper().parse(request.getReader())
@@ -51,7 +47,7 @@ class NewCaseActivity implements RestApiController {
 		if(!activityContainerInstance) {
 			return responseBuilder.with {
 				withResponseStatus(HttpServletResponse.SC_NOT_FOUND)
-				withResponse("No Dymanic Activity Container found")
+				withResponse("No $ACTIVITY_CONTAINER found")
 				build()
 			}
 		}
@@ -70,7 +66,7 @@ class NewCaseActivity implements RestApiController {
 		if(!createActivityInstance) {
 			return responseBuilder.with {
 				withResponseStatus(HttpServletResponse.SC_NOT_FOUND)
-				withResponse("No Create Activity found")
+				withResponse("No $CREATE_ACTIVITY found")
 				build()
 			}
 		}

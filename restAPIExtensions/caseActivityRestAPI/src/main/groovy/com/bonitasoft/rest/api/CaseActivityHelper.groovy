@@ -12,9 +12,6 @@ import com.bonitasoft.engine.api.ProcessAPI
 
 trait CaseActivityHelper {
 	
-	public static final String ACTIVITY_CONTAINER = "Dymanic Activity Container"
-	public static final String CREATE_ACTIVITY = "Create Activity"
-	
 	def canExecute(String state) {
 		return state != "N/A" &&
 				state != ActivityStates.COMPLETED_STATE &&
@@ -25,13 +22,13 @@ trait CaseActivityHelper {
 	def getState(ActivityInstance activityInstance, ProcessAPI processAPI) {
 		try {
 			def defaultState = activityInstance.getState()
+			if (defaultState == ActivityStates.ABORTED_STATE || defaultState == ActivityStates.FAILED_STATE) {
+				return [name: defaultState, id: idOfState(defaultState)]
+			}
 			if(activityInstance instanceof ManualTaskInstance) {
 				return [name: 'Optional', id: idOfState('Optional')]
 			}
 			def instance = processAPI.getActivityTransientDataInstance('$activityState', activityInstance.id)
-			if (defaultState == ActivityStates.ABORTED_STATE || defaultState == ActivityStates.FAILED_STATE) {
-				return [name: defaultState, id: idOfState(instance.value)]
-			}
 			return [name: instance.value, id: idOfState(instance.value)]
 		} catch (DataNotFoundException e) {
 			println e.getMessage()
@@ -50,12 +47,4 @@ trait CaseActivityHelper {
 		}
 	}
 
-	def SearchResult searchOpenedTasks(Long caseId, ProcessAPI processAPI) {
-		def searchOptions = new SearchOptionsBuilder(0, Integer.MAX_VALUE)
-		return processAPI.searchHumanTaskInstances(searchOptions.filter(ActivityInstanceSearchDescriptor.PROCESS_INSTANCE_ID, caseId)
-				.differentFrom(ActivityInstanceSearchDescriptor.NAME, "Dymanic Activity Container")
-				.and()
-				.differentFrom(ActivityInstanceSearchDescriptor.NAME, "Create Activity")
-				.done())
-	}
 }
