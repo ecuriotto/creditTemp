@@ -12,11 +12,11 @@ import com.bonitasoft.engine.api.ProcessAPI
 
 trait CaseActivityHelper {
 
-	def canExecute(state) {
-		return state.name != "N/A" &&
-				state.name != ActivityStates.COMPLETED_STATE &&
-				state.name != ActivityStates.FAILED_STATE &&
-				state.name != ActivityStates.ABORTED_STATE
+	def canExecute(String state) {
+		return state != "N/A" &&
+				state != ActivityStates.COMPLETED_STATE &&
+				state != ActivityStates.FAILED_STATE &&
+				state != ActivityStates.ABORTED_STATE
 	}
 
 	def getState(ActivityInstance activityInstance, ProcessAPI processAPI) {

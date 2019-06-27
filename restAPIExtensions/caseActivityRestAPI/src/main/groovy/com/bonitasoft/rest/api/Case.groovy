@@ -49,7 +49,7 @@ class Case implements RestApiController, CaseActivityHelper {
 
     def String viewActionLink(long caseId, ProcessAPI processAPI, contextPath) {
         def openTasks = searchOpenedTasks(caseId, processAPI).result
-                .findAll { canExecute(getState(it, processAPI)) }
+                .findAll { canExecute( getState(it, processAPI).name ) }
         if (openTasks.size() > 0) {
             return """<a class="btn btn-primary btn-sm" href="$contextPath/apps/cases/case?id=$caseId" target="_target">Open <span class="badge"> $openTasks.size</span></a>"""
         } else {

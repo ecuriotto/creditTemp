@@ -66,14 +66,15 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 		def result = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
 				.findAll{ it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY && it.parentProcessInstanceId ==  caseId.toLong()}
 				.collect{ HumanTaskInstance task ->
+					def metadata = getMetadata(task,processAPI)
 					[
 						id:task.name,
 						name:task.displayName ?: task.name,
-						url: canExecute(getState(task,processAPI)) ? forge(pDef.name,pDef.version,task,contextPath) : null,
+						url: canExecute(metadata.$activityState) ? forge(pDef.name,pDef.version,task,contextPath) : null,
 						description:task.description,
 						target:linkTarget(task),
 						state:task.state.capitalize(),
-						metadata:getMetadata(task,processAPI)
+						metadata:metadata
 					]
 				}
 
@@ -88,14 +89,15 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 				.done())
 				.result
 				.collect{ HumanTaskInstance task ->
+					def metadata = getMetadata(task,processAPI)
 					[
 						id:task.name,
 						name:task.displayName ?: task.name,
-						url: canExecute(getState(task,processAPI)) ? forge(pDef.name,pDef.version,task,contextPath) : null,
+						url: canExecute(metadata.$activityState) ? forge(pDef.name,pDef.version,task,contextPath) : null,
 						description:task.description,
 						target:linkTarget(task),
 						state:task.state.capitalize(),
-						metadata:getMetadata(task,processAPI)
+						metadata:metadata
 					]
 				})
 		
@@ -146,12 +148,12 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 	}
 
 
-	def String forge(String processName,String processVersion,ActivityInstance instance,contextPath) {
-		if(instance instanceof UserTaskInstance) {
-			"$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false"
-		}else if(instance instanceof ManualTaskInstance) {
-			"$contextPath/apps/cases/do?id=$instance.id"
-		}
+	def String forge(String processName,String processVersion,ActivityInstance instance, contextPath) {		
+			if(instance instanceof UserTaskInstance) {
+				"$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false"
+			}else if(instance instanceof ManualTaskInstance) {
+				"$contextPath/apps/cases/do?id=$instance.id"
+			}
 	}
 
 	def String linkTarget(ActivityInstance instance) {
@@ -162,14 +164,6 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 		}
 	}
 
-	/**
-	 * Build an HTTP response.
-	 *
-	 * @param  responseBuilder the Rest API response builder
-	 * @param  httpStatus the status of the response
-	 * @param  body the response body
-	 * @return a RestAPIResponse
-	 */
 	RestApiResponse buildResponse(RestApiResponseBuilder responseBuilder, int httpStatus, Serializable body) {
 		return responseBuilder.with {
 			withResponseStatus(httpStatus)
