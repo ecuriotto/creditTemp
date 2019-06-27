@@ -114,7 +114,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper,TaskNameConst
 		buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
 	}
 	
-	def boolean isAnArchivedLoopInstance(ArchivedHumanTaskInstance instance, ProcessAPI processAPI ) {
+	def boolean isAnArchivedLoopInstance(ArchivedHumanTaskInstance instance, ProcessAPI processAPI) {
 		try {
 			def parent = processAPI.getActivityInstance(instance.parentActivityInstanceId)
 			parent instanceof LoopActivityInstance
