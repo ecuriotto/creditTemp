@@ -41,10 +41,6 @@ class CaseHistoryTest extends Specification {
     APIClient apiClient = Mock()
     HttpServletRequest request = Mock()
     RestAPIContext context = Mock()
-    SearchResult<ProcessInstance> result = Mock()
-    SearchResult<HumanTaskInstance> taskResult = Mock()
-    DataInstance dataInstance = Mock()
-	SearchResult EMPTY_RESULT =  Mock()
 
     def "setup"() {
         context.apiClient >> apiClient
