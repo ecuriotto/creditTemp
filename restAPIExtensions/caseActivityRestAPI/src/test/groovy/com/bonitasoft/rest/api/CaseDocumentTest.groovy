@@ -16,6 +16,8 @@ import groovy.json.JsonSlurper
 import org.bonitasoft.engine.bpm.comment.Comment
 import org.bonitasoft.engine.bpm.comment.SearchCommentsDescriptor
 import org.bonitasoft.engine.bpm.data.DataInstance
+import org.bonitasoft.engine.bpm.document.Document
+import org.bonitasoft.engine.bpm.document.DocumentsSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ActivityInstance
 import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
@@ -37,13 +39,14 @@ import org.bonitasoft.web.extension.rest.RestApiResponse
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 import spock.lang.Specification
 
-class CaseCommentTest extends Specification {
+class CaseDocumentTest extends Specification {
 
     ProcessAPI processAPI = Mock()
 	IdentityAPI identityAPI = Mock()
     APIClient apiClient = Mock()
     HttpServletRequest request = Mock()
     RestAPIContext context = Mock()
+    SearchResult<ProcessInstance> result = Mock()
 	SearchResult EMPTY_RESULT =  Mock()
 
     def "setup"() {
@@ -54,11 +57,11 @@ class CaseCommentTest extends Specification {
 
     def "should return a bad request code when no caseId parameter is found"() {
         given:
-        def caseComment = new CaseComment()
+        def caseDocument = new  CaseDocument()
 
 		
         when:
-        RestApiResponse restApiResponse = caseComment.doHandle(request, new RestApiResponseBuilder() , context)
+        RestApiResponse restApiResponse = caseDocument.doHandle(request, new RestApiResponseBuilder() , context)
 
         then:
 		assert restApiResponse.httpStatus == 400
@@ -67,43 +70,50 @@ class CaseCommentTest extends Specification {
 	
 	def "should query case comments with proper search options"() {
 		given:
-		def caseComment = new CaseComment()
-		def SearchResult commentsResult = Mock()
+		def caseDocument = new CaseDocument()
+		def SearchResult documentsResult = Mock()
 		
 		when:
 		request.getParameter('caseId') >> 1L
-		RestApiResponse restApiResponse = caseComment.doHandle(request, new RestApiResponseBuilder() , context)
+		RestApiResponse restApiResponse = caseDocument.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
-		1 * processAPI.searchComments({ SearchOptions searchOptions ->
+		1 * processAPI.searchDocuments({ SearchOptions searchOptions ->
 			
-			assert searchOptions.filters[0].field == SearchCommentsDescriptor.PROCESS_INSTANCE_ID
+			assert searchOptions.filters[0].field == DocumentsSearchDescriptor.PROCESSINSTANCE_ID
 			assert searchOptions.filters[0].value == 1L
 			
-			assert searchOptions.sorts[0].field == SearchCommentsDescriptor.POSTDATE
+			assert searchOptions.sorts[0].field == DocumentsSearchDescriptor.DOCUMENT_CREATIONDATE
 			assert searchOptions.sorts[0].order == Order.DESC
 			
 			searchOptions
 				
-		}) >> commentsResult
+		}) >> documentsResult
 	}
 	
-	def "should return the list of comments for a given case id"() {
+	def "should return the list of documents for a given case id"() {
 		given:
-		def caseComment = new CaseComment()
-		def SearchResult commentsResult = Mock()
-		def c1 = Stub(Comment){
-			it.content >> 'Hello'
-			it.postDate >> Date.parse("yyyy-MM-dd hh:mm:ss", "2019-04-03 1:23:45").time
-			it.userId >> 4L
+		def caseDocument = new CaseDocument()
+		def SearchResult documentsResult = Mock()
+		def d1 = Stub(Document){
+			it.name >> 'Hello'
+			it.url >> 'some/url'
+			it.creationDate >> Date.parse("yyyy-MM-dd hh:mm:ss", "2019-04-03 1:23:45")
+			it.contentFileName >> 'world.jpg'
+			it.id >> 33L
+			it.author >> 4L
 		}
-		def c2 = Stub(Comment){
-			it.content >> 'Hello\nWorld'
-			it.postDate >> Date.parse("yyyy-MM-dd hh:mm:ss", "2019-04-06 4:23:45").time
-			it.userId >> 5L
+		def d2 = Stub(Document){
+			it.name >> 'Foo'
+			it.url >> 'another/url'
+			it.creationDate >> Date.parse("yyyy-MM-dd hh:mm:ss", "2019-04-05 8:23:45")
+			it.contentFileName >> 'bar.pdf'
+			it.description >> 'desc\nsome text'
+			it.id >> 34L
+			it.author >> 5L
 		}
-		commentsResult.result >> [c1,c2]
-		processAPI.searchComments(_) >> commentsResult
+		documentsResult.result >> [d1,d2]
+		processAPI.searchDocuments(_) >> documentsResult
 		def walter = Stub(User){
 			it.id >> 4L
 			it.firstName >> 'Walter'
@@ -122,43 +132,21 @@ class CaseCommentTest extends Specification {
 		
 		when:
 		request.getParameter('caseId') >> 1L
-		RestApiResponse restApiResponse = caseComment.doHandle(request, new RestApiResponseBuilder() , context)
+		RestApiResponse restApiResponse = caseDocument.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
 		assert restApiResponse.httpStatus == 200
-		def comments = new JsonSlurper().parseText(restApiResponse.response)
-		assert comments.size() == 2
+		def documents = new JsonSlurper().parseText(restApiResponse.response)
+		assert documents.size() == 2
 		
-		assert comments[0].content == 'Hello'
-		assert comments[0].postDate == Date.parse("yyyy-MM-dd hh:mm:ss", "2019-04-03 1:23:45").time
-		assert comments[0].username == 'Walter Bates'
+		assert documents[0].name == 'Hello'
+		assert documents[0].fileName == 'world.jpg'
+		assert documents[0].username == 'Walter Bates'
 		
-		assert comments[1].content == 'Hello<br>World'
-		assert comments[1].postDate == Date.parse("yyyy-MM-dd hh:mm:ss", "2019-04-06 4:23:45").time
-		assert comments[1].username == 'Helen Kelly'
+		assert documents[1].name == 'Foo'
+		assert documents[1].description == 'desc<br>some text'
+		assert documents[1].username == 'Helen Kelly'
 	}
 	
-	def "should filter system comments"() {
-		given:
-		def caseComment = new CaseComment()
-		def SearchResult commentsResult = Mock()
-		def systemComment = Stub(Comment){
-			it.content >> 'Task finished'
-			it.postDate >> Date.parse("yyyy-MM-dd hh:mm:ss", "2019-04-03 1:23:45").time
-			it.userId >> -1
-		}
-		commentsResult.result >> [systemComment]
-		processAPI.searchComments(_) >> commentsResult
-		
-		
-		when:
-		request.getParameter('caseId') >> 1L
-		RestApiResponse restApiResponse = caseComment.doHandle(request, new RestApiResponseBuilder() , context)
-
-		then:
-		assert restApiResponse.httpStatus == 200
-		def comments = new JsonSlurper().parseText(restApiResponse.response)
-		assert comments.size() == 0
-	}
 	
 }
