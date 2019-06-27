@@ -7,6 +7,9 @@ import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
 import groovy.json.JsonBuilder
+import javassist.bytecode.stackmap.BasicBlock.Catch
+
+import org.bonitasoft.engine.bpm.process.ProcessInstanceNotFoundException
 import org.bonitasoft.engine.search.SearchOptionsBuilder
 import org.bonitasoft.web.extension.rest.RestApiResponse
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
@@ -46,7 +49,11 @@ class Case implements RestApiController, CaseActivityHelper {
     }
 
     def String viewActionLink(long caseId, ProcessAPI processAPI, contextPath) {
-		def instance = processAPI.getProcessInstance(caseId)
-		instance ? """<a class="btn btn-primary btn-sm" href="$contextPath/apps/cases/case?id=$caseId" target="_target">Open</a>""" : ''
+		try {
+			def instance = processAPI.getProcessInstance(caseId)
+			instance ? """<a class="btn btn-primary btn-sm" href="$contextPath/apps/cases/case?id=$caseId" target="_target">Open</a>""" : ''
+		}catch(ProcessInstanceNotFoundException e) {
+			""
+		}
     }
 }

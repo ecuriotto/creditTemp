@@ -7,13 +7,17 @@ import org.bonitasoft.engine.bpm.data.DataInstance
 import org.bonitasoft.engine.bpm.data.DataNotFoundException
 import org.bonitasoft.engine.bpm.flownode.ActivityInstance
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceCriterion
+import org.bonitasoft.engine.bpm.flownode.ActivityInstanceNotFoundException
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ActivityStates
 import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
+import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstanceSearchDescriptor
+import org.bonitasoft.engine.bpm.flownode.FlowNodeType
 import org.bonitasoft.engine.bpm.flownode.HumanTaskDefinition
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor
+import org.bonitasoft.engine.bpm.flownode.LoopActivityInstance
 import org.bonitasoft.engine.bpm.flownode.ManualTaskInstance
 import org.bonitasoft.engine.bpm.flownode.StandardLoopCharacteristics
 import org.bonitasoft.engine.bpm.flownode.UserTaskInstance
@@ -37,28 +41,16 @@ class CaseActivity implements RestApiController,CaseActivityHelper,TaskNameConst
 
 	@Override
 	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
-		def contextPath = "http://$request.serverName:$request.localPort$request.contextPath"
 		def caseId = request.getParameter "caseId"
 		if (!caseId) {
-			return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter caseId is missing"}""")
+			return buildResponse(responseBuilder, 
+				HttpServletResponse.SC_BAD_REQUEST,
+				"""{"error" : "the parameter caseId is missing"}""")
 		}
 
 		def ProcessAPI processAPI = context.apiClient.getProcessAPI()
-		def pDef = -1;
-		try {
-			pDef = processAPI.getProcessDefinition(processAPI.getProcessDefinitionIdFromProcessInstanceId(caseId.toLong()))
-		}catch(ProcessDefinitionNotFoundException e) {
-			return buildResponse(responseBuilder, HttpServletResponse.SC_NOT_FOUND,"""{"error" : "no process definition found for instance $caseId" }""")
-		}
-
-		def designProcessDefinition = processAPI.getDesignProcessDefinition(pDef.id)
-		def loopTasks = designProcessDefinition
-				.getFlowElementContainer()
-				.getActivities()
-				.findAll{
-					it instanceof HumanTaskDefinition && it.getLoopCharacteristics() instanceof StandardLoopCharacteristics
-				}.collect{ it.name }
-				
+		def pDef = processAPI.getProcessDefinition(processAPI.getProcessDefinitionIdFromProcessInstanceId(caseId.toLong()))
+		
 		//Retrieve pending activities
 		def result = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
 				.findAll{ it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY && it.parentProcessInstanceId ==  caseId.toLong()}
@@ -67,7 +59,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper,TaskNameConst
 					[
 						id:task.name,
 						name:task.displayName ?: task.name,
-						url: canExecute(metadata.$activityState) ? forge(pDef.name,pDef.version,task,contextPath) : null,
+						url: canExecute(metadata.$activityState) ? forge(pDef.name,pDef.version,task, request.contextPath) : null,
 						description:task.description,
 						target:linkTarget(task),
 						state:task.state.capitalize(),
@@ -90,7 +82,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper,TaskNameConst
 					[
 						id:task.name,
 						name:task.displayName ?: task.name,
-						url: canExecute(metadata.$activityState) ? forge(pDef.name,pDef.version,task,contextPath) : null,
+						url: canExecute(metadata.$activityState) ? forge(pDef.name,pDef.version,task, request.contextPath) : null,
 						description:task.description,
 						target:linkTarget(task),
 						state:task.state.capitalize(),
@@ -100,16 +92,16 @@ class CaseActivity implements RestApiController,CaseActivityHelper,TaskNameConst
 		
 		result = result.sort{ t1,t2 -> valueOf(t1.metadata.$activityState) <=> valueOf(t2.metadata.$activityState) }
 
-		//Retrieve finished activities
+		//Retrieve finished tasks
 		result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-			filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
-			differentFrom(ArchivedActivityInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
-			and()
-			differentFrom(ArchivedActivityInstanceSearchDescriptor.NAME, CREATE_ACTIVITY)
+			filter(ArchivedHumanTaskInstanceSearchDescriptor.ROOT_PROCESS_INSTANCE_ID, caseId)
+			differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
+			differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, CREATE_ACTIVITY)
 			done()
 		}).getResult()
-		.findAll{
-			!loopTasks.contains(it.name) }
+		.findAll{ //remove finished loop task instances
+			it.parentActivityInstanceId == 0 || !isAnArchivedLoopInstance(it, processAPI)
+         }
 		.collect{ ArchivedHumanTaskInstance task ->
 			[
 				id:task.sourceObjectId,
@@ -120,6 +112,15 @@ class CaseActivity implements RestApiController,CaseActivityHelper,TaskNameConst
 		})
 
 		buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
+	}
+	
+	def boolean isAnArchivedLoopInstance(ArchivedHumanTaskInstance instance, ProcessAPI processAPI ) {
+		try {
+			def parent = processAPI.getActivityInstance(instance.parentActivityInstanceId)
+			parent instanceof LoopActivityInstance
+		}catch(ActivityInstanceNotFoundException e) {
+			false
+		}
 	}
 	
 	def valueOf(state) {
