@@ -21,7 +21,7 @@ import com.bonitasoft.web.extension.rest.RestApiController
 import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
 
-class NewCaseActivity implements RestApiController, TaskNameConstants {
+class NewCaseActivity implements RestApiController, BPMNamesConstants {
 
 	@Override
 	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {

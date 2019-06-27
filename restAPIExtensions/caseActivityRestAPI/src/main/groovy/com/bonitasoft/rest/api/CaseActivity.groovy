@@ -35,7 +35,7 @@ import com.bonitasoft.web.extension.rest.RestApiController
 import groovy.json.JsonBuilder
 import groovy.sql.DataSet
 
-class CaseActivity implements RestApiController,CaseActivityHelper,TaskNameConstants {
+class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConstants {
 
 	private static final String PREFIX = '$'
 

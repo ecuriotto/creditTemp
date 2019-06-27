@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 import com.bonitasoft.engine.api.ProcessAPI
+import com.bonitasoft.engine.bpm.process.impl.ProcessInstanceSearchDescriptor
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
 import groovy.json.JsonBuilder
@@ -16,20 +17,22 @@ import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-class Case implements RestApiController, CaseActivityHelper {
+class Case implements RestApiController, CaseActivityHelper, BPMNamesConstants{
 
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
         def contextPath = request.contextPath
         def processAPI = context.apiClient.getProcessAPI()
-        def searchOptions = new SearchOptionsBuilder(0, 9999).done()
+        def searchOptions = new SearchOptionsBuilder(0, 9999)
+		.filter(ProcessInstanceSearchDescriptor.NAME, DISPUTE_PROCESS_NAME)
+		.done()
         def result = processAPI.searchProcessInstances(searchOptions).getResult()
                 .collect {
-            [id: it.id, name: processName(it.processDefinitionId, processAPI), state: asLabel(it.state.toUpperCase(), "info"), viewAction: viewActionLink(it.id, processAPI, contextPath)]
+            [id: it.id, state: asLabel(it.state.toUpperCase(), "info"), viewAction: viewActionLink(it.id, processAPI, contextPath)]
         }
         processAPI.searchArchivedProcessInstances(searchOptions).getResult()
                 .collect {
-            result << [id: it.sourceObjectId, name: processName(it.processDefinitionId, processAPI), state: asLabel(it.state.toUpperCase(), "default"), viewAction: viewActionLink(it.sourceObjectId, processAPI, contextPath)]
+            result << [id: it.sourceObjectId, state: asLabel(it.state.toUpperCase(), "default"), viewAction: viewActionLink(it.sourceObjectId, processAPI, contextPath)]
         }
 
         return responseBuilder.with {
@@ -41,11 +44,6 @@ class Case implements RestApiController, CaseActivityHelper {
 
     def asLabel(state, style) {
         """<span class="label label-$style">$state</span>"""
-    }
-
-    def String processName(long processDefId, ProcessAPI processAPI) {
-        def definition = processAPI.getProcessDefinition(processDefId)
-        return "$definition.name ($definition.version)"
     }
 
     def String viewActionLink(long caseId, ProcessAPI processAPI, contextPath) {

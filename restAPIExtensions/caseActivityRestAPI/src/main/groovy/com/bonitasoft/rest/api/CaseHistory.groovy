@@ -16,7 +16,7 @@ import com.bonitasoft.web.extension.rest.RestApiController
 
 import groovy.json.JsonBuilder
 
-class CaseHistory implements RestApiController, TaskNameConstants {
+class CaseHistory implements RestApiController, BPMNamesConstants {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CaseHistory.class)
 
