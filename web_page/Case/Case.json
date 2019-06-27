@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1561558225245,
+  "lastUpdate" : 1561627687847,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -126,7 +126,7 @@
       },
       "reference" : "04cfbffd-6e3a-4df8-ba8c-a11912badf9b",
       "hasValidationError" : false,
-      "id" : "CaseData",
+      "id" : "CustomerData",
       "binding" : {
         "caseId" : "caseId"
       }

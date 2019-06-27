@@ -1,9 +1,9 @@
 {
   "designerVersion" : "1.9.24",
   "previousDesignerVersion" : "1.7.25",
-  "id" : "CaseData",
-  "name" : "CaseData",
-  "lastUpdate" : 1561533883711,
+  "id" : "CustomerData",
+  "name" : "CustomerData",
+  "lastUpdate" : 1561627757936,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -27,7 +27,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h3><span class=\"glyphicon glyphicon-folder-open\" aria-hidden=\"true\"> </span> Case data</h3>"
+        "value" : "<h3><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"> </span> Customer info</h3>"
       },
       "alignment" : {
         "type" : "constant",
@@ -109,7 +109,7 @@
         },
         "labelWidth" : {
           "type" : "constant",
-          "value" : 1
+          "value" : 2
         },
         "allowHTML" : {
           "type" : "constant",
@@ -150,6 +150,55 @@
         },
         "label" : {
           "type" : "interpolation",
+          "value" : "Email"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "left"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 2
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<a href=\"mailto:{{customer.email}}\">{{customer.email}} </a>"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "27d3aff4-26ec-42ac-ac4f-aed5aa8b97b9",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "label" : {
+          "type" : "interpolation",
           "value" : "Phone"
         },
         "labelPosition" : {
@@ -158,7 +207,7 @@
         },
         "labelWidth" : {
           "type" : "constant",
-          "value" : 1
+          "value" : 2
         },
         "allowHTML" : {
           "type" : "constant",
@@ -207,7 +256,7 @@
         },
         "labelWidth" : {
           "type" : "constant",
-          "value" : 1
+          "value" : 2
         },
         "allowHTML" : {
           "type" : "constant",

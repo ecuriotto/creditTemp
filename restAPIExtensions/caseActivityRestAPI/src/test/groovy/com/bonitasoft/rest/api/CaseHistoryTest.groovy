@@ -54,7 +54,7 @@ class CaseHistoryTest extends Specification {
 
 		
         when:
-        RestApiResponse restApiResponse = caseHistory.doHandle(request, new RestApiResponseBuilder() , context)
+        def restApiResponse = caseHistory.doHandle(request, new RestApiResponseBuilder() , context)
 
         then:
 		assert restApiResponse.httpStatus == 400
@@ -68,7 +68,7 @@ class CaseHistoryTest extends Specification {
 		
 		when:
 		request.getParameter('caseId') >> 1L
-		RestApiResponse restApiResponse = caseHistory.doHandle(request, new RestApiResponseBuilder() , context)
+		def restApiResponse = caseHistory.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
 		1 * processAPI.searchArchivedHumanTasks({ SearchOptions searchOptions ->
@@ -126,7 +126,7 @@ class CaseHistoryTest extends Specification {
 		
 		when:
 		request.getParameter('caseId') >> 1L
-		RestApiResponse restApiResponse = caseHistory.doHandle(request, new RestApiResponseBuilder() , context)
+		def restApiResponse = caseHistory.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
 		assert restApiResponse.httpStatus == 200

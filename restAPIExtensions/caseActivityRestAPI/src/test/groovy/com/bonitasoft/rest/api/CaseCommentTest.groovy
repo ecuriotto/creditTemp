@@ -56,9 +56,8 @@ class CaseCommentTest extends Specification {
         given:
         def caseComment = new CaseComment()
 
-		
         when:
-        RestApiResponse restApiResponse = caseComment.doHandle(request, new RestApiResponseBuilder() , context)
+        def restApiResponse = caseComment.doHandle(request, new RestApiResponseBuilder() , context)
 
         then:
 		assert restApiResponse.httpStatus == 400
@@ -72,7 +71,7 @@ class CaseCommentTest extends Specification {
 		
 		when:
 		request.getParameter('caseId') >> 1L
-		RestApiResponse restApiResponse = caseComment.doHandle(request, new RestApiResponseBuilder() , context)
+		def restApiResponse = caseComment.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
 		1 * processAPI.searchComments({ SearchOptions searchOptions ->
@@ -122,7 +121,7 @@ class CaseCommentTest extends Specification {
 		
 		when:
 		request.getParameter('caseId') >> 1L
-		RestApiResponse restApiResponse = caseComment.doHandle(request, new RestApiResponseBuilder() , context)
+		def restApiResponse = caseComment.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
 		assert restApiResponse.httpStatus == 200
@@ -153,7 +152,7 @@ class CaseCommentTest extends Specification {
 		
 		when:
 		request.getParameter('caseId') >> 1L
-		RestApiResponse restApiResponse = caseComment.doHandle(request, new RestApiResponseBuilder() , context)
+		def restApiResponse = caseComment.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
 		assert restApiResponse.httpStatus == 200

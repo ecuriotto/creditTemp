@@ -31,10 +31,13 @@ class CustomerInfo implements RestApiController, CaseActivityHelper {
 		def processAPI = context.apiClient.getProcessAPI()
 		def processInstanceContext = processAPI.getProcessInstanceExecutionContext(caseId.toLong())
 		def customer_ref = processInstanceContext['customer_ref']
-		def customerDAO = context.apiClient.getDAO(CustomerDAO)
-		def customer = customerDAO.findByPersistenceId(customer_ref.storageId)
+		def customer 
+		if(customer_ref) {
+			def customerDAO = context.apiClient.getDAO(CustomerDAO)
+		    customer = customerDAO.findByPersistenceId(customer_ref.storageId)
+		}
 		if(!customer) {
-			return buildResponse(responseBuilder, HttpServletResponse.SC_NOT_FOUND,"""{"error" : "no customer found with id $customer_ref.storageId"}""")
+			return buildResponse(responseBuilder, HttpServletResponse.SC_NOT_FOUND,"""{"error" : "no customer found for case $caseId"}""")
 		}
 
         return responseBuilder.with {
@@ -43,6 +46,7 @@ class CustomerInfo implements RestApiController, CaseActivityHelper {
 				[
 					firstName:customer.firstName,
 					lastName:customer.lastName,
+					email:customer.email,
 					phoneNumber:customer.phoneNumber,
 					accountId:customer.account.id
 				]

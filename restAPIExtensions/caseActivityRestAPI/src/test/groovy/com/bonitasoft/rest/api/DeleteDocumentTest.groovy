@@ -57,7 +57,7 @@ class DeleteDocumentTest extends Specification {
 
 		
         when:
-        RestApiResponse restApiResponse = deleteDocument.doHandle(request, new RestApiResponseBuilder() , context)
+        def restApiResponse = deleteDocument.doHandle(request, new RestApiResponseBuilder() , context)
 
         then:
 		assert restApiResponse.httpStatus == 400
@@ -71,7 +71,7 @@ class DeleteDocumentTest extends Specification {
 		
 		when:
 		request.getParameter('documentId') >> 1L
-		RestApiResponse restApiResponse = deleteDocument.doHandle(request, new RestApiResponseBuilder() , context)
+		def restApiResponse = deleteDocument.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
 		1 * processAPI.removeDocument(1L)

@@ -59,7 +59,7 @@ class CaseDocumentTest extends Specification {
 
 		
         when:
-        RestApiResponse restApiResponse = caseDocument.doHandle(request, new RestApiResponseBuilder() , context)
+        def restApiResponse = caseDocument.doHandle(request, new RestApiResponseBuilder() , context)
 
         then:
 		assert restApiResponse.httpStatus == 400
@@ -73,7 +73,7 @@ class CaseDocumentTest extends Specification {
 		
 		when:
 		request.getParameter('caseId') >> 1L
-		RestApiResponse restApiResponse = caseDocument.doHandle(request, new RestApiResponseBuilder() , context)
+		def restApiResponse = caseDocument.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
 		1 * processAPI.searchDocuments({ SearchOptions searchOptions ->
@@ -130,7 +130,7 @@ class CaseDocumentTest extends Specification {
 		
 		when:
 		request.getParameter('caseId') >> 1L
-		RestApiResponse restApiResponse = caseDocument.doHandle(request, new RestApiResponseBuilder() , context)
+		def restApiResponse = caseDocument.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
 		assert restApiResponse.httpStatus == 200

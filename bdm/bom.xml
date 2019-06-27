@@ -48,8 +48,9 @@
             <fields>
                 <field type="STRING" length="255" name="firstName" nullable="false" collection="false"/>
                 <field type="STRING" length="255" name="lastName" nullable="false" collection="false"/>
+                <field type="STRING" length="50" name="phoneNumber" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="email" nullable="false" collection="false"/>
                 <relationField type="COMPOSITION" reference="com.company.model.Address" fetchType="EAGER" name="address" nullable="false" collection="false"/>
-                <field type="STRING" length="255" name="phoneNumber" nullable="false" collection="false"/>
                 <relationField type="AGGREGATION" reference="com.company.model.Account" fetchType="EAGER" name="account" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints/>

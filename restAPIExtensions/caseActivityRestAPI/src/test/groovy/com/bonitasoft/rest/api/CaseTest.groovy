@@ -55,7 +55,7 @@ class CaseTest extends Specification {
 		request.contextPath >> "myAppContext"
 
         when:
-        RestApiResponse restApiResponse = aCase.doHandle(request, new RestApiResponseBuilder(), context)
+        def restApiResponse = aCase.doHandle(request, new RestApiResponseBuilder(), context)
 
         then:
         JsonSlurper slurper = new JsonSlurper()
