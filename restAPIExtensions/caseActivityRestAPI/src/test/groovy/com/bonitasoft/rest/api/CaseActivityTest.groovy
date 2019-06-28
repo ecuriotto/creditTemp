@@ -2,13 +2,16 @@ package com.bonitasoft.rest.api
 
 import javax.servlet.http.HttpServletRequest
 
+import org.bonitasoft.engine.bpm.flownode.ActivityInstanceCriterion
 import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
+import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
 import org.bonitasoft.engine.identity.User
 import org.bonitasoft.engine.search.Order
 import org.bonitasoft.engine.search.SearchFilterOperation
 import org.bonitasoft.engine.search.SearchOptions
 import org.bonitasoft.engine.search.SearchResult
+import org.bonitasoft.engine.session.APISession
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 
 import com.bonitasoft.engine.api.APIClient
@@ -27,9 +30,12 @@ class CaseActivityTest extends Specification {
     APIClient apiClient = Mock()
     HttpServletRequest request = Mock()
     RestAPIContext context = Mock()
+	APISession session = Stub(){ it.userId >> 5L}
+	SearchResult EMPTY_RESULT = Stub()
 
     def "setup"() {
         context.apiClient >> apiClient
+		context.apiSession >> session
         apiClient.getProcessAPI() >> processAPI
 		apiClient.getIdentityAPI() >> identityAPI
     }
@@ -47,86 +53,20 @@ class CaseActivityTest extends Specification {
 		assert new JsonSlurper().parseText(restApiResponse.response).error == 'the parameter caseId is missing'
     }
 	
-	def "should query archived tasks with proper search options"() {
+	def "should query pending human tasks for current user"() {
 		given:
-		def caseHistory = new CaseHistory()
-		def SearchResult archivedTaskResult = Mock()
+		def caseActivity = Spy(CaseActivity)
+		def SearchResult taskResult = Mock()
 		
 		when:
 		request.getParameter('caseId') >> 1L
-		def restApiResponse = caseHistory.doHandle(request, new RestApiResponseBuilder() , context)
+		def restApiResponse = caseActivity.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
-		1 * processAPI.searchArchivedHumanTasks({ SearchOptions searchOptions ->
-			
-			assert searchOptions.filters[0].field == ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID
-			assert searchOptions.filters[0].value == 1L
-			
-			assert searchOptions.filters[1].field == ArchivedActivityInstanceSearchDescriptor.NAME
-			assert searchOptions.filters[1].value == CaseHistory.ACTIVITY_CONTAINER
-			
-			assert searchOptions.filters[1].field == ArchivedActivityInstanceSearchDescriptor.NAME
-			assert searchOptions.filters[1].value == CaseHistory.ACTIVITY_CONTAINER
-			assert searchOptions.filters[1].operation == SearchFilterOperation.DIFFERENT
-			
-			assert searchOptions.sorts[0].field == ArchivedActivityInstanceSearchDescriptor.REACHED_STATE_DATE
-			assert searchOptions.sorts[0].order == Order.DESC
-			
-			searchOptions
-				
-		}) >> archivedTaskResult
+		1 *  caseActivity.findTaskInstance(1L, BPMNamesConstants.ACTIVITY_CONTAINER, processAPI) >> Stub(HumanTaskInstance)
+		1 *  processAPI.searchHumanTaskInstances(_) >> EMPTY_RESULT
+		1 *  processAPI.searchArchivedHumanTasks(_) >> EMPTY_RESULT
+		1 * processAPI.getPendingHumanTaskInstances(5L,0,Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC) >> []
 	}
 	
-	def "should return a formatted list of archived activities"() {
-		given:
-		def caseHistory = new CaseHistory()
-		def SearchResult archivedTaskResult = Mock()
-		def t1 = Stub(ArchivedHumanTaskInstance){
-			it.displayName >> 'Hello'
-			it.reachedStateDate >> Date.parse("yyyy-MM-dd hh:mm:ss", "2019-04-03 1:23:45")
-			it.executedBy >> 4L
-		}
-		def t2 = Stub(ArchivedHumanTaskInstance){
-			it.displayName >> 'World'
-			it.displayDescription >> 'a description'
-			it.reachedStateDate >> Date.parse("yyyy-MM-dd hh:mm:ss", "2019-04-06 4:23:45")
-			it.executedBy >> 5L
-		}
-		archivedTaskResult.result >> [t1,t2]
-		processAPI.searchArchivedHumanTasks(_) >> archivedTaskResult
-		def walter = Stub(User){
-			it.id >> 4L
-			it.firstName >> 'Walter'
-			it.lastName >> 'Bates'
-			it.username >> 'walter.bates'
-		}
-		def helen = Stub(User){
-			it.id >> 5L
-			it.firstName >> 'Helen'
-			it.lastName >> 'Kelly'
-			it.username >> 'helen.kelly'
-		}
-		identityAPI.getUser(4L) >> walter
-		identityAPI.getUser(5L) >> helen
-		
-		
-		when:
-		request.getParameter('caseId') >> 1L
-		def restApiResponse = caseHistory.doHandle(request, new RestApiResponseBuilder() , context)
-
-		then:
-		assert restApiResponse.httpStatus == 200
-		def history = new JsonSlurper().parseText(restApiResponse.response)
-		assert history.size() == 2
-		
-		assert history[0].displayName == 'Hello'
-		assert history[0].displayDescription == ''
-		assert history[0].reached_state_date == new JsonSlurper().parseText(new JsonBuilder(Date.parse("yyyy-MM-dd hh:mm:ss", "2019-04-03 1:23:45")).toString())
-		assert history[0].executedBy.id == 4L
-		
-		assert history[1].displayName == 'World'
-		assert history[1].displayDescription == 'a description'
-		assert history[1].reached_state_date == new JsonSlurper().parseText(new JsonBuilder(Date.parse("yyyy-MM-dd hh:mm:ss", "2019-04-06 4:23:45")).toString())
-		assert history[1].executedBy.id == 5L
-	}
 }

@@ -67,10 +67,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 					]
 				}
 
-		def containerInstance = processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, 1)
-				.filter(HumanTaskInstanceSearchDescriptor.PROCESS_INSTANCE_ID, caseId.toLong())
-				.filter(HumanTaskInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
-				.done()).result[0]
+		def containerInstance = findTaskInstance(caseId.toLong(), ACTIVITY_CONTAINER, processAPI)
 
 		//Retrieve adhoc activities
 		result.addAll(processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, Integer.MAX_VALUE)
@@ -90,7 +87,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 					]
 				})
 		
-		result = result.sort{ t1,t2 -> valueOf(t1.metadata.$activityState) <=> valueOf(t2.metadata.$activityState) }
+		result = result.sort{ t1,t2 -> idOfState(t1.metadata.$activityState) <=> idOfState(t2.metadata.$activityState) }
 
 		//Retrieve finished tasks
 		result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
@@ -120,16 +117,6 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 			parent instanceof LoopActivityInstance
 		}catch(ActivityInstanceNotFoundException e) {
 			false
-		}
-	}
-	
-	def valueOf(state) {
-		switch(state) {
-			case 'Required' : return 0
-			case 'Optional' : return 1
-			case 'Discretionary' : return 2
-			case 'N/A' : return 3
-			default : return 4
 		}
 	}
 

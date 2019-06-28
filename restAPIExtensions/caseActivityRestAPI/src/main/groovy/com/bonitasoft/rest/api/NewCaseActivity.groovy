@@ -21,7 +21,7 @@ import com.bonitasoft.web.extension.rest.RestApiController
 import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
 
-class NewCaseActivity implements RestApiController, BPMNamesConstants {
+class NewCaseActivity implements RestApiController, CaseActivityHelper, BPMNamesConstants {
 
 	@Override
 	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
@@ -80,13 +80,5 @@ class NewCaseActivity implements RestApiController, BPMNamesConstants {
 		}
 	}
 	
-	def HumanTaskInstance findTaskInstance(long caseId, String name, ProcessAPI processAPI) {
-		def result = processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, 1).with {
-			filter(HumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
-			filter(HumanTaskInstanceSearchDescriptor.NAME, name)
-			done()
-		}).getResult()
-		return result.isEmpty() ? null : result[0]
-	}
 	
 }

@@ -77,10 +77,10 @@ class CaseHistoryTest extends Specification {
 			assert searchOptions.filters[0].value == 1L
 			
 			assert searchOptions.filters[1].field == ArchivedActivityInstanceSearchDescriptor.NAME
-			assert searchOptions.filters[1].value == CaseHistory.ACTIVITY_CONTAINER
+			assert searchOptions.filters[1].value == BPMNamesConstants.ACTIVITY_CONTAINER
 			
 			assert searchOptions.filters[1].field == ArchivedActivityInstanceSearchDescriptor.NAME
-			assert searchOptions.filters[1].value == CaseHistory.ACTIVITY_CONTAINER
+			assert searchOptions.filters[1].value == BPMNamesConstants.ACTIVITY_CONTAINER
 			assert searchOptions.filters[1].operation == SearchFilterOperation.DIFFERENT
 			
 			assert searchOptions.sorts[0].field == ArchivedActivityInstanceSearchDescriptor.REACHED_STATE_DATE

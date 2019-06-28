@@ -3,11 +3,12 @@ package com.bonitasoft.rest.api;
 
 import org.bonitasoft.engine.bpm.data.DataNotFoundException
 import org.bonitasoft.engine.bpm.flownode.ActivityInstance
-import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ActivityStates
+import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
+import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ManualTaskInstance
 import org.bonitasoft.engine.search.SearchOptionsBuilder
-import org.bonitasoft.engine.search.SearchResult
+
 import com.bonitasoft.engine.api.ProcessAPI
 
 trait CaseActivityHelper {
@@ -45,6 +46,15 @@ trait CaseActivityHelper {
 			case "completed": return 5
 			default: return 6
 		}
+	}
+	
+	def HumanTaskInstance findTaskInstance(long caseId, String name, ProcessAPI processAPI) {
+		def result = processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, 1).with {
+			filter(HumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
+			filter(HumanTaskInstanceSearchDescriptor.NAME, name)
+			done()
+		}).getResult()
+		return result.isEmpty() ? null : result[0]
 	}
 
 }
