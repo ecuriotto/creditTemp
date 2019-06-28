@@ -63,9 +63,9 @@ class CaseActivityTest extends Specification {
 		def restApiResponse = caseActivity.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
-		1 *  caseActivity.findTaskInstance(1L, BPMNamesConstants.ACTIVITY_CONTAINER, processAPI) >> Stub(HumanTaskInstance)
-		1 *  processAPI.searchHumanTaskInstances(_) >> EMPTY_RESULT
-		1 *  processAPI.searchArchivedHumanTasks(_) >> EMPTY_RESULT
+		1 * caseActivity.findTaskInstance(1L, BPMNamesConstants.ACTIVITY_CONTAINER, processAPI) >> Stub(HumanTaskInstance)
+		1 * processAPI.searchHumanTaskInstances(_) >> EMPTY_RESULT
+		1 * processAPI.searchArchivedHumanTasks(_) >> EMPTY_RESULT
 		1 * processAPI.getPendingHumanTaskInstances(5L,0,Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC) >> []
 	}
 	
