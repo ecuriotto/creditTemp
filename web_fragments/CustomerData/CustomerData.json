@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CustomerData",
   "name" : "CustomerData",
-  "lastUpdate" : 1561627757936,
+  "lastUpdate" : 1561887334847,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -27,7 +27,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h3><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"> </span> Customer info</h3>"
+        "value" : "<h3>Customer information</h3>"
       },
       "alignment" : {
         "type" : "constant",
@@ -54,7 +54,7 @@
     "hasValidationError" : false,
     "id" : "pbText"
   } ], [ {
-    "type" : "container",
+    "type" : "component",
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
@@ -70,211 +70,38 @@
         "type" : "constant",
         "value" : false
       },
-      "repeatedCollection" : {
-        "type" : "variable",
-        "value" : ""
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Default label"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<dl  class=\"dl-horizontal\">\n<dt><span class=\"glyphicon glyphicon-user\"> </span> Customer</dt><dd>{{customer.firstName}} {{customer.lastName}}</dd>\n<dt> <span class=\"glyphicon glyphicon-envelope\"> </span></p> Email</dt><dd><a href=\"mailto:{{customer.email}}\">{{customer.email}} </a></dd>\n<dt> <span class=\"glyphicon glyphicon-earphone\"> </span></p> Phone</dt><dd><a href=\"tel:{{customer.phoneNumber}}\">{{customer.phoneNumber}}</a></dd>\n<dt> <span class=\"glyphicon glyphicon-euro\"> </span></p> Account</dt><dd>{{customer.accountId}}</dd>\n</dl>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
       }
     },
-    "reference" : "046fa316-a7c0-4376-8a1c-c4524d78f058",
+    "reference" : "ec8adeaf-05bb-4de2-8841-009d4d549fbc",
     "hasValidationError" : false,
-    "id" : "pbContainer",
-    "rows" : [ [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Customer"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "left"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 2
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "{{customer.firstName}} {{customer.lastName}}"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "9523cf9a-26f5-4416-98e3-9e8877333cd8",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Email"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "left"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 2
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "<a href=\"mailto:{{customer.email}}\">{{customer.email}} </a>"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "27d3aff4-26ec-42ac-ac4f-aed5aa8b97b9",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Phone"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "left"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 2
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "<a href=\"tel:{{customer.phoneNumber}}\">{{customer.phoneNumber}} </a>"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "1c9c3d68-3cf8-40a0-a901-cdd745c151f8",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Account"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "left"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 2
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "{{customer.accountId}}"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "5aad9403-82ae-4590-adac-ff31eb39ab79",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ] ]
+    "id" : "pbText"
   } ] ],
   "assets" : [ ],
   "inactiveAssets" : [ ],

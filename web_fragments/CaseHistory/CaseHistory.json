@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseHistory",
   "name" : "CaseHistory",
-  "lastUpdate" : 1554212886790,
+  "lastUpdate" : 1561886743331,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -75,7 +75,7 @@
         "value" : "events"
       }
     },
-    "reference" : "9a3fe94d-6ac9-4e19-82f9-6bf877b11dd9",
+    "reference" : "8020c206-c2ba-4e73-96e4-21973498f549",
     "hasValidationError" : false,
     "id" : "customTimeline"
   } ] ],
@@ -88,7 +88,7 @@
     },
     "events" : {
       "type" : "expression",
-      "value" : "if($data.caseHistory){\n    return $data.caseHistory.map(function(task){\n        return {\n            \"title\": task.displayName,\n            \"body\" : \"<p><p>\"+task.displayDescription+\"</p><span class=\\\"glyphicon glyphicon-user\\\" aria-hidden=\\\"true\\\"></span> \"+task.executedBy.firstName+\" \"+task.executedBy.lastName+\"</p><p><span class=\\\"glyphicon glyphicon-time\\\" aria-hidden=\\\"true\\\"></span> \"+ moment(task.reached_state_date).fromNow() +\"</p>\"\n        };\n    });\n}\nreturn [];",
+      "value" : "if($data.caseHistory){\n    return $data.caseHistory.map(function(task){\n        return {\n            title: task.displayName,\n            time: moment(task.reached_state_date).format(\"dddd, MMMM Do YYYY, hh:mm:ss\"),\n            user: task.executedBy.firstName+' '+task.executedBy.lastName,\n            body: task.displayDescription\n        };\n    });\n}\nreturn [];",
       "exposed" : false
     }
   },
