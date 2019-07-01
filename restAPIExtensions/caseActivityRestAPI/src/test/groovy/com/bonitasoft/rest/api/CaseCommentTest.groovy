@@ -44,7 +44,6 @@ class CaseCommentTest extends Specification {
     APIClient apiClient = Mock()
     HttpServletRequest request = Mock()
     RestAPIContext context = Mock()
-	SearchResult EMPTY_RESULT =  Mock()
 
     def "setup"() {
         context.apiClient >> apiClient

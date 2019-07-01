@@ -31,7 +31,7 @@ class CaseActivityTest extends Specification {
     HttpServletRequest request = Mock()
     RestAPIContext context = Mock()
 	APISession session = Stub(){ it.userId >> 5L}
-	SearchResult EMPTY_RESULT = Stub()
+	SearchResult emptyResult = Stub()
 
     def "setup"() {
         context.apiClient >> apiClient
@@ -64,8 +64,8 @@ class CaseActivityTest extends Specification {
 
 		then:
 		1 * caseActivity.findTaskInstance(1L, BPMNamesConstants.ACTIVITY_CONTAINER, processAPI) >> Stub(HumanTaskInstance)
-		1 * processAPI.searchHumanTaskInstances(_) >> EMPTY_RESULT
-		1 * processAPI.searchArchivedHumanTasks(_) >> EMPTY_RESULT
+		1 * processAPI.searchHumanTaskInstances(_) >> emptyResult
+		1 * processAPI.searchArchivedHumanTasks(_) >> emptyResult
 		1 * processAPI.getPendingHumanTaskInstances(5L,0,Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC) >> []
 	}
 	

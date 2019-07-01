@@ -86,7 +86,7 @@
             top: 16px;
             left: 50%;
             margin-left: -25px;
-            background-color: #999999;
+   /*         background-color: #999999;*/
             z-index: 100;
             border-top-right-radius: 50%;
             border-top-left-radius: 50%;
@@ -112,7 +112,7 @@
                 right: auto;
             }
 
-.timeline-badge.primary {
+/*.timeline-badge.primary {
     background-color: #2e6da4 !important;
 }
 
@@ -130,7 +130,7 @@
 
 .timeline-badge.info {
     background-color: #5bc0de !important;
-}
+}*/
 
 .timeline-title {
     margin-top: 0;
