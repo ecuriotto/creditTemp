@@ -6,6 +6,7 @@ import org.bonitasoft.engine.bpm.flownode.ActivityInstanceCriterion
 import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
+import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor
 import org.bonitasoft.engine.identity.User
 import org.bonitasoft.engine.search.Order
 import org.bonitasoft.engine.search.SearchFilterOperation
@@ -67,6 +68,26 @@ class CaseActivityTest extends Specification {
 		1 * processAPI.searchHumanTaskInstances(_) >> emptyResult
 		1 * processAPI.searchArchivedHumanTasks(_) >> emptyResult
 		1 * processAPI.getPendingHumanTaskInstances(5L,0,Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC) >> []
+	}
+	
+	def "should query pending manual tasks using the dynamic container activity"() {
+		given:
+		def caseActivity = Spy(CaseActivity)
+		def SearchResult taskResult = Mock()
+		caseActivity.findTaskInstance(1L, BPMNamesConstants.ACTIVITY_CONTAINER, processAPI) >> Stub(HumanTaskInstance){it.id >> 2L}
+		processAPI.searchArchivedHumanTasks(_) >> emptyResult
+		processAPI.getPendingHumanTaskInstances(5L,0,Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC) >> []
+		
+		when:
+		request.getParameter('caseId') >> 1L
+		def restApiResponse = caseActivity.doHandle(request, new RestApiResponseBuilder() , context)
+
+		then:
+		1 * processAPI.searchHumanTaskInstances({
+			assert it.filters[0].field == HumanTaskInstanceSearchDescriptor.PARENT_CONTAINER_ID
+			assert it.filters[0].value == 2L
+			it
+		}) >> emptyResult
 	}
 	
 }

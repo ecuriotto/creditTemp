@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseActivities",
   "name" : "CaseActivities",
-  "lastUpdate" : 1554212886804,
+  "lastUpdate" : 1561977302618,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -203,7 +203,7 @@
     },
     "formattedColumn" : {
       "type" : "expression",
-      "value" : "return [function(input){\n    if(input.row.url){\n        if(input.row.target){\n            return \"<a href=\\\"\"+input.row.url+\"\\\" target=\\\"\"+input.row.target+\"\\\">\"+input.row.name+\"</a>\";\n        }\n        return \"<a href=\\\"\"+input.row.url+\"\\\">\"+input.row.name+\"</a>\";\n    }\n   return input.row.name;\n}, \nfunction(input){\n     if(input.row.description){\n        return \"<em>\"+input.row.description+\"</em>\" ;\n     }\n    return \"\" ;\n},\n\"metadata.$activityState ? metadata.$activityState : state |labelized\"];",
+      "value" : "return [function(input){\n    if(input.row.url){\n        if(input.row.target){\n            return \"<a href=\\\"\"+input.row.url+\"\\\" target=\\\"\"+input.row.target+\"\\\">\"+input.row.name+\"</a>\";\n        }\n        return \"<a href=\\\"\"+input.row.url+\"\\\">\"+input.row.name+\"</a>\";\n    }\n   return input.row.name;\n}, \nfunction(input){\n     if(input.row.description){\n        return \"<em>\"+input.row.description+\"</em>\" ;\n     }\n    return \"\" ;\n},\n\"acmState ? acmState : bpmState |labelized\"];",
       "exposed" : false
     },
     "activities" : {

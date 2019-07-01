@@ -34,6 +34,7 @@ import com.bonitasoft.web.extension.rest.RestApiController
 
 import groovy.json.JsonBuilder
 import groovy.sql.DataSet
+import javassist.bytecode.stackmap.BasicBlock.Catch
 
 class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConstants {
 
@@ -55,39 +56,36 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 		def result = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
 				.findAll{ it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY && it.parentProcessInstanceId ==  caseId.toLong()}
 				.collect{ HumanTaskInstance task ->
-					def metadata = getMetadata(task,processAPI)
+					def activityState = getACMStateValue(task,processAPI)
 					[
-						id:task.name,
 						name:task.displayName ?: task.name,
-						url: canExecute(metadata.$activityState) ? forge(pDef.name,pDef.version,task, request.contextPath) : null,
+						url: canExecute(activityState) ? forge(pDef.name,pDef.version,task, request.contextPath) : null,
 						description:task.description,
 						target:linkTarget(task),
-						state:task.state.capitalize(),
-						metadata:metadata
+						bpmState:task.state.capitalize(),
+						acmState:activityState
 					]
 				}
 
 		def containerInstance = findTaskInstance(caseId.toLong(), ACTIVITY_CONTAINER, processAPI)
-
-		//Retrieve adhoc activities
+		
+		//Retrieve Manual tasks
 		result.addAll(processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, Integer.MAX_VALUE)
 				.filter(HumanTaskInstanceSearchDescriptor.PARENT_CONTAINER_ID, containerInstance.id)
 				.done())
 				.result
 				.collect{ HumanTaskInstance task ->
-					def metadata = getMetadata(task,processAPI)
 					[
-						id:task.name,
 						name:task.displayName ?: task.name,
-						url: canExecute(metadata.$activityState) ? forge(pDef.name,pDef.version,task, request.contextPath) : null,
+						url: forge(pDef.name,pDef.version,task, request.contextPath),
 						description:task.description,
 						target:linkTarget(task),
-						state:task.state.capitalize(),
-						metadata:metadata
+						bpmState:task.state.capitalize(),
+						acmState:OPTIONAL_STATE
 					]
 				})
 		
-		result = result.sort{ t1,t2 -> idOfState(t1.metadata.$activityState) <=> idOfState(t2.metadata.$activityState) }
+		result = result.sort{ t1,t2 -> valueOfState(t1.acmState) <=> valueOfState(t2.acmState) }
 
 		//Retrieve finished tasks
 		result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
@@ -104,34 +102,13 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 				id:task.sourceObjectId,
 				name:task.displayName ?: task.name,
 				description:task.description,
-				state:task.state.capitalize()
+				bpmState:task.state.capitalize()
 			]
 		})
 
 		buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
 	}
 	
-	def boolean isAnArchivedLoopInstance(ArchivedHumanTaskInstance instance, ProcessAPI processAPI) {
-		try {
-			def parent = processAPI.getActivityInstance(instance.parentActivityInstanceId)
-			parent instanceof LoopActivityInstance
-		}catch(ActivityInstanceNotFoundException e) {
-			false
-		}
-	}
-
-	def getMetadata(HumanTaskInstance task, ProcessAPI processAPI) {
-		def res = [:]
-		if(task instanceof ManualTaskInstance) {
-			res.put('$activityState', 'Optional')
-		}else {
-			processAPI.getActivityTransientDataInstances(task.id, 0, Integer.MAX_VALUE)
-			.findAll{ it.name.startsWith(PREFIX) }
-			.collect{ res.put(it.name,it.value) }
-		}
-		return res
-	}
-
 
 	def String forge(String processName,String processVersion,ActivityInstance instance, contextPath) {		
 			if(instance instanceof UserTaskInstance) {
