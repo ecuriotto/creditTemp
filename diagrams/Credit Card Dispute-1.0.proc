@@ -197,8 +197,7 @@
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_T0JyMPYKEeesarEo_Te_Dg"/>
         <condition xmi:type="expression:Expression" xmi:id="_T0JyMfYKEeesarEo_Te_Dg" name="" type="TYPE_CONDITION" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
-      <actors xmi:type="process:Actor" xmi:id="_x5qCIvSMEeeYpYD60oU_zA" name="Customer" initiator="true"/>
-      <actors xmi:type="process:Actor" xmi:id="_x5qCI_SMEeeYpYD60oU_zA" name="Bank"/>
+      <actors xmi:type="process:Actor" xmi:id="_x5qCI_SMEeeYpYD60oU_zA" name="Bank" initiator="true"/>
       <configurations xmi:type="configuration:Configuration" xmi:id="_At93wAdeEeiGn-a9BKu52g" name="Qualification" version="7.6.0-002" username="walter.bates" password="bpm">
         <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_AuA7EAdeEeiGn-a9BKu52g">
           <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_AuA7EQdeEeiGn-a9BKu52g" name="Customer">
@@ -257,6 +256,26 @@
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_RlF_xvIoEeiAVslBKvhhLg" id="GROOVY_SCRIPT"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_RlF_x_IoEeiAVslBKvhhLg" id="VALIDATOR"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_RlF_yPIoEeiAVslBKvhhLg" id="OTHER"/>
+      </configurations>
+      <configurations xmi:type="configuration:Configuration" xmi:id="_Gv5hEJwMEemz_6GYzsxGrA" name="Development" version="7.9.0-002" username="walter.bates" password="bpm">
+        <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_Gv6vMJwMEemz_6GYzsxGrA">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_Gv6vNpwMEemz_6GYzsxGrA" name="Bank">
+            <groups xmi:type="actormapping:Groups" xmi:id="_Gv6vN5wMEemz_6GYzsxGrA">
+              <group>/acme</group>
+            </groups>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_Gv6vOJwMEemz_6GYzsxGrA"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_Gv6vOZwMEemz_6GYzsxGrA"/>
+            <users xmi:type="actormapping:Users" xmi:id="_Gv6vOpwMEemz_6GYzsxGrA"/>
+          </actorMapping>
+        </actorMappings>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hEZwMEemz_6GYzsxGrA" id="ACTOR_FILTER"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hEpwMEemz_6GYzsxGrA" id="CONNECTOR"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hE5wMEemz_6GYzsxGrA" id="DATA_TYPES"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFJwMEemz_6GYzsxGrA" id="GROOVY_SCRIPT"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFZwMEemz_6GYzsxGrA" id="OTHER"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFpwMEemz_6GYzsxGrA" id="DATA_TYPES"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hF5wMEemz_6GYzsxGrA" id="GROOVY_SCRIPT"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hGJwMEemz_6GYzsxGrA" id="OTHER"/>
       </configurations>
       <contract xmi:type="process:Contract" xmi:id="_x5qCJPSMEeeYpYD60oU_zA">
         <inputs xmi:type="process:ContractInput" xmi:id="_RjVZMJdQEemS2vHmcHFszw" name="customerId">

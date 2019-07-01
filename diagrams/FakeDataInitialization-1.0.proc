@@ -84,6 +84,26 @@
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_3yXlN-DnEeiqro8MYznsHA" id="GROOVY_SCRIPT"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_3yXlOODnEeiqro8MYznsHA" id="OTHER"/>
       </configurations>
+      <configurations xmi:type="configuration:Configuration" xmi:id="_Qvn5kJwMEemz_6GYzsxGrA" name="Development" version="7.9.0-002" username="walter.bates" password="bpm">
+        <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_Qvn5mZwMEemz_6GYzsxGrA">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_Qvn5mpwMEemz_6GYzsxGrA" name="Admin">
+            <groups xmi:type="actormapping:Groups" xmi:id="_Qvn5m5wMEemz_6GYzsxGrA">
+              <group>/acme</group>
+            </groups>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_Qvn5nJwMEemz_6GYzsxGrA"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_Qvn5nZwMEemz_6GYzsxGrA"/>
+            <users xmi:type="actormapping:Users" xmi:id="_Qvn5npwMEemz_6GYzsxGrA"/>
+          </actorMapping>
+        </actorMappings>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5kZwMEemz_6GYzsxGrA" id="ACTOR_FILTER"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5kpwMEemz_6GYzsxGrA" id="CONNECTOR"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5k5wMEemz_6GYzsxGrA" id="DATA_TYPES"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5lJwMEemz_6GYzsxGrA" id="GROOVY_SCRIPT"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5lZwMEemz_6GYzsxGrA" id="OTHER"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5lpwMEemz_6GYzsxGrA" id="DATA_TYPES"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5l5wMEemz_6GYzsxGrA" id="GROOVY_SCRIPT"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5mJwMEemz_6GYzsxGrA" id="OTHER"/>
+      </configurations>
       <contract xmi:type="process:Contract" xmi:id="_8oZupU8EEeiL57cXslApDw"/>
       <searchIndexes xmi:type="process:SearchIndex" xmi:id="_8oZupk8EEeiL57cXslApDw">
         <name xmi:type="expression:Expression" xmi:id="_8oZup08EEeiL57cXslApDw" content="" returnTypeFixed="true"/>
