@@ -153,6 +153,7 @@
         <elements xmi:type="process:TextAnnotation" xmi:id="_t2k0cPYZEeesarEo_Te_Dg" text="Technical workaround to create Manual task"/>
         <elements xmi:type="process:TextAnnotation" xmi:id="_q1JU4AdeEeiGn-a9BKu52g" text="Should an incoming transition from 🔍 Investigate transaction&#xA;Using precondition for POC purposes"/>
         <elements xmi:type="process:TextAnnotation" xmi:id="_EA-EIAdfEeiGn-a9BKu52g" text="Could be replaced by an API call in the App&#xA;But would not be visible in the case history"/>
+        <elements xmi:type="process:TextAnnotation" xmi:id="_4oWCcJwJEemz_6GYzsxGrA" text="Each Human Task must have a local transient variable '$activityState' (String)&#xD;&#xA;Only one of the value below is valid for this variable:&#xD;&#xA;- Required (A task mandatory for all cases of this process)&#xD;&#xA;- Optional (A task that may be done in some cases)&#xD;&#xA;- Discretionary (A task that can be done multiple times in the same case, must be combined with a loop iteration)&#xD;&#xA;- N/A (A task not yet available that cannot be done at the moment, but may be enabled with a dynamic groovy expression)&#xD;&#xA;&#xD;&#xA;Those states can be constant expressions in the default value of the variable or dynamically computed using a groovy script expression"/>
       </elements>
       <data xmi:type="process:BusinessObjectData" xmi:id="_mRGqAPUrEeeJbuCjYn0Nqw" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer">
         <defaultValue xmi:type="expression:Expression" xmi:id="_mRGqAfUrEeeJbuCjYn0Nqw" name="init_customer()" content="customerDAO.findByPersistenceId(customerId.toLong())" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Customer">
@@ -343,7 +344,7 @@
             </children>
             <children xmi:type="notation:Shape" xmi:id="_EemD0PYSEeesarEo_Te_Dg" type="3005" element="_Eef9MPYSEeesarEo_Te_Dg" fontName="Ubuntu" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_EenR8PYSEeesarEo_Te_Dg" type="5005" element="_Eef9MPYSEeesarEo_Te_Dg"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EemD0fYSEeesarEo_Te_Dg" x="1318" y="461" width="162" height="81"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EemD0fYSEeesarEo_Te_Dg" x="1410" y="461" width="162" height="81"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_WNhfgPYZEeesarEo_Te_Dg" type="3015" element="_WNd1IPYZEeesarEo_Te_Dg">
               <children xmi:type="notation:DecorationNode" xmi:id="_WNiGkPYZEeesarEo_Te_Dg" type="5010" element="_WNd1IPYZEeesarEo_Te_Dg"/>
@@ -357,7 +358,7 @@
               <styles xmi:type="notation:DescriptionStyle" xmi:id="_t2nQsfYZEeesarEo_Te_Dg"/>
               <styles xmi:type="notation:FontStyle" xmi:id="_t2nQsvYZEeesarEo_Te_Dg" fontName="Ubuntu"/>
               <styles xmi:type="notation:LineStyle" xmi:id="_t2nQs_YZEeesarEo_Te_Dg"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t2nQtPYZEeesarEo_Te_Dg" x="1332" y="344" width="134" height="77"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t2nQtPYZEeesarEo_Te_Dg" x="1424" y="344" width="134" height="77"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_q1XXUAdeEeiGn-a9BKu52g" type="3015" element="_q1JU4AdeEeiGn-a9BKu52g">
               <children xmi:type="notation:DecorationNode" xmi:id="_q1YlcAdeEeiGn-a9BKu52g" type="5010" element="_q1JU4AdeEeiGn-a9BKu52g"/>
@@ -373,6 +374,13 @@
               <styles xmi:type="notation:LineStyle" xmi:id="_EA_5UwdfEeiGn-a9BKu52g"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EA_5VAdfEeiGn-a9BKu52g" x="593" y="122" width="167" height="77"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_4ocJEJwJEemz_6GYzsxGrA" type="3015" element="_4oWCcJwJEemz_6GYzsxGrA">
+              <children xmi:type="notation:DecorationNode" xmi:id="_4ocwJJwJEemz_6GYzsxGrA" type="5010"/>
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_4ocwIJwJEemz_6GYzsxGrA"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_4ocwIZwJEemz_6GYzsxGrA" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_4ocwIpwJEemz_6GYzsxGrA"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4ocwI5wJEemz_6GYzsxGrA" x="1030" y="38" width="609" height="169"/>
+            </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_x5qCXPSMEeeYpYD60oU_zA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_x5qCXfSMEeeYpYD60oU_zA" fontName="Ubuntu"/>
@@ -385,7 +393,7 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_x5qCYvSMEeeYpYD60oU_zA" fontName="Ubuntu"/>
       <styles xmi:type="notation:LineStyle" xmi:id="_x5qCY_SMEeeYpYD60oU_zA"/>
       <styles xmi:type="notation:FillStyle" xmi:id="_x5qCZPSMEeeYpYD60oU_zA"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x5qCZfSMEeeYpYD60oU_zA" width="1615" height="250"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x5qCZfSMEeeYpYD60oU_zA" width="1734" height="250"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_x5qCZvSMEeeYpYD60oU_zA"/>
     <edges xmi:type="notation:Connector" xmi:id="_DWOucPUeEeeREboOt7l4UQ" type="4001" element="_DWOHYPUeEeeREboOt7l4UQ" source="_x5qCU_SMEeeYpYD60oU_zA" target="_Rc8xgPUeEeeREboOt7l4UQ" roundedBendpointsRadius="10" routing="Rectilinear">

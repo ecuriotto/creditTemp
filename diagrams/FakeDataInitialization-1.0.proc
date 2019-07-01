@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
-  <process:MainProcess xmi:id="_8oZHcE8EEeiL57cXslApDw" name="InitData" author="Joe" bonitaVersion="7.9.0" bonitaModelVersion="7.9.0-002" configId="ACED0005740018496E697444617461372E392E302D303032372E392E307370">
-    <elements xmi:type="process:Pool" xmi:id="_8oZugE8EEeiL57cXslApDw" name="InitCustomerData">
+  <process:MainProcess xmi:id="_8oZHcE8EEeiL57cXslApDw" name="FakeDataInitialization" author="Romain" bonitaVersion="7.9.0" bonitaModelVersion="7.9.0-002" configId="ACED000574002646616B6544617461496E697469616C697A6174696F6E372E392E302D303032372E392E307370">
+    <elements xmi:type="process:Pool" xmi:id="_8oZugE8EEeiL57cXslApDw" name="CreateFakeCustomers">
       <elements xmi:type="process:StartEvent" xmi:id="_8oZugk8EEeiL57cXslApDw" name="Start1" outgoing="_8oZuoU8EEeiL57cXslApDw">
         <dynamicLabel xmi:type="expression:Expression" xmi:id="_8oZuhE8EEeiL57cXslApDw" name="" content="" returnTypeFixed="true"/>
         <dynamicDescription xmi:type="expression:Expression" xmi:id="_8oZuhU8EEeiL57cXslApDw" name="" content="" returnTypeFixed="true"/>
@@ -130,7 +130,7 @@
           <children xmi:type="notation:DecorationNode" xmi:id="_cO_hwE8FEeiL57cXslApDw" type="5025" element="_cO40EE8FEeiL57cXslApDw">
             <layoutConstraint xmi:type="notation:Location" xmi:id="_cO_hwU8FEeiL57cXslApDw" y="5"/>
           </children>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cO-6sU8FEeiL57cXslApDw" x="350" y="70"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cO-6sU8FEeiL57cXslApDw" x="901" y="68"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_Z2wB4JdFEemS2vHmcHFszw" type="3027" element="_Z2lp0JdFEemS2vHmcHFszw" fontName="Segoe UI" fillColor="14334392" lineColor="10710316">
           <children xmi:type="notation:DecorationNode" xmi:id="_Z2wo8JdFEemS2vHmcHFszw" type="5017"/>
