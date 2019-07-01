@@ -3,15 +3,20 @@ package com.bonitasoft.rest.api
 import javax.servlet.http.HttpServletRequest
 
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceCriterion
+import org.bonitasoft.engine.bpm.flownode.ActivityStates
 import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor
+import org.bonitasoft.engine.bpm.flownode.ManualTaskInstance
+import org.bonitasoft.engine.bpm.flownode.UserTaskInstance
+import org.bonitasoft.engine.bpm.process.ProcessDefinition
 import org.bonitasoft.engine.identity.User
 import org.bonitasoft.engine.search.Order
 import org.bonitasoft.engine.search.SearchFilterOperation
 import org.bonitasoft.engine.search.SearchOptions
 import org.bonitasoft.engine.search.SearchResult
+import org.bonitasoft.engine.search.impl.SearchResultImpl
 import org.bonitasoft.engine.session.APISession
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 
@@ -32,7 +37,7 @@ class CaseActivityTest extends Specification {
     HttpServletRequest request = Mock()
     RestAPIContext context = Mock()
 	APISession session = Stub(){ it.userId >> 5L}
-	SearchResult emptyResult = Stub()
+	SearchResult emptyResult = new SearchResultImpl(0, [])
 
     def "setup"() {
         context.apiClient >> apiClient
@@ -88,6 +93,111 @@ class CaseActivityTest extends Specification {
 			assert it.filters[0].value == 2L
 			it
 		}) >> emptyResult
+
 	}
+	
+	def "should create activity object from  a HumanTaskInstance and a state"() {
+		given:
+		def caseActivity = new CaseActivity()
+		def UserTaskInstance task = Stub(){ UserTaskInstance task ->
+			task.name >> 'MyTask'
+			task.displayName >> 'My task'
+			task.description >> 'A small desc'
+			task.state >> ActivityStates.READY_STATE
+			task.id >> 2L
+		}
+		def ProcessDefinition pDef = Stub(){
+			it.name >> 'MyProcess'
+			it.version >> '1.0'
+		}
+		
+		when:
+		def activity = caseActivity.toActivity(task, BPMNamesConstants.REQUIRED_STATE, pDef, '/myAppContext')
+
+		then:
+		with(activity){
+			 name == task.displayName
+			 bpmState == 'Ready'
+			 url == '/myAppContext/portal/resource/taskInstance/MyProcess/1.0/MyTask/content/?id=2&displayConfirmation=false'
+			 target == '_self'
+			 acmState == BPMNamesConstants.REQUIRED_STATE
+		}
+	}
+	
+	def "should forge an url to execute manual tasks"() {
+		given:
+		def caseActivity = new CaseActivity()
+		def ManualTaskInstance task = Stub(){ ManualTaskInstance task ->
+			task.name >> 'MyTask'
+			task.displayName >> 'My task'
+			task.description >> 'A small desc'
+			task.state >> ActivityStates.READY_STATE
+			task.id >> 2L
+		}
+		def ProcessDefinition pDef = Stub(){
+			it.name >> 'MyProcess'
+			it.version >> '1.0'
+		}
+		
+		when:
+		def activity = caseActivity.toActivity(task, BPMNamesConstants.REQUIRED_STATE, pDef, '/myAppContext')
+
+		then:
+		with(activity){
+			 url == '/myAppContext/apps/cases/do?id=2'
+			 target == '_parent'
+		}
+	}
+	
+	def "should sort tasks be acmState values"() {
+		given:
+		def caseActivity = Spy(CaseActivity)
+		def UserTaskInstance t1 = Stub(){ UserTaskInstance task ->
+			task.name >> 'MyTask'
+			task.displayName >> 'My task'
+			task.description >> 'A small desc'
+			task.state >> ActivityStates.READY_STATE
+			task.id >> 2L
+			task.parentProcessInstanceId >> 1L
+		}
+		caseActivity.getACMStateValue(t1, processAPI) >> BPMNamesConstants.DISCRETIONARY_STATE
+		def UserTaskInstance t2 = Stub(){ UserTaskInstance task ->
+			task.name >> 'MyTask2'
+			task.displayName >> 'My task2'
+			task.description >> 'A small desc'
+			task.state >> ActivityStates.READY_STATE
+			task.id >> 3L
+			task.parentProcessInstanceId >> 1L
+		}
+		caseActivity.getACMStateValue(t2, processAPI) >> BPMNamesConstants.REQUIRED_STATE
+		def ArchivedHumanTaskInstance t3 = Stub(){ ArchivedHumanTaskInstance task ->
+			task.name >> 'MyTask2'
+			task.displayName >> 'My task2'
+			task.description >> 'A small desc'
+			task.state >> ActivityStates.COMPLETED_STATE
+			task.id >> 3L
+		}
+		processAPI.getPendingHumanTaskInstances(_, 0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC) >> [t1,t2]
+		caseActivity.findTaskInstance(1L, BPMNamesConstants.ACTIVITY_CONTAINER, processAPI) >> Stub(HumanTaskInstance){ it.id >> 34L }
+		processAPI.searchHumanTaskInstances(_) >> new SearchResultImpl(0,[])
+		processAPI.searchArchivedHumanTasks(_) >>  new SearchResultImpl(1,[t3])
+		def ProcessDefinition pDef = Stub(){
+			it.name >> 'MyProcess'
+			it.version >> '1.0'
+		}
+		processAPI.getProcessDefinition(_) >> pDef
+		request.getParameter('caseId') >> 1L
+		
+		when:
+		def result = caseActivity.doHandle(request, new RestApiResponseBuilder(), context)
+
+		then:
+		println result.response
+		with(result){
+			 httpStatus == 200
+			 new JsonSlurper().parseText(response).acmState == [BPMNamesConstants.REQUIRED_STATE,BPMNamesConstants.DISCRETIONARY_STATE,null]
+		}
+	}
+	
 	
 }

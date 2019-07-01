@@ -16,29 +16,12 @@ import org.bonitasoft.engine.search.SearchOptionsBuilder
 import com.bonitasoft.engine.api.ProcessAPI
 
 trait CaseActivityHelper {
-	
+
 	def canExecute(String state) {
 		return state != "N/A" &&
 				state != ActivityStates.COMPLETED_STATE &&
 				state != ActivityStates.FAILED_STATE &&
 				state != ActivityStates.ABORTED_STATE
-	}
-
-	def getState(ActivityInstance activityInstance, ProcessAPI processAPI) {
-		try {
-			def defaultState = activityInstance.getState()
-			if (defaultState == ActivityStates.ABORTED_STATE || defaultState == ActivityStates.FAILED_STATE) {
-				return [name: defaultState, id: valueOfState(defaultState)]
-			}
-			if(activityInstance instanceof ManualTaskInstance) {
-				return [name: 'Optional', id: valueOfState('Optional')]
-			}
-			def instance = processAPI.getActivityTransientDataInstance('$activityState', activityInstance.id)
-			return [name: instance.value, id: valueOfState(instance.value)]
-		} catch (DataNotFoundException e) {
-			println e.getMessage()
-			return [name: "Optional", id: valueOfState("Optional")]
-		}
 	}
 
 	def valueOfState(String state) {
@@ -74,11 +57,12 @@ trait CaseActivityHelper {
 		if(task instanceof UserTaskInstance) {
 			try {
 				def instance = processAPI.getActivityTransientDataInstance(BPMNamesConstants.ACTIVITY_STATE_DATA_NAME, task.id)
-				return instance.value
+				return instance ? instance.value : null
 			}catch(DataNotFoundException e) {
 				//no $activityState data defined on HumanTask
 				return null
 			}
 		}
 	}
+	
 }

@@ -21,6 +21,7 @@ import org.bonitasoft.engine.bpm.flownode.LoopActivityInstance
 import org.bonitasoft.engine.bpm.flownode.ManualTaskInstance
 import org.bonitasoft.engine.bpm.flownode.StandardLoopCharacteristics
 import org.bonitasoft.engine.bpm.flownode.UserTaskInstance
+import org.bonitasoft.engine.bpm.process.ProcessDefinition
 import org.bonitasoft.engine.bpm.process.ProcessDefinitionNotFoundException
 import org.bonitasoft.engine.search.SearchOptionsBuilder
 import org.bonitasoft.web.extension.rest.RestApiResponse
@@ -54,18 +55,9 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 		
 		//Retrieve pending activities
 		def result = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
-				.findAll{ it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY && it.parentProcessInstanceId ==  caseId.toLong()}
-				.collect{ HumanTaskInstance task ->
-					def activityState = getACMStateValue(task,processAPI)
-					[
-						name:task.displayName ?: task.name,
-						url: canExecute(activityState) ? forge(pDef.name,pDef.version,task, request.contextPath) : null,
-						description:task.description,
-						target:linkTarget(task),
-						bpmState:task.state.capitalize(),
-						acmState:activityState
-					]
-				}
+				.findAll{ it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY && it.parentProcessInstanceId ==  caseId.toLong() }
+				.collect{ toActivity(it, getACMStateValue(it,processAPI), pDef, request.contextPath) }
+
 
 		def containerInstance = findTaskInstance(caseId.toLong(), ACTIVITY_CONTAINER, processAPI)
 		
@@ -74,20 +66,11 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 				.filter(HumanTaskInstanceSearchDescriptor.PARENT_CONTAINER_ID, containerInstance.id)
 				.done())
 				.result
-				.collect{ HumanTaskInstance task ->
-					[
-						name:task.displayName ?: task.name,
-						url: forge(pDef.name,pDef.version,task, request.contextPath),
-						description:task.description,
-						target:linkTarget(task),
-						bpmState:task.state.capitalize(),
-						acmState:OPTIONAL_STATE
-					]
-				})
-		
-		result = result.sort{ t1,t2 -> valueOfState(t1.acmState) <=> valueOfState(t2.acmState) }
+				.collect{ toActivity(it, OPTIONAL_STATE, pDef, request.contextPath) })
+				
+		result = result.sort{ a1,a2 -> valueOfState(a1.acmState) <=> valueOfState(a2.acmState) }
 
-		//Retrieve finished tasks
+		//Append finished tasks
 		result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
 			filter(ArchivedHumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
 			differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
@@ -99,7 +82,6 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
          }
 		.collect{ ArchivedHumanTaskInstance task ->
 			[
-				id:task.sourceObjectId,
 				name:task.displayName ?: task.name,
 				description:task.description,
 				bpmState:task.state.capitalize()
@@ -107,6 +89,17 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 		})
 
 		buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
+	}
+	
+	def toActivity(HumanTaskInstance task, String acmState, ProcessDefinition pDef, String contextPath) {
+		[
+			name:task.displayName ?: task.name,
+			url: canExecute(acmState) ? forge(pDef.name,pDef.version,task, contextPath) : null,
+			description:task.description,
+			target:linkTarget(task),
+			bpmState:task.state.capitalize(),
+			acmState:acmState
+		]
 	}
 	
 
@@ -120,9 +113,9 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 
 	def String linkTarget(ActivityInstance instance) {
 		if(instance instanceof UserTaskInstance) {
-			"_self"
+			'_self'
 		}else if(instance instanceof ManualTaskInstance) {
-			"_parent"
+			'_parent'
 		}
 	}
 
