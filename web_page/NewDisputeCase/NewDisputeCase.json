@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "NewDisputeCase",
   "name" : "NewDisputeCase",
-  "lastUpdate" : 1561471321757,
+  "lastUpdate" : 1561999796819,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -194,7 +194,7 @@
           },
           "targetUrlOnSuccess" : {
             "type" : "interpolation",
-            "value" : "/bonita"
+            "value" : "/bonita/apps/cases/home/"
           },
           "collectionPosition" : {
             "type" : "constant"
@@ -224,6 +224,29 @@
           "class" : {
             "type" : "constant",
             "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.ButtonWidget"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
           }
         },
         "reference" : "f7b8bcdd-ba44-4261-ac31-8907f78a21a1",

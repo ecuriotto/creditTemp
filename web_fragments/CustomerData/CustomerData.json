@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CustomerData",
   "name" : "CustomerData",
-  "lastUpdate" : 1561887334847,
+  "lastUpdate" : 1562052661713,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -109,11 +109,6 @@
     "caseId" : {
       "type" : "constant",
       "exposed" : true
-    },
-    "caseIdPayload" : {
-      "type" : "expression",
-      "value" : "return {\n    \"caseId\" : $data.caseId\n};",
-      "exposed" : false
     },
     "customer" : {
       "type" : "url",

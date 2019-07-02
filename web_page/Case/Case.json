@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1561979475031,
+  "lastUpdate" : 1561999665069,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -128,7 +128,8 @@
       "hasValidationError" : false,
       "id" : "CustomerData",
       "binding" : {
-        "caseId" : "caseId"
+        "caseId" : "caseId",
+        "dataUpdated" : "dataUpdated"
       }
     } ] ]
   } ], [ {
@@ -868,7 +869,7 @@
     },
     "caseHistory" : {
       "type" : "url",
-      "value" : "../API/extension/caseHistory?caseId={{caseId}}&reload={{newActivityCreated.name}}",
+      "value" : "../API/extension/caseHistory?caseId={{caseId}}&reload={{newActivityCreated.name + dataUpdated.lastUpdateDate}}",
       "exposed" : false
     },
     "caseContext" : {
@@ -893,7 +894,7 @@
     },
     "activities" : {
       "type" : "url",
-      "value" : "../API/extension/caseActivity?caseId={{caseId}}&reload={{newActivityCreated.name}}",
+      "value" : "../API/extension/caseActivity?caseId={{caseId}}&reload={{newActivityCreated.name + dataUpdated.lastUpdateDate}}",
       "exposed" : false
     },
     "newActivityCreated" : {
@@ -938,6 +939,11 @@
     "commentAdded" : {
       "type" : "json",
       "value" : "{\n    \"id\" : \"\"\n}",
+      "exposed" : false
+    },
+    "dataUpdated" : {
+      "type" : "json",
+      "value" : "{ \"lastUpdateDate\" : \"\" }",
       "exposed" : false
     }
   },
