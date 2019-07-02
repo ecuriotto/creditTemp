@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1561999665069,
+  "lastUpdate" : 1562060434202,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -105,6 +105,30 @@
         "caseId" : "caseId",
         "activities" : "activities",
         "newActivityCreated" : "newActivityCreated"
+      }
+    } ], [ {
+      "type" : "fragment",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        }
+      },
+      "reference" : "00ba9fdd-e5ea-49bd-a007-efe2f70ab14d",
+      "hasValidationError" : false,
+      "id" : "DisputeData",
+      "binding" : {
+        "caseId" : "caseId"
       }
     } ], [ {
       "type" : "fragment",

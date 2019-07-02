@@ -55,7 +55,7 @@ class NewCaseActivity implements RestApiController, CaseActivityHelper, BPMNames
 		processAPI.assignUserTask(activityContainerInstance.id, context.apiSession.userId)
 		processAPI
 				.addManualUserTask(new ManualTaskCreator(activityContainerInstance.id, jsonBody.name).with{
-					setDisplayName( "&#x2795 $jsonBody.name" )
+					setDisplayName( "&#x1f4a1; $jsonBody.name" )
 					setDescription(jsonBody.description)
 					setAssignTo(context.apiSession.userId)
 					setDueDate(null)
@@ -70,7 +70,6 @@ class NewCaseActivity implements RestApiController, CaseActivityHelper, BPMNames
 				build()
 			}
 		}
-
 		processAPI.assignAndExecuteUserTask(context.apiSession.userId, createActivityInstance.id, [name:jsonBody.name])
 		
 		return responseBuilder.with {

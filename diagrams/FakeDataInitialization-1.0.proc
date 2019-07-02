@@ -2,12 +2,12 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
   <process:MainProcess xmi:id="_8oZHcE8EEeiL57cXslApDw" name="FakeDataInitialization" author="Romain" bonitaVersion="7.9.0" bonitaModelVersion="7.9.0-002" configId="ACED000574002646616B6544617461496E697469616C697A6174696F6E372E392E302D303032372E392E307370">
     <elements xmi:type="process:Pool" xmi:id="_8oZugE8EEeiL57cXslApDw" name="CreateFakeCustomers">
-      <elements xmi:type="process:StartEvent" xmi:id="_8oZugk8EEeiL57cXslApDw" name="Start1" outgoing="_8oZuoU8EEeiL57cXslApDw">
+      <elements xmi:type="process:StartEvent" xmi:id="_8oZugk8EEeiL57cXslApDw" name="Start" outgoing="_8oZuoU8EEeiL57cXslApDw">
         <dynamicLabel xmi:type="expression:Expression" xmi:id="_8oZuhE8EEeiL57cXslApDw" name="" content="" returnTypeFixed="true"/>
         <dynamicDescription xmi:type="expression:Expression" xmi:id="_8oZuhU8EEeiL57cXslApDw" name="" content="" returnTypeFixed="true"/>
         <stepSummary xmi:type="expression:Expression" xmi:id="_8oZuhk8EEeiL57cXslApDw" name="" content="" returnTypeFixed="true"/>
       </elements>
-      <elements xmi:type="process:EndEvent" xmi:id="_cO40EE8FEeiL57cXslApDw" name="End1" incoming="_cPYjUE8FEeiL57cXslApDw">
+      <elements xmi:type="process:EndEvent" xmi:id="_cO40EE8FEeiL57cXslApDw" name="End" incoming="_cPYjUE8FEeiL57cXslApDw">
         <dynamicLabel xmi:type="expression:Expression" xmi:id="_cO7QUU8FEeiL57cXslApDw" name="" content="" returnTypeFixed="true"/>
         <dynamicDescription xmi:type="expression:Expression" xmi:id="_cO7QUE8FEeiL57cXslApDw" name="" content="" returnTypeFixed="true"/>
         <stepSummary xmi:type="expression:Expression" xmi:id="_cO7QUk8FEeiL57cXslApDw" name="" content="" returnTypeFixed="true"/>
@@ -17,23 +17,24 @@
         <dynamicDescription xmi:type="expression:Expression" xmi:id="_8oZuik8EEeiL57cXslApDw" name="" content="" returnTypeFixed="true"/>
         <stepSummary xmi:type="expression:Expression" xmi:id="_8oZui08EEeiL57cXslApDw" name="" content="" returnTypeFixed="true"/>
         <operations xmi:type="expression:Operation" xmi:id="_waTR4JdGEemS2vHmcHFszw">
-          <leftOperand xmi:type="expression:Expression" xmi:id="_waTR4ZdGEemS2vHmcHFszw" name="account" content="account" type="TYPE_VARIABLE" returnType="com.company.model.Account">
-            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_xCpEQJdGEemS2vHmcHFszw" name="account" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Account"/>
+          <leftOperand xmi:type="expression:Expression" xmi:id="_waTR4ZdGEemS2vHmcHFszw" name="accounts" content="accounts" type="TYPE_VARIABLE" returnType="java.util.List">
+            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_xCpEQJdGEemS2vHmcHFszw" name="accounts" multiple="true" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Account"/>
           </leftOperand>
-          <rightOperand xmi:type="expression:Expression" xmi:id="_waTR4pdGEemS2vHmcHFszw" name="createAccount()" content="import java.time.OffsetDateTime&#xD;&#xA;import java.time.ZoneOffset&#xD;&#xA;import java.util.concurrent.ThreadLocalRandom&#xD;&#xA;&#xD;&#xA;import com.company.model.AccountTx&#xD;&#xA;&#xD;&#xA;def newAccount = accountDAO.newInstance(UUID.randomUUID().toString())&#xD;&#xA;def resellers = ['shop1','shop2','shop3','shop4']&#xD;&#xA;100.times {&#xD;&#xA;&#x9;def now = OffsetDateTime.now();&#xD;&#xA;&#x9;newAccount.addToTransactions(accountTxDAO.newInstance(ThreadLocalRandom.current().nextDouble(5.0, 1000.0).round(2),&#xD;&#xA;&#x9;&#x9; 'Euro',&#xD;&#xA;&#x9;&#x9; resellers[ThreadLocalRandom.current().nextInt(0, resellers.size()-1)],&#xD;&#xA;&#x9;&#x9; OffsetDateTime.of(now.year, ThreadLocalRandom.current().nextInt(1, 12), ThreadLocalRandom.current().nextInt(1,28), ThreadLocalRandom.current().nextInt(6, 23),  ThreadLocalRandom.current().nextInt(0, 59), 0, 0, ZoneOffset.UTC)))&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;newAccount" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Account">
-            <referencedElements xmi:type="expression:Expression" xmi:id="_npzv0JdKEemS2vHmcHFszw" name="accountTxDAO" content="accountTxDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.AccountTxDAO" returnTypeFixed="true"/>
-            <referencedElements xmi:type="expression:Expression" xmi:id="_ZyFyEZdKEemS2vHmcHFszw" name="accountDAO" content="accountDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.AccountDAO" returnTypeFixed="true"/>
+          <rightOperand xmi:type="expression:Expression" xmi:id="_waTR4pdGEemS2vHmcHFszw" name="createAccounts()" content="import java.time.OffsetDateTime&#xD;&#xA;import java.time.ZoneOffset&#xD;&#xA;import java.util.concurrent.ThreadLocalRandom&#xD;&#xA;&#xD;&#xA;import com.company.model.AccountTx&#xD;&#xA;import com.devskiller.jfairy.Fairy&#xD;&#xA;def newAccounts = []&#xD;&#xA;def fairy = Fairy.create()&#xD;&#xA;&#xD;&#xA;3.times {&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;def newAccount = accountDAO.newInstance(fairy.creditCard().getCardNumber())&#xD;&#xA;&#x9;def resellers = []&#xD;&#xA;&#x9;10.times {&#xD;&#xA;&#x9;&#x9;resellers &lt;&lt; fairy.company().getVatIdentificationNumber()&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;100.times {&#xD;&#xA;&#x9;&#x9;def now = OffsetDateTime.now();&#xD;&#xA;&#x9;&#x9;newAccount.addToTransactions(accountTxDAO.newInstance(ThreadLocalRandom.current().nextDouble(5.0, 1000.0).round(2),&#xD;&#xA;&#x9;&#x9;&#x9; 'EUR',&#xD;&#xA;&#x9;&#x9;&#x9; resellers[ThreadLocalRandom.current().nextInt(0, resellers.size()-1)],&#xD;&#xA;&#x9;&#x9;&#x9; OffsetDateTime.of(now.year, ThreadLocalRandom.current().nextInt(1, 12), ThreadLocalRandom.current().nextInt(1,28), ThreadLocalRandom.current().nextInt(6, 23),  ThreadLocalRandom.current().nextInt(0, 59), 0, 0, ZoneOffset.UTC)))&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;newAccounts &lt;&lt; newAccount&#xD;&#xA;}&#xD;&#xA;newAccounts&#xD;&#xA;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List">
+            <referencedElements xmi:type="expression:Expression" xmi:id="_bMvSQJzIEem6Cs5xpESlFw" name="accountTxDAO" content="accountTxDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.AccountTxDAO" returnTypeFixed="true"/>
+            <referencedElements xmi:type="expression:Expression" xmi:id="_bMvSQZzIEem6Cs5xpESlFw" name="accountDAO" content="accountDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.AccountDAO" returnTypeFixed="true"/>
           </rightOperand>
           <operator xmi:type="expression:Operator" xmi:id="_waTR45dGEemS2vHmcHFszw" type="ASSIGNMENT"/>
         </operations>
         <operations xmi:type="expression:Operation" xmi:id="_FuF_oJdHEemS2vHmcHFszw">
-          <leftOperand xmi:type="expression:Expression" xmi:id="_FuF_oZdHEemS2vHmcHFszw" name="customer" content="customer" type="TYPE_VARIABLE" returnType="com.company.model.Customer">
-            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_GOxq0JdHEemS2vHmcHFszw" name="customer" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Customer"/>
+          <leftOperand xmi:type="expression:Expression" xmi:id="_FuF_oZdHEemS2vHmcHFszw" name="customers" content="customers" type="TYPE_VARIABLE" returnType="java.util.List">
+            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_GOxq0JdHEemS2vHmcHFszw" name="customers" multiple="true" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Customer"/>
           </leftOperand>
-          <rightOperand xmi:type="expression:Expression" xmi:id="_FuF_opdHEemS2vHmcHFszw" name="account" content="account" type="TYPE_VARIABLE" returnType="com.company.model.Account">
-            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Hlci0JdHEemS2vHmcHFszw" name="account" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Account"/>
+          <rightOperand xmi:type="expression:Expression" xmi:id="_FuF_opdHEemS2vHmcHFszw" name="assignAccountsToCustomer" content="accounts.eachWithIndex { account, index ->&#xD;&#xA;&#x9;customers[index].account = account&#xD;&#xA;}&#xD;&#xA;customers" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List">
+            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_87x5YJzAEem6Cs5xpESlFw" name="accounts" multiple="true" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Account"/>
+            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_87x5YZzAEem6Cs5xpESlFw" name="customers" multiple="true" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Customer"/>
           </rightOperand>
-          <operator xmi:type="expression:Operator" xmi:id="_FuF_o5dHEemS2vHmcHFszw" type="JAVA_METHOD" expression="setAccount">
+          <operator xmi:type="expression:Operator" xmi:id="_FuF_o5dHEemS2vHmcHFszw" type="ASSIGNMENT" expression="setAccount">
             <inputTypes>com.company.model.Account</inputTypes>
           </operator>
         </operations>
@@ -43,16 +44,16 @@
         <iteratorExpression xmi:type="expression:Expression" xmi:id="_8oZuj08EEeiL57cXslApDw" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
         <completionCondition xmi:type="expression:Expression" xmi:id="_8oZukE8EEeiL57cXslApDw" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </elements>
-      <data xmi:type="process:BusinessObjectData" xmi:id="__FlioE8EEeiL57cXslApDw" name="customer" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Customer">
-        <defaultValue xmi:type="expression:Expression" xmi:id="_oqGE-ZdGEemS2vHmcHFszw" name="initCustomer()" content="def customerVar = new com.company.model.Customer()&#xD;&#xA;customerVar.firstName = 'Romain'&#xD;&#xA;customerVar.lastName = 'Bioteau'&#xD;&#xA;customerVar.email = 'romain.bioteau@bonitasoft.com'&#xD;&#xA;customerVar.address = {&#xD;&#xA;&#x9;def addressVar = new com.company.model.Address()&#xD;&#xA;&#x9;addressVar.street = '32, Gustave Effeil'&#xD;&#xA;&#x9;addressVar.city = 'Grenoble'&#xD;&#xA;&#x9;addressVar.zipcode = '38000'&#xD;&#xA;&#x9;addressVar.country = 'France'&#xD;&#xA;&#x9;return addressVar}()&#xD;&#xA;customerVar.phoneNumber = '0655305552'&#xD;&#xA;return customerVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Customer"/>
+      <data xmi:type="process:BusinessObjectData" xmi:id="__FlioE8EEeiL57cXslApDw" name="customers" multiple="true" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Customer">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_oqGE-ZdGEemS2vHmcHFszw" name="initCustomer()" content="import com.company.model.Address&#xD;&#xA;import com.devskiller.jfairy.Fairy&#xD;&#xA;import com.devskiller.jfairy.producer.person.Person&#xD;&#xA;&#xD;&#xA;Fairy fairy = Fairy.create();&#xD;&#xA;def customers = []&#xD;&#xA;3.times {&#xD;&#xA;&#x9;Person person = fairy.person();&#xD;&#xA;&#x9;def customerVar = new com.company.model.Customer()&#xD;&#xA;&#x9;customerVar.customerId = person.passportNumber&#xD;&#xA;&#x9;customerVar.firstName = person.firstName&#xD;&#xA;&#x9;customerVar.lastName = person.lastName&#xD;&#xA;&#x9;customerVar.email = person.email&#xD;&#xA;&#x9;customerVar.phoneNumber = person.telephoneNumber&#xD;&#xA;&#x9;customerVar.address = new Address().with {&#xD;&#xA;&#x9;&#x9;setStreet(person.getAddress().street)&#xD;&#xA;&#x9;&#x9;setStreetNumber(person.getAddress().streetNumber)&#xD;&#xA;&#x9;&#x9;setAddressLine1(person.getAddress().addressLine1)&#xD;&#xA;&#x9;&#x9;setAddressLine2(person.getAddress().addressLine2)&#xD;&#xA;&#x9;&#x9;setApartmentNumber(person.getAddress().apartmentNumber)&#xD;&#xA;&#x9;&#x9;setPostalCode(person.getAddress().postalCode)&#xD;&#xA;&#x9;&#x9;setCity(person.getAddress().city)&#xD;&#xA;&#x9;&#x9;it&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;customers &lt;&lt; customerVar&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;customers" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List"/>
       </data>
-      <data xmi:type="process:BusinessObjectData" xmi:id="_v0DxQJdGEemS2vHmcHFszw" name="account" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Account">
+      <data xmi:type="process:BusinessObjectData" xmi:id="_v0DxQJdGEemS2vHmcHFszw" name="accounts" multiple="true" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Account">
         <defaultValue xmi:type="expression:Expression" xmi:id="_v0DxQZdGEemS2vHmcHFszw" name="" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Object"/>
       </data>
       <formMapping xmi:type="process:FormMapping" xmi:id="_8oZum08EEeiL57cXslApDw" type="NONE">
         <targetForm xmi:type="expression:Expression" xmi:id="_pj5awJdGEemS2vHmcHFszw" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
-      <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_8oZunk8EEeiL57cXslApDw">
+      <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_8oZunk8EEeiL57cXslApDw" type="NONE">
         <targetForm xmi:type="expression:Expression" xmi:id="_8oZun08EEeiL57cXslApDw" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </overviewFormMapping>
       <connections xmi:type="process:SequenceFlow" xmi:id="_8oZuoU8EEeiL57cXslApDw" target="_Z2lp0JdFEemS2vHmcHFszw" source="_8oZugk8EEeiL57cXslApDw">
@@ -99,7 +100,9 @@
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5kpwMEemz_6GYzsxGrA" id="CONNECTOR"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5k5wMEemz_6GYzsxGrA" id="DATA_TYPES"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5lJwMEemz_6GYzsxGrA" id="GROOVY_SCRIPT"/>
-        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5lZwMEemz_6GYzsxGrA" id="OTHER"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5lZwMEemz_6GYzsxGrA" id="OTHER">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_V22l8Jy4Eem6Cs5xpESlFw" key="jfairy-0.6.2.jar" value="jfairy-0.6.2.jar" type="JAR"/>
+        </processDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5lpwMEemz_6GYzsxGrA" id="DATA_TYPES"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5l5wMEemz_6GYzsxGrA" id="GROOVY_SCRIPT"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5mJwMEemz_6GYzsxGrA" id="OTHER"/>
@@ -150,11 +153,11 @@
           <children xmi:type="notation:DecorationNode" xmi:id="_cO_hwE8FEeiL57cXslApDw" type="5025" element="_cO40EE8FEeiL57cXslApDw">
             <layoutConstraint xmi:type="notation:Location" xmi:id="_cO_hwU8FEeiL57cXslApDw" y="5"/>
           </children>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cO-6sU8FEeiL57cXslApDw" x="901" y="68"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cO-6sU8FEeiL57cXslApDw" x="559" y="68"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_Z2wB4JdFEemS2vHmcHFszw" type="3027" element="_Z2lp0JdFEemS2vHmcHFszw" fontName="Segoe UI" fillColor="14334392" lineColor="10710316">
           <children xmi:type="notation:DecorationNode" xmi:id="_Z2wo8JdFEemS2vHmcHFszw" type="5017"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z2wB4ZdFEemS2vHmcHFszw" x="160" y="60" width="100" height="50"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z2wB4ZdFEemS2vHmcHFszw" x="198" y="60" width="100" height="50"/>
         </children>
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_8oZu0U8EEeiL57cXslApDw"/>

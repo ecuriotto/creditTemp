@@ -75,7 +75,7 @@
             <leftOperand xmi:type="expression:Expression" xmi:id="_ZoBKsZwZEemz_6GYzsxGrA" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_siTqcJwZEemz_6GYzsxGrA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_ZoBKspwZEemz_6GYzsxGrA" name="updateDispute()" content="&#xD;&#xA;fieldsToUpdate.each { field ->&#xD;&#xA;&#x9;def propertyToUpdate = dispute.properties&#xD;&#xA;&#x9;&#x9;.find { prop, val -> prop == field.name}&#xD;&#xA;&#x9;&#x9;println propertyToUpdate&#xD;&#xA;&#x9;if(propertyToUpdate){&#xD;&#xA;&#x9;&#x9;switch(field.type){&#xD;&#xA;&#x9;&#x9;&#x9;case String.getName(): dispute.&quot;$propertyToUpdate.key&quot; = field.value; break;&#xD;&#xA;&#x9;&#x9;&#x9;case Long.getName(): dispute.&quot;$propertyToUpdate.key&quot; = field.value.toLong(); break;&#xD;&#xA;&#x9;&#x9;&#x9;case Double.getName(): dispute.&quot;$propertyToUpdate.key&quot; = field.value.toDouble(); break;&#xD;&#xA;&#x9;&#x9;&#x9;case Boolean.getName(): dispute.&quot;$propertyToUpdate.key&quot; = Boolean.valueOf(field.value); break;&#xD;&#xA;&#x9;&#x9;&#x9;default:break;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;dispute" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Dispute">
+            <rightOperand xmi:type="expression:Expression" xmi:id="_ZoBKspwZEemz_6GYzsxGrA" name="updateDispute()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;fieldsToUpdate.each { field ->&#xD;&#xA;&#x9;def propertyToUpdate = dispute.properties&#xD;&#xA;&#x9;&#x9;.find { prop, val -> prop == field.name}&#xD;&#xA;&#x9;&#x9;println propertyToUpdate&#xD;&#xA;&#x9;if(propertyToUpdate){&#xD;&#xA;&#x9;&#x9;switch(field.type){&#xD;&#xA;&#x9;&#x9;&#x9;case String.getName(): dispute.&quot;$propertyToUpdate.key&quot; = field.value; break;&#xD;&#xA;&#x9;&#x9;&#x9;case Long.getName(): dispute.&quot;$propertyToUpdate.key&quot; = field.value.toLong(); break;&#xD;&#xA;&#x9;&#x9;&#x9;case Double.getName(): dispute.&quot;$propertyToUpdate.key&quot; = field.value.toDouble(); break;&#xD;&#xA;&#x9;&#x9;&#x9;case Boolean.getName(): dispute.&quot;$propertyToUpdate.key&quot; = Boolean.valueOf(field.value); break;&#xD;&#xA;&#x9;&#x9;&#x9;default:break;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;dispute.setLastUpdateDate(OffsetDateTime.now())&#xD;&#xA;dispute" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Dispute">
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_LBCrgJwfEemz_6GYzsxGrA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
               <referencedElements xmi:type="process:ContractInput" xmi:id="_LBCrgZwfEemz_6GYzsxGrA" name="fieldsToUpdate" type="COMPLEX" multiple="true">
                 <mapping xmi:type="process:ContractInputMapping" xmi:id="_LBCrgpwfEemz_6GYzsxGrA"/>
@@ -111,7 +111,7 @@
       <elements xmi:type="process:Lane" xmi:id="_x5qByPSMEeeYpYD60oU_zA" name="Customer Service" actor="_x5qCI_SMEeeYpYD60oU_zA">
         <elements xmi:type="process:TextAnnotation" xmi:id="_4oWCcJwJEemz_6GYzsxGrA" text="Each Human Task must have a local transient variable '$activityState' (String)&#xD;&#xA;Only one of the value below is valid for this variable:&#xD;&#xA;- Required (A task mandatory for all cases of this process)&#xD;&#xA;- Optional (A task that may be done in some cases)&#xD;&#xA;- Discretionary (A task that can be done multiple times in the same case, must be combined with a loop iteration)&#xD;&#xA;- N/A (A task not yet available that cannot be done at the moment, but may be enabled with a dynamic groovy expression)&#xD;&#xA;&#xD;&#xA;Those states can be constant expressions in the default value of the variable or dynamically computed using a groovy script expression"/>
         <elements xmi:type="process:Task" xmi:id="_UVGZMJwREemz_6GYzsxGrA" name="Gather Dispute Details" outgoing="_rKJc4JyWEemqZaueLnuvxA" overrideActorsOfTheLane="false">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_UVHAQJwREemz_6GYzsxGrA" name="" content="" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_UVHAQJwREemz_6GYzsxGrA" name="displayName()" content="'&amp;#x1F58A; Gather Dispute Details'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_UVGZMZwREemz_6GYzsxGrA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_UVHAQZwREemz_6GYzsxGrA" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_oka_8JwWEemz_6GYzsxGrA" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
@@ -159,6 +159,15 @@
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_7aia6JyZEemqZaueLnuvxA" type="JAVA_METHOD" expression="setMerchantIdNumber">
               <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_FgylMJyyEem6Cs5xpESlFw">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_FgylMZyyEem6Cs5xpESlFw" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Fz4gUJyyEem6Cs5xpESlFw" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_FgylMpyyEem6Cs5xpESlFw" name="updateLastUpdateDate()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;OffsetDateTime.now()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime"/>
+            <operator xmi:type="expression:Operator" xmi:id="_FgylM5yyEem6Cs5xpESlFw" type="JAVA_METHOD" expression="setLastUpdateDate">
+              <inputTypes>java.time.OffsetDateTime</inputTypes>
             </operator>
           </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_UVHAQpwREemz_6GYzsxGrA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
@@ -238,7 +247,7 @@
         </elements>
       </elements>
       <data xmi:type="process:BusinessObjectData" xmi:id="_mRGqAPUrEeeJbuCjYn0Nqw" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer">
-        <defaultValue xmi:type="expression:Expression" xmi:id="_mRGqAfUrEeeJbuCjYn0Nqw" name="init_customer()" content="customerDAO.findByPersistenceId(customerId.toLong())" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Customer">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_mRGqAfUrEeeJbuCjYn0Nqw" name="init_customer()" content="customerDAO.findByCustomerId(customerId)" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Customer">
           <referencedElements xmi:type="process:ContractInput" xmi:id="_UTxggJdQEemS2vHmcHFszw" name="customerId">
             <mapping xmi:type="process:ContractInputMapping" xmi:id="_UTxggZdQEemS2vHmcHFszw"/>
           </referencedElements>
@@ -246,10 +255,10 @@
         </defaultValue>
       </data>
       <data xmi:type="process:BusinessObjectData" xmi:id="__3lJIJdPEemS2vHmcHFszw" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute">
-        <defaultValue xmi:type="expression:Expression" xmi:id="__3lJIZdPEemS2vHmcHFszw" name="init_dispute()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;disputeDAO.newInstance(customerId.toLong() , 'NEW', OffsetDateTime.now()).with { &#xD;&#xA;&#x9;setCurrency('USD')&#xD;&#xA;&#x9;it&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Dispute">
-          <referencedElements xmi:type="expression:Expression" xmi:id="_z_1tYJylEem6Cs5xpESlFw" name="disputeDAO" content="disputeDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.DisputeDAO" returnTypeFixed="true"/>
-          <referencedElements xmi:type="process:ContractInput" xmi:id="_z_1tYZylEem6Cs5xpESlFw" name="customerId">
-            <mapping xmi:type="process:ContractInputMapping" xmi:id="_z_1tYpylEem6Cs5xpESlFw"/>
+        <defaultValue xmi:type="expression:Expression" xmi:id="__3lJIZdPEemS2vHmcHFszw" name="init_dispute()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;def now = OffsetDateTime.now()&#xD;&#xA;disputeDAO.newInstance(customerId , 'NEW', now).with {&#xD;&#xA;&#x9;setCurrency('USD')&#xD;&#xA;&#x9;setLastUpdateDate(now)&#xD;&#xA;&#x9;it&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Dispute">
+          <referencedElements xmi:type="expression:Expression" xmi:id="_EcvHMJyyEem6Cs5xpESlFw" name="disputeDAO" content="disputeDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.DisputeDAO" returnTypeFixed="true"/>
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_EcvHMZyyEem6Cs5xpESlFw" name="customerId">
+            <mapping xmi:type="process:ContractInputMapping" xmi:id="_EcvHMpyyEem6Cs5xpESlFw"/>
           </referencedElements>
         </defaultValue>
       </data>
@@ -461,7 +470,7 @@
           <children xmi:type="notation:DecorationNode" xmi:id="_eD-EhpwMEemz_6GYzsxGrA" type="7002">
             <children xmi:type="notation:Shape" xmi:id="_h4UNNvUdEeeREboOt7l4UQ" type="3005" element="_h4S_EPUdEeeREboOt7l4UQ" fontName="Ubuntu" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_h4U0QPUdEeeREboOt7l4UQ" type="5005" element="_h4S_EPUdEeeREboOt7l4UQ"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h4UNN_UdEeeREboOt7l4UQ" x="346" y="119" width="115" height="57"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h4UNN_UdEeeREboOt7l4UQ" x="386" y="119" width="115" height="57"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_x5qCU_SMEeeYpYD60oU_zA" type="3005" element="_x5qB2fSMEeeYpYD60oU_zA" fontName="Ubuntu" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_x5qCVPSMEeeYpYD60oU_zA" type="5005" element="_x5qB2fSMEeeYpYD60oU_zA"/>

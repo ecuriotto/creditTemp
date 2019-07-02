@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "DisputeInfo",
   "name" : "DisputeInfo",
-  "lastUpdate" : 1562058421859,
+  "lastUpdate" : 1562060989047,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -345,7 +345,7 @@
             },
             "availableValues" : {
               "type" : "constant",
-              "value" : [ "Euro", "USD" ]
+              "value" : [ "EUR", "USD", "GBP", "YEN" ]
             },
             "displayedKey" : {
               "type" : "constant"

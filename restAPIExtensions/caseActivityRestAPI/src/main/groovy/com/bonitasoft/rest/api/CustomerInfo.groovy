@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse
 import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
+import com.company.model.Customer
 import com.company.model.CustomerDAO
 
 import groovy.json.JsonBuilder
@@ -21,8 +22,6 @@ class CustomerInfo implements RestApiController, CaseActivityHelper {
 
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
-        def contextPath = request.contextPath
-		
 		def caseId = request.getParameter "caseId"
 		if (!caseId) {
 			return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter caseId is missing"}""")
@@ -31,7 +30,7 @@ class CustomerInfo implements RestApiController, CaseActivityHelper {
 		def processAPI = context.apiClient.getProcessAPI()
 		def processInstanceContext = processAPI.getProcessInstanceExecutionContext(caseId.toLong())
 		def customer_ref = processInstanceContext['customer_ref']
-		def customer 
+		def Customer customer 
 		if(customer_ref) {
 			def customerDAO = context.apiClient.getDAO(CustomerDAO)
 		    customer = customerDAO.findByPersistenceId(customer_ref.storageId)
@@ -44,6 +43,7 @@ class CustomerInfo implements RestApiController, CaseActivityHelper {
             withResponseStatus(HttpServletResponse.SC_OK)
             withResponse(new JsonBuilder( 
 				[
+					customerId:customer.customerId,
 					firstName:customer.firstName,
 					lastName:customer.lastName,
 					email:customer.email,
