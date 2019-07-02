@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:parameter="http://www.bonitasoft.org/ns/studio/parameter" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
   <process:MainProcess xmi:id="_x5qBwPSMEeeYpYD60oU_zA" name="Credit Card Dispute" author="Romain" bonitaVersion="7.9.0" bonitaModelVersion="7.9.0-002" configId="ACED000574002343726564697420436172642044697370757465372E392E302D303032372E392E307370">
     <elements xmi:type="process:Pool" xmi:id="_x5qBwfSMEeeYpYD60oU_zA" name="Credit Card Dispute">
       <elements xmi:type="process:Lane" xmi:id="_THYTwJwPEemz_6GYzsxGrA" name="Bank employee" actor="_0btbMJwPEemz_6GYzsxGrA">
@@ -70,9 +70,7 @@
             <referencedElements xmi:type="process:Data" xmi:id="_VdAjwJzSEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
           </stepSummary>
           <data xmi:type="process:Data" xmi:id="_Yn858JzLEemsNbXOsawszg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
-            <defaultValue xmi:type="expression:Expression" xmi:id="_Yn858ZzLEemsNbXOsawszg" name="init_$activityState()" content="&#xD;&#xA;['INVESTIGATING','PROCESSING CHARGEBACK'].contains(dispute.status) ? 'Discretionary' : 'N/A'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_j7MkQJzVEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
-            </defaultValue>
+            <defaultValue xmi:type="expression:Expression" xmi:id="_Yn858ZzLEemsNbXOsawszg" name="Discretionary" content="Discretionary" interpreter="GROOVY"/>
           </data>
           <data xmi:type="process:Data" xmi:id="_cUJ0AJzNEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
             <defaultValue xmi:type="expression:Expression" xmi:id="_cUJ0AZzNEemsNbXOsawszg" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List"/>
@@ -299,8 +297,9 @@
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_hp26cPUdEeeREboOt7l4UQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_hp26cvUdEeeREboOt7l4UQ" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_8F-54AHUEeiNfNN2BDEehQ" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
-            <defaultValue xmi:type="expression:Expression" xmi:id="_2bDBQAHdEeiNfNN2BDEehQ" name="updateChargebackState()" content="dispute.status == 'PROCESSING CHARGEBACK' ? 'Required' : 'N/A'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_HMnb0JwYEemz_6GYzsxGrA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <defaultValue xmi:type="expression:Expression" xmi:id="_2bDBQAHdEeiNfNN2BDEehQ" name="updateChargebackState()" content="if(dispute.status == 'PROCESSING CHARGEBACK'){&#xD;&#xA;&#x9;if(dispute.amount &lt; supervisorReviewAmountThreshold || dispute.supervisorApproval){&#xD;&#xA;&#x9;&#x9;return 'Required'&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;return 'N/A'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_9yV1gJziEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="parameter:Parameter" xmi:id="_9yV1gZziEemsNbXOsawszg" name="supervisorReviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
             </defaultValue>
           </data>
           <loopCondition xmi:type="expression:Expression" xmi:id="_hp26dPUdEeeREboOt7l4UQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
@@ -331,6 +330,55 @@
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_x5qB5_SMEeeYpYD60oU_zA"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_x5qB6PSMEeeYpYD60oU_zA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
+        </elements>
+      </elements>
+      <elements xmi:type="process:Lane" xmi:id="_flS6AJzgEemsNbXOsawszg" name="Dispute Supervisor" actor="_o5SN4JzgEemsNbXOsawszg">
+        <elements xmi:type="process:Task" xmi:id="_h5eYkJzfEemsNbXOsawszg" name="Supervisor Review" overrideActorsOfTheLane="false">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_h5jREJzfEemsNbXOsawszg" name="displayName()" content="'&amp;#x2606; Supervisor Review'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_h5iqAJzfEemsNbXOsawszg" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_h5jREZzfEemsNbXOsawszg" name="" content="" returnTypeFixed="true"/>
+          <data xmi:type="process:Data" xmi:id="_3KSq0JzfEemsNbXOsawszg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
+            <defaultValue xmi:type="expression:Expression" xmi:id="_3KSq0ZzfEemsNbXOsawszg" name="updateActivityState()" content="if(dispute.status == 'PROCESSING CHARGEBACK'){&#xD;&#xA;&#x9;return dispute.amount >= supervisorReviewAmountThreshold ? 'Required' : 'Optional'&#xD;&#xA;}&#xD;&#xA;return 'N/A'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_IMsCkJzlEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="parameter:Parameter" xmi:id="_IMsCkZzlEemsNbXOsawszg" name="supervisorReviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
+            </defaultValue>
+          </data>
+          <operations xmi:type="expression:Operation" xmi:id="_6NgAUJzjEemsNbXOsawszg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_6NgAUZzjEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_6mgWMJzjEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_6NgAUpzjEemsNbXOsawszg" name="approveDisputedAmount" content="approveDisputedAmount" type="TYPE_CONTRACT_INPUT" returnType="java.lang.Boolean">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_BQW_EJzkEemsNbXOsawszg" name="approveDisputedAmount" type="BOOLEAN">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_BQW_EZzkEemsNbXOsawszg"/>
+              </referencedElements>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_6NgAU5zjEemsNbXOsawszg" type="JAVA_METHOD" expression="setSupervisorApproval">
+              <inputTypes>java.lang.Boolean</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_CE1I8JzkEemsNbXOsawszg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_CE1I8ZzkEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_CdDbsJzkEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_CE1I8pzkEemsNbXOsawszg" name="updateLastUpdateDate()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;OffsetDateTime.now()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime"/>
+            <operator xmi:type="expression:Operator" xmi:id="_CE1I85zkEemsNbXOsawszg" type="JAVA_METHOD" expression="setLastUpdateDate">
+              <inputTypes>java.time.OffsetDateTime</inputTypes>
+            </operator>
+          </operations>
+          <loopCondition xmi:type="expression:Expression" xmi:id="_h5jREpzfEemsNbXOsawszg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <loopMaximum xmi:type="expression:Expression" xmi:id="_h5jRE5zfEemsNbXOsawszg" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <cardinalityExpression xmi:type="expression:Expression" xmi:id="_h5jRFJzfEemsNbXOsawszg" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <iteratorExpression xmi:type="expression:Expression" xmi:id="_h5jRFpzfEemsNbXOsawszg" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
+          <completionCondition xmi:type="expression:Expression" xmi:id="_h5jRFZzfEemsNbXOsawszg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <formMapping xmi:type="process:FormMapping" xmi:id="_h5jRGJzfEemsNbXOsawszg">
+            <targetForm xmi:type="expression:Expression" xmi:id="_h5jRGZzfEemsNbXOsawszg" name="ValidateDisputeForm" content="cd453357-4d49-485c-b260-f546056151c0" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+          </formMapping>
+          <contract xmi:type="process:Contract" xmi:id="_h5jRF5zfEemsNbXOsawszg">
+            <inputs xmi:type="process:ContractInput" xmi:id="_DPKDgJzjEemsNbXOsawszg" name="approveDisputedAmount" type="BOOLEAN">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_DPKDgZzjEemsNbXOsawszg"/>
+            </inputs>
+          </contract>
+          <expectedDuration xmi:type="expression:Expression" xmi:id="_h5jRGpzfEemsNbXOsawszg" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
       </elements>
       <data xmi:type="process:BusinessObjectData" xmi:id="_mRGqAPUrEeeJbuCjYn0Nqw" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer">
@@ -369,9 +417,10 @@
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_wAT6kZyWEemqZaueLnuvxA"/>
         <condition xmi:type="expression:Expression" xmi:id="_wAT6kpyWEemqZaueLnuvxA" name="" content="" type="TYPE_CONDITION" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
-      <actors xmi:type="process:Actor" xmi:id="_x5qCI_SMEeeYpYD60oU_zA" name=" Customer Service" initiator="true"/>
+      <actors xmi:type="process:Actor" xmi:id="_x5qCI_SMEeeYpYD60oU_zA" name="Customer Service" initiator="true"/>
       <actors xmi:type="process:Actor" xmi:id="_lJR6UJwMEemz_6GYzsxGrA" name="Dispute Agent"/>
       <actors xmi:type="process:Actor" xmi:id="_0btbMJwPEemz_6GYzsxGrA" documentation="A generic actor that should encapsulate all the actors of the case" name="Bank Employee"/>
+      <actors xmi:type="process:Actor" xmi:id="_o5SN4JzgEemsNbXOsawszg" name="Dispute Supervisor"/>
       <configurations xmi:type="configuration:Configuration" xmi:id="_At93wAdeEeiGn-a9BKu52g" name="Qualification" version="7.6.0-002" username="walter.bates" password="bpm">
         <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_AuA7EAdeEeiGn-a9BKu52g">
           <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_AuA7EQdeEeiGn-a9BKu52g" name="Customer">
@@ -380,7 +429,7 @@
             <roles xmi:type="actormapping:Roles" xmi:id="_AuA7FAdeEeiGn-a9BKu52g"/>
             <users xmi:type="actormapping:Users" xmi:id="_AuA7FQdeEeiGn-a9BKu52g"/>
           </actorMapping>
-          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_AuA7FgdeEeiGn-a9BKu52g" name=" Customer Service">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_AuA7FgdeEeiGn-a9BKu52g" name="Customer Service">
             <groups xmi:type="actormapping:Groups" xmi:id="_AuA7FwdeEeiGn-a9BKu52g"/>
             <memberships xmi:type="actormapping:Membership" xmi:id="_AuA7GAdeEeiGn-a9BKu52g"/>
             <roles xmi:type="actormapping:Roles" xmi:id="_AuA7GQdeEeiGn-a9BKu52g"/>
@@ -412,7 +461,7 @@
             <roles xmi:type="actormapping:Roles" xmi:id="_ZbqSZSeQEei7d4O1CuuFSg"/>
             <users xmi:type="actormapping:Users" xmi:id="_ZbqSZieQEei7d4O1CuuFSg"/>
           </actorMapping>
-          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_ZbqSZyeQEei7d4O1CuuFSg" name=" Customer Service">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_ZbqSZyeQEei7d4O1CuuFSg" name="Customer Service">
             <groups xmi:type="actormapping:Groups" xmi:id="_ZbqSaCeQEei7d4O1CuuFSg">
               <group>/acme</group>
             </groups>
@@ -433,7 +482,7 @@
       </configurations>
       <configurations xmi:type="configuration:Configuration" xmi:id="_Gv5hEJwMEemz_6GYzsxGrA" name="Development" version="7.9.0-002" username="misa.kumagai" password="bpm">
         <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_Gv6vMJwMEemz_6GYzsxGrA">
-          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_Gv6vNpwMEemz_6GYzsxGrA" name=" Customer Service">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_Gv6vNpwMEemz_6GYzsxGrA" name="Customer Service">
             <groups xmi:type="actormapping:Groups" xmi:id="_Gv6vN5wMEemz_6GYzsxGrA">
               <group>/acme/sales</group>
             </groups>
@@ -443,7 +492,7 @@
           </actorMapping>
           <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_pXQLEJwWEemz_6GYzsxGrA" name="Dispute Agent">
             <groups xmi:type="actormapping:Groups" xmi:id="_pXQLEZwWEemz_6GYzsxGrA">
-              <group>/acme/finance</group>
+              <group>/acme/production</group>
             </groups>
             <memberships xmi:type="actormapping:Membership" xmi:id="_pXQLEpwWEemz_6GYzsxGrA"/>
             <roles xmi:type="actormapping:Roles" xmi:id="_pXQLE5wWEemz_6GYzsxGrA"/>
@@ -456,6 +505,14 @@
             <memberships xmi:type="actormapping:Membership" xmi:id="_pXQLF5wWEemz_6GYzsxGrA"/>
             <roles xmi:type="actormapping:Roles" xmi:id="_pXQLGJwWEemz_6GYzsxGrA"/>
             <users xmi:type="actormapping:Users" xmi:id="_pXQLGZwWEemz_6GYzsxGrA"/>
+          </actorMapping>
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_tg7HYJzgEemsNbXOsawszg" name="Dispute Supervisor">
+            <groups xmi:type="actormapping:Groups" xmi:id="_tg7HYZzgEemsNbXOsawszg">
+              <group>/acme/finance</group>
+            </groups>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_tg7HYpzgEemsNbXOsawszg"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_tg7HY5zgEemsNbXOsawszg"/>
+            <users xmi:type="actormapping:Users" xmi:id="_tg7HZJzgEemsNbXOsawszg"/>
           </actorMapping>
         </actorMappings>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hEZwMEemz_6GYzsxGrA" id="ACTOR_FILTER"/>
@@ -470,7 +527,9 @@
           <fragments xmi:type="configuration:Fragment" xmi:id="_3iC58ZzTEemsNbXOsawszg" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" type="GROOVY_SCRIPT"/>
         </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hGJwMEemz_6GYzsxGrA" id="OTHER"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_tg7HZZzgEemsNbXOsawszg" name="supervisorReviewAmountThreshold" value="500" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
       </configurations>
+      <parameters xmi:type="parameter:Parameter" xmi:id="_FP4sgJzgEemsNbXOsawszg" name="supervisorReviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
       <contract xmi:type="process:Contract" xmi:id="_x5qCJPSMEeeYpYD60oU_zA">
         <inputs xmi:type="process:ContractInput" xmi:id="_RjVZMJdQEemS2vHmcHFszw" name="customerId">
           <mapping xmi:type="process:ContractInputMapping" xmi:id="_RjVZMZdQEemS2vHmcHFszw"/>
@@ -547,7 +606,7 @@
               <styles xmi:type="notation:DescriptionStyle" xmi:id="_RKXEoZyXEemqZaueLnuvxA"/>
               <styles xmi:type="notation:FontStyle" xmi:id="_RKXEopyXEemqZaueLnuvxA" fontName="Segoe UI"/>
               <styles xmi:type="notation:LineStyle" xmi:id="_RKXEo5yXEemqZaueLnuvxA"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RKXEpJyXEemqZaueLnuvxA" x="1036" y="191" width="432" height="250"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RKXEpJyXEemqZaueLnuvxA" x="707" y="18" width="229" height="115"/>
             </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_x5qCXPSMEeeYpYD60oU_zA"/>
@@ -613,6 +672,20 @@
           <styles xmi:type="notation:LineStyle" xmi:id="_THY605wPEemz_6GYzsxGrA"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_THY615wPEemz_6GYzsxGrA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_THY61JwPEemz_6GYzsxGrA" x="48" y="10" width="1711" height="218"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_flUvMJzgEemsNbXOsawszg" type="3007" element="_flS6AJzgEemsNbXOsawszg">
+          <children xmi:type="notation:DecorationNode" xmi:id="_flUvNZzgEemsNbXOsawszg" type="5007"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_flUvNpzgEemsNbXOsawszg" type="7002">
+            <children xmi:type="notation:Shape" xmi:id="_h5nigJzfEemsNbXOsawszg" type="3005" element="_h5eYkJzfEemsNbXOsawszg" fontName="Segoe UI" fillColor="14334392" lineColor="10710316">
+              <children xmi:type="notation:DecorationNode" xmi:id="_h5oJkJzfEemsNbXOsawszg" type="5005"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h5nigZzfEemsNbXOsawszg" x="138" y="68" width="106" height="53"/>
+            </children>
+          </children>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_flUvMZzgEemsNbXOsawszg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_flUvMpzgEemsNbXOsawszg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_flUvM5zgEemsNbXOsawszg"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_flUvN5zgEemsNbXOsawszg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_flUvNJzgEemsNbXOsawszg" x="48" y="1111" width="1711" height="190"/>
         </children>
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_x5qCYfSMEeeYpYD60oU_zA"/>

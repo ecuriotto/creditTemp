@@ -3,14 +3,14 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseDocuments",
   "name" : "CaseDocuments",
-  "lastUpdate" : 1561640959585,
+  "lastUpdate" : 1562080224361,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
       "xs" : 12,
-      "sm" : 1,
-      "md" : 1,
-      "lg" : 2
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -27,7 +27,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h3><span class=\"glyphicon glyphicon-paperclip\" aria-hidden=\"true\"></span> Case documents</h3>"
+        "value" : "<h4><span class=\"glyphicon glyphicon-paperclip\" aria-hidden=\"true\"></span> Case documents</h4>"
       },
       "alignment" : {
         "type" : "constant",
@@ -53,18 +53,18 @@
     "reference" : "3b6e04cd-651b-4fc2-9e8b-846ca747ebe8",
     "hasValidationError" : false,
     "id" : "pbText"
-  }, {
+  } ], [ {
     "type" : "component",
     "dimension" : {
       "xs" : 12,
-      "sm" : 11,
-      "md" : 11,
-      "lg" : 10
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
     },
     "propertyValues" : {
       "cssClasses" : {
         "type" : "constant",
-        "value" : "padding-top-15"
+        "value" : ""
       },
       "hidden" : {
         "type" : "constant",

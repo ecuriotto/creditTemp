@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseHistory",
   "name" : "CaseHistory",
-  "lastUpdate" : 1561886743331,
+  "lastUpdate" : 1562079914741,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -27,7 +27,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h3><span class=\"glyphicon glyphicon-time\" aria-hidden=\"true\"></span> Case history</h3>"
+        "value" : "<h4><span class=\"glyphicon glyphicon-time\" aria-hidden=\"true\"></span> Case history</h4>"
       },
       "alignment" : {
         "type" : "constant",

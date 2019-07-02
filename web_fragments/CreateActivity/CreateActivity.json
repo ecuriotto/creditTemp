@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CreateActivity",
   "name" : "CreateActivity",
-  "lastUpdate" : 1554212886739,
+  "lastUpdate" : 1562079886938,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -27,7 +27,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h3><span class=\"glyphicon glyphicon-plus-sign\" aria-hidden=\"true\"></span> Create activitiy</h3>"
+        "value" : "<h4><span class=\"glyphicon glyphicon-plus-sign\" aria-hidden=\"true\"></span> Create activitiy</h4>"
       },
       "alignment" : {
         "type" : "constant",

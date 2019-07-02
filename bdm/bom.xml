@@ -84,6 +84,7 @@
                 <field type="OFFSETDATETIME" length="255" name="creationDate" nullable="false" collection="false"/>
                 <field type="OFFSETDATETIME" length="255" name="txDate" nullable="true" collection="false"/>
                 <field type="OFFSETDATETIME" length="255" name="lastUpdateDate" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="supervisorApproval" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints/>
             <queries/>
