@@ -55,7 +55,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 		
 		//Retrieve pending activities
 		def result = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
-				.findAll{ it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY && it.name != UPDATE_DISPUTE && it.parentProcessInstanceId ==  caseId.toLong() }
+				.findAll{ it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY && it.parentProcessInstanceId ==  caseId.toLong() }
 				.collect{ toActivity(it, getACMStateValue(it,processAPI), pDef, request.contextPath) }
 
 
@@ -75,7 +75,6 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 			filter(ArchivedHumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
 			differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
 			differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, CREATE_ACTIVITY)
-			differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, UPDATE_DISPUTE)
 			done()
 		}).getResult()
 		.findAll{ //remove finished loop task instances

@@ -43,7 +43,7 @@ class Dispute implements RestApiController, CaseActivityHelper, BPMNamesConstant
 			lastUpdateDate: dispute.lastUpdateDate?.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME),
 			amount:dispute.amount,
 			txDate:dispute.txDate?.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME),
-			merchandIdNumber:dispute.merchantIdNumber,
+			merchantIdNumber:dispute.merchantIdNumber,
 			currency:dispute.currency,
 			status:dispute.status
 		]).toString())

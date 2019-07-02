@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CustomerData",
   "name" : "CustomerData",
-  "lastUpdate" : 1562061799702,
+  "lastUpdate" : 1562072273031,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -92,7 +92,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<dl  class=\"dl-horizontal\">\n<dt><span class=\"glyphicon glyphicon-user\"> </span> Customer</dt><dd>{{customer.firstName}} {{customer.lastName}}</dd>\n<dt> <span class=\"glyphicon glyphicon-envelope\"> </span></p> Email</dt><dd><a href=\"mailto:{{customer.email}}\">{{customer.email}} </a></dd>\n<dt> <span class=\"glyphicon glyphicon-earphone\"> </span></p> Phone</dt><dd><a href=\"tel:{{customer.phoneNumber}}\">{{customer.phoneNumber}}</a></dd>\n<dt> <span class=\"glyphicon glyphicon-piggy-bank\"> </span></p> Account</dt><dd>{{customer.accountId}}</dd>\n</dl>"
+        "value" : "<dl  class=\"dl-horizontal\">\n<dt><span class=\"glyphicon glyphicon-user\"> </span> Customer</dt><dd>{{customer.firstName}} {{customer.lastName}} ({{customer.customerId}})</dd>\n<dt> <span class=\"glyphicon glyphicon-envelope\"> </span></p> Email</dt><dd><a href=\"mailto:{{customer.email}}\">{{customer.email}} </a></dd>\n<dt> <span class=\"glyphicon glyphicon-earphone\"> </span></p> Phone</dt><dd><a href=\"tel:{{customer.phoneNumber}}\">{{customer.phoneNumber}}</a></dd>\n<dt> <span class=\"glyphicon glyphicon-piggy-bank\"> </span></p> Account</dt><dd>{{customer.accountId}}</dd>\n</dl>"
       },
       "alignment" : {
         "type" : "constant",

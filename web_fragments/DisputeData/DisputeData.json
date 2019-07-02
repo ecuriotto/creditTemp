@@ -3,14 +3,14 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "DisputeData",
   "name" : "DisputeData",
-  "lastUpdate" : 1562063325514,
+  "lastUpdate" : 1562077543168,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
       "md" : 12,
-      "lg" : 6
+      "lg" : 12
     },
     "propertyValues" : {
       "cssClasses" : {

@@ -64,46 +64,122 @@
         </elements>
         <elements xmi:type="process:TextAnnotation" xmi:id="_t2k0cPYZEeesarEo_Te_Dg" text="Technical workaround to create Manual task"/>
         <elements xmi:type="process:Task" xmi:id="_58yIAJwYEemz_6GYzsxGrA" name="Update Dispute" type="STANDARD" overrideActorsOfTheLane="false">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_58yvEZwYEemz_6GYzsxGrA" name="" content="" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_58yvEZwYEemz_6GYzsxGrA" name="displayName()" content="'&amp;#x1f4c1; Update Dispute'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_58yvEJwYEemz_6GYzsxGrA" name="" content="" returnTypeFixed="true"/>
-          <stepSummary xmi:type="expression:Expression" xmi:id="_58yvEpwYEemz_6GYzsxGrA" name="descriptionAfterCompletion()" content="&quot;Dispute updated: '$fieldsToUpdate'&quot;.toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
-            <referencedElements xmi:type="process:ContractInput" xmi:id="_-cbmUJwcEemz_6GYzsxGrA" name="fieldsToUpdate" type="COMPLEX" multiple="true">
-              <mapping xmi:type="process:ContractInputMapping" xmi:id="_-cbmUZwcEemz_6GYzsxGrA"/>
-            </referencedElements>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_58yvEpwYEemz_6GYzsxGrA" name="descriptionAfterCompletion()" content="println updates&#xD;&#xA;def desc ='&lt;ul>'&#xD;&#xA;updates.each { desc = desc.concat(&quot;&lt;li>$it&lt;/li>&quot;)}&#xD;&#xA;desc = desc.concat('&lt;/ul>')&#xD;&#xA;desc.toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+            <referencedElements xmi:type="process:Data" xmi:id="_VdAjwJzSEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
           </stepSummary>
-          <operations xmi:type="expression:Operation" xmi:id="_ZoBKsJwZEemz_6GYzsxGrA">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_ZoBKsZwZEemz_6GYzsxGrA" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_siTqcJwZEemz_6GYzsxGrA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+          <data xmi:type="process:Data" xmi:id="_Yn858JzLEemsNbXOsawszg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
+            <defaultValue xmi:type="expression:Expression" xmi:id="_Yn858ZzLEemsNbXOsawszg" name="init_$activityState()" content="&#xD;&#xA;['INVESTIGATING','PROCESSING CHARGEBACK'].contains(dispute.status) ? 'Discretionary' : 'N/A'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_j7MkQJzVEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            </defaultValue>
+          </data>
+          <data xmi:type="process:Data" xmi:id="_cUJ0AJzNEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
+            <defaultValue xmi:type="expression:Expression" xmi:id="_cUJ0AZzNEemsNbXOsawszg" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List"/>
+          </data>
+          <operations xmi:type="expression:Operation" xmi:id="_gC6Pp5zLEemsNbXOsawszg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PqJzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6PqZzLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_ZoBKspwZEemz_6GYzsxGrA" name="updateDispute()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;fieldsToUpdate.each { field ->&#xD;&#xA;&#x9;def propertyToUpdate = dispute.properties&#xD;&#xA;&#x9;&#x9;.find { prop, val -> prop == field.name}&#xD;&#xA;&#x9;&#x9;println propertyToUpdate&#xD;&#xA;&#x9;if(propertyToUpdate){&#xD;&#xA;&#x9;&#x9;switch(field.type){&#xD;&#xA;&#x9;&#x9;&#x9;case String.getName(): dispute.&quot;$propertyToUpdate.key&quot; = field.value; break;&#xD;&#xA;&#x9;&#x9;&#x9;case Long.getName(): dispute.&quot;$propertyToUpdate.key&quot; = field.value.toLong(); break;&#xD;&#xA;&#x9;&#x9;&#x9;case Double.getName(): dispute.&quot;$propertyToUpdate.key&quot; = field.value.toDouble(); break;&#xD;&#xA;&#x9;&#x9;&#x9;case Boolean.getName(): dispute.&quot;$propertyToUpdate.key&quot; = Boolean.valueOf(field.value); break;&#xD;&#xA;&#x9;&#x9;&#x9;default:break;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;dispute.setLastUpdateDate(OffsetDateTime.now())&#xD;&#xA;dispute" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_LBCrgJwfEemz_6GYzsxGrA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
-              <referencedElements xmi:type="process:ContractInput" xmi:id="_LBCrgZwfEemz_6GYzsxGrA" name="fieldsToUpdate" type="COMPLEX" multiple="true">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="_LBCrgpwfEemz_6GYzsxGrA"/>
-              </referencedElements>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PqpzLEemsNbXOsawszg" name="disputeInput.status" content="import com.company.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI,activityInstanceId, 'Status', dispute.status,  disputeInput?.status, 'updates', updates)&#xD;&#xA;disputeInput?.status" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="expression:Expression" xmi:id="_G90EYJzUEemsNbXOsawszg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+              <referencedElements xmi:type="process:Data" xmi:id="_G90EYZzUEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_G90EYpzUEemsNbXOsawszg" name="activityInstanceId" content="activityInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_fXIOEJzTEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_fXIOEZzTEemsNbXOsawszg" name="disputeInput" type="COMPLEX" createMode="false"/>
             </rightOperand>
-            <operator xmi:type="expression:Operator" xmi:id="_ZoBKs5wZEemz_6GYzsxGrA" type="ASSIGNMENT"/>
+            <operator xmi:type="expression:Operator" xmi:id="_gC6PrJzLEemsNbXOsawszg" type="JAVA_METHOD" expression="setStatus">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_gC6PrZzLEemsNbXOsawszg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PrpzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6Pr5zLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PsJzLEemsNbXOsawszg" name="disputeInput.amount" content="import com.company.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI, activityInstanceId, 'Amount', dispute.amount, disputeInput?.amount, 'updates', updates)&#xD;&#xA;disputeInput?.amount" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Double">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_WuXzEJzUEemsNbXOsawszg" name="disputeInput" type="COMPLEX" createMode="false"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_WuXzEZzUEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_WuXzEpzUEemsNbXOsawszg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_WuXzE5zUEemsNbXOsawszg" name="activityInstanceId" content="activityInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+              <referencedElements xmi:type="process:Data" xmi:id="_WuXzFJzUEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_gC6PspzLEemsNbXOsawszg" type="JAVA_METHOD" expression="setAmount">
+              <inputTypes>java.lang.Double</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_gC6Ps5zLEemsNbXOsawszg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PtJzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6PtZzLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PtpzLEemsNbXOsawszg" name="disputeInput.currency" content="import com.company.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI, activityInstanceId, 'Currency', dispute.currency, disputeInput?.currency, 'updates', updates)&#xD;&#xA;disputeInput?.currency" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="expression:Expression" xmi:id="_SQxGsJzREemsNbXOsawszg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_SQxGsZzREemsNbXOsawszg" name="activityInstanceId" content="activityInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+              <referencedElements xmi:type="process:Data" xmi:id="_SQxGspzREemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_CjYdQJzQEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_gC6Pt5zLEemsNbXOsawszg" name="disputeInput" type="COMPLEX" createMode="false"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_gC6PuJzLEemsNbXOsawszg" type="JAVA_METHOD" expression="setCurrency">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_gC6PuZzLEemsNbXOsawszg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PupzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6Pu5zLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PvJzLEemsNbXOsawszg" name="disputeInput.merchantIdNumber" content="import com.company.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI, activityInstanceId, 'MIN', dispute.merchantIdNumber, disputeInput?.merchantIdNumber, 'updates', updates)&#xD;&#xA;disputeInput?.merchantIdNumber" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_XP3d8JzREemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_XP4FAJzREemsNbXOsawszg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_XP4FAZzREemsNbXOsawszg" name="disputeInput" type="COMPLEX" createMode="false"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_XP4FApzREemsNbXOsawszg" name="activityInstanceId" content="activityInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+              <referencedElements xmi:type="process:Data" xmi:id="_XP4FA5zREemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_gC6PvpzLEemsNbXOsawszg" type="JAVA_METHOD" expression="setMerchantIdNumber">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_gC6Pv5zLEemsNbXOsawszg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PwJzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6PwZzLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PwpzLEemsNbXOsawszg" name="disputeInput.txDate" content="import java.time.format.DateTimeFormatter&#xD;&#xA;&#xD;&#xA;import com.company.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI, activityInstanceId, 'Transacation date', dispute.txDate?.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME), disputeInput?.txDate?.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME), 'updates', updates)&#xD;&#xA;disputeInput?.txDate" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_oxbv4JzUEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_oxbv4ZzUEemsNbXOsawszg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_oxcW8JzUEemsNbXOsawszg" name="disputeInput" type="COMPLEX" createMode="false"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_oxcW8ZzUEemsNbXOsawszg" name="activityInstanceId" content="activityInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+              <referencedElements xmi:type="process:Data" xmi:id="_oxcW8pzUEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_gC6PxJzLEemsNbXOsawszg" type="JAVA_METHOD" expression="setTxDate">
+              <inputTypes>java.time.OffsetDateTime</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_iKLeIJzLEemsNbXOsawszg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_iKLeIZzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_ih2-UJzLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_iKLeIpzLEemsNbXOsawszg" name="now()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;OffsetDateTime.now()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime"/>
+            <operator xmi:type="expression:Operator" xmi:id="_iKLeI5zLEemsNbXOsawszg" type="JAVA_METHOD" expression="setLastUpdateDate">
+              <inputTypes>java.time.OffsetDateTime</inputTypes>
+            </operator>
           </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_58yvE5wYEemz_6GYzsxGrA" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_58yvFJwYEemz_6GYzsxGrA" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_58yvFZwYEemz_6GYzsxGrA" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_58yvF5wYEemz_6GYzsxGrA" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_58yvFpwYEemz_6GYzsxGrA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
-          <formMapping xmi:type="process:FormMapping" xmi:id="_58yvGZwYEemz_6GYzsxGrA" type="NONE">
-            <targetForm xmi:type="expression:Expression" xmi:id="_wuqj4JweEemz_6GYzsxGrA" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+          <formMapping xmi:type="process:FormMapping" xmi:id="_58yvGZwYEemz_6GYzsxGrA">
+            <targetForm xmi:type="expression:Expression" xmi:id="_oD8t4JzLEemsNbXOsawszg" name="EditDispute" content="5b7ff1a4-c2c6-46f7-ba17-01558ba427df" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_58yvGJwYEemz_6GYzsxGrA">
-            <inputs xmi:type="process:ContractInput" xmi:id="_KBDc4JwZEemz_6GYzsxGrA" name="fieldsToUpdate" type="COMPLEX" multiple="true">
-              <mapping xmi:type="process:ContractInputMapping" xmi:id="_KBDc4ZwZEemz_6GYzsxGrA"/>
-              <inputs xmi:type="process:ContractInput" xmi:id="_NtBYUJwZEemz_6GYzsxGrA" name="name">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="_NtBYUZwZEemz_6GYzsxGrA"/>
-              </inputs>
-              <inputs xmi:type="process:ContractInput" xmi:id="_PZI74JwZEemz_6GYzsxGrA" name="type">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="_PZI74ZwZEemz_6GYzsxGrA"/>
-              </inputs>
-              <inputs xmi:type="process:ContractInput" xmi:id="_Rq_CsJwZEemz_6GYzsxGrA" name="value">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="_Rq_CsZwZEemz_6GYzsxGrA"/>
-              </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_gC6PoJzLEemsNbXOsawszg" name="disputeInput" type="COMPLEX" dataReference="dispute" createMode="false">
+              <inputs xmi:type="process:ContractInput" xmi:id="_gC6PoZzLEemsNbXOsawszg" name="status" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_gC6PopzLEemsNbXOsawszg" name="amount" type="DECIMAL" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_gC6Po5zLEemsNbXOsawszg" name="currency" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_gC6PpJzLEemsNbXOsawszg" name="merchantIdNumber" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_gC6PpZzLEemsNbXOsawszg" name="txDate" type="OFFSETDATETIME" createMode="false"/>
             </inputs>
+            <constraints xmi:type="process:ContractConstraint" xmi:id="_gC6PppzLEemsNbXOsawszg" expression="disputeInput?.status != null" errorMessage="status is mandatory for Dispute" name="mandatory_disputeInput_status">
+              <inputNames>disputeInput</inputNames>
+            </constraints>
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_58yvG5wYEemz_6GYzsxGrA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
@@ -159,6 +235,17 @@
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_7aia6JyZEemqZaueLnuvxA" type="JAVA_METHOD" expression="setMerchantIdNumber">
               <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_jYy0EJzQEemsNbXOsawszg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_jYy0EZzQEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_kIkrMJzQEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_jYy0EpzQEemsNbXOsawszg" name="disputeInput.txDate" content="disputeInput?.txDate" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_n8eaoJzQEemsNbXOsawszg" name="disputeInput" type="COMPLEX" createMode="false"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_jYy0E5zQEemsNbXOsawszg" type="JAVA_METHOD" expression="setTxDate">
+              <inputTypes>java.time.OffsetDateTime</inputTypes>
             </operator>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_FgylMJyyEem6Cs5xpESlFw">
@@ -255,7 +342,7 @@
         </defaultValue>
       </data>
       <data xmi:type="process:BusinessObjectData" xmi:id="__3lJIJdPEemS2vHmcHFszw" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute">
-        <defaultValue xmi:type="expression:Expression" xmi:id="__3lJIZdPEemS2vHmcHFszw" name="init_dispute()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;def now = OffsetDateTime.now()&#xD;&#xA;disputeDAO.newInstance(customerId , 'NEW', now).with {&#xD;&#xA;&#x9;setCurrency('USD')&#xD;&#xA;&#x9;setLastUpdateDate(now)&#xD;&#xA;&#x9;it&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Dispute">
+        <defaultValue xmi:type="expression:Expression" xmi:id="__3lJIZdPEemS2vHmcHFszw" name="init_dispute()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;def now = OffsetDateTime.now()&#xD;&#xA;disputeDAO.newInstance(customerId , 'PENDING', now).with {&#xD;&#xA;&#x9;setCurrency('USD')&#xD;&#xA;&#x9;setLastUpdateDate(now)&#xD;&#xA;&#x9;it&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Dispute">
           <referencedElements xmi:type="expression:Expression" xmi:id="_EcvHMJyyEem6Cs5xpESlFw" name="disputeDAO" content="disputeDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.DisputeDAO" returnTypeFixed="true"/>
           <referencedElements xmi:type="process:ContractInput" xmi:id="_EcvHMZyyEem6Cs5xpESlFw" name="customerId">
             <mapping xmi:type="process:ContractInputMapping" xmi:id="_EcvHMpyyEem6Cs5xpESlFw"/>
@@ -374,10 +461,14 @@
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hEZwMEemz_6GYzsxGrA" id="ACTOR_FILTER"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hEpwMEemz_6GYzsxGrA" id="CONNECTOR"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hE5wMEemz_6GYzsxGrA" id="DATA_TYPES"/>
-        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFJwMEemz_6GYzsxGrA" id="GROOVY_SCRIPT"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFJwMEemz_6GYzsxGrA" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_3iC58JzTEemsNbXOsawszg" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" type="GROOVY_SCRIPT"/>
+        </processDependencies>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFZwMEemz_6GYzsxGrA" id="OTHER"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFpwMEemz_6GYzsxGrA" id="DATA_TYPES"/>
-        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hF5wMEemz_6GYzsxGrA" id="GROOVY_SCRIPT"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hF5wMEemz_6GYzsxGrA" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_3iC58ZzTEemsNbXOsawszg" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" type="GROOVY_SCRIPT"/>
+        </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hGJwMEemz_6GYzsxGrA" id="OTHER"/>
       </configurations>
       <contract xmi:type="process:Contract" xmi:id="_x5qCJPSMEeeYpYD60oU_zA">
