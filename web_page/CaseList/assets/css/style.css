@@ -36,3 +36,7 @@ ul {
 .modal-open .timepicker {
     z-index: 9999;
 }
+
+.list-container {
+    padding: 30px;
+}

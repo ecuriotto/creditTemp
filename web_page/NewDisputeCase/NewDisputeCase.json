@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "NewDisputeCase",
   "name" : "NewDisputeCase",
-  "lastUpdate" : 1562071637021,
+  "lastUpdate" : 1562174171984,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -188,7 +188,7 @@
           },
           "label" : {
             "type" : "interpolation",
-            "value" : "Submit"
+            "value" : "<i class=\"glyphicon glyphicon-plus\"></i> Create Dispute"
           },
           "dataToSend" : {
             "type" : "expression",
