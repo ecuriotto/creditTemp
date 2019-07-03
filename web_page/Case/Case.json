@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1562162058595,
+  "lastUpdate" : 1562165760823,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -186,6 +186,43 @@
           "xs" : 12
         },
         "propertyValues" : { },
+        "reference" : "d15c2d3b-92f9-4e63-b0f5-e1a2f644e2de",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "fragment",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            }
+          },
+          "reference" : "47f42ecc-c0e2-4c84-b1d0-1bbf77106505",
+          "hasValidationError" : false,
+          "id" : "CaseHistory",
+          "binding" : {
+            "caseHistory" : "caseHistory"
+          }
+        } ] ]
+      },
+      "title" : "History"
+    }, {
+      "container" : {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12
+        },
+        "propertyValues" : { },
         "reference" : "3b35ac40-50ef-48a7-9ab0-c01a7fa23e0d",
         "hasValidationError" : false,
         "id" : "pbContainer",
@@ -218,43 +255,6 @@
         } ] ]
       },
       "title" : "Comments"
-    }, {
-      "container" : {
-        "type" : "container",
-        "dimension" : {
-          "xs" : 12
-        },
-        "propertyValues" : { },
-        "reference" : "d15c2d3b-92f9-4e63-b0f5-e1a2f644e2de",
-        "hasValidationError" : false,
-        "id" : "pbContainer",
-        "rows" : [ [ {
-          "type" : "fragment",
-          "dimension" : {
-            "xs" : 12,
-            "sm" : 12,
-            "md" : 12,
-            "lg" : 12
-          },
-          "propertyValues" : {
-            "cssClasses" : {
-              "type" : "constant",
-              "value" : ""
-            },
-            "hidden" : {
-              "type" : "constant",
-              "value" : false
-            }
-          },
-          "reference" : "47f42ecc-c0e2-4c84-b1d0-1bbf77106505",
-          "hasValidationError" : false,
-          "id" : "CaseHistory",
-          "binding" : {
-            "caseHistory" : "caseHistory"
-          }
-        } ] ]
-      },
-      "title" : "History"
     }, {
       "container" : {
         "type" : "container",

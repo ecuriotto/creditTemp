@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseActivities",
   "name" : "CaseActivities",
-  "lastUpdate" : 1562149017869,
+  "lastUpdate" : 1562166137558,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -301,7 +301,7 @@
     },
     "formattedColumn" : {
       "type" : "expression",
-      "value" : "return [function(input){\n    if(input.row.url){\n        if(input.row.target){\n            return \"<a href=\\\"\"+input.row.url+\"\\\" target=\\\"\"+input.row.target+\"\\\">\"+input.row.name+\"</a>\";\n        }\n        return \"<a href=\\\"\"+input.row.url+\"\\\">\"+input.row.name+\"</a>\";\n    }\n   return input.row.name;\n}, \nfunction(input){\n     if(input.row.description){\n        return \"<em>\"+input.row.description+\"</em>\" ;\n     }\n    return \"\" ;\n},\n\"acmState ? acmState : bpmState |labelized\"];",
+      "value" : "return [\nfunction(input){\n    var value = `<span title=\\\"${input.row.description}\\\">${input.row.name}</span>`;\n    if(input.row.url){\n        value = `<a title=\\\"${input.row.description}\\\" href=\\\"${input.row.url}\\\" target=\\\"${input.row.target}\\\">${input.row.name}</a>`;\n    }\n     if(input.row.executedBy){\n         value = value + ` &nbsp;&nbsp; <span class=\\\"text-muted\\\"><i class=\\\"glyphicon glyphicon-user\\\"> </i> ${input.row.executedBy}</span>`\n     }\n   return value\n}, \n\"acmState ? acmState : bpmState |labelized\"];",
       "exposed" : false
     },
     "activities" : {

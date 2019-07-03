@@ -79,7 +79,7 @@ class CaseActivityTest extends Specification {
 	}
 	
 	
-	def "should create activity object from  a HumanTaskInstance and a state"() {
+	def "should create activity object from a HumanTaskInstance and a state"() {
 		given:
 		def caseActivity = new CaseActivity()
 		def UserTaskInstance task = Stub(){ UserTaskInstance task ->
@@ -169,6 +169,7 @@ class CaseActivityTest extends Specification {
 		}
 		processAPI.getProcessDefinition(_) >> pDef
 		request.getParameter('caseId') >> 1L
+		identityAPI.getUser(_) >> Stub(User)
 		
 		when:
 		def result = caseActivity.doHandle(request, new RestApiResponseBuilder(), context)

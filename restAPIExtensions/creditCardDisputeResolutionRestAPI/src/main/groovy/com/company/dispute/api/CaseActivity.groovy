@@ -80,6 +80,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 		result = result.sort{ a1,a2 -> valueOfState(a1.acmState) <=> valueOfState(a2.acmState) }
 
 		//Append archived tasks
+		def identityAPI = context.apiClient.getIdentityAPI()
 		result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
 			filter(ArchivedHumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
 			HIDDEN_ACTIVITIES.each {
@@ -92,10 +93,12 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 			it.parentActivityInstanceId == 0 || !isAnArchivedLoopInstance(it, processAPI)
 		}
 		.collect{ ArchivedHumanTaskInstance task ->
+			def user = identityAPI.getUser(task.executedBy)
 			[
 				name:task.displayName ?: task.name,
-				description:task.description,
-				bpmState:task.state.capitalize()
+				description:task.description ?: '',
+				bpmState:task.state.capitalize(),
+				executedBy:"$user.firstName $user.lastName"
 			]
 		})
 
@@ -109,7 +112,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 		[
 			name:task.displayName ?: task.name,
 			url: canExecute(acmState) ? forge(pDef.name,pDef.version,task, contextPath) : null,
-			description:task.description,
+			description:task.description ?: '',
 			target:linkTarget(task),
 			bpmState:task.state.capitalize(),
 			acmState:acmState,
