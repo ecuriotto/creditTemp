@@ -45,41 +45,52 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
 		def caseId = request.getParameter "caseId"
 		if (!caseId) {
-			return buildResponse(responseBuilder, 
-				HttpServletResponse.SC_BAD_REQUEST,
-				"""{"error" : "the parameter caseId is missing"}""")
+			return buildResponse(responseBuilder,
+					HttpServletResponse.SC_BAD_REQUEST,
+					"""{"error" : "the parameter caseId is missing"}""")
 		}
 
 		def ProcessAPI processAPI = context.apiClient.getProcessAPI()
 		def pDef = processAPI.getProcessDefinition(processAPI.getProcessDefinitionIdFromProcessInstanceId(caseId.toLong()))
-		
-		//Retrieve pending activities
-		def result = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
-				.findAll{ it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY && it.parentProcessInstanceId ==  caseId.toLong() }
+
+		//Retrieve pending tasks for current user
+		def userPendingTask = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
+				.findAll{ !HIDDEN_ACTIVITIES.contains(it.name) && it.parentProcessInstanceId == caseId.toLong() }
 				.collect{ toActivity(it, getACMStateValue(it,processAPI), pDef, request.contextPath) }
 
 
-		def containerInstance = findTaskInstance(caseId.toLong(), ACTIVITY_CONTAINER, processAPI)
+		//Retrieve all case tasks including ManualTasks
+		def allCaseTasks = processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
+			filter(HumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId.toLong())
+			HIDDEN_ACTIVITIES.each {
+				differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, it)
+			}
+			done()
+		}).result
+		.collect{ toActivity(it, getACMStateValue(it,processAPI), pDef, request.contextPath) }
+
+		// Check if required task is pending
+		def containsPendingRequiredTasks = allCaseTasks.any{ it.acmState == REQUIRED_STATE }
 		
-		//Retrieve Manual tasks
-		result.addAll(processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, Integer.MAX_VALUE)
-				.filter(HumanTaskInstanceSearchDescriptor.PARENT_CONTAINER_ID, containerInstance.id)
-				.done())
-				.result
-				.collect{ toActivity(it, OPTIONAL_STATE, pDef, request.contextPath) })
-				
+		// Build the proper task list for the current user including ManualTasks
+		def result = allCaseTasks.findAll {
+			it.name in userPendingTask.name || it.isDynamicTask
+		}
+
 		result = result.sort{ a1,a2 -> valueOfState(a1.acmState) <=> valueOfState(a2.acmState) }
 
-		//Append finished tasks
+		//Append archived tasks
 		result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
 			filter(ArchivedHumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
-			differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
-			differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, CREATE_ACTIVITY)
+			HIDDEN_ACTIVITIES.each {
+				differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, it)
+			}
 			done()
-		}).getResult()
-		.findAll{ //remove finished loop task instances
+		}).result
+		.findAll{
+			//remove finished loop task instances
 			it.parentActivityInstanceId == 0 || !isAnArchivedLoopInstance(it, processAPI)
-         }
+		}
 		.collect{ ArchivedHumanTaskInstance task ->
 			[
 				name:task.displayName ?: task.name,
@@ -88,9 +99,12 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 			]
 		})
 
-		buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
+		buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder([
+			activities: result,
+			canResolveCase: !containsPendingRequiredTasks
+		]).toString())
 	}
-	
+
 	def toActivity(HumanTaskInstance task, String acmState, ProcessDefinition pDef, String contextPath) {
 		[
 			name:task.displayName ?: task.name,
@@ -98,17 +112,18 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 			description:task.description,
 			target:linkTarget(task),
 			bpmState:task.state.capitalize(),
-			acmState:acmState
+			acmState:acmState,
+			isDynamicTask: task instanceof ManualTaskInstance
 		]
 	}
-	
 
-	def String forge(String processName,String processVersion,ActivityInstance instance, contextPath) {		
-			if(instance instanceof UserTaskInstance) {
-				"$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false"
-			}else if(instance instanceof ManualTaskInstance) {
-				"$contextPath/apps/cases/do?id=$instance.id"
-			}
+
+	def String forge(String processName,String processVersion,ActivityInstance instance, contextPath) {
+		if(instance instanceof UserTaskInstance) {
+			"$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false"
+		}else if(instance instanceof ManualTaskInstance) {
+			"$contextPath/apps/cases/do?id=$instance.id"
+		}
 	}
 
 	def String linkTarget(ActivityInstance instance) {

@@ -24,8 +24,8 @@ class Case implements RestApiController, CaseActivityHelper, BPMNamesConstants{
         def contextPath = request.contextPath
         def processAPI = context.apiClient.getProcessAPI()
         def searchOptions = new SearchOptionsBuilder(0, 9999)
-		.filter(ProcessInstanceSearchDescriptor.NAME, DISPUTE_PROCESS_NAME)
-		.done()
+			.filter(ProcessInstanceSearchDescriptor.NAME, DISPUTE_PROCESS_NAME)
+			.done()
         def result = processAPI.searchProcessInstances(searchOptions).getResult()
                 .collect {
             [id: it.id, state: asLabel(it.state.toUpperCase(), "info"), viewAction: viewActionLink(it.id, processAPI, contextPath)]

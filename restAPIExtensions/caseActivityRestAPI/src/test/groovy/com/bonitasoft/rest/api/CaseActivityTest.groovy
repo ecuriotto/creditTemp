@@ -27,7 +27,9 @@ import com.bonitasoft.web.extension.rest.RestAPIContext
 
 import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
+import spock.lang.Ignore
 import spock.lang.Specification
+
 
 class CaseActivityTest extends Specification {
 
@@ -69,32 +71,11 @@ class CaseActivityTest extends Specification {
 		def restApiResponse = caseActivity.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
-		1 * caseActivity.findTaskInstance(1L, BPMNamesConstants.ACTIVITY_CONTAINER, processAPI) >> Stub(HumanTaskInstance)
 		1 * processAPI.searchHumanTaskInstances(_) >> emptyResult
 		1 * processAPI.searchArchivedHumanTasks(_) >> emptyResult
 		1 * processAPI.getPendingHumanTaskInstances(5L,0,Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC) >> []
 	}
 	
-	def "should query pending manual tasks using the dynamic container activity"() {
-		given:
-		def caseActivity = Spy(CaseActivity)
-		def SearchResult taskResult = Mock()
-		caseActivity.findTaskInstance(1L, BPMNamesConstants.ACTIVITY_CONTAINER, processAPI) >> Stub(HumanTaskInstance){it.id >> 2L}
-		processAPI.searchArchivedHumanTasks(_) >> emptyResult
-		processAPI.getPendingHumanTaskInstances(5L,0,Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC) >> []
-		
-		when:
-		request.getParameter('caseId') >> 1L
-		def restApiResponse = caseActivity.doHandle(request, new RestApiResponseBuilder() , context)
-
-		then:
-		1 * processAPI.searchHumanTaskInstances({
-			assert it.filters[0].field == HumanTaskInstanceSearchDescriptor.PARENT_CONTAINER_ID
-			assert it.filters[0].value == 2L
-			it
-		}) >> emptyResult
-
-	}
 	
 	def "should create activity object from  a HumanTaskInstance and a state"() {
 		given:
@@ -178,8 +159,7 @@ class CaseActivityTest extends Specification {
 			task.id >> 3L
 		}
 		processAPI.getPendingHumanTaskInstances(_, 0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC) >> [t1,t2]
-		caseActivity.findTaskInstance(1L, BPMNamesConstants.ACTIVITY_CONTAINER, processAPI) >> Stub(HumanTaskInstance){ it.id >> 34L }
-		processAPI.searchHumanTaskInstances(_) >> new SearchResultImpl(0,[])
+		processAPI.searchHumanTaskInstances(_) >> new SearchResultImpl(2, [t1,t2])
 		processAPI.searchArchivedHumanTasks(_) >>  new SearchResultImpl(1,[t3])
 		def ProcessDefinition pDef = Stub(){
 			it.name >> 'MyProcess'
@@ -192,10 +172,9 @@ class CaseActivityTest extends Specification {
 		def result = caseActivity.doHandle(request, new RestApiResponseBuilder(), context)
 
 		then:
-		println result.response
 		with(result){
 			 httpStatus == 200
-			 new JsonSlurper().parseText(response).acmState == [BPMNamesConstants.REQUIRED_STATE,BPMNamesConstants.DISCRETIONARY_STATE,null]
+			 new JsonSlurper().parseText(response).activities.acmState == [BPMNamesConstants.REQUIRED_STATE,BPMNamesConstants.DISCRETIONARY_STATE,null]
 		}
 	}
 	

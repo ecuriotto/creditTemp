@@ -62,6 +62,8 @@ trait CaseActivityHelper {
 				//no $activityState data defined on HumanTask
 				return null
 			}
+		}else {
+			return 'Optional'
 		}
 	}
 	

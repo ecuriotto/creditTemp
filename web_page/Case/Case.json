@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1562140865154,
+  "lastUpdate" : 1562149026621,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -52,7 +52,9 @@
       "id" : "CaseActivities",
       "binding" : {
         "caseId" : "caseId",
-        "activities" : "activities"
+        "activities" : "case.activities",
+        "canBeResolved" : "case.canResolveCase",
+        "canResolveCase" : "case.canResolveCase"
       }
     } ] ]
   }, {
@@ -919,11 +921,6 @@
       "value" : "id",
       "exposed" : false
     },
-    "activities" : {
-      "type" : "url",
-      "value" : "../API/extension/caseActivity?caseId={{caseId}}&reload={{newActivityCreated.name + dataUpdated.lastUpdateDate}}",
-      "exposed" : false
-    },
     "newActivityCreated" : {
       "type" : "json",
       "value" : "{\n    \"name\" : \"\"\n}",
@@ -971,6 +968,11 @@
     "dataUpdated" : {
       "type" : "json",
       "value" : "{ \"lastUpdateDate\" : \"\" }",
+      "exposed" : false
+    },
+    "case" : {
+      "type" : "url",
+      "value" : "../API/extension/caseActivity?caseId={{caseId}}&reload={{newActivityCreated.name + dataUpdated.lastUpdateDate}}",
       "exposed" : false
     }
   },
