@@ -45,7 +45,7 @@
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_x5qCCPSMEeeYpYD60oU_zA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:TextAnnotation" xmi:id="_WNd1IPYZEeesarEo_Te_Dg" text="Use to track activity creation&#xD;&#xA;Filtered in the Activity list of the App&#xD;&#xA;"/>
+        <elements xmi:type="process:TextAnnotation" xmi:id="_WNd1IPYZEeesarEo_Te_Dg" text="Use to track activity creation&#xD;&#xA;Filtered in the activities list&#xD;&#xA;"/>
         <elements xmi:type="process:Task" xmi:id="_Eef9MPYSEeesarEo_Te_Dg" name="Dymanic Activity Container" overrideActorsOfTheLane="false">
           <textAnnotationAttachment xmi:type="process:TextAnnotationAttachment" xmi:id="_UF8iCODjEeioZo4elrUmvw" source="_t2k0cPYZEeesarEo_Te_Dg"/>
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_EejnkfYSEeesarEo_Te_Dg" name="" content="" returnTypeFixed="true"/>
@@ -62,11 +62,11 @@
           <contract xmi:type="process:Contract" xmi:id="_EekOoPYSEeesarEo_Te_Dg"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_EekOo_YSEeesarEo_Te_Dg" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:TextAnnotation" xmi:id="_t2k0cPYZEeesarEo_Te_Dg" text="Technical workaround to create Manual task&#xD;&#xA;Filtered in the Activity list of the App"/>
+        <elements xmi:type="process:TextAnnotation" xmi:id="_t2k0cPYZEeesarEo_Te_Dg" text="Technical workaround to create Manual task&#xD;&#xA;Filtered in the activities list"/>
         <elements xmi:type="process:Task" xmi:id="_58yIAJwYEemz_6GYzsxGrA" name="Update Dispute" type="STANDARD" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_58yvEZwYEemz_6GYzsxGrA" name="displayName()" content="'&amp;#x1f4c1; Update Dispute'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_58yvEJwYEemz_6GYzsxGrA" name="" content="" returnTypeFixed="true"/>
-          <stepSummary xmi:type="expression:Expression" xmi:id="_58yvEpwYEemz_6GYzsxGrA" name="descriptionAfterCompletion()" content="println updates&#xD;&#xA;def desc ='&lt;ul>'&#xD;&#xA;updates.each { desc = desc.concat(&quot;&lt;li>$it&lt;/li>&quot;)}&#xD;&#xA;desc = desc.concat('&lt;/ul>')&#xD;&#xA;desc.toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+          <stepSummary xmi:type="expression:Expression" xmi:id="_58yvEpwYEemz_6GYzsxGrA" name="descriptionAfterCompletion()" content="def desc ='&lt;ul>'&#xD;&#xA;updates.each { desc = desc.concat(&quot;&lt;li>$it&lt;/li>&quot;)}&#xD;&#xA;desc = desc.concat('&lt;/ul>')&#xD;&#xA;desc.toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
             <referencedElements xmi:type="process:Data" xmi:id="_VdAjwJzSEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
           </stepSummary>
           <data xmi:type="process:Data" xmi:id="_Yn858JzLEemsNbXOsawszg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
@@ -182,6 +182,7 @@
           <expectedDuration xmi:type="expression:Expression" xmi:id="_58yvG5wYEemz_6GYzsxGrA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:Task" xmi:id="_UNfxgJ1zEemTRtqWFynp_g" name="Close" outgoing="_txZNEJ10EemTRtqWFynp_g" overrideActorsOfTheLane="false">
+          <textAnnotationAttachment xmi:type="process:TextAnnotationAttachment" xmi:id="_J0YaEJ2eEemQAo5alETTFA" source="_J0V90J2eEemQAo5alETTFA"/>
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_UNkC8Z1zEemTRtqWFynp_g" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_UNkC8J1zEemTRtqWFynp_g" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_UNkC8p1zEemTRtqWFynp_g" name="descriptionAfterCompletion()" content="import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;dispute.status == DisputeStates.INVALID ? 'Dispute case has been dismissed' : 'Dispute case has been resolved' " interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
@@ -220,6 +221,7 @@
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_txR4UZ10EemTRtqWFynp_g" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_txR4U510EemTRtqWFynp_g" name="" content="" returnTypeFixed="true"/>
         </elements>
+        <elements xmi:type="process:TextAnnotation" xmi:id="_J0V90J2eEemQAo5alETTFA" text="Filtered in the activities list&#xD;&#xA;Executed programmaticaly"/>
       </elements>
       <elements xmi:type="process:Lane" xmi:id="_x5qByPSMEeeYpYD60oU_zA" name="Customer Service" actor="_x5qCI_SMEeeYpYD60oU_zA">
         <elements xmi:type="process:TextAnnotation" xmi:id="_4oWCcJwJEemz_6GYzsxGrA" text="Each Human Task must have a local transient variable '$activityState' (String)&#xD;&#xA;Only one of the value below is valid for this variable:&#xD;&#xA;- Required (A task mandatory for all cases of this process)&#xD;&#xA;- Optional (A task that may be done in some cases)&#xD;&#xA;- Discretionary (A task that can be done multiple times in the same case, must be combined with a loop iteration)&#xD;&#xA;- N/A (A task not yet available that cannot be done at the moment, but may be enabled with a dynamic groovy expression)&#xD;&#xA;&#xD;&#xA;Those states can be constant expressions in the default value of the variable or dynamically computed using a groovy script expression"/>
@@ -336,9 +338,9 @@
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_hp26cPUdEeeREboOt7l4UQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_hp26cvUdEeeREboOt7l4UQ" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_8F-54AHUEeiNfNN2BDEehQ" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
-            <defaultValue xmi:type="expression:Expression" xmi:id="_2bDBQAHdEeiNfNN2BDEehQ" name="updateChargebackState()" content="import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;if(dispute.status == DisputeStates.PROCESSING_CHARGEBACK){&#xD;&#xA;&#x9;if(dispute.amount &lt; supervisorReviewAmountThreshold || dispute.supervisorApproval){&#xD;&#xA;&#x9;&#x9;return 'Required'&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;return 'N/A'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-              <referencedElements xmi:type="parameter:Parameter" xmi:id="_nXKrsJ1gEemTRtqWFynp_g" name="supervisorReviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_9yV1gJziEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <defaultValue xmi:type="expression:Expression" xmi:id="_2bDBQAHdEeiNfNN2BDEehQ" name="updateActivityState()" content="import com.company.model.ACMStates&#xD;&#xA;import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;if(dispute.status == DisputeStates.PROCESSING_CHARGEBACK){&#xD;&#xA;&#x9;if(dispute.amount &lt; reviewAmountThreshold || dispute.supervisorApproval){&#xD;&#xA;&#x9;&#x9;return ACMStates.REQUIRED&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;return ACMStates.NOT_AVAILABLE" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="__lIX0J2dEemQAo5alETTFA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="parameter:Parameter" xmi:id="__lIX0Z2dEemQAo5alETTFA" name="reviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
             </defaultValue>
           </data>
           <loopCondition xmi:type="expression:Expression" xmi:id="_hp26dPUdEeeREboOt7l4UQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
@@ -372,14 +374,14 @@
         </elements>
       </elements>
       <elements xmi:type="process:Lane" xmi:id="_flS6AJzgEemsNbXOsawszg" name="Dispute Supervisor" actor="_o5SN4JzgEemsNbXOsawszg">
-        <elements xmi:type="process:Task" xmi:id="_h5eYkJzfEemsNbXOsawszg" name="Supervisor Review" overrideActorsOfTheLane="false">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_h5jREJzfEemsNbXOsawszg" name="displayName()" content="'&amp;#x2606; Supervisor Review'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
+        <elements xmi:type="process:Task" xmi:id="_h5eYkJzfEemsNbXOsawszg" name="Review" overrideActorsOfTheLane="false">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_h5jREJzfEemsNbXOsawszg" name="displayName()" content="'&amp;#x1f441; Review'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_h5iqAJzfEemsNbXOsawszg" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_h5jREZzfEemsNbXOsawszg" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_3KSq0JzfEemsNbXOsawszg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
-            <defaultValue xmi:type="expression:Expression" xmi:id="_3KSq0ZzfEemsNbXOsawszg" name="updateActivityState()" content="import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;if(dispute.status == DisputeStates.PROCESSING_CHARGEBACK){&#xD;&#xA;&#x9;return dispute.amount >= supervisorReviewAmountThreshold ? 'Required' : 'Optional'&#xD;&#xA;}&#xD;&#xA;return 'N/A'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_IMsCkJzlEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
-              <referencedElements xmi:type="parameter:Parameter" xmi:id="_IMsCkZzlEemsNbXOsawszg" name="supervisorReviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
+            <defaultValue xmi:type="expression:Expression" xmi:id="_3KSq0ZzfEemsNbXOsawszg" name="updateActivityState()" content="import com.company.model.ACMStates&#xD;&#xA;import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;if(dispute.status == DisputeStates.PROCESSING_CHARGEBACK){&#xD;&#xA;&#x9;return dispute.amount >= reviewAmountThreshold ? ACMStates.REQUIRED : ACMStates.OPTIONAL&#xD;&#xA;}&#xD;&#xA;return ACMStates.NOT_AVAILABLE" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_EzEcUJ2eEemQAo5alETTFA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="parameter:Parameter" xmi:id="_EzEcUZ2eEemQAo5alETTFA" name="reviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
             </defaultValue>
           </data>
           <operations xmi:type="expression:Operation" xmi:id="_6NgAUJzjEemsNbXOsawszg">
@@ -419,6 +421,54 @@
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_h5jRGpzfEemsNbXOsawszg" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
+        <elements xmi:type="process:Task" xmi:id="_t51w4J2UEemQAo5alETTFA" name="Update Parameters" type="STANDARD" overrideActorsOfTheLane="false">
+          <textAnnotationAttachment xmi:type="process:TextAnnotationAttachment" xmi:id="_4_B8oJ2UEemQAo5alETTFA" source="_4-72AJ2UEemQAo5alETTFA"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_t58ekZ2UEemQAo5alETTFA" name="displayName()" content="'&amp;#x1f527; Update Parameters'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_t58ekJ2UEemQAo5alETTFA" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_t58ekp2UEemQAo5alETTFA" name="descriptionAfterCompletion()" content="def desc ='&lt;ul>'&#xD;&#xA;updatedParameters.each { desc = desc.concat(&quot;&lt;li>$it&lt;/li>&quot;)}&#xD;&#xA;desc = desc.concat('&lt;/ul>')&#xD;&#xA;desc.toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+            <referencedElements xmi:type="process:Data" xmi:id="_Tjxp0J2ZEemQAo5alETTFA" name="updatedParameters" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
+          </stepSummary>
+          <data xmi:type="process:Data" xmi:id="_Bs8H8J2VEemQAo5alETTFA" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
+            <defaultValue xmi:type="expression:Expression" xmi:id="_Bs8H8Z2VEemQAo5alETTFA" name="Optional" content="Optional"/>
+          </data>
+          <data xmi:type="process:Data" xmi:id="_sgfi4J2VEemQAo5alETTFA" name="updatedParameters" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
+            <defaultValue xmi:type="expression:Expression" xmi:id="_sgfi4Z2VEemQAo5alETTFA" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List"/>
+          </data>
+          <operations xmi:type="expression:Operation" xmi:id="_fRKa0J2VEemQAo5alETTFA">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_fRKa0Z2VEemQAo5alETTFA" name="updatedParameters" content="updatedParameters" type="TYPE_VARIABLE" returnType="java.util.List">
+              <referencedElements xmi:type="process:Data" xmi:id="_siwzwJ2VEemQAo5alETTFA" name="updatedParameters" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_fRKa0p2VEemQAo5alETTFA" name="updateParameters()" content="import com.bonitasoft.engine.api.ProcessManagementAPI&#xD;&#xA;import org.bonitasoft.engine.exception.NotFoundException&#xD;&#xA;import org.bonitasoft.engine.exception.UpdateException&#xD;&#xA;&#xD;&#xA;def result = []&#xD;&#xA;def ProcessManagementAPI processAPI = apiAccessor.getProcessAPI()&#xD;&#xA;parameters.each { param ->&#xD;&#xA;&#x9;try{&#xD;&#xA;&#x9;&#x9;def instance = processAPI.getParameterInstance(processDefinitionId, param.name)&#xD;&#xA;&#x9;&#x9;if(instance.value.toString() != param.value.toString()){&#xD;&#xA;&#x9;&#x9;&#x9;processAPI.updateParameterInstanceValue(processDefinitionId, param.name, param.value)&#xD;&#xA;&#x9;&#x9;&#x9;result &lt;&lt; &quot;Parameter $param.name has been updated from &lt;b>$instance.value&lt;/b> to &lt;b>$param.value&lt;/b>&quot;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}catch( NotFoundException | UpdateException  e){&#xD;&#xA;&#x9;&#x9;//ignore error&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;result" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List">
+              <referencedElements xmi:type="expression:Expression" xmi:id="_DuDKcJ2dEemQAo5alETTFA" name="processDefinitionId" content="processDefinitionId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_rNPV0Z2WEemQAo5alETTFA" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_rNPV0p2WEemQAo5alETTFA" name="parameters" type="COMPLEX" multiple="true">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_rNPV052WEemQAo5alETTFA"/>
+              </referencedElements>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_fRKa052VEemQAo5alETTFA" type="ASSIGNMENT"/>
+          </operations>
+          <loopCondition xmi:type="expression:Expression" xmi:id="_t58ek52UEemQAo5alETTFA" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <loopMaximum xmi:type="expression:Expression" xmi:id="_t58elJ2UEemQAo5alETTFA" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <cardinalityExpression xmi:type="expression:Expression" xmi:id="_t58elZ2UEemQAo5alETTFA" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <iteratorExpression xmi:type="expression:Expression" xmi:id="_t58el52UEemQAo5alETTFA" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
+          <completionCondition xmi:type="expression:Expression" xmi:id="_t58elp2UEemQAo5alETTFA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <formMapping xmi:type="process:FormMapping" xmi:id="_t58emZ2UEemQAo5alETTFA">
+            <targetForm xmi:type="expression:Expression" xmi:id="_s_1U0J2WEemQAo5alETTFA" name="UpdateParameters" content="e69a82b3-7436-4709-a4f5-24f07863def7" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+          </formMapping>
+          <contract xmi:type="process:Contract" xmi:id="_t58emJ2UEemQAo5alETTFA">
+            <inputs xmi:type="process:ContractInput" xmi:id="_VPaCAJ2VEemQAo5alETTFA" name="parameters" type="COMPLEX" multiple="true">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_VPaCAZ2VEemQAo5alETTFA"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_dAn7kJ2VEemQAo5alETTFA" name="name">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_dAn7kZ2VEemQAo5alETTFA"/>
+              </inputs>
+              <inputs xmi:type="process:ContractInput" xmi:id="_dzUj0J2VEemQAo5alETTFA" name="value">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_dzUj0Z2VEemQAo5alETTFA"/>
+              </inputs>
+            </inputs>
+          </contract>
+          <expectedDuration xmi:type="expression:Expression" xmi:id="_t58em52UEemQAo5alETTFA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:TextAnnotation" xmi:id="_4-72AJ2UEemQAo5alETTFA" text="The supervisor can modify application business parameter like amount thresholds"/>
       </elements>
       <data xmi:type="process:BusinessObjectData" xmi:id="_mRGqAPUrEeeJbuCjYn0Nqw" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer">
         <defaultValue xmi:type="expression:Expression" xmi:id="_mRGqAfUrEeeJbuCjYn0Nqw" name="init_customer()" content="customerDAO.findByCustomerId(customerId)" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Customer">
@@ -572,9 +622,9 @@
           <fragments xmi:type="configuration:Fragment" xmi:id="_wGqHMZ1nEemTRtqWFynp_g" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" type="GROOVY_SCRIPT"/>
         </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hGJwMEemz_6GYzsxGrA" id="OTHER"/>
-        <parameters xmi:type="parameter:Parameter" xmi:id="_tg7HZZzgEemsNbXOsawszg" name="supervisorReviewAmountThreshold" value="500" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_tg7HZZzgEemsNbXOsawszg" name="reviewAmountThreshold" value="500" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
       </configurations>
-      <parameters xmi:type="parameter:Parameter" xmi:id="_FP4sgJzgEemsNbXOsawszg" name="supervisorReviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
+      <parameters xmi:type="parameter:Parameter" xmi:id="_FP4sgJzgEemsNbXOsawszg" name="reviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
       <contract xmi:type="process:Contract" xmi:id="_x5qCJPSMEeeYpYD60oU_zA">
         <inputs xmi:type="process:ContractInput" xmi:id="_RjVZMJdQEemS2vHmcHFszw" name="customerId">
           <mapping xmi:type="process:ContractInputMapping" xmi:id="_RjVZMZdQEemS2vHmcHFszw"/>
@@ -665,7 +715,7 @@
           <children xmi:type="notation:DecorationNode" xmi:id="_eD-EhpwMEemz_6GYzsxGrA" type="7002">
             <children xmi:type="notation:Shape" xmi:id="_h4UNNvUdEeeREboOt7l4UQ" type="3005" element="_h4S_EPUdEeeREboOt7l4UQ" fontName="Ubuntu" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_h4U0QPUdEeeREboOt7l4UQ" type="5005" element="_h4S_EPUdEeeREboOt7l4UQ"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h4UNN_UdEeeREboOt7l4UQ" x="386" y="119" width="115" height="57"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h4UNN_UdEeeREboOt7l4UQ" x="384" y="119" width="115" height="57"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_x5qCU_SMEeeYpYD60oU_zA" type="3005" element="_x5qB2fSMEeeYpYD60oU_zA" fontName="Ubuntu" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_x5qCVPSMEeeYpYD60oU_zA" type="5005" element="_x5qB2fSMEeeYpYD60oU_zA"/>
@@ -713,13 +763,20 @@
             </children>
             <children xmi:type="notation:Shape" xmi:id="_UNoUYJ1zEemTRtqWFynp_g" type="3005" element="_UNfxgJ1zEemTRtqWFynp_g" fontName="Segoe UI" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_UNo7cJ1zEemTRtqWFynp_g" type="5005"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UNoUYZ1zEemTRtqWFynp_g" x="1733" y="66" width="144" height="72"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UNoUYZ1zEemTRtqWFynp_g" x="1942" y="66" width="144" height="72"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_txSfYJ10EemTRtqWFynp_g" type="3062" element="_txR4UJ10EemTRtqWFynp_g" fontName="Segoe UI">
               <children xmi:type="notation:DecorationNode" xmi:id="_txTGcJ10EemTRtqWFynp_g" type="5090">
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_txTGcZ10EemTRtqWFynp_g" y="5"/>
               </children>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_txSfYZ10EemTRtqWFynp_g" x="1991" y="87"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_txSfYZ10EemTRtqWFynp_g" x="2170" y="87"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_J0Wk4J2eEemQAo5alETTFA" type="3015" element="_J0V90J2eEemQAo5alETTFA">
+              <children xmi:type="notation:DecorationNode" xmi:id="_J0XL8J2eEemQAo5alETTFA" type="5010"/>
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_J0Wk4Z2eEemQAo5alETTFA"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_J0Wk4p2eEemQAo5alETTFA" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_J0Wk452eEemQAo5alETTFA"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_J0Wk5J2eEemQAo5alETTFA" x="1719" y="66" width="186" height="72"/>
             </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_THY60ZwPEemz_6GYzsxGrA"/>
@@ -735,12 +792,23 @@
               <children xmi:type="notation:DecorationNode" xmi:id="_h5oJkJzfEemsNbXOsawszg" type="5005"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h5nigZzfEemsNbXOsawszg" x="138" y="68" width="106" height="53"/>
             </children>
+            <children xmi:type="notation:Shape" xmi:id="_t6f4MJ2UEemQAo5alETTFA" type="3005" element="_t51w4J2UEemQAo5alETTFA" fontName="Segoe UI" fillColor="14334392" lineColor="10710316">
+              <children xmi:type="notation:DecorationNode" xmi:id="_t6f4Mp2UEemQAo5alETTFA" type="5005"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t6f4MZ2UEemQAo5alETTFA" x="460" y="57" width="152" height="76"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_4-8dEJ2UEemQAo5alETTFA" type="3015" element="_4-72AJ2UEemQAo5alETTFA">
+              <children xmi:type="notation:DecorationNode" xmi:id="_4-8dFZ2UEemQAo5alETTFA" type="5010"/>
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_4-8dEZ2UEemQAo5alETTFA"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_4-8dEp2UEemQAo5alETTFA" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_4-8dE52UEemQAo5alETTFA"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4-8dFJ2UEemQAo5alETTFA" x="669" y="47" width="245" height="95"/>
+            </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_flUvMZzgEemsNbXOsawszg"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_flUvMpzgEemsNbXOsawszg" fontName="Segoe UI"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_flUvM5zgEemsNbXOsawszg"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_flUvN5zgEemsNbXOsawszg"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_flUvNJzgEemsNbXOsawszg" x="48" y="1111" width="1711" height="190"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_flUvNJzgEemsNbXOsawszg" x="48" y="1111" width="2323" height="212"/>
         </children>
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_x5qCYfSMEeeYpYD60oU_zA"/>
@@ -786,6 +854,14 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_txabMZ10EemTRtqWFynp_g" fontName="Segoe UI"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_txabMp10EemTRtqWFynp_g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_4_CjsJ2UEemQAo5alETTFA" type="4003" element="_4_B8oJ2UEemQAo5alETTFA" source="_4-8dEJ2UEemQAo5alETTFA" target="_t6f4MJ2UEemQAo5alETTFA">
+      <styles xmi:type="notation:FontStyle" xmi:id="_4_CjsZ2UEemQAo5alETTFA" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4_Cjsp2UEemQAo5alETTFA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_J0ZBIJ2eEemQAo5alETTFA" type="4003" element="_J0YaEJ2eEemQAo5alETTFA" source="_J0Wk4J2eEemQAo5alETTFA" target="_UNoUYJ1zEemTRtqWFynp_g">
+      <styles xmi:type="notation:FontStyle" xmi:id="_J0ZBIZ2eEemQAo5alETTFA" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_J0ZBIp2eEemQAo5alETTFA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>
