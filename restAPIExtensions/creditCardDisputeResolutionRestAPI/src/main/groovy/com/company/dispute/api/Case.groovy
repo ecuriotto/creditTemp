@@ -17,6 +17,7 @@ import groovy.json.JsonBuilder
 import javassist.bytecode.stackmap.BasicBlock.Catch
 
 import org.bonitasoft.engine.bpm.process.ProcessInstanceNotFoundException
+import org.bonitasoft.engine.identity.UserSearchDescriptor
 import org.bonitasoft.engine.search.SearchOptionsBuilder
 import org.bonitasoft.web.extension.rest.RestApiResponse
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
@@ -29,50 +30,58 @@ class Case implements RestApiController, CaseActivityHelper, BPMNamesConstants{
 	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
 		def contextPath = request.contextPath
 		def processAPI = context.apiClient.getProcessAPI()
-		
-		
+
+
 		def searchData = newSearchBusinessData(processAPI)
 		def searchOptions = new SearchOptionsBuilder(0, 9999)
-				.filter(ProcessInstanceSearchDescriptor.NAME, DISPUTE_PROCESS_NAME)
-				.done()
+		.filter(ProcessInstanceSearchDescriptor.NAME, DISPUTE_PROCESS_NAME)
+		.done()
 		def result = processAPI.searchProcessInstances(searchOptions).getResult()
-				.collect {
-					def dispute = searchData.search(it.id,'dispute_ref',context.getApiClient().getDAO(DisputeDAO))
-					def customer = searchData.search(it.id,'customer_ref',context.getApiClient().getDAO(CustomerDAO))
-					[
-						id: it.id,
-						status: dispute?.status,
-						merchantIdNumber: dispute?.merchantIdNumber,
-						url: viewActionLink(it.id, processAPI, contextPath),
-						target:'_target',
-						customer: "$customer.firstName $customer.lastName",
-						lastUpdateDate:dispute?.lastUpdateDate?.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME),
-						open: true
-					]
-				}
+		.collect {
+			def dispute = searchData.search(it.id,'dispute_ref',context.getApiClient().getDAO(DisputeDAO))
+			def customer = searchData.search(it.id,'customer_ref',context.getApiClient().getDAO(CustomerDAO))
+			[
+				id: it.id,
+				status: dispute?.status,
+				merchantIdNumber: dispute?.merchantIdNumber,
+				url: viewActionLink(it.id, processAPI, contextPath),
+				target:'_target',
+				customer: "$customer.firstName $customer.lastName",
+				lastUpdateDate:dispute?.lastUpdateDate?.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME),
+				open: true
+			]
+		}
 		processAPI.searchArchivedProcessInstances(searchOptions).getResult()
-				.collect {
-					def dispute = searchData.search(it.id,'dispute_ref',context.getApiClient().getDAO(DisputeDAO))
-					def customer = searchData.search(it.id,'customer_ref',context.getApiClient().getDAO(CustomerDAO))
-					result << [
-						id: it.id,
-						status: dispute?.status,
-						merchantIdNumber: dispute?.merchantIdNumber,
-						url: viewActionLink(it.id, processAPI, contextPath),
-						target:'_self',
-						customer: "$customer.firstName $customer.lastName",
-						lastUpdateDate:dispute?.lastUpdateDate?.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME),
-						open: false
-					]
-				}
+		.collect {
+			def dispute = searchData.search(it.id,'dispute_ref',context.getApiClient().getDAO(DisputeDAO))
+			def customer = searchData.search(it.id,'customer_ref',context.getApiClient().getDAO(CustomerDAO))
+			result << [
+				id: it.id,
+				status: dispute?.status,
+				merchantIdNumber: dispute?.merchantIdNumber,
+				url: viewActionLink(it.id, processAPI, contextPath),
+				target:'_self',
+				customer: "$customer.firstName $customer.lastName",
+				lastUpdateDate:dispute?.lastUpdateDate?.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME),
+				open: false
+			]
+		}
+
+		def canCreateDispute =	processAPI.searchUsersWhoCanStartProcessDefinition(processAPI.getLatestProcessDefinitionId(DISPUTE_PROCESS_NAME), new SearchOptionsBuilder(0,Integer.MAX_VALUE).with { 
+			filter(UserSearchDescriptor.ID, context.apiSession.userId)
+			done()
+		}).count > 0
 
 		return responseBuilder.with {
 			withResponseStatus(HttpServletResponse.SC_OK)
-			withResponse(new JsonBuilder(result).toString())
+			withResponse(new JsonBuilder([
+				cases:result,
+				canCreateDispute:canCreateDispute
+			]).toString())
 			build()
 		}
 	}
-	
+
 	def SearchBusinessData newSearchBusinessData(ProcessAPI processAPI) {
 		new SearchBusinessData(processAPI)
 	}

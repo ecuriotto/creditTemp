@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1562175429556,
+  "lastUpdate" : 1562176606247,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -44,7 +44,7 @@
         },
         "hidden" : {
           "type" : "expression",
-          "value" : "!canCreateDispute"
+          "value" : "!casesInfo || !casesInfo.canCreateDispute"
         },
         "disabled" : {
           "type" : "constant",
@@ -171,7 +171,7 @@
         },
         "value" : {
           "type" : "variable",
-          "value" : "merchantFilter"
+          "value" : "caseFilter"
         },
         "type" : {
           "type" : "constant",
@@ -225,7 +225,7 @@
         },
         "content" : {
           "type" : "expression",
-          "value" : "cases"
+          "value" : "casesInfo.cases"
         },
         "columnsKey" : {
           "type" : "expression",
@@ -244,7 +244,7 @@
         },
         "filter" : {
           "type" : "expression",
-          "value" : "merchantFilter"
+          "value" : "caseFilter"
         }
       },
       "reference" : "3f6ace3b-3dc3-49b2-9e71-b3fe28d122ed",
@@ -746,18 +746,9 @@
   } ],
   "inactiveAssets" : [ ],
   "data" : {
-    "cases" : {
-      "type" : "url",
-      "value" : "../API/extension/case",
-      "exposed" : false
-    },
     "tableColumns" : {
       "type" : "expression",
       "value" : "return [\nfunction(input){\n  return !input.row.url ?`#${input.row.id}` : `<a href=\\\"${input.row.url}\\\" target=\\\"${input.row.target}\\\" >#${input.row.id}</a>`;\n}, \n'customer',\n'merchantIdNumber', \n'lastUpdateDate | uiDate',\n'status |labelized'];",
-      "exposed" : false
-    },
-    "merchantFilter" : {
-      "type" : "constant",
       "exposed" : false
     },
     "validCustomerId" : {
@@ -785,6 +776,15 @@
       "exposed" : false
     },
     "newCase" : {
+      "type" : "constant",
+      "exposed" : false
+    },
+    "casesInfo" : {
+      "type" : "url",
+      "value" : "../API/extension/case",
+      "exposed" : false
+    },
+    "caseFilter" : {
       "type" : "constant",
       "exposed" : false
     }
