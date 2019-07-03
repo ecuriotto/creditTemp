@@ -614,12 +614,14 @@
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFJwMEemz_6GYzsxGrA" id="GROOVY_SCRIPT">
           <fragments xmi:type="configuration:Fragment" xmi:id="_3iC58JzTEemsNbXOsawszg" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" type="GROOVY_SCRIPT"/>
           <fragments xmi:type="configuration:Fragment" xmi:id="_wGqHMJ1nEemTRtqWFynp_g" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_fwkkkJ2eEemQAo5alETTFA" key="com/company/model/ACMStates.groovy" value="com/company/model/ACMStates.groovy" type="GROOVY_SCRIPT"/>
         </processDependencies>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFZwMEemz_6GYzsxGrA" id="OTHER"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFpwMEemz_6GYzsxGrA" id="DATA_TYPES"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hF5wMEemz_6GYzsxGrA" id="GROOVY_SCRIPT">
           <fragments xmi:type="configuration:Fragment" xmi:id="_3iC58ZzTEemsNbXOsawszg" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" type="GROOVY_SCRIPT"/>
           <fragments xmi:type="configuration:Fragment" xmi:id="_wGqHMZ1nEemTRtqWFynp_g" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_fwkkkZ2eEemQAo5alETTFA" key="com/company/model/ACMStates.groovy" value="com/company/model/ACMStates.groovy" type="GROOVY_SCRIPT"/>
         </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hGJwMEemz_6GYzsxGrA" id="OTHER"/>
         <parameters xmi:type="parameter:Parameter" xmi:id="_tg7HZZzgEemsNbXOsawszg" name="reviewAmountThreshold" value="500" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
