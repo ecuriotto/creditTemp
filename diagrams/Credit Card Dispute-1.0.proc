@@ -664,7 +664,7 @@
             </children>
             <children xmi:type="notation:Shape" xmi:id="_58zWIJwYEemz_6GYzsxGrA" type="3005" element="_58yIAJwYEemz_6GYzsxGrA" fontName="Segoe UI" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_58zWIpwYEemz_6GYzsxGrA" type="5005"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_58zWIZwYEemz_6GYzsxGrA" x="308" y="60" width="130" height="65"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_58zWIZwYEemz_6GYzsxGrA" x="371" y="60" width="130" height="65"/>
             </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_THY60ZwPEemz_6GYzsxGrA"/>

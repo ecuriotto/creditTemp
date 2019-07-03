@@ -1,9 +1,9 @@
 {
   "designerVersion" : "1.9.24",
   "previousDesignerVersion" : "1.8.29",
-  "id" : "f6298197-360b-4e2c-87f0-1252b0e31adc",
+  "id" : "AddCommentForm",
   "name" : "AddCommentForm",
-  "lastUpdate" : 1554212886644,
+  "lastUpdate" : 1562139729206,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -22,7 +22,7 @@
         "value" : false
       }
     },
-    "reference" : "40c57a0e-f0ef-4656-8e53-c76eca814ab8",
+    "reference" : "7c62c0fa-eae0-4cb9-8138-4bd8e884a537",
     "hasValidationError" : false,
     "id" : "pbFormContainer",
     "container" : {
@@ -31,7 +31,7 @@
         "xs" : 12
       },
       "propertyValues" : { },
-      "reference" : "5c3bb0e9-d1f9-44f5-9313-f2d12da247f7",
+      "reference" : "28f5986f-94fe-4ddd-a925-abd8b24a2810",
       "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
@@ -55,7 +55,7 @@
             "value" : ""
           }
         },
-        "reference" : "eae0383c-f767-41ac-9467-60093b31990c",
+        "reference" : "1af41d01-2860-4760-9e74-12de9b02da49",
         "hasValidationError" : false,
         "id" : "pbContainer",
         "rows" : [ [ {
@@ -104,7 +104,7 @@
               "value" : 4
             }
           },
-          "reference" : "852c4884-5aa2-40b9-b5b1-3c4a380dd394",
+          "reference" : "e191e02d-734a-4c60-8776-988c9b71d5e8",
           "hasValidationError" : false,
           "id" : "pbText"
         } ], [ {
@@ -173,7 +173,7 @@
               "value" : 4
             }
           },
-          "reference" : "a927bb62-e857-4906-971d-1a793268002d",
+          "reference" : "df08b514-9504-4f85-893d-7d2f8d0aeb7d",
           "hasValidationError" : false,
           "id" : "pbText"
         } ] ]
@@ -231,7 +231,7 @@
             "value" : "formInput.comment"
           }
         },
-        "reference" : "741337e4-d476-4fd1-94bb-106dba97ae52",
+        "reference" : "f417a39e-75ae-4621-8a8e-f32b8642b1a2",
         "hasValidationError" : false,
         "id" : "pbTextarea"
       } ], [ {
@@ -313,7 +313,7 @@
             "value" : ""
           }
         },
-        "reference" : "a07936fe-f762-4990-a9e5-98686f606747",
+        "reference" : "a3361cad-dfdc-423c-aee9-4ce025b279f5",
         "hasValidationError" : false,
         "id" : "pbButton"
       } ] ]
@@ -361,8 +361,8 @@
     }
   },
   "hasValidationError" : false,
-  "uuid" : "f6298197-360b-4e2c-87f0-1252b0e31adc",
+  "uuid" : "4a7892ed-1d1a-4922-8950-0661755c0302",
   "type" : "form",
   "description" : "Page generated with Bonita UI designer",
-  "displayName" : "AddCommentForm"
+  "displayName" : ""
 }

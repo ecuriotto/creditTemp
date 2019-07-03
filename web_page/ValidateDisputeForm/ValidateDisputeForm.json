@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "ValidateDisputeForm",
   "name" : "ValidateDisputeForm",
-  "lastUpdate" : 1562083809620,
+  "lastUpdate" : 1562139662654,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -466,5 +466,5 @@
   "uuid" : "cd453357-4d49-485c-b260-f546056151c0",
   "type" : "form",
   "description" : "Page generated with Bonita UI designer",
-  "displayName" : "AddCommentForm"
+  "displayName" : ""
 }

@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1561651818241,
+  "lastUpdate" : 1562139764234,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -133,5 +133,5 @@
   "uuid" : "48d95ba0-cc14-4a7b-a941-0da475a442d1",
   "type" : "page",
   "description" : "Page generated with Bonita UI designer",
-  "displayName" : "CaseList"
+  "displayName" : ""
 }

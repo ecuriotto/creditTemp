@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1562072972775,
+  "lastUpdate" : 1562139747603,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -975,5 +975,5 @@
   "uuid" : "7295eeab-79e8-479b-93b3-fd60973600be",
   "type" : "page",
   "description" : "Page generated with Bonita UI designer",
-  "displayName" : "Case"
+  "displayName" : ""
 }
