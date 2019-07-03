@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "DisputeData",
   "name" : "DisputeData",
-  "lastUpdate" : 1562079862449,
+  "lastUpdate" : 1562140884612,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -92,7 +92,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<dl  class=\"dl-horizontal\">\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Opened</dt><dd>{{dispute.creationDate | uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-console\"> </span> Status</dt><dd>{{dispute.status}}</dd></a></dd>\n<dt> <span class=\"glyphicon glyphicon-{{dispute.currency | lowercase}}\"> </span></p> Amount</dt><dd>{{dispute.amount |  number : 2}} {{dispute.currency}}</dd>\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Transaction Date</dt><dd>{{dispute.txDate| uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-info-sign\"> </span><abbr title=\"Merchant Identification Number\"> MIN </abbr></dt><dd>{{dispute.merchantIdNumber}}</dd></a></dd>\n</dl>"
+        "value" : "<dl  class=\"dl-horizontal\">\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Opened</dt><dd>{{dispute.creationDate | uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-console\"> </span> Status</dt><dd>{{dispute.status | labelized }}</dd></a></dd>\n<dt> <span class=\"glyphicon glyphicon-{{dispute.currency | lowercase}}\"> </span></p> Amount</dt><dd>{{dispute.amount |  number : 2}} {{dispute.currency}}</dd>\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Transaction Date</dt><dd>{{dispute.txDate| uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-info-sign\"> </span><abbr title=\"Merchant Identification Number\"> MIN </abbr></dt><dd>{{dispute.merchantIdNumber}}</dd></a></dd>\n</dl>"
       },
       "alignment" : {
         "type" : "constant",

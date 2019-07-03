@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1562139747603,
+  "lastUpdate" : 1562140865154,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -850,6 +850,14 @@
             },
             "removeItem" : {
               "type" : "variable"
+            },
+            "assign" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "responseStatusCode" : {
+              "type" : "variable",
+              "value" : ""
             }
           },
           "reference" : "4e71f1ff-fd0d-48a0-94cf-a292e5774d39",
@@ -909,11 +917,6 @@
     "caseId" : {
       "type" : "urlparameter",
       "value" : "id",
-      "exposed" : false
-    },
-    "archived" : {
-      "type" : "url",
-      "value" : "../API/bpm/archivedCase/{{caseId}}",
       "exposed" : false
     },
     "activities" : {

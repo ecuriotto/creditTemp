@@ -16,7 +16,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_HGVYcfUdEeeREboOt7l4UQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_HGVYcPUdEeeREboOt7l4UQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <formMapping xmi:type="process:FormMapping" xmi:id="_HGVYc_UdEeeREboOt7l4UQ">
-            <targetForm xmi:type="expression:Expression" xmi:id="_6incgvYJEeesarEo_Te_Dg" name="AddCommentForm" content="f6298197-360b-4e2c-87f0-1252b0e31adc" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_6incgvYJEeesarEo_Te_Dg" name="AddCommentForm" content="4a7892ed-1d1a-4922-8950-0661755c0302" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_HGVYcvUdEeeREboOt7l4UQ"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_HGVYdfUdEeeREboOt7l4UQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
@@ -308,7 +308,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_hp26ePUdEeeREboOt7l4UQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_hp26d_UdEeeREboOt7l4UQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <formMapping xmi:type="process:FormMapping" xmi:id="_h4UNM_UdEeeREboOt7l4UQ">
-            <targetForm xmi:type="expression:Expression" xmi:id="_6incg_YJEeesarEo_Te_Dg" name="AddCommentForm" content="f6298197-360b-4e2c-87f0-1252b0e31adc" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_6incg_YJEeesarEo_Te_Dg" name="AddCommentForm" content="4a7892ed-1d1a-4922-8950-0661755c0302" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_h4UNMvUdEeeREboOt7l4UQ"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_h4UNNfUdEeeREboOt7l4UQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
@@ -326,7 +326,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_x5qB4fSMEeeYpYD60oU_zA" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_x5qB4vSMEeeYpYD60oU_zA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <formMapping xmi:type="process:FormMapping" xmi:id="_x5qB5fSMEeeYpYD60oU_zA">
-            <targetForm xmi:type="expression:Expression" xmi:id="_6incgPYJEeesarEo_Te_Dg" name="AddCommentForm" content="f6298197-360b-4e2c-87f0-1252b0e31adc" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_6incgPYJEeesarEo_Te_Dg" name="AddCommentForm" content="4a7892ed-1d1a-4922-8950-0661755c0302" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_x5qB5_SMEeeYpYD60oU_zA"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_x5qB6PSMEeeYpYD60oU_zA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
@@ -520,11 +520,13 @@
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hE5wMEemz_6GYzsxGrA" id="DATA_TYPES"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFJwMEemz_6GYzsxGrA" id="GROOVY_SCRIPT">
           <fragments xmi:type="configuration:Fragment" xmi:id="_3iC58JzTEemsNbXOsawszg" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_wGqHMJ1nEemTRtqWFynp_g" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" type="GROOVY_SCRIPT"/>
         </processDependencies>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFZwMEemz_6GYzsxGrA" id="OTHER"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFpwMEemz_6GYzsxGrA" id="DATA_TYPES"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hF5wMEemz_6GYzsxGrA" id="GROOVY_SCRIPT">
           <fragments xmi:type="configuration:Fragment" xmi:id="_3iC58ZzTEemsNbXOsawszg" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_wGqHMZ1nEemTRtqWFynp_g" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" type="GROOVY_SCRIPT"/>
         </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hGJwMEemz_6GYzsxGrA" id="OTHER"/>
         <parameters xmi:type="parameter:Parameter" xmi:id="_tg7HZZzgEemsNbXOsawszg" name="supervisorReviewAmountThreshold" value="500" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>

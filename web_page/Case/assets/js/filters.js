@@ -11,12 +11,15 @@ angular.module('bonitasoft.ui.extensions',['ngSanitize'])
 
 function severity(status){
     switch(status) {
-     case "Discretionary": return "warning";
+     case "Discretionary": return "primary";
      case "completed": return "success";
      case "error": return "danger";
      case "Completed": return "success";
      case "Required": return "danger";
      case "Optional": return "primary";
+     case "PENDING": return "warning";
+     case "RESOLVED": return "success";
+     case "INVALID": return "danger";
      default:
        return "default";
    }
