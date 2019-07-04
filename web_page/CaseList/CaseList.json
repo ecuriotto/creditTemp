@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1562231861795,
+  "lastUpdate" : 1562246767483,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -541,8 +541,8 @@
         "rows" : [ [ {
           "type" : "component",
           "dimension" : {
-            "xs" : 12,
-            "sm" : 12,
+            "xs" : 6,
+            "sm" : 6,
             "md" : 6,
             "lg" : 6
           },
@@ -628,8 +628,8 @@
         }, {
           "type" : "component",
           "dimension" : {
-            "xs" : 12,
-            "sm" : 12,
+            "xs" : 6,
+            "sm" : 6,
             "md" : 6,
             "lg" : 6
           },
