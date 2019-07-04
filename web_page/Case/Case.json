@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1562231023385,
+  "lastUpdate" : 1562236333528,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -795,7 +795,7 @@
             },
             "disabled" : {
               "type" : "expression",
-              "value" : "!newDocument.name"
+              "value" : "!newDocument.name || newDocument.name.length > 50"
             },
             "label" : {
               "type" : "interpolation",
@@ -973,6 +973,11 @@
     "case" : {
       "type" : "url",
       "value" : "../API/extension/caseActivity?caseId={{caseId}}&reload={{newActivityCreated.name + dataUpdated.lastUpdateDate}}",
+      "exposed" : false
+    },
+    "clearDocumentName" : {
+      "type" : "expression",
+      "value" : "if($data.documentAdded && $data.documentAdded.id ){\n    $data.newDocument = { content: { filename : \"\" } }\n    $data.documentAdded = { id:\"\"}\n}",
       "exposed" : false
     }
   },
