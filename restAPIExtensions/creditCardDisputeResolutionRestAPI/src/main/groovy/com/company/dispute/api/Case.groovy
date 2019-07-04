@@ -42,7 +42,7 @@ class Case implements RestApiController, CaseActivityHelper, BPMNamesConstants{
 			searchData:searchData,
 			isOpen:true,
 			contextPath:contextPath,
-			caseId:it
+			caseId:it.id
 			])}
 
 		result.addAll(processAPI.searchArchivedProcessInstances(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
