@@ -2,14 +2,12 @@ package com.company.dispute.api;
 
 
 import org.bonitasoft.engine.bpm.data.DataNotFoundException
-import org.bonitasoft.engine.bpm.flownode.ActivityInstance
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceNotFoundException
 import org.bonitasoft.engine.bpm.flownode.ActivityStates
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.LoopActivityInstance
-import org.bonitasoft.engine.bpm.flownode.ManualTaskInstance
 import org.bonitasoft.engine.bpm.flownode.UserTaskInstance
 import org.bonitasoft.engine.search.SearchOptionsBuilder
 
@@ -18,7 +16,7 @@ import com.bonitasoft.engine.api.ProcessAPI
 trait CaseActivityHelper {
 
 	def canExecute(String state) {
-		return state != "N/A" &&
+		return state != BPMNamesConstants.NOT_AVAILABLE_STATE &&
 				state != ActivityStates.COMPLETED_STATE &&
 				state != ActivityStates.FAILED_STATE &&
 				state != ActivityStates.ABORTED_STATE
@@ -63,7 +61,7 @@ trait CaseActivityHelper {
 				return null
 			}
 		}else {
-			return 'Optional'
+			return BPMNamesConstants.OPTIONAL_STATE
 		}
 	}
 	

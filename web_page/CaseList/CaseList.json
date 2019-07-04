@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1562176606247,
+  "lastUpdate" : 1562231861795,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -748,7 +748,7 @@
   "data" : {
     "tableColumns" : {
       "type" : "expression",
-      "value" : "return [\nfunction(input){\n  return !input.row.url ?`#${input.row.id}` : `<a href=\\\"${input.row.url}\\\" target=\\\"${input.row.target}\\\" >#${input.row.id}</a>`;\n}, \n'customer',\n'merchantIdNumber', \n'lastUpdateDate | uiDate',\n'status |labelized'];",
+      "value" : "return [\nfunction(input){\n  return `<a href=\\\"${input.row.caseUrl.href}\\\" target=\\\"${input.row.caseUrl.target}\\\" >#${input.row.id}</a>`;\n}, \n'customer',\n'dispute.merchantIdNumber', \n'dispute.lastUpdateDate | uiDate',\n'dispute.status |labelized'];",
       "exposed" : false
     },
     "validCustomerId" : {

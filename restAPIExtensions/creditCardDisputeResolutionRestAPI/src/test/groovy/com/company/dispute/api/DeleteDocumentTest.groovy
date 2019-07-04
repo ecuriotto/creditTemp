@@ -1,43 +1,15 @@
 package com.company.dispute.api
 
-import java.time.LocalDateTime
-
 import javax.servlet.http.HttpServletRequest
 
+import org.bonitasoft.engine.search.SearchResult
+import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
+
 import com.bonitasoft.engine.api.APIClient
-import com.bonitasoft.engine.api.IdentityAPI
 import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.web.extension.rest.RestAPIContext
-import com.company.dispute.api.Case
-import com.company.dispute.api.DeleteDocument
 
-import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
-
-import org.bonitasoft.engine.bpm.comment.Comment
-import org.bonitasoft.engine.bpm.comment.SearchCommentsDescriptor
-import org.bonitasoft.engine.bpm.data.DataInstance
-import org.bonitasoft.engine.bpm.document.Document
-import org.bonitasoft.engine.bpm.document.DocumentsSearchDescriptor
-import org.bonitasoft.engine.bpm.flownode.ActivityInstance
-import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor
-import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
-import org.bonitasoft.engine.bpm.flownode.FlowNodeType
-import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ActivityInstanceImpl
-import org.bonitasoft.engine.bpm.flownode.impl.internal.HumanTaskInstanceImpl
-import org.bonitasoft.engine.bpm.process.ProcessDefinition
-import org.bonitasoft.engine.bpm.process.ProcessInstance
-import org.bonitasoft.engine.bpm.process.impl.internal.ProcessDefinitionImpl
-import org.bonitasoft.engine.identity.User
-import org.bonitasoft.engine.search.Order
-import org.bonitasoft.engine.search.SearchFilterOperation
-import org.bonitasoft.engine.search.SearchOptions
-import org.bonitasoft.engine.search.SearchResult
-import org.bonitasoft.engine.search.impl.SearchFilter
-import org.bonitasoft.engine.search.impl.SearchOptionsImpl
-import org.bonitasoft.web.extension.rest.RestApiResponse
-import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 import spock.lang.Specification
 
 class DeleteDocumentTest extends Specification {

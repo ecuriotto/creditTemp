@@ -3,39 +3,24 @@ package com.company.dispute.api;
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-import org.bonitasoft.engine.bpm.data.DataInstance
-import org.bonitasoft.engine.bpm.data.DataNotFoundException
 import org.bonitasoft.engine.bpm.flownode.ActivityInstance
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceCriterion
-import org.bonitasoft.engine.bpm.flownode.ActivityInstanceNotFoundException
-import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor
-import org.bonitasoft.engine.bpm.flownode.ActivityStates
-import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstanceSearchDescriptor
-import org.bonitasoft.engine.bpm.flownode.FlowNodeType
-import org.bonitasoft.engine.bpm.flownode.HumanTaskDefinition
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor
-import org.bonitasoft.engine.bpm.flownode.LoopActivityInstance
 import org.bonitasoft.engine.bpm.flownode.ManualTaskInstance
-import org.bonitasoft.engine.bpm.flownode.StandardLoopCharacteristics
 import org.bonitasoft.engine.bpm.flownode.UserTaskInstance
 import org.bonitasoft.engine.bpm.process.ProcessDefinition
-import org.bonitasoft.engine.bpm.process.ProcessDefinitionNotFoundException
 import org.bonitasoft.engine.search.SearchOptionsBuilder
 import org.bonitasoft.web.extension.rest.RestApiResponse
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
 import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
 
 import groovy.json.JsonBuilder
-import groovy.sql.DataSet
-import javassist.bytecode.stackmap.BasicBlock.Catch
 
 class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConstants {
 

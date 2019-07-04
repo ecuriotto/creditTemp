@@ -4,7 +4,6 @@ import org.bonitasoft.engine.bdm.dao.BusinessObjectDAO
 import org.bonitasoft.engine.bpm.process.ProcessInstanceNotFoundException
 
 import com.bonitasoft.engine.api.ProcessAPI
-import com.company.model.DisputeDAO
 
 class SearchBusinessData {
 	

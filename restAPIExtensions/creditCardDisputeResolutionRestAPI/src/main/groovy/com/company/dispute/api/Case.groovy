@@ -1,28 +1,27 @@
 package com.company.dispute.api
 
-import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
+import org.bonitasoft.engine.api.permission.APICallContext
+import org.bonitasoft.engine.bpm.process.ProcessInstanceNotFoundException
+import org.bonitasoft.engine.bpm.process.ProcessInstanceSearchDescriptor
+import org.bonitasoft.engine.identity.UserSearchDescriptor
+import org.bonitasoft.engine.search.SearchOptionsBuilder
+import org.bonitasoft.web.extension.rest.RestApiResponse
+import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
+
+import com.bonitasoft.engine.api.APIClient
 import com.bonitasoft.engine.api.ProcessAPI
-import com.bonitasoft.engine.bpm.process.impl.ProcessInstanceSearchDescriptor
+import com.bonitasoft.engine.bpm.flownode.ArchivedProcessInstancesSearchDescriptor
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
 import com.company.model.CustomerDAO
 import com.company.model.DisputeDAO
 
 import groovy.json.JsonBuilder
-import javassist.bytecode.stackmap.BasicBlock.Catch
-
-import org.bonitasoft.engine.bpm.process.ProcessInstanceNotFoundException
-import org.bonitasoft.engine.identity.UserSearchDescriptor
-import org.bonitasoft.engine.search.SearchOptionsBuilder
-import org.bonitasoft.web.extension.rest.RestApiResponse
-import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
 class Case implements RestApiController, CaseActivityHelper, BPMNamesConstants{
 
@@ -30,63 +29,77 @@ class Case implements RestApiController, CaseActivityHelper, BPMNamesConstants{
 	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
 		def contextPath = request.contextPath
 		def processAPI = context.apiClient.getProcessAPI()
-
-
 		def searchData = newSearchBusinessData(processAPI)
-		def searchOptions = new SearchOptionsBuilder(0, 9999)
-		.filter(ProcessInstanceSearchDescriptor.NAME, DISPUTE_PROCESS_NAME)
-		.done()
-		def result = processAPI.searchProcessInstances(searchOptions).getResult()
-		.collect {
-			def dispute = searchData.search(it.id,'dispute_ref',context.getApiClient().getDAO(DisputeDAO))
-			def customer = searchData.search(it.id,'customer_ref',context.getApiClient().getDAO(CustomerDAO))
-			[
-				id: it.id,
-				status: dispute?.status,
-				merchantIdNumber: dispute?.merchantIdNumber,
-				url: viewActionLink(it.id, processAPI, contextPath),
-				target:'_target',
-				customer: "$customer.firstName $customer.lastName",
-				lastUpdateDate:dispute?.lastUpdateDate?.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME),
-				open: true
-			]
-		}
-		processAPI.searchArchivedProcessInstances(searchOptions).getResult()
-		.collect {
-			def dispute = searchData.search(it.id,'dispute_ref',context.getApiClient().getDAO(DisputeDAO))
-			def customer = searchData.search(it.id,'customer_ref',context.getApiClient().getDAO(CustomerDAO))
-			result << [
-				id: it.id,
-				status: dispute?.status,
-				merchantIdNumber: dispute?.merchantIdNumber,
-				url: viewActionLink(it.id, processAPI, contextPath),
-				target:'_self',
-				customer: "$customer.firstName $customer.lastName",
-				lastUpdateDate:dispute?.lastUpdateDate?.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME),
-				open: false
-			]
-		}
 
-		def canCreateDispute =	processAPI.searchUsersWhoCanStartProcessDefinition(processAPI.getLatestProcessDefinitionId(DISPUTE_PROCESS_NAME), new SearchOptionsBuilder(0,Integer.MAX_VALUE).with { 
-			filter(UserSearchDescriptor.ID, context.apiSession.userId)
+		def result = processAPI.searchProcessInstances(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
+			filter(ProcessInstanceSearchDescriptor.NAME, DISPUTE_PROCESS_NAME)
 			done()
-		}).count > 0
+		})
+		.result
+		.collect {  toCase([
+			processAPI:processAPI,
+			apiClient: context.apiClient,
+			searchData:searchData,
+			isOpen:true,
+			contextPath:contextPath,
+			caseData:it
+			])}
+
+		result.addAll(processAPI.searchArchivedProcessInstances(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
+			filter(ArchivedProcessInstancesSearchDescriptor.NAME, DISPUTE_PROCESS_NAME)
+			done()
+		}).result
+		.collect { toCase([
+			processAPI:processAPI,
+			apiClient: context.apiClient,
+			searchData:searchData,
+			isOpen:false,
+			contextPath:contextPath,
+			caseId:it.id
+			]) })
 
 		return responseBuilder.with {
 			withResponseStatus(HttpServletResponse.SC_OK)
 			withResponse(new JsonBuilder([
 				cases:result,
-				canCreateDispute:canCreateDispute
+				canCreateDispute:userCanStartProcess(processAPI, context.apiSession.userId, DISPUTE_PROCESS_NAME)
 			]).toString())
 			build()
 		}
+	}
+	
+	def boolean userCanStartProcess(ProcessAPI processAPI, long userId, String processName) {
+		return processAPI.searchUsersWhoCanStartProcessDefinition(processAPI.getLatestProcessDefinitionId(processName), new SearchOptionsBuilder(0,Integer.MAX_VALUE).with {
+			filter(UserSearchDescriptor.ID, userId)
+			done()
+		}).count > 0
+	}
+
+	def toCase(caseInput) {
+		def caseId = caseInput.caseId
+		def dispute = caseInput.searchData.search(caseId,'dispute_ref', caseInput.apiClient.getDAO(DisputeDAO))
+		def customer = caseInput.searchData.search(caseId,'customer_ref', caseInput.apiClient.getDAO(CustomerDAO))
+		return [
+			id: caseId,
+			open: caseInput.isOpen,
+			dispute:[
+				status: dispute?.status,
+				merchantIdNumber: dispute?.merchantIdNumber,
+				lastUpdateDate:dispute?.lastUpdateDate?.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+			],
+			caseUrl:[
+				href: caseUrl(caseId, caseInput.processAPI, caseInput.contextPath),
+				target: caseInput.isOpen ? '_target' : '_self',
+			],
+			customer: "$customer.firstName $customer.lastName",
+		]
 	}
 
 	def SearchBusinessData newSearchBusinessData(ProcessAPI processAPI) {
 		new SearchBusinessData(processAPI)
 	}
 
-	def String viewActionLink(long caseId, ProcessAPI processAPI, contextPath) {
+	def String caseUrl(long caseId, ProcessAPI processAPI, contextPath) {
 		try {
 			def instance = processAPI.getProcessInstance(caseId)
 			instance ? "$contextPath/apps/cases/case?id=$caseId" : ''

@@ -20,6 +20,8 @@ function severity(status){
      case "PENDING": return "warning";
      case "RESOLVED": return "success";
      case "INVALID": return "danger";
+     case "INVESTIGATING": return "primary";
+     case "PROCESSING CHARGEBACK": return "primary";
      default:
        return "default";
    }

@@ -5,8 +5,6 @@ import javax.servlet.http.HttpServletResponse
 
 import org.bonitasoft.web.extension.rest.RestApiResponse
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController

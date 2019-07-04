@@ -4,17 +4,11 @@ import javax.servlet.http.HttpServletRequest
 
 import org.bonitasoft.engine.bpm.flownode.ActivityInstanceCriterion
 import org.bonitasoft.engine.bpm.flownode.ActivityStates
-import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
-import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
-import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ManualTaskInstance
 import org.bonitasoft.engine.bpm.flownode.UserTaskInstance
 import org.bonitasoft.engine.bpm.process.ProcessDefinition
 import org.bonitasoft.engine.identity.User
-import org.bonitasoft.engine.search.Order
-import org.bonitasoft.engine.search.SearchFilterOperation
-import org.bonitasoft.engine.search.SearchOptions
 import org.bonitasoft.engine.search.SearchResult
 import org.bonitasoft.engine.search.impl.SearchResultImpl
 import org.bonitasoft.engine.session.APISession
@@ -24,12 +18,8 @@ import com.bonitasoft.engine.api.APIClient
 import com.bonitasoft.engine.api.IdentityAPI
 import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.web.extension.rest.RestAPIContext
-import com.company.dispute.api.BPMNamesConstants
-import com.company.dispute.api.CaseActivity
 
-import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
-import spock.lang.Ignore
 import spock.lang.Specification
 
 

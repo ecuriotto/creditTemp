@@ -48,6 +48,15 @@ class CaseHistory implements RestApiController, BPMNamesConstants {
 				executedBy:user
 			]
 		}
+		def cseInstance = processAPI.getProcessInstance(caseId.toLong())
+		def user = context.apiClient.getIdentityAPI().getUser(cseInstance.startedBy)
+		result.add(	[
+				displayName:'Case started',
+				displayDescription:"",
+				reached_state_date:cseInstance.startDate,
+				executedBy:user
+			])
+		
 		return responseBuilder.with {
 			withResponseStatus(HttpServletResponse.SC_OK)
 			withResponse(new JsonBuilder(result).toString())

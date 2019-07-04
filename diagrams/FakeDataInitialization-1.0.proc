@@ -102,6 +102,7 @@
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5lJwMEemz_6GYzsxGrA" id="GROOVY_SCRIPT">
           <fragments xmi:type="configuration:Fragment" xmi:id="_nxUz8J1nEemTRtqWFynp_g" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" exported="false" type="GROOVY_SCRIPT"/>
           <fragments xmi:type="configuration:Fragment" xmi:id="_nxUz8Z1nEemTRtqWFynp_g" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_VHz-QJ4vEem9LrwhjfOhLw" key="com/company/model/ACMStates.groovy" value="com/company/model/ACMStates.groovy" exported="false" type="GROOVY_SCRIPT"/>
         </processDependencies>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5lZwMEemz_6GYzsxGrA" id="OTHER">
           <fragments xmi:type="configuration:Fragment" xmi:id="_V22l8Jy4Eem6Cs5xpESlFw" key="jfairy-0.6.2.jar" value="jfairy-0.6.2.jar" type="JAR"/>
@@ -110,6 +111,7 @@
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5l5wMEemz_6GYzsxGrA" id="GROOVY_SCRIPT">
           <fragments xmi:type="configuration:Fragment" xmi:id="_nxUz8p1nEemTRtqWFynp_g" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" exported="false" type="GROOVY_SCRIPT"/>
           <fragments xmi:type="configuration:Fragment" xmi:id="_nxUz851nEemTRtqWFynp_g" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_VH4PsJ4vEem9LrwhjfOhLw" key="com/company/model/ACMStates.groovy" value="com/company/model/ACMStates.groovy" exported="false" type="GROOVY_SCRIPT"/>
         </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5mJwMEemz_6GYzsxGrA" id="OTHER"/>
       </configurations>

@@ -1,41 +1,27 @@
 package com.company.dispute.api
 
-import java.time.LocalDateTime
-
 import javax.servlet.http.HttpServletRequest
 
-import com.bonitasoft.engine.api.APIClient
-import com.bonitasoft.engine.api.IdentityAPI
-import com.bonitasoft.engine.api.ProcessAPI
-import com.bonitasoft.web.extension.rest.RestAPIContext
-import com.company.dispute.api.BPMNamesConstants
-import com.company.dispute.api.Case
-import com.company.dispute.api.CaseHistory
-
-import groovy.json.JsonBuilder
-import groovy.json.JsonSlurper
-import org.bonitasoft.engine.bpm.data.DataInstance
-import org.bonitasoft.engine.bpm.flownode.ActivityInstance
 import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
-import org.bonitasoft.engine.bpm.flownode.FlowNodeType
-import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
-import org.bonitasoft.engine.bpm.flownode.impl.internal.ActivityInstanceImpl
-import org.bonitasoft.engine.bpm.flownode.impl.internal.HumanTaskInstanceImpl
-import org.bonitasoft.engine.bpm.process.ProcessDefinition
-import org.bonitasoft.engine.bpm.process.ProcessInstance
-import org.bonitasoft.engine.bpm.process.impl.internal.ProcessDefinitionImpl
 import org.bonitasoft.engine.identity.User
 import org.bonitasoft.engine.search.Order
 import org.bonitasoft.engine.search.SearchFilterOperation
 import org.bonitasoft.engine.search.SearchOptions
 import org.bonitasoft.engine.search.SearchResult
-import org.bonitasoft.engine.search.impl.SearchFilter
-import org.bonitasoft.engine.search.impl.SearchOptionsImpl
-import org.bonitasoft.web.extension.rest.RestApiResponse
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
+
+import com.bonitasoft.engine.api.APIClient
+import com.bonitasoft.engine.api.IdentityAPI
+import com.bonitasoft.engine.api.ProcessAPI
+import com.bonitasoft.web.extension.rest.RestAPIContext
+
+import groovy.json.JsonBuilder
+import groovy.json.JsonSlurper
+import spock.lang.Ignore
 import spock.lang.Specification
 
+@Ignore
 class CaseHistoryTest extends Specification {
 
     ProcessAPI processAPI = Mock()

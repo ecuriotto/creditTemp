@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseActivities",
   "name" : "CaseActivities",
-  "lastUpdate" : 1562166137558,
+  "lastUpdate" : 1562230654187,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -315,7 +315,7 @@
     },
     "resolvedPayload" : {
       "type" : "expression",
-      "value" : "return {\n    processInstanceId:$data.caseId,\n    taskId: $data.closeTaskId[0].id,\n    status: 'RESOVED'\n}",
+      "value" : "return {\n    processInstanceId:$data.caseId,\n    taskId: $data.closeTaskId[0].id,\n    status: 'RESOLVED'\n}",
       "exposed" : false
     },
     "closeTaskId" : {

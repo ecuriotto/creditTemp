@@ -7,17 +7,15 @@ import javax.servlet.http.HttpServletResponse
 
 import org.bonitasoft.web.extension.rest.RestApiResponse
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
+import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
 import com.company.model.DisputeDAO
 
 import groovy.json.JsonBuilder
-import groovy.json.JsonSlurper
 
-class Dispute implements RestApiController, CaseActivityHelper, BPMNamesConstants{
+class DisputeInfo implements RestApiController, CaseActivityHelper, BPMNamesConstants{
 
 	@Override
 	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
@@ -27,13 +25,8 @@ class Dispute implements RestApiController, CaseActivityHelper, BPMNamesConstant
 		}
 
 		def processAPI = context.apiClient.getProcessAPI()
-		def processInstanceContext = processAPI.getProcessInstanceExecutionContext(caseId.toLong())
-		def dispute_ref = processInstanceContext['dispute_ref']
-		def com.company.model.Dispute dispute
-		if(dispute_ref) {
-			def disputeDAO = context.apiClient.getDAO(DisputeDAO)
-			dispute = disputeDAO.findByPersistenceId(dispute_ref.storageId)
-		}
+		def searcBusinessData = newSearchBusinessData(processAPI)
+		def com.company.model.Dispute dispute = searcBusinessData.search(caseId.toLong(), 'dispute_ref', context.apiClient.getDAO(DisputeDAO))
 		if(!dispute) {
 			return buildResponse(responseBuilder, HttpServletResponse.SC_NOT_FOUND,"""{"error" : "no dispute found for case $caseId"}""")
 		}
@@ -47,6 +40,10 @@ class Dispute implements RestApiController, CaseActivityHelper, BPMNamesConstant
 			currency:dispute.currency,
 			status:dispute.status
 		]).toString())
+	}
+	
+	def SearchBusinessData newSearchBusinessData(ProcessAPI processAPI) {
+		new SearchBusinessData(processAPI)
 	}
 
 	def buildResponse(RestApiResponseBuilder responseBuilder, int httpStatus, Serializable body) {

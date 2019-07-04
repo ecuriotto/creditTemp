@@ -8,8 +8,6 @@ import org.bonitasoft.engine.search.Order
 import org.bonitasoft.engine.search.SearchOptionsBuilder
 import org.bonitasoft.web.extension.rest.RestApiResponse
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
 import com.bonitasoft.engine.api.IdentityAPI
 import com.bonitasoft.web.extension.rest.RestAPIContext
