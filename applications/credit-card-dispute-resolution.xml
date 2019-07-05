@@ -10,7 +10,7 @@
         </applicationPages>
         <applicationMenus>
             <applicationMenu applicationPage="home">
-                <displayName>Cases</displayName>
+                <displayName>Disputes</displayName>
             </applicationMenu>
         </applicationMenus>
     </application>
