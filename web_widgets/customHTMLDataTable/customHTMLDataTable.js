@@ -84,7 +84,6 @@
         .then(function (response) {
           vm.results = response.data.results;
           vm.pagination = response.data.pagination;
-          console.log(response.data)
         })
         .catch(function (error) {
           $log.error(error);

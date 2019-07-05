@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse
 
 import org.bonitasoft.engine.bpm.process.ProcessInstanceNotFoundException
 import org.bonitasoft.engine.search.SearchOptionsBuilder
+import org.bonitasoft.engine.search.SearchResult
 import org.bonitasoft.web.extension.rest.RestApiResponse
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 
@@ -41,7 +42,25 @@ class Case implements RestApiController, CaseActivityHelper, BPMNamesConstants{
 
         def pInt = p as int
         def cInt = c as int
-        def searchResult = processAPI.searchProcessInstances(new SearchOptionsBuilder(pInt * cInt, cInt).with {
+        def searchResult = searchInstances(processAPI, pInt, cInt, searchIndex)
+        def result = searchResult
+                .result
+                .collect {
+                    toCase([
+                        processAPI:processAPI,
+                        apiClient: context.apiClient,
+                        searchData:searchData,
+                        isOpen:true,
+                        contextPath:contextPath,
+                        caseId:it.id
+                    ])
+                }
+
+        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString(), pInt, cInt, searchResult.count)
+    }
+
+    SearchResult searchInstances(ProcessAPI processAPI, p, c, searchIndex) {
+        return processAPI.searchProcessInstances(new SearchOptionsBuilder(p * c, c).with {
             filter(ProcessInstanceSearchDescriptor.NAME, DISPUTE_PROCESS_NAME)
             if (searchIndex) {
                 and()
@@ -55,37 +74,6 @@ class Case implements RestApiController, CaseActivityHelper, BPMNamesConstants{
             }
             done()
         })
-
-        def result =searchResult
-                .result
-                .collect {
-                    toCase([
-                        processAPI:processAPI,
-                        apiClient: context.apiClient,
-                        searchData:searchData,
-                        isOpen:true,
-                        contextPath:contextPath,
-                        caseId:it.id
-                    ])
-                }
-
-        /* TODO: an other endpoint for archived -> 2 APIs, 2 Datatables*/ 
-        //        result.addAll(processAPI.searchArchivedProcessInstances(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-        //            filter(ArchivedProcessInstancesSearchDescriptor.NAME, DISPUTE_PROCESS_NAME)
-        //            done()
-        //        }).result
-        //        .collect {
-        //            toCase([
-        //                processAPI:processAPI,
-        //                apiClient: context.apiClient,
-        //                searchData:searchData,
-        //                isOpen:false,
-        //                contextPath:contextPath,
-        //                caseId:it.id
-        //            ])
-        //        })
-
-        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString(), pInt, cInt, searchResult.count)
     }
 
     def toCase(caseInput) {

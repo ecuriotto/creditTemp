@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1562333895310,
+  "lastUpdate" : 1562337389102,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -133,6 +133,55 @@
           "type" : "constant",
           "value" : false
         },
+        "availableValues" : {
+          "type" : "expression",
+          "value" : "buttonValues"
+        },
+        "displayedKey" : {
+          "type" : "constant",
+          "value" : "display"
+        },
+        "returnedKey" : {
+          "type" : "constant",
+          "value" : "key"
+        },
+        "selectedValue" : {
+          "type" : "variable",
+          "value" : "toggle"
+        },
+        "buttonStyle" : {
+          "type" : "constant",
+          "value" : "default"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "center"
+        },
+        "verticalAlignement" : {
+          "type" : "constant",
+          "value" : false
+        }
+      },
+      "reference" : "460902f8-2082-4e37-a90b-eeb493fd9858",
+      "hasValidationError" : false,
+      "id" : "customToggleButtons"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
         "required" : {
           "type" : "constant",
           "value" : false
@@ -192,7 +241,96 @@
       "hasValidationError" : false,
       "id" : "pbInput"
     } ], [ {
-      "type" : "component",
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "expression",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "expression",
+          "value" : "toggle === \"archived\""
+        },
+        "repeatedCollection" : {
+          "type" : "variable",
+          "value" : ""
+        }
+      },
+      "reference" : "91915067-d191-40d2-93b1-eb8fd441bae8",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "headers" : {
+            "type" : "constant",
+            "value" : [ "Case Id", "Customer", "Merchant Id", "Last updated", "Status" ]
+          },
+          "type" : {
+            "type" : "constant",
+            "value" : "Bonita API"
+          },
+          "apiUrl" : {
+            "type" : "constant",
+            "value" : "../API/extension/case"
+          },
+          "params" : {
+            "type" : "constant"
+          },
+          "content" : {
+            "type" : "expression",
+            "value" : "casesInfo.cases"
+          },
+          "columnsKey" : {
+            "type" : "expression",
+            "value" : "tableColumns"
+          },
+          "sortColumns" : {
+            "type" : "constant"
+          },
+          "selectedRow" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "pageSize" : {
+            "type" : "constant",
+            "value" : 10
+          },
+          "filter" : {
+            "type" : "expression",
+            "value" : "caseFilter"
+          },
+          "onSelectFunction" : {
+            "type" : "variable",
+            "value" : ""
+          }
+        },
+        "reference" : "3f6ace3b-3dc3-49b2-9e71-b3fe28d122ed",
+        "hasValidationError" : false,
+        "id" : "customHTMLDataTable"
+      } ] ]
+    } ], [ {
+      "type" : "container",
       "dimension" : {
         "xs" : 12,
         "sm" : 12,
@@ -205,55 +343,80 @@
           "value" : ""
         },
         "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "headers" : {
-          "type" : "constant",
-          "value" : [ "Case Id", "Customer", "Merchant Id", "Last updated", "Status" ]
-        },
-        "type" : {
-          "type" : "constant",
-          "value" : "Bonita API"
-        },
-        "apiUrl" : {
-          "type" : "constant",
-          "value" : "../API/extension/case"
-        },
-        "params" : {
-          "type" : "constant"
-        },
-        "content" : {
           "type" : "expression",
-          "value" : "casesInfo.cases"
+          "value" : "toggle === \"pending\""
         },
-        "columnsKey" : {
-          "type" : "expression",
-          "value" : "tableColumns"
-        },
-        "sortColumns" : {
-          "type" : "constant"
-        },
-        "selectedRow" : {
-          "type" : "variable",
-          "value" : ""
-        },
-        "pageSize" : {
-          "type" : "constant",
-          "value" : 10
-        },
-        "filter" : {
-          "type" : "expression",
-          "value" : "caseFilter"
-        },
-        "onSelectFunction" : {
+        "repeatedCollection" : {
           "type" : "variable",
           "value" : ""
         }
       },
-      "reference" : "3f6ace3b-3dc3-49b2-9e71-b3fe28d122ed",
+      "reference" : "177c37fa-ca03-4109-a481-9eefedab85e6",
       "hasValidationError" : false,
-      "id" : "customHTMLDataTable"
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "headers" : {
+            "type" : "constant",
+            "value" : [ "Case Id", "Customer", "Merchant Id", "Last updated", "Status" ]
+          },
+          "type" : {
+            "type" : "constant",
+            "value" : "Bonita API"
+          },
+          "apiUrl" : {
+            "type" : "constant",
+            "value" : "../API/extension/archivedCase"
+          },
+          "params" : {
+            "type" : "constant"
+          },
+          "content" : {
+            "type" : "constant"
+          },
+          "columnsKey" : {
+            "type" : "expression",
+            "value" : "tableColumns"
+          },
+          "sortColumns" : {
+            "type" : "constant"
+          },
+          "selectedRow" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "pageSize" : {
+            "type" : "constant",
+            "value" : 10
+          },
+          "filter" : {
+            "type" : "expression",
+            "value" : "caseFilter"
+          },
+          "onSelectFunction" : {
+            "type" : "variable",
+            "value" : ""
+          }
+        },
+        "reference" : "60d13535-f78a-412a-9dd0-556826255bff",
+        "hasValidationError" : false,
+        "id" : "customHTMLDataTable"
+      } ] ]
     } ] ]
   } ], [ {
     "type" : "modalContainer",
@@ -790,6 +953,16 @@
     "createDisputeAuthorization" : {
       "type" : "url",
       "value" : "../API/extension/createDisputeAuthorization",
+      "exposed" : false
+    },
+    "buttonValues" : {
+      "type" : "json",
+      "value" : "{\n    \"1\" : {\n        \"display\" : \"Closed disputes\",\n        \"key\" : \"archived\"\n    },\n    \"0\" : {\n        \"display\" : \"Opened disputes\",\n        \"key\" : \"pending\"\n    }\n    \n}",
+      "exposed" : false
+    },
+    "toggle" : {
+      "type" : "constant",
+      "value" : "pending",
       "exposed" : false
     }
   },
