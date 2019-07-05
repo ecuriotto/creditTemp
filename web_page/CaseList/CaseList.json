@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1562246767483,
+  "lastUpdate" : 1562333895310,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -32,19 +32,19 @@
     "rows" : [ [ {
       "type" : "component",
       "dimension" : {
-        "xs" : 4,
-        "sm" : 3,
-        "md" : 3,
-        "lg" : 3
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
       },
       "propertyValues" : {
         "cssClasses" : {
           "type" : "constant",
-          "value" : ""
+          "value" : "padding-bottom-15"
         },
         "hidden" : {
           "type" : "expression",
-          "value" : "!casesInfo || !casesInfo.canCreateDispute"
+          "value" : "!createDisputeAuthorization || !createDisputeAuthorization.canCreateDispute"
         },
         "disabled" : {
           "type" : "constant",
@@ -56,7 +56,7 @@
         },
         "alignment" : {
           "type" : "constant",
-          "value" : "left"
+          "value" : "right"
         },
         "buttonStyle" : {
           "type" : "constant",
@@ -116,13 +116,13 @@
       "reference" : "61b9d223-b2ea-4822-b162-8a84f59bce6c",
       "hasValidationError" : false,
       "id" : "pbButton"
-    }, {
+    } ], [ {
       "type" : "component",
       "dimension" : {
-        "xs" : 8,
-        "sm" : 9,
-        "md" : 9,
-        "lg" : 9
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
       },
       "propertyValues" : {
         "cssClasses" : {
@@ -214,11 +214,11 @@
         },
         "type" : {
           "type" : "constant",
-          "value" : "Variable"
+          "value" : "Bonita API"
         },
         "apiUrl" : {
           "type" : "constant",
-          "value" : "../API/"
+          "value" : "../API/extension/case"
         },
         "params" : {
           "type" : "constant"
@@ -245,6 +245,10 @@
         "filter" : {
           "type" : "expression",
           "value" : "caseFilter"
+        },
+        "onSelectFunction" : {
+          "type" : "variable",
+          "value" : ""
         }
       },
       "reference" : "3f6ace3b-3dc3-49b2-9e71-b3fe28d122ed",
@@ -779,13 +783,13 @@
       "type" : "constant",
       "exposed" : false
     },
-    "casesInfo" : {
-      "type" : "url",
-      "value" : "../API/extension/case",
-      "exposed" : false
-    },
     "caseFilter" : {
       "type" : "constant",
+      "exposed" : false
+    },
+    "createDisputeAuthorization" : {
+      "type" : "url",
+      "value" : "../API/extension/createDisputeAuthorization",
       "exposed" : false
     }
   },

@@ -7,7 +7,7 @@
 })().directive('customHTMLDataTable', function() {
     return {
       controllerAs: 'ctrl',
-      controller: function PbDataTableCtrl($scope, $http, $log, $filter) {
+      controller: function PbDataTableCtrl($scope, $http, $log, $filter, modalService) {
 
   var vm = this;
 
@@ -84,6 +84,7 @@
         .then(function (response) {
           vm.results = response.data.results;
           vm.pagination = response.data.pagination;
+          console.log(response.data)
         })
         .catch(function (error) {
           $log.error(error);
@@ -109,6 +110,9 @@
   this.selectRowHandler = function (row) {
     if (this.isSelectable()) {
       $scope.properties.selectedRow = row;
+      if($scope.properties.onSelectFunction) {
+          $scope.properties.onSelectFunction(modalService);
+      }
     }
   };
 
@@ -174,6 +178,6 @@
   });
 }
 ,
-      template: '<div style="background:white">\n    <div class="table-responsive">\n        <table bonitable\n               sort-options="ctrl.sortOptions"\n               on-sort="ctrl.sortHandler()"\n               class="table" ng-class="{\'table-hover\': ctrl.isSelectable()}">\n            <thead>\n                <tr>\n                    <th ng-repeat="header in properties.headers">\n                        <div ng-if="ctrl.isColumnSortable($index)" bo-sorter="{{properties.columnsKey[$index]}}">\n                            {{ header | uiTranslate }}\n                        </div>\n                        <div ng-if="!ctrl.isColumnSortable($index)">\n                             {{ header | uiTranslate }}\n                        </div>\n                    </th>\n                </tr>\n            </thead>\n            <tbody ng-if="ctrl.hasMultiColumns()">\n            <tr ng-repeat="row in ctrl.results" ng-click="ctrl.selectRowHandler(row)"\n                ng-class="{\'info\': row === properties.selectedRow}">\n                <td ng-repeat="column in properties.columnsKey track by $index">\n                    <div ng-bind-html="$eval(column, row) | uiTranslate"></div>\n                </td>\n            </tr>\n            </tbody>\n            <tbody ng-if="!ctrl.hasMultiColumns()">\n            <tr ng-repeat="row in ctrl.results" ng-click="ctrl.selectRowHandler(row)"\n                ng-class="{\'info\': row === properties.selectedRow}">\n                <td> {{ row | uiTranslate }}</td>\n            </tr>\n            </tbody>\n        </table>\n        <pagination ng-if="ctrl.pagination.total > properties.pageSize" total-items="ctrl.pagination.total" items-per-page="properties.pageSize" direction-links="false" boundary-links="false"\n                    ng-model="ctrl.pagination.currentPage" ng-change="ctrl.paginationHandler()"></pagination>\n    </div>\n</div>'
+      template: '<div class="well well-sm" style="background:white">\n    <div class="table-responsive">\n        <table bonitable\n               sort-options="ctrl.sortOptions"\n               on-sort="ctrl.sortHandler()"\n               class="table" ng-class="{\'table-hover\': ctrl.isSelectable()}">\n            <thead>\n                <tr>\n                    <th ng-repeat="header in properties.headers">\n                        <div ng-if="ctrl.isColumnSortable($index)" bo-sorter="{{properties.columnsKey[$index]}}">\n                                {{ header | uiTranslate }}\n                        </div>\n                        <div ng-if="!ctrl.isColumnSortable($index)">\n                            {{ header | uiTranslate }}\n                        </div>\n                    </th>\n                </tr>\n            </thead>\n            <tbody ng-if="ctrl.hasMultiColumns()">\n            <tr ng-repeat="row in ctrl.results" ng-click="ctrl.selectRowHandler(row)"\n                ng-class="{\'info\': row === properties.selectedRow}">\n                <td ng-repeat="column in properties.columnsKey track by $index">\n                    <div ng-bind-html="$eval(column, row) | uiTranslate"></div>\n                </td>\n            </tr>\n            </tbody>\n            <tbody ng-if="!ctrl.hasMultiColumns()">\n            <tr ng-repeat="row in ctrl.results" ng-click="ctrl.selectRowHandler(row)"\n                ng-class="{\'info\': row === properties.selectedRow}">\n                <td> {{ row | uiTranslate }}</td>\n            </tr>\n            </tbody>\n        </table>\n        <pagination ng-if="ctrl.pagination.total > properties.pageSize" \n                    total-items="ctrl.pagination.total" \n                    items-per-page="properties.pageSize" \n                    direction-links="false" \n                    boundary-links="false"\n                    ng-model="ctrl.pagination.currentPage"\n                    ng-change="ctrl.paginationHandler()">\n        </pagination>\n    </div>\n</div>'
     };
   });

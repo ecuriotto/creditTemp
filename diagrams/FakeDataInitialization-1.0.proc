@@ -115,6 +115,32 @@
         </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5mJwMEemz_6GYzsxGrA" id="OTHER"/>
       </configurations>
+      <configurations xmi:type="configuration:Configuration" xmi:id="_dRLtgJ79EemeluJdg480aQ" name="Production" version="7.9.0-002" username="walter.bates" password="bpm">
+        <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_dRPX4J79EemeluJdg480aQ">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_dRPX4Z79EemeluJdg480aQ" name="Admin">
+            <groups xmi:type="actormapping:Groups" xmi:id="_dRPX4p79EemeluJdg480aQ"/>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_dRPX4579EemeluJdg480aQ"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_dRPX5J79EemeluJdg480aQ"/>
+            <users xmi:type="actormapping:Users" xmi:id="_dRPX5Z79EemeluJdg480aQ"/>
+          </actorMapping>
+        </actorMappings>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dRLtgZ79EemeluJdg480aQ" id="ACTOR_FILTER"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dRLtgp79EemeluJdg480aQ" id="CONNECTOR"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dRLtg579EemeluJdg480aQ" id="DATA_TYPES"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dRLthJ79EemeluJdg480aQ" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_dRPX5p79EemeluJdg480aQ" key="com/company/model/ACMStates.groovy" value="com/company/model/ACMStates.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_dRP-8J79EemeluJdg480aQ" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_dRP-8Z79EemeluJdg480aQ" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </processDependencies>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dRLthZ79EemeluJdg480aQ" id="OTHER"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dRLthp79EemeluJdg480aQ" id="DATA_TYPES"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dRLth579EemeluJdg480aQ" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_dRP-8p79EemeluJdg480aQ" key="com/company/model/ACMStates.groovy" value="com/company/model/ACMStates.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_dRP-8579EemeluJdg480aQ" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_dRP-9J79EemeluJdg480aQ" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </applicationDependencies>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dRLtiJ79EemeluJdg480aQ" id="OTHER"/>
+      </configurations>
       <contract xmi:type="process:Contract" xmi:id="_8oZupU8EEeiL57cXslApDw"/>
       <searchIndexes xmi:type="process:SearchIndex" xmi:id="_8oZupk8EEeiL57cXslApDw">
         <name xmi:type="expression:Expression" xmi:id="_8oZup08EEeiL57cXslApDw" content="" returnTypeFixed="true"/>
