@@ -1,3 +1,12 @@
+/*******************************************************************************
+ * Copyright (C) 2019 BonitaSoft S.A.
+ * BonitaSoft is a trademark of BonitaSoft SA.
+ * This software file is BONITASOFT CONFIDENTIAL. Not For Distribution.
+ * For commercial licensing information, contact:
+ * BonitaSoft, 32 rue Gustave Eiffel � 38000 Grenoble
+ * or BonitaSoft US, 51 Federal Street, Suite 305, San Francisco, CA 94107
+ *******************************************************************************/
+
 package com.company.dispute.api;
 
 import javax.servlet.http.HttpServletRequest
@@ -24,44 +33,44 @@ class CaseHistory implements RestApiController, BPMNamesConstants {
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
         def caseId = request.getParameter "caseId"
         if (!caseId) {
-			return responseBuilder.with {
-				withResponseStatus(HttpServletResponse.SC_BAD_REQUEST)
-				withResponse("""{"error" : "the parameter caseId is missing"}""")
-				build()
-			}
+            return responseBuilder.with {
+                withResponseStatus(HttpServletResponse.SC_BAD_REQUEST)
+                withResponse("""{"error" : "the parameter caseId is missing"}""")
+                build()
+            }
         }
 
-		def processAPI = context.apiClient.getProcessAPI()
-		//Retrieve archived activities
-		def result = processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-			filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId.toLong())
-			differentFrom(ArchivedActivityInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
-			sort(ArchivedActivityInstanceSearchDescriptor.REACHED_STATE_DATE, Order.DESC)
-			done()
-		}).getResult()
-		.collect{
-			def user = context.apiClient.getIdentityAPI().getUser(it.executedBy)
-			[
-				displayName:it.displayName,
-				displayDescription:it.displayDescription ?: "",
-				reached_state_date:it.reachedStateDate,
-				executedBy:user
-			]
-		}
-		def cseInstance = processAPI.getProcessInstance(caseId.toLong())
-		def user = context.apiClient.getIdentityAPI().getUser(cseInstance.startedBy)
-		result.add(	[
-				displayName:'Case started',
-				displayDescription:"",
-				reached_state_date:cseInstance.startDate,
-				executedBy:user
-			])
-		
-		return responseBuilder.with {
-			withResponseStatus(HttpServletResponse.SC_OK)
-			withResponse(new JsonBuilder(result).toString())
-			build()
-		}
+        def processAPI = context.apiClient.getProcessAPI()
+        //Retrieve archived activities
+        def result = processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
+            filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId.toLong())
+            differentFrom(ArchivedActivityInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
+            sort(ArchivedActivityInstanceSearchDescriptor.REACHED_STATE_DATE, Order.DESC)
+            done()
+        }).getResult()
+        .collect{
+            def user = context.apiClient.getIdentityAPI().getUser(it.executedBy)
+            [
+                displayName:it.displayName,
+                displayDescription:it.displayDescription ?: "",
+                reached_state_date:it.reachedStateDate,
+                executedBy:user
+            ]
+        }
+        def cseInstance = processAPI.getProcessInstance(caseId.toLong())
+        def user = context.apiClient.getIdentityAPI().getUser(cseInstance.startedBy)
+        result.add(	[
+            displayName:'Case started',
+            displayDescription:"",
+            reached_state_date:cseInstance.startDate,
+            executedBy:user
+        ])
+
+        return responseBuilder.with {
+            withResponseStatus(HttpServletResponse.SC_OK)
+            withResponse(new JsonBuilder(result).toString())
+            build()
+        }
     }
 
 }

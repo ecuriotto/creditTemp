@@ -1,3 +1,12 @@
+/*******************************************************************************
+ * Copyright (C) 2019 BonitaSoft S.A.
+ * BonitaSoft is a trademark of BonitaSoft SA.
+ * This software file is BONITASOFT CONFIDENTIAL. Not For Distribution.
+ * For commercial licensing information, contact:
+ * BonitaSoft, 32 rue Gustave Eiffel � 38000 Grenoble
+ * or BonitaSoft US, 51 Federal Street, Suite 305, San Francisco, CA 94107
+ *******************************************************************************/
+
 package com.company.dispute.api;
 
 import javax.servlet.http.HttpServletRequest
@@ -24,111 +33,111 @@ import groovy.json.JsonBuilder
 
 class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConstants {
 
-	private static final String PREFIX = '$'
+    private static final String PREFIX = '$'
 
-	@Override
-	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
-		def caseId = request.getParameter "caseId"
-		if (!caseId) {
-			return buildResponse(responseBuilder,
-					HttpServletResponse.SC_BAD_REQUEST,
-					"""{"error" : "the parameter caseId is missing"}""")
-		}
+    @Override
+    RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
+        def caseId = request.getParameter "caseId"
+        if (!caseId) {
+            return buildResponse(responseBuilder,
+                    HttpServletResponse.SC_BAD_REQUEST,
+                    """{"error" : "the parameter caseId is missing"}""")
+        }
 
-		def ProcessAPI processAPI = context.apiClient.getProcessAPI()
-		def pDef = processAPI.getProcessDefinition(processAPI.getProcessDefinitionIdFromProcessInstanceId(caseId.toLong()))
+        def ProcessAPI processAPI = context.apiClient.getProcessAPI()
+        def pDef = processAPI.getProcessDefinition(processAPI.getProcessDefinitionIdFromProcessInstanceId(caseId.toLong()))
 
-		//Retrieve pending tasks for current user
-		def userPendingTask = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
-				.findAll{ !HIDDEN_ACTIVITIES.contains(it.name) && it.parentProcessInstanceId == caseId.toLong() }
-				.collect{ toActivity(it, getACMStateValue(it,processAPI), pDef, request.contextPath) }
-
-
-		//Retrieve all case tasks including ManualTasks
-		def allCaseTasks = processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-			filter(HumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId.toLong())
-			HIDDEN_ACTIVITIES.each {
-				differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, it)
-			}
-			done()
-		}).result
-		.collect{ toActivity(it, getACMStateValue(it,processAPI), pDef, request.contextPath) }
-
-		// Check if required task is pending
-		def containsPendingRequiredTasks = allCaseTasks.any{ it.acmState == REQUIRED_STATE }
-		
-		// Build the proper task list for the current user including ManualTasks
-		def result = allCaseTasks.findAll {
-			it.name in userPendingTask.name || it.isDynamicTask
-		}
-
-		result = result.sort{ a1,a2 -> valueOfState(a1.acmState) <=> valueOfState(a2.acmState) }
-
-		//Append archived tasks
-		def identityAPI = context.apiClient.getIdentityAPI()
-		result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-			filter(ArchivedHumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
-			HIDDEN_ACTIVITIES.each {
-				differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, it)
-			}
-			done()
-		}).result
-		.findAll{
-			//remove finished loop task instances
-			it.parentActivityInstanceId == 0 || !isAnArchivedLoopInstance(it, processAPI)
-		}
-		.collect{ ArchivedHumanTaskInstance task ->
-			def user = identityAPI.getUser(task.executedBy)
-			[
-				name:task.displayName ?: task.name,
-				description:task.description ?: '',
-				bpmState:task.state.capitalize(),
-				executedBy:"$user.firstName $user.lastName"
-			]
-		})
-
-		buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder([
-			activities: result,
-			canResolveCase: !containsPendingRequiredTasks
-		]).toString())
-	}
-
-	def toActivity(HumanTaskInstance task, String acmState, ProcessDefinition pDef, String contextPath) {
-		[
-			name:task.displayName ?: task.name,
-			url: canExecute(acmState) ? forge(pDef.name,pDef.version,task, contextPath) : null,
-			description:task.description ?: '',
-			target:linkTarget(task),
-			bpmState:task.state.capitalize(),
-			acmState:acmState,
-			isDynamicTask: task instanceof ManualTaskInstance
-		]
-	}
+        //Retrieve pending tasks for current user
+        def userPendingTask = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
+                .findAll{ !HIDDEN_ACTIVITIES.contains(it.name) && it.parentProcessInstanceId == caseId.toLong() }
+                .collect{ toActivity(it, getACMStateValue(it,processAPI), pDef, request.contextPath) }
 
 
-	def String forge(String processName,String processVersion,ActivityInstance instance, contextPath) {
-		if(instance instanceof UserTaskInstance) {
-			"$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false"
-		}else if(instance instanceof ManualTaskInstance) {
-			"$contextPath/apps/cases/do?id=$instance.id"
-		}
-	}
+        //Retrieve all case tasks including ManualTasks
+        def allCaseTasks = processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
+            filter(HumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId.toLong())
+            HIDDEN_ACTIVITIES.each {
+                differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, it)
+            }
+            done()
+        }).result
+        .collect{ toActivity(it, getACMStateValue(it,processAPI), pDef, request.contextPath) }
 
-	def String linkTarget(ActivityInstance instance) {
-		if(instance instanceof UserTaskInstance) {
-			'_self'
-		}else if(instance instanceof ManualTaskInstance) {
-			'_parent'
-		}
-	}
+        // Check if required task is pending
+        def containsPendingRequiredTasks = allCaseTasks.any{ it.acmState == REQUIRED_STATE }
 
-	RestApiResponse buildResponse(RestApiResponseBuilder responseBuilder, int httpStatus, Serializable body) {
-		return responseBuilder.with {
-			withResponseStatus(httpStatus)
-			withResponse(body)
-			build()
-		}
-	}
+        // Build the proper task list for the current user including ManualTasks
+        def result = allCaseTasks.findAll {
+            it.name in userPendingTask.name || it.isDynamicTask
+        }
+
+        result = result.sort{ a1,a2 -> valueOfState(a1.acmState) <=> valueOfState(a2.acmState) }
+
+        //Append archived tasks
+        def identityAPI = context.apiClient.getIdentityAPI()
+        result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
+            filter(ArchivedHumanTaskInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
+            HIDDEN_ACTIVITIES.each {
+                differentFrom(ArchivedHumanTaskInstanceSearchDescriptor.NAME, it)
+            }
+            done()
+        }).result
+        .findAll{
+            //remove finished loop task instances
+            it.parentActivityInstanceId == 0 || !isAnArchivedLoopInstance(it, processAPI)
+        }
+        .collect{ ArchivedHumanTaskInstance task ->
+            def user = identityAPI.getUser(task.executedBy)
+            [
+                name:task.displayName ?: task.name,
+                description:task.description ?: '',
+                bpmState:task.state.capitalize(),
+                executedBy:"$user.firstName $user.lastName"
+            ]
+        })
+
+        buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder([
+            activities: result,
+            canResolveCase: !containsPendingRequiredTasks
+        ]).toString())
+    }
+
+    def toActivity(HumanTaskInstance task, String acmState, ProcessDefinition pDef, String contextPath) {
+        [
+            name:task.displayName ?: task.name,
+            url: canExecute(acmState) ? forge(pDef.name,pDef.version,task, contextPath) : null,
+            description:task.description ?: '',
+            target:linkTarget(task),
+            bpmState:task.state.capitalize(),
+            acmState:acmState,
+            isDynamicTask: task instanceof ManualTaskInstance
+        ]
+    }
+
+
+    def String forge(String processName,String processVersion,ActivityInstance instance, contextPath) {
+        if(instance instanceof UserTaskInstance) {
+            "$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false"
+        }else if(instance instanceof ManualTaskInstance) {
+            "$contextPath/apps/cases/do?id=$instance.id"
+        }
+    }
+
+    def String linkTarget(ActivityInstance instance) {
+        if(instance instanceof UserTaskInstance) {
+            '_self'
+        }else if(instance instanceof ManualTaskInstance) {
+            '_parent'
+        }
+    }
+
+    RestApiResponse buildResponse(RestApiResponseBuilder responseBuilder, int httpStatus, Serializable body) {
+        return responseBuilder.with {
+            withResponseStatus(httpStatus)
+            withResponse(body)
+            build()
+        }
+    }
 
 
 }

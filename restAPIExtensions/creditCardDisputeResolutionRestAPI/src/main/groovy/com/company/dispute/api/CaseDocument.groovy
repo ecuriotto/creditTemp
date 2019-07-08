@@ -1,3 +1,12 @@
+/*******************************************************************************
+ * Copyright (C) 2019 BonitaSoft S.A.
+ * BonitaSoft is a trademark of BonitaSoft SA.
+ * This software file is BONITASOFT CONFIDENTIAL. Not For Distribution.
+ * For commercial licensing information, contact:
+ * BonitaSoft, 32 rue Gustave Eiffel � 38000 Grenoble
+ * or BonitaSoft US, 51 Federal Street, Suite 305, San Francisco, CA 94107
+ *******************************************************************************/
+
 package com.company.dispute.api;
 
 import javax.servlet.http.HttpServletRequest
@@ -24,32 +33,32 @@ class CaseDocument implements RestApiController {
         if (caseId == null) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter caseId is missing"}""")
         }
-		def result = []
-		def processAPI = context.apiClient.getProcessAPI()
-		processAPI.searchDocuments(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-			filter(DocumentsSearchDescriptor.PROCESSINSTANCE_ID, caseId.toLong())
-			sort(DocumentsSearchDescriptor.DOCUMENT_CREATIONDATE, Order.DESC)
-			done()
-		}).getResult()
-		.collect{ Document doc -> 
-			result << [
-				name:doc.name,
-				url:doc.url,
-				creationDate:doc.creationDate,
-				fileName:doc.contentFileName,
-				id:doc.id,
-				description:doc.description.replace("\n", "<br>"),
-				username:username(doc.author,context.apiClient.getIdentityAPI())
-			]
-		}
-	
+        def result = []
+        def processAPI = context.apiClient.getProcessAPI()
+        processAPI.searchDocuments(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
+            filter(DocumentsSearchDescriptor.PROCESSINSTANCE_ID, caseId.toLong())
+            sort(DocumentsSearchDescriptor.DOCUMENT_CREATIONDATE, Order.DESC)
+            done()
+        }).getResult()
+        .collect{ Document doc ->
+            result << [
+                name:doc.name,
+                url:doc.url,
+                creationDate:doc.creationDate,
+                fileName:doc.contentFileName,
+                id:doc.id,
+                description:doc.description.replace("\n", "<br>"),
+                username:username(doc.author,context.apiClient.getIdentityAPI())
+            ]
+        }
+
         return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
     }
-	
-	def String username(Long userId,IdentityAPI identityApi) {
-		def user = identityApi.getUser(userId)
-		user.firstName + " " + user.lastName
-	}
+
+    def String username(Long userId,IdentityAPI identityApi) {
+        def user = identityApi.getUser(userId)
+        user.firstName + " " + user.lastName
+    }
 
 
     RestApiResponse buildResponse(RestApiResponseBuilder responseBuilder, int httpStatus, Serializable body) {
@@ -59,6 +68,4 @@ class CaseDocument implements RestApiController {
             build()
         }
     }
-
-
 }
