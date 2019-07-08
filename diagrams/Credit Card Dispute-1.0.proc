@@ -200,6 +200,9 @@
             <constraints xmi:type="process:ContractConstraint" xmi:id="_gC6PppzLEemsNbXOsawszg" expression="disputeInput?.status != null" errorMessage="status is mandatory for Dispute" name="mandatory_disputeInput_status">
               <inputNames>disputeInput</inputNames>
             </constraints>
+            <constraints xmi:type="process:ContractConstraint" xmi:id="__pKekKFTEemeRp6YPsXyOg" expression="import java.time.OffsetDateTime&#xA;&#xA;return disputeInput.txDate &lt;= OffsetDateTime.now();" errorMessage="The transaction date must be in the past" name="txDateInPast">
+              <inputNames>disputeInput</inputNames>
+            </constraints>
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_58yvG5wYEemz_6GYzsxGrA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
@@ -372,6 +375,9 @@
               </inputs>
             </inputs>
             <constraints xmi:type="process:ContractConstraint" xmi:id="_7aia0JyZEemqZaueLnuvxA" expression="disputeInput?.status != null" errorMessage="status is mandatory for Dispute" name="mandatory_disputeInput_status">
+              <inputNames>disputeInput</inputNames>
+            </constraints>
+            <constraints xmi:type="process:ContractConstraint" xmi:id="_y0TsAKFTEemeRp6YPsXyOg" expression="import java.time.OffsetDateTime&#xA;&#xA;return disputeInput.txDate &lt;= OffsetDateTime.now();" errorMessage="The transaction date must be in the past" name="txDateInPast">
               <inputNames>disputeInput</inputNames>
             </constraints>
           </contract>
