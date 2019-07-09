@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:parameter="http://www.bonitasoft.org/ns/studio/parameter" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:parameter="http://www.bonitasoft.org/ns/studio/parameter" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
   <process:MainProcess xmi:id="_x5qBwPSMEeeYpYD60oU_zA" name="Credit Card Dispute" author="Romain" bonitaVersion="7.9.0" bonitaModelVersion="7.9.0-002" configId="ACED000574002343726564697420436172642044697370757465372E392E302D303032372E392E307370">
     <elements xmi:type="process:Pool" xmi:id="_x5qBwfSMEeeYpYD60oU_zA" name="Credit Card Dispute">
       <elements xmi:type="process:Lane" xmi:id="_THYTwJwPEemz_6GYzsxGrA" name="Bank employee" actor="_0btbMJwPEemz_6GYzsxGrA">
@@ -406,6 +406,27 @@
               <referencedElements xmi:type="parameter:Parameter" xmi:id="__lIX0Z2dEemQAo5alETTFA" name="reviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
             </defaultValue>
           </data>
+          <connectors xmi:type="process:Connector" xmi:id="_vRiroKIeEemjEO8nbtbzzg" name="MockCustomerNotification" definitionId="scripting-groovy-script" event="ON_FINISH" definitionVersion="1.0.1">
+            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_vRiroaIeEemjEO8nbtbzzg" definitionId="scripting-groovy-script" version="1.0.1" modelVersion="7.9.0-002">
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_vRiroqIeEemjEO8nbtbzzg" key="script">
+                <expression xmi:type="expression:Expression" xmi:id="_vRiro6IeEemjEO8nbtbzzg" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_vRirpKIeEemjEO8nbtbzzg" key="variables"/>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_vRirpaIeEemjEO8nbtbzzg" key="fakeScriptExpression">
+                <expression xmi:type="expression:Expression" xmi:id="_vRirpqIeEemjEO8nbtbzzg" name="mockNotification" content="import java.time.format.DateTimeFormatter&#xA;&#xA;/**&#xA; * This script connector illustrate a notification to the customer,&#xA; * we inform him that the chargeback has been done.&#xA; * Instead of sending an email, we log the notification, in order to simplify the exemple.&#xA; */&#xA; &#xA; def email = customer.email&#xA; def lastName = customer.lastName&#xA; def date = dispute.creationDate.format(DateTimeFormatter.ISO_OFFSET_DATE)&#xA; def amount = dispute.amount&#xA; def currency = dispute.currency&#xA; &#xA;def message = &quot;&quot;&quot;&#xA;Email sent to $email : &#xA;&#xA;    Mrs Mr $lastName,&#xA;    We are pleased to inform you that following the credit card dispute opened the $date,&#xA;    we are charging you back for an amount of  $amount $currency.&#xA;&#xA;    Best regards,&#xA;    Your credit card company&#xA;&quot;&quot;&quot;&#xA; &#xA;println message&#xA; " interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Object" returnTypeFixed="true">
+                  <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_M8Rc4KIkEemjEO8nbtbzzg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+                  <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_M8Rc4aIkEemjEO8nbtbzzg" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer"/>
+                </expression>
+              </parameters>
+            </configuration>
+            <outputs xmi:type="expression:Operation" xmi:id="_vRirp6IeEemjEO8nbtbzzg">
+              <leftOperand xmi:type="expression:Expression" xmi:id="_vRirqKIeEemjEO8nbtbzzg" content=""/>
+              <rightOperand xmi:type="expression:Expression" xmi:id="_vRirqaIeEemjEO8nbtbzzg" name="result" content="result" type="CONNECTOR_OUTPUT_TYPE" returnType="java.lang.Object">
+                <referencedElements xmi:type="definition:Output" xmi:id="_vRirqqIeEemjEO8nbtbzzg" name="result" type="java.lang.Object"/>
+              </rightOperand>
+              <operator xmi:type="expression:Operator" xmi:id="_vRirq6IeEemjEO8nbtbzzg" type="ASSIGNMENT"/>
+            </outputs>
+          </connectors>
           <loopCondition xmi:type="expression:Expression" xmi:id="_hp26dPUdEeeREboOt7l4UQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_hp26dfUdEeeREboOt7l4UQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_hp26dvUdEeeREboOt7l4UQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -671,8 +692,13 @@
             <users xmi:type="actormapping:Users" xmi:id="_tg7HZJzgEemsNbXOsawszg"/>
           </actorMapping>
         </actorMappings>
+        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_v4aeYKIeEemjEO8nbtbzzg" type="CONNECTOR" definitionId="scripting-groovy-script" definitionVersion="1.0.1" implementationId="scripting-groovy-script-impl" implementationVersion="1.1.0"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hEZwMEemz_6GYzsxGrA" id="ACTOR_FILTER"/>
-        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hEpwMEemz_6GYzsxGrA" id="CONNECTOR"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hEpwMEemz_6GYzsxGrA" id="CONNECTOR">
+          <children xmi:type="configuration:FragmentContainer" xmi:id="_v9PUAKIeEemjEO8nbtbzzg" id="scripting-groovy-script-impl-1.1.0">
+            <fragments xmi:type="configuration:Fragment" xmi:id="_v9i2AKIeEemjEO8nbtbzzg" key="scripting-groovy-script-impl -- 1.1.0" value="bonita-connector-scripting-1.1.0.jar" type="CONNECTOR"/>
+          </children>
+        </processDependencies>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hE5wMEemz_6GYzsxGrA" id="DATA_TYPES"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFJwMEemz_6GYzsxGrA" id="GROOVY_SCRIPT">
           <fragments xmi:type="configuration:Fragment" xmi:id="_3iC58JzTEemsNbXOsawszg" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" type="GROOVY_SCRIPT"/>
@@ -705,7 +731,7 @@
         <value xmi:type="expression:Expression" xmi:id="_x5qCJ_SMEeeYpYD60oU_zA" content="" returnTypeFixed="true"/>
       </searchIndexes>
       <searchIndexes xmi:type="process:SearchIndex" xmi:id="_x5qCKPSMEeeYpYD60oU_zA">
-        <name xmi:type="expression:Expression" xmi:id="_x5qCKfSMEeeYpYD60oU_zA" name="customer" content="customer" returnTypeFixed="true"/>
+        <name xmi:type="expression:Expression" xmi:id="_x5qCKfSMEeeYpYD60oU_zA" name="customerName" content="customerName" returnTypeFixed="true"/>
         <value xmi:type="expression:Expression" xmi:id="_x5qCKvSMEeeYpYD60oU_zA" name="initCustomer" content="customer.firstName + &quot; &quot; + customer.lastName" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
           <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_niNfUJ8nEemRQJIVczXf1w" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer"/>
         </value>
@@ -782,7 +808,7 @@
           <children xmi:type="notation:DecorationNode" xmi:id="_eD-EhpwMEemz_6GYzsxGrA" type="7002">
             <children xmi:type="notation:Shape" xmi:id="_h4UNNvUdEeeREboOt7l4UQ" type="3005" element="_h4S_EPUdEeeREboOt7l4UQ" fontName="Ubuntu" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_h4U0QPUdEeeREboOt7l4UQ" type="5005" element="_h4S_EPUdEeeREboOt7l4UQ"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h4UNN_UdEeeREboOt7l4UQ" x="384" y="119" width="115" height="57"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h4UNN_UdEeeREboOt7l4UQ" x="384" y="106" width="115" height="57"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_x5qCU_SMEeeYpYD60oU_zA" type="3005" element="_x5qB2fSMEeeYpYD60oU_zA" fontName="Ubuntu" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_x5qCVPSMEeeYpYD60oU_zA" type="5005" element="_x5qB2fSMEeeYpYD60oU_zA"/>
