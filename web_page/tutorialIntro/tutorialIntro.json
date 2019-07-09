@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "tutorialIntro",
   "name" : "tutorialIntro",
-  "lastUpdate" : 1562684406620,
+  "lastUpdate" : 1562705466184,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -1258,6 +1258,137 @@
         }
       },
       "reference" : "fa017d6d-d777-425f-bbcd-b03715737386",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "TODO next"
+        },
+        "level" : {
+          "type" : "constant",
+          "value" : "Level 2"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "aca33a07-e4ef-4ad2-828b-d814bc458f56",
+      "hasValidationError" : false,
+      "id" : "pbTitle"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "WIP section\n\n<ul>\n<li>Connect with <strong>joseph.hovell</strong> (Actor dispute agent -> grp acme/production) -> Perform investigate transaction (just a comment to add, should be something like `I found the merchant ID` -> then perform <strong>update dispute</strong> to add the ID</li>\n<li>Joseph decides that it is ok to chargeback the client -> perform the <strong>update dispute</strong> and change the state to <strong>PROCESSING CHARGEBACK</strong></li>\n<li>The amount to chargeback is high -> dispute supervisor  must perform a review: connect with <strong>zachary.williamson</strong> (actor dispute supervisor, grp acme/finance). -> you can perform the required review. <strong>Note: you can also perform update parameters, and set a value < 500 -> no need to perform the review anymore (pretty cool :D)</strong></li>\n<li>Reconnect with <strong>joseph.hovell</strong>  and perform <strong>chargeback</strong>. Note: Here a notification should have been sent to the customer, for now it is just logged (see the connector output on chargeback, perform alt shift q + c to see the consol and the log)</li>\n<li>Resolve the case</li>\n</ul>"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "269ba8fb-ab22-4461-beb2-b7d3c78844b8",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "Other cool stuff (to add in the tutorial scenario??): <br/>\n-> the history contains many details <br/>\n-> Case list is properly paginated, even with the search on business objects ( we use search index for that)\n\n<br/><br/>\nStuff not that cool:<br/>\n-> When you create an activity, it is available for all the organization, no way to restrict it. <br/>\n-> Even if the ACM state of a task is <i>not available</i>, all the task are ready according to the bpm schema -> all the tasks can be executed fronm task list or API ... -> Solution to implement: Add constraints on each task, the constraint should check that the ACM state is ok -> would it be enough? -> to be discussed with nath and others .."
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "145addb7-e63a-4218-a364-21f8b0cb2734",
       "hasValidationError" : false,
       "id" : "pbText"
     } ] ]
