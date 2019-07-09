@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseActivities",
   "name" : "CaseActivities",
-  "lastUpdate" : 1562230654187,
+  "lastUpdate" : 1562590813241,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -106,6 +106,10 @@
       },
       "filter" : {
         "type" : "constant"
+      },
+      "onSelectFunction" : {
+        "type" : "variable",
+        "value" : ""
       }
     },
     "reference" : "3b344fbf-dcd4-4753-a599-93f1ea338e04",

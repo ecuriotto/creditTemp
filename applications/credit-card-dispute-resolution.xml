@@ -14,4 +14,11 @@
             </applicationMenu>
         </applicationMenus>
     </application>
+    <application token="tutorial" version="1.0" profile="User" homePage="intro" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_themeBonita">
+        <displayName>Tutorial</displayName>
+        <applicationPages>
+            <applicationPage customPage="custompage_tutorialIntro" token="intro"/>
+        </applicationPages>
+        <applicationMenus/>
+    </application>
 </applications>
