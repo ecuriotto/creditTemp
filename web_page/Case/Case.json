@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1562681115391,
+  "lastUpdate" : 1562770664278,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -155,8 +155,96 @@
       "id" : "CustomerData",
       "binding" : {
         "caseId" : "caseId",
-        "dataUpdated" : "dataUpdated"
+        "dataUpdated" : "dataUpdated",
+        "customer" : "customer"
       }
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : "text-info"
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "disabled" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Open customer transactions"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        },
+        "buttonStyle" : {
+          "type" : "constant",
+          "value" : "primary"
+        },
+        "action" : {
+          "type" : "constant",
+          "value" : "Open modal"
+        },
+        "assign" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "url" : {
+          "type" : "interpolation"
+        },
+        "responseStatusCode" : {
+          "type" : "variable",
+          "value" : ""
+        },
+        "dataToSend" : {
+          "type" : "constant"
+        },
+        "dataFromSuccess" : {
+          "type" : "variable",
+          "value" : ""
+        },
+        "closeOnSuccess" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "dataFromError" : {
+          "type" : "variable",
+          "value" : ""
+        },
+        "targetUrlOnSuccess" : {
+          "type" : "interpolation"
+        },
+        "collectionToModify" : {
+          "type" : "variable"
+        },
+        "modalId" : {
+          "type" : "constant",
+          "value" : "customerTransactions"
+        },
+        "collectionPosition" : {
+          "type" : "constant",
+          "value" : "Last"
+        },
+        "valueToAdd" : {
+          "type" : "constant"
+        },
+        "removeItem" : {
+          "type" : "variable"
+        }
+      },
+      "reference" : "7e49006c-0411-41e0-87ba-b9acbefc160e",
+      "hasValidationError" : false,
+      "id" : "pbButton"
     } ] ]
   } ], [ {
     "type" : "tabsContainer",
@@ -868,6 +956,71 @@
         } ] ]
       } ] ]
     }
+  } ], [ {
+    "type" : "modalContainer",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "customerTransactions"
+      },
+      "size" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "animation" : {
+        "type" : "constant",
+        "value" : true
+      }
+    },
+    "reference" : "d73acc83-e66c-4034-8e24-91ebb5744078",
+    "hasValidationError" : false,
+    "id" : "pbModalContainer",
+    "container" : {
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12
+      },
+      "propertyValues" : { },
+      "reference" : "5fb6fdd3-995f-45bb-9667-c7e9d93b43da",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "fragment",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          }
+        },
+        "reference" : "0559067c-267e-4d54-8224-1d05f5fbf542",
+        "hasValidationError" : false,
+        "id" : "CustomerTransactions",
+        "binding" : {
+          "accountId" : "customer.accountId",
+          "customer" : "customer"
+        }
+      } ] ]
+    }
   } ] ],
   "assets" : [ {
     "id" : "a05c090c-8939-4e7f-886f-4888a951e252",
@@ -978,6 +1131,11 @@
     "clearDocumentName" : {
       "type" : "expression",
       "value" : "if($data.documentAdded && $data.documentAdded.id ){\n    $data.newDocument = { content: { filename : \"\" } }\n    $data.documentAdded = { id:\"\"}\n}",
+      "exposed" : false
+    },
+    "customer" : {
+      "type" : "url",
+      "value" : "../API/extension/customerInfo?caseId={{caseId}}",
       "exposed" : false
     }
   },

@@ -1,0 +1,113 @@
+{
+  "designerVersion" : "1.9.45",
+  "id" : "CustomerTransactions",
+  "name" : "CustomerTransactions",
+  "lastUpdate" : 1562771324444,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Transactions of {{customer.firstName}} {{customer.lastName}}"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "center"
+      }
+    },
+    "reference" : "a3f248b3-30d6-4acc-b011-2b1b205ef8f3",
+    "hasValidationError" : false,
+    "id" : "pbTitle"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "headers" : {
+        "type" : "constant",
+        "value" : [ "Date", "MIN", "Amount", "Currency" ]
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "Variable"
+      },
+      "apiUrl" : {
+        "type" : "constant",
+        "value" : "../API/"
+      },
+      "params" : {
+        "type" : "constant"
+      },
+      "content" : {
+        "type" : "expression",
+        "value" : "account[0].transactions"
+      },
+      "columnsKey" : {
+        "type" : "constant",
+        "value" : [ "txDate|uiDate:'yyyy/MM/dd hh:mm'", "merchantIdNumber", "amount", "currency" ]
+      },
+      "sortColumns" : {
+        "type" : "constant"
+      },
+      "selectedRow" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "pageSize" : {
+        "type" : "constant",
+        "value" : 10
+      },
+      "filter" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "fce9f733-07f9-4172-b585-0a28408be40d",
+    "hasValidationError" : false,
+    "id" : "pbDataTable"
+  } ] ],
+  "assets" : [ ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "account" : {
+      "type" : "url",
+      "value" : "../API/bdm/businessData/com.company.model.Account?p=0&c=1&q=findById&f=id={{customer.accountId}}",
+      "exposed" : false
+    },
+    "customer" : {
+      "type" : "constant",
+      "exposed" : true
+    }
+  },
+  "hasValidationError" : false,
+  "type" : "fragment"
+}

@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CustomerData",
   "name" : "CustomerData",
-  "lastUpdate" : 1562079874596,
+  "lastUpdate" : 1562769854406,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -106,14 +106,9 @@
   "assets" : [ ],
   "inactiveAssets" : [ ],
   "data" : {
-    "caseId" : {
+    "customer" : {
       "type" : "constant",
       "exposed" : true
-    },
-    "customer" : {
-      "type" : "url",
-      "value" : "../API/extension/customerInfo?caseId={{caseId}}",
-      "exposed" : false
     }
   },
   "hasValidationError" : false,
