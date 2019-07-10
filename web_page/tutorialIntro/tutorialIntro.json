@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "tutorialIntro",
   "name" : "tutorialIntro",
-  "lastUpdate" : 1562705466184,
+  "lastUpdate" : 1562752130709,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -890,7 +890,7 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "Only member of <strong><i>customer service</i></strong> can start a new credit card dispute.<br/>\n <i>Daniela Angelo</i> is a member of customer service. If you are not already logged with <i>Daniela Angelo</i> , log out and log in with:<br/>\n<strong>User name:</strong> daniela.angelo<br/>\n<strong>Passeword:</strong> bpm"
+          "value" : "Only member of <strong><i>customer service</i></strong> can start a new credit card dispute.<br/><br/>\n <i>Daniela Angelo</i> is a member of customer service. If you are not already logged with <i>Daniela Angelo</i> , log out and log in with:<br/>\n<strong>User name:</strong> daniela.angelo<br/>\n<strong>Passeword:</strong> bpm"
         },
         "alignment" : {
           "type" : "constant",
@@ -1279,7 +1279,7 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "TODO next"
+          "value" : "VII- Investigate transaction"
         },
         "level" : {
           "type" : "constant",
@@ -1290,7 +1290,7 @@
           "value" : "left"
         }
       },
-      "reference" : "aca33a07-e4ef-4ad2-828b-d814bc458f56",
+      "reference" : "15413be3-2a51-4e09-b268-1463db9cf522",
       "hasValidationError" : false,
       "id" : "pbTitle"
     } ], [ {
@@ -1332,14 +1332,96 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "WIP section\n\n<ul>\n<li>Connect with <strong>joseph.hovell</strong> (Actor dispute agent -> grp acme/production) -> Perform investigate transaction (just a comment to add, should be something like `I found the merchant ID` -> then perform <strong>update dispute</strong> to add the ID</li>\n<li>Joseph decides that it is ok to chargeback the client -> perform the <strong>update dispute</strong> and change the state to <strong>PROCESSING CHARGEBACK</strong></li>\n<li>The amount to chargeback is high -> dispute supervisor  must perform a review: connect with <strong>zachary.williamson</strong> (actor dispute supervisor, grp acme/finance). -> you can perform the required review. <strong>Note: you can also perform update parameters, and set a value < 500 -> no need to perform the review anymore (pretty cool :D)</strong></li>\n<li>Reconnect with <strong>joseph.hovell</strong>  and perform <strong>chargeback</strong>. Note: Here a notification should have been sent to the customer, for now it is just logged (see the connector output on chargeback, perform alt shift q + c to see the consol and the log)</li>\n<li>Resolve the case</li>\n</ul>"
+          "value" : "The next required action to perform is the action <strong>Investigate transaction</strong>.  The customer gave details about the dispute during the first call, a <strong><i>dispute agent</i></strong> has now to investigate. <br/><br/>\n <i>Joseph Hovell</i> is a dispute agent. log out and log in with:<br/>\n<strong>User name:</strong> joseph.hovell<br/>\n<strong>Passeword:</strong>  bpm \n<br/><br/>\nDuring the investigation, the dispute agent will, for exemple, find the <i><b>M</b>erchant <b>I</b>dentification <b>N</b>umber</i> associated to the disputed transaction.</br>\n<ul>\n<li>Perform the action <i><strong>Investigate transaction</strong></i>, add the following comment: <i>MIN found using customer transaction date </i></li>\n<li>Perform the action <i><strong>Update dispute</strong></i> and add a Merchant identification number (Exemple: 10-0002363) </li>\n</ul>\n<i class=\"text-info\"><i class=\"glyphicon glyphicon-info-sign\"></i> The database has been populated with transactions, you can find the MIN of a transaction by looking into the table <strong>ACCOUNTTX</strong>, if you want to simulate a real investigation</i>"
         },
         "alignment" : {
           "type" : "constant",
           "value" : "left"
         }
       },
-      "reference" : "269ba8fb-ab22-4461-beb2-b7d3c78844b8",
+      "reference" : "61466216-9d5e-43ad-be35-b0f76608f97e",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "VIII- Chargeback"
+        },
+        "level" : {
+          "type" : "constant",
+          "value" : "Level 2"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "1f218fe3-abd4-4c27-86b3-5a504fa4f0d8",
+      "hasValidationError" : false,
+      "id" : "pbTitle"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "After the investigation, the dispute agent decides to <strong>chargeback</strong> the customer. <br/><br/>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> Perform the action <strong>Update dispute</strong>, and set the status to <strong>PROCESSING CHARGEBACK</strong><br/><br/>\nThe action <strong>chargeback</strong> should still be unavailable, because the amount to chargeback is higher than the <strong><i>Review amount threshold</i></strong> (default value: 500) <i class=\"glyphicon glyphicon-arrow-right\"></i> A <strong>dispute supervisor</strong> has to perform a review to authorize the chargeback."
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "b7ceeccf-4940-41bf-b934-6ba28eaf6e84",
       "hasValidationError" : false,
       "id" : "pbText"
     } ], [ {
@@ -1381,14 +1463,112 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "Other cool stuff (to add in the tutorial scenario??): <br/>\n-> the history contains many details <br/>\n-> Case list is properly paginated, even with the search on business objects ( we use search index for that)\n\n<br/><br/>\nStuff not that cool:<br/>\n-> When you create an activity, it is available for all the organization, no way to restrict it. <br/>\n-> Even if the ACM state of a task is <i>not available</i>, all the task are ready according to the bpm schema -> all the tasks can be executed fronm task list or API ... -> Solution to implement: Add constraints on each task, the constraint should check that the ACM state is ok -> would it be enough? -> to be discussed with nath and others .."
+          "value" : "<i>Zachary Williamson</i> is a dispute supervisor. log out and log in with:<br/>\n<strong>User name:</strong> zachary.williamson<br/>\n<strong>Passeword:</strong>  bpm"
         },
         "alignment" : {
           "type" : "constant",
           "value" : "left"
         }
       },
-      "reference" : "145addb7-e63a-4218-a364-21f8b0cb2734",
+      "reference" : "fa4c036f-6af9-4332-aa5f-c1a0f639128c",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<i class=\"glyphicon glyphicon-arrow-right\"></i> Perform the action <strong>Review</strong>, with the following comment: <i>Review done, chargeback authorized.</i> <br/>\n<i class=\"text-info\"><i class=\"glyphicon glyphicon-info-sign\"></i> The dispute supervisor has also the possibility to change the review amount threshold, by performing the action <strong>Update parameters</strong>. If you set the threshold to a value higher than the amount to chargeback, then the review isn't required anymore.</i>"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "777d68d1-0267-4f56-8a35-912b363a7146",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "Log in with  <i>Joseph Hovell</i>, and perform the action <Strong>Chargeback</strong>. <br/>\nThe customer has been charged back, you can now resolve the dispute by clicking on the resolve button."
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "4463272f-9eb6-47f5-b291-04fbf3a7c1d2",
       "hasValidationError" : false,
       "id" : "pbText"
     } ] ]
