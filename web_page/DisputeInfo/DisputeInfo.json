@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "DisputeInfo",
   "name" : "DisputeInfo",
-  "lastUpdate" : 1562084449952,
+  "lastUpdate" : 1563134783518,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -212,7 +212,8 @@
     "id" : "CustomerData",
     "binding" : {
       "caseId" : "task.rootCaseId",
-      "dataUpdated" : ""
+      "dataUpdated" : "",
+      "customer" : "customer"
     }
   } ], [ {
     "type" : "formContainer",
@@ -955,6 +956,11 @@
     "rejectedOuput" : {
       "type" : "json",
       "value" : "{\n    \"disputeInput\" : {\n        \"status\" : \"INVALID\",\n        \"amount\" : null,\n        \"currency\" : null,\n        \"merchantIdNumber\" : null,\n        \"txDate\" : null\n    }\n}",
+      "exposed" : false
+    },
+    "customer" : {
+      "type" : "url",
+      "value" : "../API/extension/customerInfo?caseId={{task.caseId}}",
       "exposed" : false
     }
   },
