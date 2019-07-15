@@ -3,8 +3,76 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1562770664278,
+  "lastUpdate" : 1563204974518,
   "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Design 2"
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "page"
+      },
+      "targetUrl" : {
+        "type" : "constant",
+        "value" : "http://"
+      },
+      "pageToken" : {
+        "type" : "constant",
+        "value" : "caseBis"
+      },
+      "processName" : {
+        "type" : "constant"
+      },
+      "processVersion" : {
+        "type" : "constant"
+      },
+      "taskId" : {
+        "type" : "constant"
+      },
+      "caseId" : {
+        "type" : "constant"
+      },
+      "target" : {
+        "type" : "constant",
+        "value" : "_self"
+      },
+      "appToken" : {
+        "type" : "constant"
+      },
+      "urlParams" : {
+        "type" : "expression",
+        "value" : "{\"id\": caseId}"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "right"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "warning"
+      }
+    },
+    "reference" : "50955fe9-8222-487d-b5f7-035c3b4141e6",
+    "hasValidationError" : false,
+    "id" : "pbLink"
+  } ], [ {
     "type" : "container",
     "dimension" : {
       "xs" : 12,
@@ -100,32 +168,6 @@
           "value" : false
         }
       },
-      "reference" : "32caed50-6b87-4afd-9b02-5b720c8db40b",
-      "hasValidationError" : false,
-      "id" : "CreateActivity",
-      "binding" : {
-        "caseId" : "caseId",
-        "activities" : "activities",
-        "newActivityCreated" : "newActivityCreated"
-      }
-    } ], [ {
-      "type" : "fragment",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        }
-      },
       "reference" : "00ba9fdd-e5ea-49bd-a007-efe2f70ab14d",
       "hasValidationError" : false,
       "id" : "DisputeData",
@@ -158,93 +200,6 @@
         "dataUpdated" : "dataUpdated",
         "customer" : "customer"
       }
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : "text-info"
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "disabled" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Open customer transactions"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        },
-        "buttonStyle" : {
-          "type" : "constant",
-          "value" : "primary"
-        },
-        "action" : {
-          "type" : "constant",
-          "value" : "Open modal"
-        },
-        "assign" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "url" : {
-          "type" : "interpolation"
-        },
-        "responseStatusCode" : {
-          "type" : "variable",
-          "value" : ""
-        },
-        "dataToSend" : {
-          "type" : "constant"
-        },
-        "dataFromSuccess" : {
-          "type" : "variable",
-          "value" : ""
-        },
-        "closeOnSuccess" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "dataFromError" : {
-          "type" : "variable",
-          "value" : ""
-        },
-        "targetUrlOnSuccess" : {
-          "type" : "interpolation"
-        },
-        "collectionToModify" : {
-          "type" : "variable"
-        },
-        "modalId" : {
-          "type" : "constant",
-          "value" : "customerTransactions"
-        },
-        "collectionPosition" : {
-          "type" : "constant",
-          "value" : "Last"
-        },
-        "valueToAdd" : {
-          "type" : "constant"
-        },
-        "removeItem" : {
-          "type" : "variable"
-        }
-      },
-      "reference" : "7e49006c-0411-41e0-87ba-b9acbefc160e",
-      "hasValidationError" : false,
-      "id" : "pbButton"
     } ] ]
   } ], [ {
     "type" : "tabsContainer",
@@ -384,6 +339,72 @@
       },
       "title" : "Documents"
     } ]
+  } ], [ {
+    "type" : "modalContainer",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "createActivity"
+      },
+      "size" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "animation" : {
+        "type" : "constant",
+        "value" : true
+      }
+    },
+    "reference" : "307af0bf-999b-4a08-807f-c03bf56f957b",
+    "hasValidationError" : false,
+    "id" : "pbModalContainer",
+    "container" : {
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12
+      },
+      "propertyValues" : { },
+      "reference" : "7b44458b-acb8-4739-b363-280d609b7757",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "fragment",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          }
+        },
+        "reference" : "32caed50-6b87-4afd-9b02-5b720c8db40b",
+        "hasValidationError" : false,
+        "id" : "CreateActivity",
+        "binding" : {
+          "caseId" : "caseId",
+          "activities" : "activities",
+          "newActivityCreated" : "newActivityCreated"
+        }
+      } ] ]
+    }
   } ], [ {
     "type" : "modalContainer",
     "dimension" : {

@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CreateActivity",
   "name" : "CreateActivity",
-  "lastUpdate" : 1562150271521,
+  "lastUpdate" : 1563209187920,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -27,7 +27,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h4><span class=\"glyphicon glyphicon-plus-sign\" aria-hidden=\"true\"></span> Create activitiy</h4>"
+        "value" : "<h4><span class=\"glyphicon glyphicon-plus-sign\" aria-hidden=\"true\"></span> Create activity</h4>"
       },
       "alignment" : {
         "type" : "constant",
@@ -64,7 +64,7 @@
     "propertyValues" : {
       "cssClasses" : {
         "type" : "constant",
-        "value" : "well well-sm"
+        "value" : ""
       },
       "hidden" : {
         "type" : "constant",
@@ -285,7 +285,7 @@
           },
           "closeOnSuccess" : {
             "type" : "constant",
-            "value" : false
+            "value" : true
           },
           "modalId" : {
             "type" : "constant",

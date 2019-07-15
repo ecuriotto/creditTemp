@@ -3,14 +3,14 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseDocuments",
   "name" : "CaseDocuments",
-  "lastUpdate" : 1562235753163,
+  "lastUpdate" : 1563209092865,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
-      "md" : 12,
-      "lg" : 12
+      "md" : 10,
+      "lg" : 10
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -84,7 +84,7 @@
       },
       "buttonStyle" : {
         "type" : "constant",
-        "value" : "primary"
+        "value" : "info"
       },
       "action" : {
         "type" : "constant",
@@ -243,9 +243,9 @@
       "type" : "container",
       "dimension" : {
         "xs" : 12,
-        "sm" : 6,
-        "md" : 3,
-        "lg" : 3
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
       },
       "propertyValues" : {
         "cssClasses" : {
@@ -275,7 +275,7 @@
         "propertyValues" : {
           "cssClasses" : {
             "type" : "constant",
-            "value" : "panel panel-default margin-bottom-sm"
+            "value" : "panel panel-default margin-bottom-sm background-light"
           },
           "hidden" : {
             "type" : "constant",

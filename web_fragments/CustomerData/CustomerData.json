@@ -3,14 +3,14 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CustomerData",
   "name" : "CustomerData",
-  "lastUpdate" : 1562769854406,
+  "lastUpdate" : 1563216371564,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
       "xs" : 12,
-      "sm" : 12,
+      "sm" : 6,
       "md" : 12,
-      "lg" : 6
+      "lg" : 12
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -92,7 +92,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<dl  class=\"dl-horizontal\">\n<dt><span class=\"glyphicon glyphicon-user\"> </span> Customer</dt><dd>{{customer.firstName}} {{customer.lastName}} ({{customer.customerId}})</dd>\n<dt> <span class=\"glyphicon glyphicon-envelope\"> </span></p> Email</dt><dd><a href=\"mailto:{{customer.email}}\">{{customer.email}} </a></dd>\n<dt> <span class=\"glyphicon glyphicon-earphone\"> </span></p> Phone</dt><dd><a href=\"tel:{{customer.phoneNumber}}\">{{customer.phoneNumber}}</a></dd>\n<dt> <span class=\"glyphicon glyphicon-piggy-bank\"> </span></p> Account</dt><dd>{{customer.accountId}}</dd>\n</dl>"
+        "value" : "<dl  class=\"dl-horizontal\">\n<dt><span class=\"glyphicon glyphicon-user\"> </span> Customer</dt><dd>{{customer.firstName}} {{customer.lastName}} ({{customer.customerId}})</dd>\n<dt> <span class=\"glyphicon glyphicon-envelope\"> </span></p> Email</dt><dd><a class=\"text-info\" href=\"mailto:{{customer.email}}\">{{customer.email}} </a></dd>\n<dt> <span class=\"glyphicon glyphicon-earphone\"> </span></p> Phone</dt><dd><a class=\"text-info\" href=\"tel:{{customer.phoneNumber}}\">{{customer.phoneNumber}}</a></dd>\n<dt> <span class=\"glyphicon glyphicon-piggy-bank\"> </span></p> Account</dt><dd>{{customer.accountId}}</dd>\n</dl>"
       },
       "alignment" : {
         "type" : "constant",
@@ -102,6 +102,93 @@
     "reference" : "ec8adeaf-05bb-4de2-8841-009d4d549fbc",
     "hasValidationError" : false,
     "id" : "pbText"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 6,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : "info-link margin-top-minus-30 margin-left-minus-13"
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "<dl  class=\"dl-horizontal\"><dd> account details</dd></dl>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "link"
+      },
+      "action" : {
+        "type" : "constant",
+        "value" : "Open modal"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "url" : {
+        "type" : "interpolation"
+      },
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "dataToSend" : {
+        "type" : "constant"
+      },
+      "dataFromSuccess" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "dataFromError" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "targetUrlOnSuccess" : {
+        "type" : "interpolation"
+      },
+      "collectionToModify" : {
+        "type" : "variable"
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "customerTransactions"
+      },
+      "collectionPosition" : {
+        "type" : "constant",
+        "value" : "Last"
+      },
+      "valueToAdd" : {
+        "type" : "constant"
+      },
+      "removeItem" : {
+        "type" : "variable"
+      }
+    },
+    "reference" : "8ed8ce3f-1fad-4c08-abc0-1d2f191d6438",
+    "hasValidationError" : false,
+    "id" : "pbButton"
   } ] ],
   "assets" : [ ],
   "inactiveAssets" : [ ],

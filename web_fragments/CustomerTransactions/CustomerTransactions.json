@@ -2,8 +2,57 @@
   "designerVersion" : "1.9.45",
   "id" : "CustomerTransactions",
   "name" : "CustomerTransactions",
-  "lastUpdate" : 1562771324444,
+  "lastUpdate" : 1563204348045,
   "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Account details"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<h2>Account details <br/> <small class=\\\"text-muted\\\"> Account nº {{account[0].id}} </small></h2>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "center"
+      }
+    },
+    "reference" : "202345ca-e2a3-45fb-a727-962443c0e6c9",
+    "hasValidationError" : false,
+    "id" : "pbText"
+  } ], [ {
     "type" : "component",
     "dimension" : {
       "xs" : 12,
@@ -22,18 +71,18 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "Transactions of {{customer.firstName}} {{customer.lastName}}"
+        "value" : "Transactions"
       },
       "level" : {
         "type" : "constant",
-        "value" : "Level 2"
+        "value" : "Level 3"
       },
       "alignment" : {
         "type" : "constant",
-        "value" : "center"
+        "value" : "left"
       }
     },
-    "reference" : "a3f248b3-30d6-4acc-b011-2b1b205ef8f3",
+    "reference" : "f11a7d87-a717-4d88-b9bf-cd242e19a802",
     "hasValidationError" : false,
     "id" : "pbTitle"
   } ], [ {

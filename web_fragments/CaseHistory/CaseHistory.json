@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseHistory",
   "name" : "CaseHistory",
-  "lastUpdate" : 1562079914741,
+  "lastUpdate" : 1563219236921,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -88,7 +88,7 @@
     },
     "events" : {
       "type" : "expression",
-      "value" : "if($data.caseHistory){\n    return $data.caseHistory.map(function(task){\n        return {\n            title: task.displayName,\n            time: moment(task.reached_state_date).format(\"dddd, MMMM Do YYYY, hh:mm:ss\"),\n            user: task.executedBy.firstName+' '+task.executedBy.lastName,\n            body: task.displayDescription\n        };\n    });\n}\nreturn [];",
+      "value" : "if($data.caseHistory){\n    return $data.caseHistory.map(function(task){\n        return {\n            title: task.displayName,\n            time: moment(task.reached_state_date).format(\"dddd, MMMM Do YYYY, hh:mm:ss a\"),\n            user: task.executedBy.firstName+' '+task.executedBy.lastName,\n            body: task.displayDescription\n        };\n    });\n}\nreturn [];",
       "exposed" : false
     }
   },

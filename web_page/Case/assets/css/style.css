@@ -61,6 +61,14 @@ ul {
      padding-top: 15px;
 }
 
+.margin-top-minus-30{
+     margin-top: -30px;
+}
+
+.margin-left-minus-13{
+    margin-left: -13px;
+}
+
 .panel{
     margin-right: 15px;
 }
