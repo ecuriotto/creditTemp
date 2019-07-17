@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CustomerData",
   "name" : "CustomerData",
-  "lastUpdate" : 1563216371564,
+  "lastUpdate" : 1563264470339,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -116,8 +116,8 @@
         "value" : "info-link margin-top-minus-30 margin-left-minus-13"
       },
       "hidden" : {
-        "type" : "constant",
-        "value" : false
+        "type" : "expression",
+        "value" : "hideDetails"
       },
       "disabled" : {
         "type" : "constant",
@@ -194,6 +194,10 @@
   "inactiveAssets" : [ ],
   "data" : {
     "customer" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "hideDetails" : {
       "type" : "constant",
       "exposed" : true
     }

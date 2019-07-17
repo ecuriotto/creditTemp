@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "tutorialIntro",
   "name" : "tutorialIntro",
-  "lastUpdate" : 1562752130709,
+  "lastUpdate" : 1563263589402,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -504,7 +504,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "The <i>credit card dispute resolution</i> process requires some data to be executed: <br/>\n<ul>\n<li>An <strong>account</strong> refers to a <strong>customer</strong> and to all its <strong>transactions</strong></li>\n<li>A <strong>dispute</strong> is started following the call of an <strong>existing customer</strong> who wants to dispute a <strong>transaction</strong> on it <strong>account</strong> </li>\n</ul>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> You must populate the database with some users, transactions and account to start a dispute"
+        "value" : "The <i>credit card dispute resolution</i> process requires some data to be executed: <br/>\n<ul>\n<li>An <strong>account</strong> contains all the <strong>transactions</strong> of a given <strong>customer</strong></li>\n<li>A <strong>dispute</strong> is started following the call of an <strong>existing customer</strong> who wants to dispute a <strong>transaction</strong> on its <strong>account</strong> </li>\n</ul>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> The database must be populated with some users, transactions and account before toi be able to start a dispute"
       },
       "alignment" : {
         "type" : "constant",

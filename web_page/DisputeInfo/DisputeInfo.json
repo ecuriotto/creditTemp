@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "DisputeInfo",
   "name" : "DisputeInfo",
-  "lastUpdate" : 1563134783518,
+  "lastUpdate" : 1563264496783,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -213,7 +213,8 @@
     "binding" : {
       "caseId" : "task.rootCaseId",
       "dataUpdated" : "",
-      "customer" : "customer"
+      "customer" : "customer",
+      "hideDetails" : "hideDetails"
     }
   } ], [ {
     "type" : "formContainer",
@@ -961,6 +962,11 @@
     "customer" : {
       "type" : "url",
       "value" : "../API/extension/customerInfo?caseId={{task.caseId}}",
+      "exposed" : false
+    },
+    "hideDetails" : {
+      "type" : "expression",
+      "value" : "return true;",
       "exposed" : false
     }
   },
