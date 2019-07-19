@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseDocuments",
   "name" : "CaseDocuments",
-  "lastUpdate" : 1563209092865,
+  "lastUpdate" : 1563525864026,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -275,7 +275,7 @@
         "propertyValues" : {
           "cssClasses" : {
             "type" : "constant",
-            "value" : "panel panel-default margin-bottom-sm background-light"
+            "value" : "panel panel-default margin-bottom-sm"
           },
           "hidden" : {
             "type" : "constant",

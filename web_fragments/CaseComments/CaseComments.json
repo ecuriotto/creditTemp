@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseComments",
   "name" : "CaseComments",
-  "lastUpdate" : 1563207571048,
+  "lastUpdate" : 1563525872136,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -228,7 +228,7 @@
     "propertyValues" : {
       "cssClasses" : {
         "type" : "constant",
-        "value" : "panel panel-default background-light"
+        "value" : "panel panel-default"
       },
       "hidden" : {
         "type" : "constant",

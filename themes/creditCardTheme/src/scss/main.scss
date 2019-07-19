@@ -12,18 +12,3 @@
 	    color: $state-info-text;
 	}
 }
-
-.background-light {
-	background-color: $background-light;
-} 
-
-/* Override some properties of the Timeline widget, to match with the theme color */
-
-.timeline > li > .timeline-panel {
-	background-color: $background-light;
-}
-
-.timeline > li > .timeline-panel:after {
-	border-left: 14px solid $background-light;
-    border-right: 0 solid $background-light;
-}

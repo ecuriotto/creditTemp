@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseHistory",
   "name" : "CaseHistory",
-  "lastUpdate" : 1563219236921,
+  "lastUpdate" : 1563525838230,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
