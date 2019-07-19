@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "tutorialIntro",
   "name" : "tutorialIntro",
-  "lastUpdate" : 1563526973217,
+  "lastUpdate" : 1563546742551,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -22,7 +22,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "Credit card dispute resolution: A Bonita case managment exemple"
+        "value" : "Credit card dispute resolution: A Bonita case managment example"
       },
       "level" : {
         "type" : "constant",
@@ -101,7 +101,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "Welcome on this tutorial ! <br/>\nYou'll get here an overview of this case management exemple, how it works, how to use it, and <strong><u>how to create your own case management application</u></strong> ! <br/>\nEnjoy the reading !"
+        "value" : "Welcome on this tutorial ! <br/>\nYou'll get here an overview of this case management example, how it works, how to use it, and <strong><u>how to create your own case management application</u></strong> ! <br/>\nEnjoy the reading !"
       },
       "alignment" : {
         "type" : "constant",
@@ -156,7 +156,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "I- Purpose of the exemple"
+        "value" : "I- Purpose of the example"
       },
       "level" : {
         "type" : "constant",
@@ -209,7 +209,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "The purpose of this <i>Credit card dispute resolution application</i> is to provide a complete - well-designed case management exemple created with Bonita. <br/>\nit is meant to illustrate the power of the Bonita platform to implement and execute <i>case management based</i> applications.<br/>\nUsing this exemple, you should be able to understand the main concepts to create a <i>case management based</i> Bonita application."
+        "value" : "The purpose of this <i>Credit card dispute resolution application</i> is to provide a complete - well-designed case management example created with Bonita. <br/>\nit is meant to illustrate the power of the Bonita platform to implement and execute <i>case management based</i> applications.<br/>\nUsing this example, you should be able to understand the main concepts to create a <i>case management based</i> Bonita application."
       },
       "alignment" : {
         "type" : "constant",
@@ -291,7 +291,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "The Bonita case management possibilities are entirely dependent on an <strong>Event Handler</strong> embedded in the Bonita Engine.<br/>\nThe event handler is triggered each time an activity is completed, and has the following effect: <br/>\n<i><strong>All the <u>transient</u> data who the name starts with `$` are re-evaluated when the case management event handler is triggered.</strong></i> <br/>\nThose transient data are meant to contain the <i>activity state logic</i>. Each activity is supposed to have its own transient data.<br/> \nThe value of a data should reflect the state of the  associated activity (Required, Discretionary, Optional, Not Available), depending on the current state of the process (a given  task has been completed, a given business data has been valuated ...). <br/>\nWhen the event handler is triggered, the values of those data are re-evaluated, and so the state of each activity.<br/>\nThe state of each activity is displayed in the User Interface, and only available activities are executable. The logic behind that is computed in a REST API extension in this exemple."
+        "value" : "The Bonita case management possibilities depends entirely on an <strong>Event Handler</strong> embedded in the Bonita Engine.<br/>\nThe event handler is triggered each time an activity is completed, and has the following effect: <br/>\n<i><strong>All the <u>transient</u> data who the name starts with `$` are re-evaluated when the case management event handler is triggered.</strong></i> <br/>\nThose transient data are meant to contain the <i>activity state logic</i>. Each activity is supposed to have its own transient data.<br/> \nThe value of a data should reflect the state of the  associated activity (Required, Discretionary, Optional, Not Available), depending on the current state of the process (a given  task has been completed, a given business data has been valuated ...). <br/>\nWhen the event handler is triggered, the values of those data are re-evaluated, and so the state of each activity.<br/>\nThe state of each activity is displayed in the User Interface, and only available activities are executable. The logic behind that is computed in a REST API extension in this example."
       },
       "alignment" : {
         "type" : "constant",
@@ -340,7 +340,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h4>Activate the case management event handler</h4>\nBy default, the case management isn't activated. To activate it, the following argument has to be passed when launching the Tomcat: <br/><br/>\n<i><strong>-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true</strong></i>\n <br/><br/>\nIn the Bonita Studio, you can pass this argument to the engine tomcat by going to <strong>preferences -> server settings -> tomcat JVM additional arguments</strong>"
+        "value" : "<h4>Activate the case management event handler</h4>\nBy default, the case management event handler isn't activated. To activate it, the following argument has to be passed when launching the Tomcat: <br/><br/>\n<i><strong>-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true</strong></i>\n <br/><br/>\nIn the Bonita Studio, you can pass this argument to the engine tomcat by going to <strong>preferences -> server settings -> tomcat JVM additional arguments</strong>. The parameter is present by default, you just have to set its value to <strong>true</strong>"
       },
       "alignment" : {
         "type" : "constant",
@@ -369,7 +369,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "III- Set up the exemple"
+        "value" : "III- Set up the example"
       },
       "level" : {
         "type" : "constant",
@@ -422,7 +422,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "In order to be able to use this exemple, there is a couple of artifacts to deploy. <br/>\nAll the artifacts can be deployed from the Bonita Studio using the Bonita project explorer: right click on an artifact -> deploy.\n\n<h5>Artifacts to deploy:</h5>\n\n<ul>\n<li>Business data model <strong><i>bom.xml</i></strong></li>\n<li>Organization <strong><i>ACME.organization</i></strong></li>\n<li>Processes<strong> <i>Credit Card Dispute</i></strong>  and <strong> <i>Data initialization</i></strong> (ensure that the active environment is the environment <strong><i>development</i>)</li>\n<li>Rest API extension<strong> <i>creditCardDisputeResolutionRestAPI</i></strong></li>\n<li>Application descriptor <strong><i>credit-card-dispute-resolution</i></strong></li>\n</ul>\n\n<h5>Define Rest API extension authorizations</h5>\nThis exemple use a couple of REST API extensions. The authorization accesses must be define to be able to use the exemple. <br/>\nFrom the Bonita project explorer in the Bonita Studio, right click on the folder <i>REST API extensions</i> and select <i>Edit permissions mapping</i>. <br/>Add the following permission, save and close the editor: <br/><br/>\n<strong>profile|User=[case_activity, document_visualization]</strong>"
+        "value" : "In order to be able to use this example, there is a couple of artifacts to deploy. <br/>\nAll the artifacts can be deployed from the Bonita Studio using the Bonita project explorer: right click on an artifact -> deploy.\n\n<h5>Artifacts to deploy:</h5>\n\n<ul>\n<li>Business data model <strong><i>bom.xml</i></strong></li>\n<li>Organization <strong><i>ACME.organization</i></strong></li>\n<li>Processes<strong> <i>Credit Card Dispute</i></strong>  and <strong> <i>Data initialization</i></strong> (ensure that the active environment is the environment <strong><i>development</i>)</li>\n<li>Rest API extension<strong> <i>creditCardDisputeResolutionRestAPI</i></strong></li>\n<li>Application descriptor <strong><i>credit-card-dispute-resolution</i></strong></li>\n</ul>\n\n<h5>Define Rest API extension authorizations</h5>\nThis example use a couple of REST API extensions. The authorization accesses must be define to be able to use the example. <br/>\nFrom the Bonita project explorer in the Bonita Studio, right click on the folder <i>REST API extensions</i> and select <i>Edit permissions mapping</i>. <br/>Add the following permission, save and close the editor: <br/><br/>\n<strong>profile|User=[case_activity, document_visualization]</strong>"
       },
       "alignment" : {
         "type" : "constant",
@@ -1070,7 +1070,7 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "On the left, you can see the task list. It contains all the available actions for the current user, and their state. <br/>\nEach action corresponds to a task in the process <i>Credit Card Dispute</i>. <br/>The state of a task can be <span class=\"label label-danger\">Required</span> <span class=\"label label-primary\">Discretionary</span> <span class=\"label label-primary\">Optional</span> <span class=\"label label-default\"> N/A (not available)</span>  or <span class=\"label label-success\">Completed</span> <br/>\nOn the process, you can see on each task a transient data named <strong><i>$activityState</i></strong>. Each data has the responsability to compute the state of its task (see the event handler section for more details).<br/>\nDepending on its state, an action can be performed or not, by clicking on its name."
+          "value" : "On the left, you can see the task list. It contains all the available actions for the current user, and their state. <br/>\nEach action corresponds to a task in the process <i>Credit Card Dispute</i>. <br/>The state of a task can be <span class=\"label label-danger\">Required</span> <span class=\"label label-primary\">Discretionary</span> <span class=\"label label-primary\">Optional</span> <span class=\"label label-default\"> N/A (not available)</span>  or <span class=\"label label-success\">Completed</span> <br/>\nOn the process, you can see on each task a transient data named <strong><i>$activityState</i></strong>. Each data has the responsability to compute the state of its task (see the event handler section for more details).<br/>\nDepending on its state, an action can be performed or not, by clicking on its name.<br/>\n\nOn the top right of the task list, there is a button <strong>Create Activity</strong>. It can be used to <strong>create an action that needs to be performed</strong> (send a mail to someone, call a client ...). <br/>\nOnce created, the new activity is available in the task list, and can be performed at any moment. <br/>"
         },
         "alignment" : {
           "type" : "constant",
@@ -1119,7 +1119,7 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "On the right, you can first see a section named <strong>Create Activity</strong>. It can be used to <strong>create an action that needs to be performed</strong> (send a mail to someone, call a client ...). <br/>\nOnce created, the new activity is available in the task list, and can be performed at any moment. <br/>\nBelow the create activity section, there is informations about the customer and the current dispute. Those informations are updated when actions are performed."
+          "value" : "On the right, there is informations about the customer and the current dispute. Those informations are updated when actions are performed."
         },
         "alignment" : {
           "type" : "constant",
@@ -1332,7 +1332,7 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "The next required action to perform is the action <strong>Investigate transaction</strong>.  The customer gave details about the dispute during the first call, a <strong><i>dispute agent</i></strong> has now to investigate. <br/><br/>\n <i>Joseph Hovell</i> is a dispute agent. log out and log in with:<br/>\n<strong>User name:</strong> joseph.hovell<br/>\n<strong>Passeword:</strong>  bpm \n<br/><br/>\nDuring the investigation, the dispute agent will, for exemple, find the <i><b>M</b>erchant <b>I</b>dentification <b>N</b>umber</i> associated to the disputed transaction.</br>\n<ul>\n<li>Perform the action <i><strong>Investigate transaction</strong></i>, add the following comment: <i>MIN found using customer transaction date </i></li>\n<li>Perform the action <i><strong>Update dispute</strong></i> and add a Merchant identification number (Exemple: 10-0002363) </li>\n</ul>\n<i class=\"text-info\"><i class=\"glyphicon glyphicon-info-sign\"></i> The database has been populated with transactions, you can find the MIN of a transaction by looking into the table <strong>ACCOUNTTX</strong>, if you want to simulate a real investigation</i>"
+          "value" : "The next required action to perform is the action <strong>Investigate transaction</strong>.  The customer gave details about the dispute during the first call, a <strong><i>dispute agent</i></strong> has now to investigate. <br/><br/>\n <i>Joseph Hovell</i> is a dispute agent. log out and log in with:<br/>\n<strong>User name:</strong> joseph.hovell<br/>\n<strong>Passeword:</strong>  bpm \n<br/><br/>\nDuring the investigation, the dispute agent will, for exemple, find the <i><b>M</b>erchant <b>I</b>dentification <b>N</b>umber</i> associated to the disputed transaction.</br>\n<ul>\n<li>Perform the action <i><strong>Investigate transaction</strong></i>, add the following comment: <i>MIN found using customer transaction date </i></li>\n<li>Perform the action <i><strong>Update dispute</strong></i> and add a Merchant identification number (Exemple: 10-0002363) </li>\n</ul>\n<i class=\"text-info\"><i class=\"glyphicon glyphicon-info-sign\"></i> The database has been populated with transactions, you can find the MIN of a transaction by looking into the <strong>account details</strong>, if you want to simulate a real investigation</i>"
         },
         "alignment" : {
           "type" : "constant",
