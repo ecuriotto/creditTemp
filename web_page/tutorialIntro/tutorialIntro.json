@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "tutorialIntro",
   "name" : "tutorialIntro",
-  "lastUpdate" : 1563546742551,
+  "lastUpdate" : 1565081087436,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -340,7 +340,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h4>Activate the case management event handler</h4>\nBy default, the case management event handler isn't activated. To activate it, the following argument has to be passed when launching the Tomcat: <br/><br/>\n<i><strong>-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true</strong></i>\n <br/><br/>\nIn the Bonita Studio, you can pass this argument to the engine tomcat by going to <strong>preferences -> server settings -> tomcat JVM additional arguments</strong>. The parameter is present by default, you just have to set its value to <strong>true</strong>"
+        "value" : "<h4>Activate the case management event handler</h4>\nBy default, the case management event handler isn't activated. To activate it, the following argument has to be passed when launching the Tomcat: <br/><br/>\n<i><strong>-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true</strong></i>\n <br/><br/>\nIn the Bonita Studio, you can pass this argument to the engine tomcat by going to <strong>Preferences → Server settings → Tomcat JVM additional arguments</strong>. The parameter is present by default, you just have to set its value to <strong>true</strong>"
       },
       "alignment" : {
         "type" : "constant",
@@ -422,7 +422,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "In order to be able to use this example, there is a couple of artifacts to deploy. <br/>\nAll the artifacts can be deployed from the Bonita Studio using the Bonita project explorer: right click on an artifact -> deploy.\n\n<h5>Artifacts to deploy:</h5>\n\n<ul>\n<li>Business data model <strong><i>bom.xml</i></strong></li>\n<li>Organization <strong><i>ACME.organization</i></strong></li>\n<li>Processes<strong> <i>Credit Card Dispute</i></strong>  and <strong> <i>Data initialization</i></strong> (ensure that the active environment is the environment <strong><i>development</i>)</li>\n<li>Rest API extension<strong> <i>creditCardDisputeResolutionRestAPI</i></strong></li>\n<li>Application descriptor <strong><i>credit-card-dispute-resolution</i></strong></li>\n</ul>\n\n<h5>Define Rest API extension authorizations</h5>\nThis example use a couple of REST API extensions. The authorization accesses must be define to be able to use the example. <br/>\nFrom the Bonita project explorer in the Bonita Studio, right click on the folder <i>REST API extensions</i> and select <i>Edit permissions mapping</i>. <br/>Add the following permission, save and close the editor: <br/><br/>\n<strong>profile|User=[case_activity, document_visualization]</strong>"
+        "value" : "In order to be able to use this example, there is a couple of artifacts to deploy. <br/>\nAll the artifacts can be deployed from the Bonita Studio using the Bonita project explorer: right click on an artifact -> deploy.\n\n<h5>Artifacts to deploy:</h5>\n\n<ol>\n<li>Business data model <strong><i>bom.xml</i></strong></li>\n<li>Organization <strong><i>ACME.organization</i></strong></li>\n<li>Processes<strong> <i>Credit Card Dispute</i></strong>  and <strong> <i>Data initialization</i></strong> (ensure that the active environment is the environment <strong><i>development</i></strong>)</li>\n<li>Rest API extension<strong> <i>creditCardDisputeResolutionRestAPI</i></strong></li>\n<li>Application descriptor <strong><i>credit-card-dispute-resolution</i></strong></li>\n</ol>"
       },
       "alignment" : {
         "type" : "constant",
