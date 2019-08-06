@@ -13,7 +13,7 @@ interface BPMNamesConstants {
 
     def static final DISPUTE_PROCESS_NAME = 'Credit Card Dispute'
 
-    def static final ACTIVITY_CONTAINER = 'Dymanic Activity Container'
+    def static final ACTIVITY_CONTAINER = 'Dynamic Activity Container'
     def static final CREATE_ACTIVITY = 'Create Activity'
     def static final CLOSE_ACTIVITY = 'Close'
     def static final HIDDEN_ACTIVITIES = [

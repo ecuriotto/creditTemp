@@ -59,7 +59,7 @@ class NewCaseActivityTest extends Specification {
 		assert new JsonSlurper().parseText(restApiResponse.response).error == 'the parameter caseId is missing'
 	}
 	
-	def "should return a not found error code when Dymanic Activity Container instance is not found"() {
+	def "should return a not found error code when Dynamic Activity Container instance is not found"() {
 		given:
 		def newCaseActivity = Spy(NewCaseActivity)
 		def reader = new BufferedReader(new StringReader("""{ "name" : "Hello", "caseId" : "1" }"""))
@@ -69,9 +69,9 @@ class NewCaseActivityTest extends Specification {
 		def restApiResponse = newCaseActivity.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
-		1 * newCaseActivity.findTaskInstance(1L, 'Dymanic Activity Container', processAPI) >> null
+		1 * newCaseActivity.findTaskInstance(1L, 'Dynamic Activity Container', processAPI) >> null
 		assert restApiResponse.httpStatus == 404
-		assert restApiResponse.response == 'No Dymanic Activity Container found'
+		assert restApiResponse.response == 'No Dynamic Activity Container found'
 	}
 	
 	def "should return a not found error code when Create Activity instance is not found"() {
@@ -79,7 +79,7 @@ class NewCaseActivityTest extends Specification {
 		def newCaseActivity = Spy(NewCaseActivity)
 		def reader = new BufferedReader(new StringReader("""{ "name" : "Hello", "caseId" : "1" }"""))
 		request.getReader() >> reader
-		newCaseActivity.findTaskInstance(1L, 'Dymanic Activity Container', processAPI) >> Stub(HumanTaskInstance)
+		newCaseActivity.findTaskInstance(1L, 'Dynamic Activity Container', processAPI) >> Stub(HumanTaskInstance)
 		
 		when:
 		def restApiResponse = newCaseActivity.doHandle(request, new RestApiResponseBuilder() , context)
@@ -90,12 +90,12 @@ class NewCaseActivityTest extends Specification {
 		assert restApiResponse.response == 'No Create Activity found'
 	}
 	
-	def "should add a manual task to the Dymanic Activity Container instance"() {
+	def "should add a manual task to the Dynamic Activity Container instance"() {
 		given:
 		def newCaseActivity = Spy(NewCaseActivity)
 		def reader = new BufferedReader(new StringReader("""{ "name" : "Hello", "caseId" : "1" }"""))
 		request.getReader() >> reader
-		newCaseActivity.findTaskInstance(1L, 'Dymanic Activity Container', processAPI) >> Stub(HumanTaskInstance){
+		newCaseActivity.findTaskInstance(1L, 'Dynamic Activity Container', processAPI) >> Stub(HumanTaskInstance){
 			it.id >> 23L
 		}
 		newCaseActivity.findTaskInstance(1L, 'Create Activity', processAPI) >>  Stub(HumanTaskInstance)
@@ -119,7 +119,7 @@ class NewCaseActivityTest extends Specification {
 		def newCaseActivity = Spy(NewCaseActivity)
 		def reader = new BufferedReader(new StringReader("""{ "name" : "Hello", "caseId" : "1" }"""))
 		request.getReader() >> reader
-		newCaseActivity.findTaskInstance(1L, 'Dymanic Activity Container', processAPI) >> Stub(HumanTaskInstance)
+		newCaseActivity.findTaskInstance(1L, 'Dynamic Activity Container', processAPI) >> Stub(HumanTaskInstance)
 		newCaseActivity.findTaskInstance(1L, 'Create Activity', processAPI) >>  Stub(HumanTaskInstance){
 			it.id >> 23L
 		}

@@ -46,7 +46,7 @@
           <expectedDuration xmi:type="expression:Expression" xmi:id="_x5qCCPSMEeeYpYD60oU_zA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:TextAnnotation" xmi:id="_WNd1IPYZEeesarEo_Te_Dg" text="Use to track activity creation&#xD;&#xA;Filtered in the activities list&#xD;&#xA;"/>
-        <elements xmi:type="process:Task" xmi:id="_Eef9MPYSEeesarEo_Te_Dg" name="Dymanic Activity Container" overrideActorsOfTheLane="false">
+        <elements xmi:type="process:Task" xmi:id="_Eef9MPYSEeesarEo_Te_Dg" name="Dynamic Activity Container" overrideActorsOfTheLane="false">
           <textAnnotationAttachment xmi:type="process:TextAnnotationAttachment" xmi:id="_UF8iCODjEeioZo4elrUmvw" source="_t2k0cPYZEeesarEo_Te_Dg"/>
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_EejnkfYSEeesarEo_Te_Dg" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_EejnkPYSEeesarEo_Te_Dg" name="" content="" returnTypeFixed="true"/>
