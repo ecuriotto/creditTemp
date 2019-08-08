@@ -114,7 +114,7 @@
     },
     "events" : {
       "type" : "expression",
-      "value" : "if($data.caseHistory){\n    return $data.caseHistory.map(function(task){\n        return {\n            title: task.displayName,\n            time: moment(task.reached_state_date).format(\"dddd, MMMM Do YYYY, hh:mm:ss a\"),\n            user: task.executedBy.firstName+' '+task.executedBy.lastName,\n            body: task.displayDescription\n        };\n    });\n}\nreturn [];",
+      "value" : "if($data.caseHistory){\n    return $data.caseHistory.map(function(task){\n        return {\n            title: task.displayName,\n            time: moment(task.reached_state_date).format(\"MMMM D, YYYY, hh:mm:ss a\"),\n            user: task.executedBy.firstName+' '+task.executedBy.lastName,\n            body: task.displayDescription\n        };\n    });\n}\nreturn [];",
       "exposed" : false
     }
   },
