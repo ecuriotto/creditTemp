@@ -66,8 +66,8 @@
         <elements xmi:type="process:Task" xmi:id="_58yIAJwYEemz_6GYzsxGrA" name="Update Dispute" type="STANDARD" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_58yvEZwYEemz_6GYzsxGrA" name="displayName()" content="'&amp;#x1f4c1; Update Dispute'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_58yvEJwYEemz_6GYzsxGrA" name="" content="" returnTypeFixed="true"/>
-          <stepSummary xmi:type="expression:Expression" xmi:id="_58yvEpwYEemz_6GYzsxGrA" name="descriptionAfterCompletion()" content="def desc ='&lt;ul>'&#xD;&#xA;updates.each { desc = desc.concat(&quot;&lt;li>$it&lt;/li>&quot;)}&#xD;&#xA;desc = desc.concat('&lt;/ul>')&#xD;&#xA;desc.toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
-            <referencedElements xmi:type="process:Data" xmi:id="_VdAjwJzSEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_58yvEpwYEemz_6GYzsxGrA" name="descriptionAfterCompletion()" content="def desc =''&#xD;&#xA;updates.each { desc = desc + it + '&lt;br/>' }&#xD;&#xA;desc.toString()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+            <referencedElements xmi:type="process:Data" xmi:id="_YXBtYLnoEemz85F-pOyg7Q" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
           </stepSummary>
           <data xmi:type="process:Data" xmi:id="_Yn858JzLEemsNbXOsawszg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
             <defaultValue xmi:type="expression:Expression" xmi:id="_Yn858ZzLEemsNbXOsawszg" name="Discretionary" content="Discretionary" interpreter="GROOVY"/>

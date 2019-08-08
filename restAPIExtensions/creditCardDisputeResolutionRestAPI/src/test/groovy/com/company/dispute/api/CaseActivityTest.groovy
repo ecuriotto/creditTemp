@@ -91,7 +91,7 @@ class CaseActivityTest extends Specification {
 		with(activity){
 			 name == task.displayName
 			 bpmState == 'Ready'
-			 url == '/myAppContext/portal/resource/taskInstance/MyProcess/1.0/MyTask/content/?id=2&displayConfirmation=false'
+			 url == '/myAppContext/portal/resource/taskInstance/MyProcess/1.0/MyTask/content/?id=2&displayConfirmation=false&app=cases'
 			 target == '_self'
 			 acmState == BPMNamesConstants.REQUIRED_STATE
 		}
@@ -117,7 +117,7 @@ class CaseActivityTest extends Specification {
 
 		then:
 		with(activity){
-			 url == '/myAppContext/apps/cases/do?id=2'
+			 url == '/myAppContext/apps/cases/do?id=2&app=cases'
 			 target == '_parent'
 		}
 	}

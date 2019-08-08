@@ -61,6 +61,14 @@ ul {
      padding-top: 15px;
 }
 
+.padding-left-20{
+     padding-left: 20px;
+}
+
+.padding-right-30{
+     padding-right: 30px;
+}
+
 .margin-top-minus-30{
      margin-top: -30px;
 }
@@ -81,13 +89,22 @@ ul {
 
 .auto-width{
     width: 240px;
-}.bonita-modal{
+}
+
+.bonita-modal{
     overflow-y: auto;
 }
 
 .modal-open .datepicker,
 .modal-open .timepicker {
     z-index: 9999;
+}
+
+.document-title-overflow {
+  white-space: nowrap; 
+  width: 250px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
 
 

@@ -1,14 +1,77 @@
 //Bonita variables
 @import "bonita_variables";
 
+//$body-bg: rgb(234, 234, 234) !default;
+$card-bg: #fafafa !default;
+$light-bg: #f9f9f9 !default;
+$timeline-border-color: #e6e6e6 !default;
+
 // Bootstrap
 @import "bootstrap";
 
 @import "bonita_buttons";
 @import "bonita_pager";
+@import "timeline";
+
 
 .info-link {
 	.btn-link {
 	    color: $state-info-text;
 	}
+}
+
+%max-page-width {
+	max-width : 1140px;
+	margin: auto;
+	float:none;
+}
+
+.row-max {
+	@extend %max-page-width;
+}
+ 
+
+.layout-header{
+	.navbar {
+		.container-fluid {
+			@extend %max-page-width;
+		}
+	}
+}
+
+.layout-content {
+	@extend %max-page-width;
+}
+
+
+.layout-footer {
+	 @extend %max-page-width;
+}
+
+.card {
+	  background-color: $card-bg;
+	  border-radius: 7px 7px 7px 7px;
+	  box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.2);
+  	  transition: 0.3s;
+	  padding: 5px 15px 5px 15px;
+	  margin-top: 20px;
+	  height: 190px;
+}
+
+.light-bg {
+	background-color: $light-bg;
+	border-radius: 7px 7px 7px 7px;
+	padding: 5px 35px 5px 35px;
+	margin-top: 20px;
+}
+
+.timeline-container{
+	padding: 5px 15px 10px 35px;
+}
+
+.button-bar-bg {
+	background-color: $light-bg;
+	border-radius: 7px 7px 7px 7px;
+	padding: 5px 15px 5px 15px;
+	margin-top: 20px;
 }

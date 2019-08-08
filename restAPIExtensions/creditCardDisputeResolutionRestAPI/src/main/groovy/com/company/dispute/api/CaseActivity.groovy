@@ -34,6 +34,7 @@ import groovy.json.JsonBuilder
 class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConstants {
 
     private static final String PREFIX = '$'
+	private static final String APPLICATION_TOKEN = 'cases'
 
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
@@ -117,9 +118,9 @@ class CaseActivity implements RestApiController,CaseActivityHelper,BPMNamesConst
 
     def String forge(String processName,String processVersion,ActivityInstance instance, contextPath) {
         if(instance instanceof UserTaskInstance) {
-            "$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false"
+            "$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false&app=$APPLICATION_TOKEN"
         }else if(instance instanceof ManualTaskInstance) {
-            "$contextPath/apps/cases/do?id=$instance.id"
+            "$contextPath/apps/cases/do?id=$instance.id&app=$APPLICATION_TOKEN"
         }
     }
 

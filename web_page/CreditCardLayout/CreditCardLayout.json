@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CreditCardLayout",
   "name" : "CreditCardLayout",
-  "lastUpdate" : 1563222230557,
+  "lastUpdate" : 1565197461711,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -40,7 +40,7 @@
       "propertyValues" : {
         "cssClasses" : {
           "type" : "constant",
-          "value" : "hidden-xs remove-padding-and-margin row-centered"
+          "value" : "hidden-xs remove-padding-and-margin row-centered row-max"
         },
         "hidden" : {
           "type" : "constant",
@@ -519,7 +519,7 @@
       "propertyValues" : {
         "cssClasses" : {
           "type" : "constant",
-          "value" : "remove-padding-and-margin living-application-iframe"
+          "value" : "living-application-iframe remove-padding-and-margin"
         },
         "hidden" : {
           "type" : "constant",

@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CreateActivity",
   "name" : "CreateActivity",
-  "lastUpdate" : 1565008638580,
+  "lastUpdate" : 1565269831793,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -52,7 +52,7 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "<h4><span class=\"glyphicon glyphicon-plus-sign\" aria-hidden=\"true\"></span> Create activity</h4>"
+          "value" : "<h4><span class=\"glyphicon glyphicon-plus-sign\" aria-hidden=\"true\"></span> Create task</h4>"
         },
         "alignment" : {
           "type" : "constant",
@@ -266,8 +266,95 @@
       "dimension" : {
         "xs" : 12,
         "sm" : 12,
-        "md" : 12,
-        "lg" : 12
+        "md" : 6,
+        "lg" : 6
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "disabled" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Cancel"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        },
+        "buttonStyle" : {
+          "type" : "constant",
+          "value" : "link"
+        },
+        "action" : {
+          "type" : "constant",
+          "value" : "Close modal"
+        },
+        "assign" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "url" : {
+          "type" : "interpolation"
+        },
+        "responseStatusCode" : {
+          "type" : "variable",
+          "value" : ""
+        },
+        "dataToSend" : {
+          "type" : "constant"
+        },
+        "dataFromSuccess" : {
+          "type" : "variable",
+          "value" : ""
+        },
+        "closeOnSuccess" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "dataFromError" : {
+          "type" : "variable",
+          "value" : ""
+        },
+        "targetUrlOnSuccess" : {
+          "type" : "interpolation"
+        },
+        "collectionToModify" : {
+          "type" : "variable"
+        },
+        "modalId" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "collectionPosition" : {
+          "type" : "constant",
+          "value" : "Last"
+        },
+        "valueToAdd" : {
+          "type" : "constant"
+        },
+        "removeItem" : {
+          "type" : "variable"
+        }
+      },
+      "reference" : "0211df8c-3c0e-4b9b-80b3-a21a4deb6b09",
+      "hasValidationError" : false,
+      "id" : "pbButton"
+    }, {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 6,
+        "lg" : 6
       },
       "propertyValues" : {
         "cssClasses" : {
