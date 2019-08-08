@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseActivities",
   "name" : "CaseActivities",
-  "lastUpdate" : 1565270318809,
+  "lastUpdate" : 1565277709276,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -119,35 +119,12 @@
   "assets" : [ ],
   "inactiveAssets" : [ ],
   "data" : {
-    "caseId" : {
-      "type" : "constant",
-      "exposed" : true
-    },
     "formattedColumn" : {
       "type" : "expression",
       "value" : "return [\nfunction(input){\n    var value = `<span title=\\\"${input.row.description}\\\">${input.row.name}</span>`;\n    if(input.row.url){\n        value = `<a title=\\\"${input.row.description}\\\" href=\\\"${input.row.url}\\\" target=\\\"${input.row.target}\\\">${input.row.name}</a>`;\n    }\n     if(input.row.executedBy){\n         value = value + ` &nbsp;&nbsp; <span class=\\\"text-muted\\\"><i class=\\\"glyphicon glyphicon-user\\\"> </i> ${input.row.executedBy}</span>`\n     }\n   return value\n}, \n\"acmState ? acmState : bpmState |labelized\"];",
       "exposed" : false
     },
     "activities" : {
-      "type" : "constant",
-      "exposed" : true
-    },
-    "dismissPayload" : {
-      "type" : "expression",
-      "value" : "return {\n    processInstanceId:$data.caseId,\n    taskId: $data.closeTaskId[0].id,\n    status: 'INVALID'\n}",
-      "exposed" : false
-    },
-    "resolvedPayload" : {
-      "type" : "expression",
-      "value" : "return {\n    processInstanceId:$data.caseId,\n    taskId: $data.closeTaskId[0].id,\n    status: 'RESOLVED'\n}",
-      "exposed" : false
-    },
-    "closeTaskId" : {
-      "type" : "url",
-      "value" : "../API/bpm/task?c=1&p=0&f=rootContainerId={{caseId}}&f=name=Close",
-      "exposed" : false
-    },
-    "canResolveCase" : {
       "type" : "constant",
       "exposed" : true
     }
