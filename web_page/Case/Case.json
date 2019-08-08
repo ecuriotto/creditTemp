@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1565274779735,
+  "lastUpdate" : 1565277248609,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -168,7 +168,7 @@
           "propertyValues" : {
             "cssClasses" : {
               "type" : "constant",
-              "value" : ""
+              "value" : "custom-button"
             },
             "hidden" : {
               "type" : "constant",
@@ -255,7 +255,7 @@
           "propertyValues" : {
             "cssClasses" : {
               "type" : "constant",
-              "value" : ""
+              "value" : "custom-button"
             },
             "hidden" : {
               "type" : "constant",
@@ -342,7 +342,7 @@
           "propertyValues" : {
             "cssClasses" : {
               "type" : "constant",
-              "value" : ""
+              "value" : "custom-button"
             },
             "hidden" : {
               "type" : "constant",
@@ -423,13 +423,13 @@
           "dimension" : {
             "xs" : 12,
             "sm" : 12,
-            "md" : 4,
-            "lg" : 4
+            "md" : 2,
+            "lg" : 2
           },
           "propertyValues" : {
             "cssClasses" : {
               "type" : "constant",
-              "value" : ""
+              "value" : "custom-button"
             },
             "hidden" : {
               "type" : "constant",
@@ -445,7 +445,7 @@
             },
             "alignment" : {
               "type" : "constant",
-              "value" : "right"
+              "value" : "left"
             },
             "buttonStyle" : {
               "type" : "constant",
@@ -513,13 +513,13 @@
           "dimension" : {
             "xs" : 12,
             "sm" : 12,
-            "md" : 2,
+            "md" : 4,
             "lg" : 2
           },
           "propertyValues" : {
             "cssClasses" : {
               "type" : "constant",
-              "value" : ""
+              "value" : "custom-button-last"
             },
             "hidden" : {
               "type" : "constant",

@@ -72,6 +72,20 @@ $timeline-border-color: #e6e6e6 !default;
 .button-bar-bg {
 	background-color: $light-bg;
 	border-radius: 7px 7px 7px 7px;
-	padding: 5px 15px 5px 15px;
+	padding: 5px 0px 5px 15px;
 	margin-top: 20px;
+}
+
+.custom-button {
+	margin-right: -15px;
+	.btn{
+		width: 105px;
+	}
+}
+
+.custom-button-last {
+	padding-left:180px;
+	.btn{
+		width: 105px;
+	}
 }
