@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1565277741193,
+  "lastUpdate" : 1565338312932,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -15,7 +15,7 @@
     "propertyValues" : {
       "cssClasses" : {
         "type" : "constant",
-        "value" : ""
+        "value" : "margin-top-lg"
       },
       "hidden" : {
         "type" : "constant",
@@ -39,7 +39,7 @@
     "propertyValues" : {
       "cssClasses" : {
         "type" : "constant",
-        "value" : ""
+        "value" : "margin-top-lg"
       },
       "hidden" : {
         "type" : "constant",
@@ -66,7 +66,7 @@
     "propertyValues" : {
       "cssClasses" : {
         "type" : "constant",
-        "value" : ""
+        "value" : "margin-top-lg"
       },
       "hidden" : {
         "type" : "constant",
@@ -81,39 +81,12 @@
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
-      "type" : "fragment",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        }
-      },
-      "reference" : "7da35c6c-ac2d-4d07-a48d-bdd107b14236",
-      "hasValidationError" : false,
-      "id" : "CaseActivities",
-      "binding" : {
-        "caseId" : "caseId",
-        "activities" : "case.activities",
-        "canBeResolved" : "case.canResolveCase",
-        "canResolveCase" : "case.canResolveCase"
-      }
-    } ], [ {
       "type" : "container",
       "dimension" : {
         "xs" : 12,
         "sm" : 12,
         "md" : 12,
-        "lg" : 12
+        "lg" : 6
       },
       "propertyValues" : {
         "cssClasses" : {
@@ -133,17 +106,66 @@
       "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 6
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<h4><i class=\"glyphicon glyphicon-cog\"></i> Tasks</h4>"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "ea9a42f1-2cd4-4208-8cbd-89e410a3f0b9",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      }, {
         "type" : "container",
         "dimension" : {
           "xs" : 12,
           "sm" : 12,
           "md" : 12,
-          "lg" : 12
+          "lg" : 6
         },
         "propertyValues" : {
           "cssClasses" : {
             "type" : "constant",
-            "value" : "button-bar-bg"
+            "value" : "button-bar"
           },
           "hidden" : {
             "type" : "constant",
@@ -614,6 +636,33 @@
           "value" : ""
         },
         "hidden" : {
+          "type" : "constant",
+          "value" : false
+        }
+      },
+      "reference" : "7da35c6c-ac2d-4d07-a48d-bdd107b14236",
+      "hasValidationError" : false,
+      "id" : "CaseActivities",
+      "binding" : {
+        "caseId" : "caseId",
+        "activities" : "case.activities",
+        "canBeResolved" : "case.canResolveCase",
+        "canResolveCase" : "case.canResolveCase"
+      }
+    } ], [ {
+      "type" : "fragment",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : "margin-top-md"
+        },
+        "hidden" : {
           "type" : "expression",
           "value" : "!caseDocuments || caseDocuments.length === 0"
         }
@@ -638,7 +687,7 @@
       "propertyValues" : {
         "cssClasses" : {
           "type" : "constant",
-          "value" : ""
+          "value" : "margin-top-md"
         },
         "hidden" : {
           "type" : "expression",
@@ -665,7 +714,7 @@
     "propertyValues" : {
       "cssClasses" : {
         "type" : "constant",
-        "value" : ""
+        "value" : "margin-top-lg"
       },
       "hidden" : {
         "type" : "constant",
