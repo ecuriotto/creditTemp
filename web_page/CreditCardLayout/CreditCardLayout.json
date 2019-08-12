@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CreditCardLayout",
   "name" : "CreditCardLayout",
-  "lastUpdate" : 1565197461711,
+  "lastUpdate" : 1565597620623,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -40,7 +40,7 @@
       "propertyValues" : {
         "cssClasses" : {
           "type" : "constant",
-          "value" : "hidden-xs remove-padding-and-margin row-centered row-max"
+          "value" : "hidden-xs remove-padding-and-margin row-centered row-max-width"
         },
         "hidden" : {
           "type" : "constant",
@@ -559,7 +559,56 @@
     "reference" : "62b6cc6e-6925-4310-9dc9-6b1ce440b13d",
     "hasValidationError" : false,
     "id" : "pbContainer",
-    "rows" : [ [ ] ]
+    "rows" : [ [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<span class=\"glyphicon glyphicon-copyright-mark\"> </span> <em>Bonitasoft</em>"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "center"
+        }
+      },
+      "reference" : "45df6630-4a1a-461c-9180-ee0a849a4e89",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ] ]
   } ], [ {
     "type" : "modalContainer",
     "dimension" : {
