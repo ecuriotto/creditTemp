@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "ValidateDisputeForm",
   "name" : "ValidateDisputeForm",
-  "lastUpdate" : 1562139662654,
+  "lastUpdate" : 1567585443120,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -300,7 +300,8 @@
             "value" : ""
           },
           "targetUrlOnSuccess" : {
-            "type" : "interpolation"
+            "type" : "interpolation",
+            "value" : "?id={{task.caseId}}"
           },
           "collectionToModify" : {
             "type" : "variable"
