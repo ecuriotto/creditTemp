@@ -44,6 +44,14 @@ node('bcd-790') {
 
         stage("Build LAs") {
             bcd scenario:scenarioFile, args: "--extra-vars bcd_stack_id=${stackName} livingapp build ${debug_flag} -p ${WORKSPACE} --environment ${bonitaConfiguration}"
+            //Generate a .bos archive from the repository
+            sh 'mvn assembly:single'
+            sh '''
+	    			timestamp=$(date +"%Y%m%d%H%M");
+				for f in target/credit-card-dispute-resolution-*.zip; do 
+				    mv -- "$f" "${f%.zip}-${timestamp}.bos"
+				done
+            '''
         }
 
         stage("Create stack") {
@@ -71,7 +79,7 @@ node('bcd-790') {
         }
 
         stage('Archive') {
-            archiveArtifacts artifacts: "target/*.zip, target/*.bconf, target/*.xml, target/*.bar", fingerprint: true, flatten:true
+            archiveArtifacts artifacts: "target/*.zip, target/*.bconf, target/*.xml, target/*.bar, target/*.bos", fingerprint: true, flatten:true
         }
   	} // timestamps
   } // ansiColor
