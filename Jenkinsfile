@@ -21,7 +21,7 @@ node('bcd-790') {
     // bcd_stack_id overrides scenario value
     // unsupported chars must be replaced
     def stackName = "${gitRepoName.toLowerCase()}_${env.BRANCH_NAME.toLowerCase()}" 
-    def excludedChars= [ '-', '.' ]
+    String[ ] excludedChars= [ '-', '\\.', '\\/' ]
     excludedChars.each{ excluded ->
         stackName = stackName.replaceAll(excluded,'_')
     }
