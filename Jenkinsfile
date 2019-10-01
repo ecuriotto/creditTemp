@@ -1,4 +1,4 @@
-@Library('github.com/bonitasoft-presales/bonita-jenkins-library@1.0.1') _
+	@Library('github.com/bonitasoft-presales/bonita-jenkins-library@1.0.1') _
 
 node('bcd-790') {
 
@@ -16,15 +16,15 @@ node('bcd-790') {
     def jobBaseName = "${env.JOB_NAME}".split('/').last()
 
     // used to set build description and bcd_stack_id
-    def gitRepoName = "${env.JOB_NAME}".split('/')[1]
-    def normalizedGitRepoName = gitRepoName.toLowerCase().replaceAll('-','_')
-
-    // used to set bcd_stack_id
-    def branchName = env.BRANCH_NAME
-    def normalizedBranchName = branchName.toLowerCase().replaceAll('-','_')
-
-    //bcd_stack_id overrides scenario value
-    def stackName = "${normalizedGitRepoName}_${normalizedBranchName}" 
+    def gitRepoName = "${env.JOB_NAME}".split('/')[1] 
+    
+    // bcd_stack_id overrides scenario value
+    // unsupported chars must be replaced
+    def stackName = "${gitRepoName.toLowerCase()}_${env.BRANCH_NAME.toLowerCase()}" 
+    def excludedChars= [ '-', '.' ]
+    excludedChars.each{ excluded ->
+        stackName = stackName.replaceAll(excluded,'_')
+    }
 	 
     def debug_flag = ''
     def verbose_mode = ''
