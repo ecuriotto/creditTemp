@@ -7,7 +7,7 @@ node('bcd-790') {
 
     // set to true/false to switch verbose mode
     def debugMode = params.debug ?:	false;
-
+    def release = params.release ?: false;
 	
 	// start settings
 	// not supposed to be modified
@@ -40,6 +40,17 @@ node('bcd-790') {
             checkout scm
             echo "jobBaseName: $jobBaseName"
             echo "gitRepoName: $gitRepoName"
+        }
+        
+        if(release){
+            stage('Release') {
+				   withCredentials([usernamePassword(
+						credentialsId: 'GitCredentials',
+						passwordVariable: 'GIT_PASSWORD',
+						usernameVariable: 'GIT_USERNAME')]) {
+						sh 'mvn -B release:prepare'
+				   }
+			}
         }
 
         stage("Build LAs") {
