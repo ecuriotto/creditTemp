@@ -1,2 +1,2 @@
 toOpen=<NONE>
-version=${project.version}
+version=${bonita.version}

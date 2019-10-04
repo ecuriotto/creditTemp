@@ -5,28 +5,32 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.bonitasoft.examples</groupId>
 	<artifactId>credit-card-dispute-resolution</artifactId>
-	<version>7.9.0-1.0.0-SNAPSHOT</version>
+	<version>${bonita.version}-1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Credit Card Dispute Resolution</name>
 
+	<properties>
+		<bonita.version>7.9.0</bonita.version>
+	</properties>
+
 	<build>
-	 <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.3</version>
-                    <configuration>
-                        <tagNameFormat>@{project.version}</tagNameFormat>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>3.1.1</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.3</version>
+					<configuration>
+						<tagNameFormat>@{project.version}</tagNameFormat>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>3.1.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -38,15 +42,15 @@
 				</configuration>
 			</plugin>
 			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-            </plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 
 	<scm>
-		<developerConnection>scm:git:https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/bonitasoft/credit-card-dispute-resolution.git</developerConnection>
-		<connection>scm:git:https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/bonitasoft/credit-card-dispute-resolution.git</connection>
+		<developerConnection>scm:git:https://github.com/bonitasoft/credit-card-dispute-resolution.git</developerConnection>
+		<connection>scm:git:https://github.com/bonitasoft/credit-card-dispute-resolution.git</connection>
 		<url>https://github.com/bonitasoft/credit-card-dispute-resolution</url>
 		<tag>HEAD</tag>
 	</scm>
