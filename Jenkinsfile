@@ -44,12 +44,19 @@ node('bcd-790') {
 
         stage("Build LAs") {
             bcd scenario:scenarioFile, args: "--extra-vars bcd_stack_id=${stackName} livingapp build ${debug_flag} -p ${WORKSPACE} --environment ${bonitaConfiguration}"
-            //Generate a .bos archive from the repository
+        }
+        
+         stage("Package BOS Archive") {
             sh 'mvn assembly:single'
             sh '''
-	    			timestamp=$(date +"%Y%m%d%H%M");
 				for f in target/credit-card-dispute-resolution-*.zip; do 
-				    mv -- "$f" "${f%.zip}-${timestamp}.bos"
+					mv -- "$f" "${f%.zip}.bos"
+				done
+				timestamp=$(date +"%Y%m%d%H%M");
+				for f in target/credit-card-dispute-resolution-*-SNAPSHOT.bos; do 
+       				 if [ -f "$f" ]; then
+               			 mv -- "$f" "${f%-SNAPSHOT.bos}-${timestamp}.bos"
+       				 fi
 				done
             '''
         }
