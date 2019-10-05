@@ -461,7 +461,9 @@
         <elements xmi:type="process:Task" xmi:id="_h5eYkJzfEemsNbXOsawszg" name="Review" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_h5jREJzfEemsNbXOsawszg" name="displayName()" content="'&amp;#x1f441; Review'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_h5iqAJzfEemsNbXOsawszg" name="" content="" returnTypeFixed="true"/>
-          <stepSummary xmi:type="expression:Expression" xmi:id="_h5jREZzfEemsNbXOsawszg" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_h5jREZzfEemsNbXOsawszg" name="descriptionAfterCompletion()" content="dispute.isSupervisorApproval() ? &quot;Approved after review&quot; : &quot;Rejected after review&quot;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_hn2dkOdQEemmMO4zgVlItg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+          </stepSummary>
           <data xmi:type="process:Data" xmi:id="_3KSq0JzfEemsNbXOsawszg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
             <defaultValue xmi:type="expression:Expression" xmi:id="_3KSq0ZzfEemsNbXOsawszg" name="updateActivityState()" content="import com.company.model.ACMStates&#xD;&#xA;import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;if(dispute.status == DisputeStates.PROCESSING_CHARGEBACK){&#xD;&#xA;&#x9;return dispute.amount >= reviewAmountThreshold ? ACMStates.REQUIRED : ACMStates.OPTIONAL&#xD;&#xA;}&#xD;&#xA;return ACMStates.NOT_AVAILABLE" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_EzEcUJ2eEemQAo5alETTFA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
