@@ -2,221 +2,8 @@
   "designerVersion" : "1.9.45",
   "id" : "DisputeInfo",
   "name" : "DisputeInfo",
-  "lastUpdate" : 1563264496783,
+  "lastUpdate" : 1570265614437,
   "rows" : [ [ {
-    "type" : "container",
-    "dimension" : {
-      "xs" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "repeatedCollection" : {
-        "type" : "variable",
-        "value" : ""
-      }
-    },
-    "reference" : "59d6f330-2d74-4517-8684-4dadd210ba43",
-    "hasValidationError" : false,
-    "id" : "pbContainer",
-    "rows" : [ [ {
-      "type" : "component",
-      "dimension" : {
-        "md" : 12,
-        "sm" : 12,
-        "xs" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "hidden" : {
-          "type" : "expression",
-          "value" : "!dispute.creationDate"
-        },
-        "widgetId" : {
-          "type" : "constant",
-          "value" : "pbText"
-        },
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "readOnly" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "<p class=\"text-muted\">\n<i class=\"glyphicon glyphicon-calendar\"></i> Dispute opened\n{{dispute.creationDate|uiDate}}</p>"
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : ""
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "right"
-        },
-        "dimension" : {
-          "type" : "constant",
-          "value" : 12
-        },
-        "class" : {
-          "type" : "constant",
-          "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TextWidget"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "left"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        }
-      },
-      "reference" : "2b2c5689-db04-42fd-a053-98e51144de49",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "md" : 12,
-        "sm" : 12,
-        "xs" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "<h1>{{ task.displayName }}</h1>"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "center"
-        }
-      },
-      "reference" : "a3dc7e90-1d75-46a0-847d-333d6fc6f5d9",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "<i class=\"glyphicon glyphicon-exclamation-sign\"></i> Reminder: Disputes reasons must be about \"billing errors.\" For example:\n<ul>\n<li>unauthorized charges. </li>\n<li> charges that list the wrong date or amount;</li>\n<li>  charges for goods and services that the customer didn't accept or that weren't delivered as agreed; </li>\n<li>math errors;</li>\n<li> failure to post payments and other credits, like returns;</li>\n<li>  failure to send bills to the customer current address — assuming the creditor has the change of address, in writing, at least 20 days before the billing period ends; and</li>\n<li>charges for which an explanation or a written proof of purchase has been asked and not delivered.</li>\n</ul>"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "524f5765-209a-4aba-a72e-f175bce554bf",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ] ]
-  } ], [ {
-    "type" : "fragment",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      }
-    },
-    "reference" : "2b36dacc-bb8f-4f35-8989-7b13f7087f89",
-    "hasValidationError" : false,
-    "id" : "CustomerData",
-    "binding" : {
-      "caseId" : "task.rootCaseId",
-      "dataUpdated" : "",
-      "customer" : "customer",
-      "hideDetails" : "hideDetails"
-    }
-  } ], [ {
     "type" : "formContainer",
     "dimension" : {
       "xs" : 12
@@ -224,7 +11,7 @@
     "propertyValues" : {
       "cssClasses" : {
         "type" : "constant",
-        "value" : ""
+        "value" : "form-container"
       },
       "hidden" : {
         "type" : "constant",
@@ -244,6 +31,221 @@
       "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "repeatedCollection" : {
+            "type" : "variable",
+            "value" : ""
+          }
+        },
+        "reference" : "59d6f330-2d74-4517-8684-4dadd210ba43",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "component",
+          "dimension" : {
+            "md" : 12,
+            "sm" : 12,
+            "xs" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "labelHidden" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "hidden" : {
+              "type" : "expression",
+              "value" : "!dispute.creationDate"
+            },
+            "widgetId" : {
+              "type" : "constant",
+              "value" : "pbText"
+            },
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "readOnly" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "text" : {
+              "type" : "interpolation",
+              "value" : "<p class=\"text-muted\">\n<i class=\"glyphicon glyphicon-calendar\"></i> Dispute opened\n{{dispute.creationDate|uiDate}}</p>"
+            },
+            "label" : {
+              "type" : "interpolation",
+              "value" : ""
+            },
+            "alignment" : {
+              "type" : "constant",
+              "value" : "right"
+            },
+            "dimension" : {
+              "type" : "constant",
+              "value" : 12
+            },
+            "class" : {
+              "type" : "constant",
+              "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TextWidget"
+            },
+            "labelPosition" : {
+              "type" : "constant",
+              "value" : "left"
+            },
+            "labelWidth" : {
+              "type" : "constant",
+              "value" : 4
+            },
+            "allowHTML" : {
+              "type" : "constant",
+              "value" : true
+            }
+          },
+          "reference" : "2b2c5689-db04-42fd-a053-98e51144de49",
+          "hasValidationError" : false,
+          "id" : "pbText"
+        } ], [ {
+          "type" : "component",
+          "dimension" : {
+            "md" : 12,
+            "sm" : 12,
+            "xs" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "labelHidden" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "label" : {
+              "type" : "interpolation",
+              "value" : "Default label"
+            },
+            "labelPosition" : {
+              "type" : "constant",
+              "value" : "top"
+            },
+            "labelWidth" : {
+              "type" : "constant",
+              "value" : 4
+            },
+            "allowHTML" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "text" : {
+              "type" : "interpolation",
+              "value" : "<h1>{{ task.displayName }}</h1>"
+            },
+            "alignment" : {
+              "type" : "constant",
+              "value" : "center"
+            }
+          },
+          "reference" : "a3dc7e90-1d75-46a0-847d-333d6fc6f5d9",
+          "hasValidationError" : false,
+          "id" : "pbText"
+        } ], [ {
+          "type" : "component",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "labelHidden" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "label" : {
+              "type" : "interpolation",
+              "value" : "Default label"
+            },
+            "labelPosition" : {
+              "type" : "constant",
+              "value" : "top"
+            },
+            "labelWidth" : {
+              "type" : "constant",
+              "value" : 4
+            },
+            "allowHTML" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "text" : {
+              "type" : "interpolation",
+              "value" : "<i class=\"glyphicon glyphicon-exclamation-sign\"></i> Reminder: Disputes reasons must be about \"billing errors.\" For example:\n<ul>\n<li>unauthorized charges. </li>\n<li> charges that list the wrong date or amount;</li>\n<li>  charges for goods and services that the customer didn't accept or that weren't delivered as agreed; </li>\n<li>math errors;</li>\n<li> failure to post payments and other credits, like returns;</li>\n<li>  failure to send bills to the customer current address — assuming the creditor has the change of address, in writing, at least 20 days before the billing period ends; and</li>\n<li>charges for which an explanation or a written proof of purchase has been asked and not delivered.</li>\n</ul>"
+            },
+            "alignment" : {
+              "type" : "constant",
+              "value" : "left"
+            }
+          },
+          "reference" : "524f5765-209a-4aba-a72e-f175bce554bf",
+          "hasValidationError" : false,
+          "id" : "pbText"
+        } ] ]
+      } ], [ {
+        "type" : "fragment",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          }
+        },
+        "reference" : "2b36dacc-bb8f-4f35-8989-7b13f7087f89",
+        "hasValidationError" : false,
+        "id" : "CustomerData",
+        "binding" : {
+          "caseId" : "task.rootCaseId",
+          "dataUpdated" : "",
+          "customer" : "customer",
+          "hideDetails" : "hideDetails"
+        }
+      } ], [ {
         "type" : "container",
         "dimension" : {
           "md" : 12,

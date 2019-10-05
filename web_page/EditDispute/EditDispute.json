@@ -2,32 +2,8 @@
   "designerVersion" : "1.9.45",
   "id" : "EditDispute",
   "name" : "EditDispute",
-  "lastUpdate" : 1565268387584,
+  "lastUpdate" : 1570265509411,
   "rows" : [ [ {
-    "type" : "fragment",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      }
-    },
-    "reference" : "36155548-26a7-4e59-877f-41ccc7aba380",
-    "hasValidationError" : false,
-    "id" : "DisputeData",
-    "binding" : {
-      "caseId" : "task.rootContainerId"
-    }
-  } ], [ {
     "type" : "formContainer",
     "dimension" : {
       "xs" : 12,
@@ -38,7 +14,7 @@
     "propertyValues" : {
       "cssClasses" : {
         "type" : "constant",
-        "value" : ""
+        "value" : "form-container"
       },
       "hidden" : {
         "type" : "constant",
@@ -109,6 +85,30 @@
         "hasValidationError" : false,
         "id" : "pbContainer",
         "rows" : [ [ {
+          "type" : "fragment",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            }
+          },
+          "reference" : "36155548-26a7-4e59-877f-41ccc7aba380",
+          "hasValidationError" : false,
+          "id" : "DisputeData",
+          "binding" : {
+            "caseId" : "task.rootContainerId"
+          }
+        } ], [ {
           "type" : "component",
           "dimension" : {
             "md" : 12,

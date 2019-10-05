@@ -26,11 +26,7 @@ input[type='number'].ng-invalid.ng-dirty, input[type='password'].ng-invalid.ng-d
     border-width: 1px;
 }
 
-.form-container {
-	max-width : 800px;
-	margin: auto;
-	float:none;
-}.bonita-modal{
+.bonita-modal{
     overflow-y: auto;
 }
 

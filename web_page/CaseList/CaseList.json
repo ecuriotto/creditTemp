@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1562338108883,
+  "lastUpdate" : 1570265333723,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -15,7 +15,7 @@
     "propertyValues" : {
       "cssClasses" : {
         "type" : "constant",
-        "value" : "list-container"
+        "value" : "row-max-width"
       },
       "hidden" : {
         "type" : "constant",
@@ -26,221 +26,10 @@
         "value" : ""
       }
     },
-    "reference" : "ab5d26a2-b3eb-4288-9efa-9f3da8533ce9",
+    "reference" : "74605dda-9140-4b3c-a150-b16fd6695b1f",
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : "padding-bottom-15"
-        },
-        "hidden" : {
-          "type" : "expression",
-          "value" : "!createDisputeAuthorization || !createDisputeAuthorization.canCreateDispute"
-        },
-        "disabled" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "<i class=\"glyphicon glyphicon-plus\"></i> New Dispute"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "right"
-        },
-        "buttonStyle" : {
-          "type" : "constant",
-          "value" : "primary"
-        },
-        "action" : {
-          "type" : "constant",
-          "value" : "Open modal"
-        },
-        "assign" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "url" : {
-          "type" : "interpolation"
-        },
-        "responseStatusCode" : {
-          "type" : "variable",
-          "value" : ""
-        },
-        "dataToSend" : {
-          "type" : "constant"
-        },
-        "dataFromSuccess" : {
-          "type" : "variable",
-          "value" : ""
-        },
-        "closeOnSuccess" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "dataFromError" : {
-          "type" : "variable",
-          "value" : ""
-        },
-        "targetUrlOnSuccess" : {
-          "type" : "interpolation"
-        },
-        "collectionToModify" : {
-          "type" : "variable"
-        },
-        "modalId" : {
-          "type" : "constant",
-          "value" : "newDispute"
-        },
-        "collectionPosition" : {
-          "type" : "constant",
-          "value" : "Last"
-        },
-        "valueToAdd" : {
-          "type" : "constant"
-        },
-        "removeItem" : {
-          "type" : "variable"
-        }
-      },
-      "reference" : "61b9d223-b2ea-4822-b162-8a84f59bce6c",
-      "hasValidationError" : false,
-      "id" : "pbButton"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "availableValues" : {
-          "type" : "expression",
-          "value" : "buttonValues"
-        },
-        "displayedKey" : {
-          "type" : "constant",
-          "value" : "display"
-        },
-        "returnedKey" : {
-          "type" : "constant",
-          "value" : "key"
-        },
-        "selectedValue" : {
-          "type" : "variable",
-          "value" : "toggle"
-        },
-        "buttonStyle" : {
-          "type" : "constant",
-          "value" : "default"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "center"
-        },
-        "verticalAlignement" : {
-          "type" : "constant",
-          "value" : false
-        }
-      },
-      "reference" : "460902f8-2082-4e37-a90b-eeb493fd9858",
-      "hasValidationError" : false,
-      "id" : "customToggleButtons"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "required" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "minLength" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "maxLength" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "readOnly" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "<i class=\"glyphicon glyphicon-filter\"></i>"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "left"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 2
-        },
-        "placeholder" : {
-          "type" : "interpolation",
-          "value" : "Filter by customer, merchant id or status"
-        },
-        "value" : {
-          "type" : "variable",
-          "value" : "caseFilter"
-        },
-        "type" : {
-          "type" : "constant",
-          "value" : "text"
-        },
-        "min" : {
-          "type" : "constant"
-        },
-        "max" : {
-          "type" : "constant"
-        },
-        "step" : {
-          "type" : "constant",
-          "value" : 1
-        }
-      },
-      "reference" : "658dfc9c-452d-4ca7-879a-353d7f75f4c1",
-      "hasValidationError" : false,
-      "id" : "pbInput"
-    } ], [ {
       "type" : "container",
       "dimension" : {
         "xs" : 12,
@@ -250,22 +39,109 @@
       },
       "propertyValues" : {
         "cssClasses" : {
-          "type" : "expression",
-          "value" : ""
+          "type" : "constant",
+          "value" : "list-container"
         },
         "hidden" : {
-          "type" : "expression",
-          "value" : "toggle === \"archived\""
+          "type" : "constant",
+          "value" : false
         },
         "repeatedCollection" : {
           "type" : "variable",
           "value" : ""
         }
       },
-      "reference" : "91915067-d191-40d2-93b1-eb8fd441bae8",
+      "reference" : "ab5d26a2-b3eb-4288-9efa-9f3da8533ce9",
       "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : "padding-bottom-15"
+          },
+          "hidden" : {
+            "type" : "expression",
+            "value" : "!createDisputeAuthorization || !createDisputeAuthorization.canCreateDispute"
+          },
+          "disabled" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "<i class=\"glyphicon glyphicon-plus\"></i> New Dispute"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "right"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "primary"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "Open modal"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataToSend" : {
+            "type" : "constant"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : "newDispute"
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          }
+        },
+        "reference" : "61b9d223-b2ea-4822-b162-8a84f59bce6c",
+        "hasValidationError" : false,
+        "id" : "pbButton"
+      } ], [ {
         "type" : "component",
         "dimension" : {
           "xs" : 12,
@@ -282,79 +158,39 @@
             "type" : "constant",
             "value" : false
           },
-          "headers" : {
-            "type" : "constant",
-            "value" : [ "Case Id", "Customer", "Merchant Id", "Last updated", "Status" ]
-          },
-          "type" : {
-            "type" : "constant",
-            "value" : "Bonita API"
-          },
-          "apiUrl" : {
-            "type" : "constant",
-            "value" : "../API/extension/case"
-          },
-          "params" : {
-            "type" : "constant"
-          },
-          "content" : {
+          "availableValues" : {
             "type" : "expression",
-            "value" : "casesInfo.cases"
+            "value" : "buttonValues"
           },
-          "columnsKey" : {
-            "type" : "expression",
-            "value" : "tableColumns"
+          "displayedKey" : {
+            "type" : "constant",
+            "value" : "display"
           },
-          "sortColumns" : {
-            "type" : "constant"
+          "returnedKey" : {
+            "type" : "constant",
+            "value" : "key"
           },
-          "selectedRow" : {
+          "selectedValue" : {
             "type" : "variable",
-            "value" : ""
+            "value" : "toggle"
           },
-          "pageSize" : {
+          "buttonStyle" : {
             "type" : "constant",
-            "value" : 10
+            "value" : "default"
           },
-          "filter" : {
-            "type" : "expression",
-            "value" : "caseFilter"
+          "alignment" : {
+            "type" : "constant",
+            "value" : "center"
           },
-          "onSelectFunction" : {
-            "type" : "variable",
-            "value" : ""
+          "verticalAlignement" : {
+            "type" : "constant",
+            "value" : false
           }
         },
-        "reference" : "3f6ace3b-3dc3-49b2-9e71-b3fe28d122ed",
+        "reference" : "460902f8-2082-4e37-a90b-eeb493fd9858",
         "hasValidationError" : false,
-        "id" : "customHTMLDataTable"
-      } ] ]
-    } ], [ {
-      "type" : "container",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "expression",
-          "value" : "toggle === \"pending\""
-        },
-        "repeatedCollection" : {
-          "type" : "variable",
-          "value" : ""
-        }
-      },
-      "reference" : "177c37fa-ca03-4109-a481-9eefedab85e6",
-      "hasValidationError" : false,
-      "id" : "pbContainer",
-      "rows" : [ [ {
+        "id" : "customToggleButtons"
+      } ], [ {
         "type" : "component",
         "dimension" : {
           "xs" : 12,
@@ -371,51 +207,241 @@
             "type" : "constant",
             "value" : false
           },
-          "headers" : {
+          "required" : {
             "type" : "constant",
-            "value" : [ "Case Id", "Customer", "Merchant Id", "Last updated", "Status" ]
+            "value" : false
+          },
+          "minLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "maxLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "readOnly" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "<i class=\"glyphicon glyphicon-filter\"></i>"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "left"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 2
+          },
+          "placeholder" : {
+            "type" : "interpolation",
+            "value" : "Filter by customer, merchant id or status"
+          },
+          "value" : {
+            "type" : "variable",
+            "value" : "caseFilter"
           },
           "type" : {
             "type" : "constant",
-            "value" : "Bonita API"
+            "value" : "text"
           },
-          "apiUrl" : {
+          "min" : {
+            "type" : "constant"
+          },
+          "max" : {
+            "type" : "constant"
+          },
+          "step" : {
             "type" : "constant",
-            "value" : "../API/extension/archivedCase"
-          },
-          "params" : {
-            "type" : "constant"
-          },
-          "content" : {
-            "type" : "constant"
-          },
-          "columnsKey" : {
+            "value" : 1
+          }
+        },
+        "reference" : "658dfc9c-452d-4ca7-879a-353d7f75f4c1",
+        "hasValidationError" : false,
+        "id" : "pbInput"
+      } ], [ {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
             "type" : "expression",
-            "value" : "tableColumns"
-          },
-          "sortColumns" : {
-            "type" : "constant"
-          },
-          "selectedRow" : {
-            "type" : "variable",
             "value" : ""
           },
-          "pageSize" : {
-            "type" : "constant",
-            "value" : 10
-          },
-          "filter" : {
+          "hidden" : {
             "type" : "expression",
-            "value" : "caseFilter"
+            "value" : "toggle === \"archived\""
           },
-          "onSelectFunction" : {
+          "repeatedCollection" : {
             "type" : "variable",
             "value" : ""
           }
         },
-        "reference" : "60d13535-f78a-412a-9dd0-556826255bff",
+        "reference" : "91915067-d191-40d2-93b1-eb8fd441bae8",
         "hasValidationError" : false,
-        "id" : "customHTMLDataTable"
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "component",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "headers" : {
+              "type" : "constant",
+              "value" : [ "Case Id", "Customer", "Merchant Id", "Last updated", "Status" ]
+            },
+            "type" : {
+              "type" : "constant",
+              "value" : "Bonita API"
+            },
+            "apiUrl" : {
+              "type" : "constant",
+              "value" : "../API/extension/case"
+            },
+            "params" : {
+              "type" : "constant"
+            },
+            "content" : {
+              "type" : "expression",
+              "value" : "casesInfo.cases"
+            },
+            "columnsKey" : {
+              "type" : "expression",
+              "value" : "tableColumns"
+            },
+            "sortColumns" : {
+              "type" : "constant"
+            },
+            "selectedRow" : {
+              "type" : "variable",
+              "value" : ""
+            },
+            "pageSize" : {
+              "type" : "constant",
+              "value" : 10
+            },
+            "filter" : {
+              "type" : "expression",
+              "value" : "caseFilter"
+            },
+            "onSelectFunction" : {
+              "type" : "variable",
+              "value" : ""
+            }
+          },
+          "reference" : "3f6ace3b-3dc3-49b2-9e71-b3fe28d122ed",
+          "hasValidationError" : false,
+          "id" : "customHTMLDataTable"
+        } ] ]
+      } ], [ {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "expression",
+            "value" : "toggle === \"pending\""
+          },
+          "repeatedCollection" : {
+            "type" : "variable",
+            "value" : ""
+          }
+        },
+        "reference" : "177c37fa-ca03-4109-a481-9eefedab85e6",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "component",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "headers" : {
+              "type" : "constant",
+              "value" : [ "Case Id", "Customer", "Merchant Id", "Last updated", "Status" ]
+            },
+            "type" : {
+              "type" : "constant",
+              "value" : "Bonita API"
+            },
+            "apiUrl" : {
+              "type" : "constant",
+              "value" : "../API/extension/archivedCase"
+            },
+            "params" : {
+              "type" : "constant"
+            },
+            "content" : {
+              "type" : "constant"
+            },
+            "columnsKey" : {
+              "type" : "expression",
+              "value" : "tableColumns"
+            },
+            "sortColumns" : {
+              "type" : "constant"
+            },
+            "selectedRow" : {
+              "type" : "variable",
+              "value" : ""
+            },
+            "pageSize" : {
+              "type" : "constant",
+              "value" : 10
+            },
+            "filter" : {
+              "type" : "expression",
+              "value" : "caseFilter"
+            },
+            "onSelectFunction" : {
+              "type" : "variable",
+              "value" : ""
+            }
+          },
+          "reference" : "60d13535-f78a-412a-9dd0-556826255bff",
+          "hasValidationError" : false,
+          "id" : "customHTMLDataTable"
+        } ] ]
       } ] ]
     } ] ]
   } ], [ {

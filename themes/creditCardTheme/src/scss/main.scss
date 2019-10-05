@@ -29,7 +29,10 @@ $timeline-border-color: #e6e6e6 !default;
 .row-max-width {
 	@extend %max-page-width;
 }
- 
+
+.form-container {
+	@extend %max-page-width;
+}
 
 .layout-header{
 	.navbar {
@@ -38,11 +41,6 @@ $timeline-border-color: #e6e6e6 !default;
 		}
 	}
 }
-
-.layout-content {
-	@extend %max-page-width;
-}
-
 
 .layout-footer {
 	 @extend %max-page-width;
