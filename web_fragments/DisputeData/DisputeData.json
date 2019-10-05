@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "DisputeData",
   "name" : "DisputeData",
-  "lastUpdate" : 1565274085437,
+  "lastUpdate" : 1570270419700,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -93,7 +93,56 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "<h4>Dispute information</h4>\n<dl  class=\"dl-horizontal\">\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Opened</dt><dd>{{dispute.creationDate | uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Last updated</dt><dd>{{dispute.lastUpdateDate | uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-console\"> </span> Status</dt><dd>{{dispute.status | labelized }}</dd></a></dd>\n<dt> <span class=\"glyphicon glyphicon-{{dispute.currency | lowercase}}\"> </span></p> Amount</dt><dd>{{dispute.amount |  number : 2}} {{dispute.currency}}</dd>\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Transaction Date</dt><dd>{{dispute.txDate| uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-info-sign\"> </span><abbr title=\"Merchant Identification Number\"> MIN </abbr></dt><dd>{{dispute.merchantIdNumber}}</dd></a></dd>\n</dl>"
+            "value" : "<h4>Dispute information</h4>"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "82f2bdd5-14fb-40ac-941f-33816f1285cc",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 6,
+          "sm" : 6,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<dl  class=\"dl-horizontal\">\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Opened</dt><dd>{{dispute.creationDate | uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Last updated</dt><dd>{{dispute.lastUpdateDate | uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-console\"> </span> Status</dt><dd>{{dispute.status | labelized }}</dd></a></dd>\n</dl>"
           },
           "alignment" : {
             "type" : "constant",
@@ -101,6 +150,54 @@
           }
         },
         "reference" : "f39a27f3-d9a7-459d-bf7c-6176020efa4a",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      }, {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 6,
+          "sm" : 6,
+          "md" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<dl  class=\"dl-horizontal\">\n<dt> <span class=\"glyphicon glyphicon-{{dispute.currency | lowercase}}\"> </span></p> Amount</dt><dd>{{dispute.amount |  number : 2}} {{dispute.currency}}</dd>\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Transaction Date</dt><dd>{{dispute.txDate| uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-info-sign\"> </span><abbr title=\"Merchant Identification Number\"> MIN </abbr></dt><dd>{{dispute.merchantIdNumber}}</dd></a></dd>\n</dl>"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "c446477d-941c-43bf-8e10-1a9552715073",
         "hasValidationError" : false,
         "id" : "pbText"
       } ] ]
