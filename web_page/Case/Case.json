@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1570368709000,
+  "lastUpdate" : 1570369081599,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -1050,7 +1050,7 @@
             },
             "dataToSend" : {
               "type" : "expression",
-              "value" : "docuementPayload"
+              "value" : "documentPayload"
             },
             "dataFromSuccess" : {
               "type" : "variable",
@@ -1227,11 +1227,6 @@
       "value" : "{\n    \"content\": { \"filename\" : \"\" }\n}",
       "exposed" : false
     },
-    "docuementPayload" : {
-      "type" : "expression",
-      "value" : "if($data.newDocument.content){\n    return {\n        \"caseId\" : $data.caseId,\n        \"file\" : $data.newDocument.content.tempPath,\n        \"fileName\" : $data.newDocument.content.filename,\n        \"name\" : $data.newDocument.name,\n        \"description\" : $data.newDocument.description\n    };\n}",
-      "exposed" : false
-    },
     "caseDocuments" : {
       "type" : "url",
       "value" : "../API/extension/caseDocument?caseId={{caseId}}&reload={{documentAdded.id + documentDeleted.id}}",
@@ -1288,7 +1283,7 @@
     },
     "resolvedPayload" : {
       "type" : "expression",
-      "value" : "return {\n    processInstanceId:$data.caseId,\n    taskId: $data.closeTaskId[0].id,\n    status: 'RESOLVED'\n}",
+      "value" : "return {\n    taskId: $data.closeTaskId[0].id,\n    status: 'RESOLVED'\n}",
       "exposed" : false
     },
     "closeTaskId" : {
@@ -1304,6 +1299,11 @@
     "taskActionButtons" : {
       "type" : "expression",
       "value" : " return [\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-plus-sign\\\"></i> <span class=\\\"hidden-xs\\\">Task</span>\",\n            \"style\" : \"primary\",\n            \"action\" : \"Open modal\",\n            \"modalId\" : \"createActivity\"\n        },\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-paperclip\\\"></i> <span class=\\\"hidden-xs\\\">Upload</span>\",\n            \"style\" : \"default\",\n            \"action\" : \"Open modal\",\n            \"modalId\" : \"add-document\"\n        },\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-pencil\\\"></i> <span class=\\\"hidden-xs\\\">Comment</span>\",\n            \"style\" : \"default\",\n            \"action\" : \"Open modal\",\n            \"modalId\" : \"add-comment\"\n        }\n    ]\n",
+      "exposed" : false
+    },
+    "documentPayload" : {
+      "type" : "expression",
+      "value" : "if($data.newDocument.content){\n    return {\n        \"caseId\" : $data.caseId,\n        \"file\" : $data.newDocument.content.tempPath,\n        \"fileName\" : $data.newDocument.content.filename,\n        \"name\" : $data.newDocument.name,\n        \"description\" : $data.newDocument.description\n    };\n}",
       "exposed" : false
     }
   },
