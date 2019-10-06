@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1570366023989,
+  "lastUpdate" : 1570368709000,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -216,7 +216,7 @@
           "propertyValues" : {
             "cssClasses" : {
               "type" : "constant",
-              "value" : ""
+              "value" : "button-bar"
             },
             "hidden" : {
               "type" : "constant",
@@ -248,8 +248,8 @@
                 "value" : false
               },
               "buttons" : {
-                "type" : "constant",
-                "value" : "buttons"
+                "type" : "expression",
+                "value" : "taskActionButtons"
               },
               "alignment" : {
                 "type" : "constant",
@@ -277,7 +277,7 @@
                 "value" : false
               },
               "buttons" : {
-                "type" : "constant",
+                "type" : "expression",
                 "value" : "caseActionButtons"
               },
               "alignment" : {
@@ -1296,14 +1296,14 @@
       "value" : "../API/bpm/task?c=1&p=0&f=rootContainerId={{caseId}}&f=name=Close",
       "exposed" : false
     },
-    "buttons" : {
-      "type" : "expression",
-      "value" : " return [\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-plus-sign\\\"></i> <span class=\\\"hidden-xs\\\">Task</span>\",\n            \"style\" : \"primary\",\n            \"action\" : \"Open modal\",\n            \"modalId\" : \"createActivity\"\n        },\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-paperclip\\\"></i> <span class=\\\"hidden-xs\\\">Upload</span>\",\n            \"style\" : \"default\",\n            \"action\" : \"Open modal\",\n            \"modalId\" : \"add-document\"\n        },\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-pencil\\\"></i> <span class=\\\"hidden-xs\\\">Comment</span>\",\n            \"style\" : \"default\",\n            \"action\" : \"Open modal\",\n            \"modalId\" : \"add-comment\"\n        }\n    ]\n",
-      "exposed" : false
-    },
     "caseActionButtons" : {
       "type" : "expression",
       "value" : "if( $data.dismissPayload && $data.resolvedPayload && $data.case){\n    return [\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-remove-sign\\\"></i> <span class=\\\"hidden-xs\\\">Dismiss</span>\",\n            \"style\" : \"default\",\n            \"action\" : \"POST\",\n            \"url\" : \"../API/extension/userTask\",\n            \"dataToSend\" : $data.dismissPayload,\n            \"targetUrlOnSuccess\" : \"../home\"\n        },\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-ok-sign\\\"></i> <span class=\\\"hidden-xs\\\">Resolve</span>\",\n            \"style\" : \"primary\",\n            \"disabled\" : !$data.case.canResolveCase,\n            \"action\" : \"POST\",\n            \"url\" : \"../API/extension/userTask\",\n            \"dataToSend\" : $data.resolvedPayload,\n            \"targetUrlOnSuccess\" : \"../home\"\n        }\n    ];\n}\n\n\n",
+      "exposed" : false
+    },
+    "taskActionButtons" : {
+      "type" : "expression",
+      "value" : " return [\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-plus-sign\\\"></i> <span class=\\\"hidden-xs\\\">Task</span>\",\n            \"style\" : \"primary\",\n            \"action\" : \"Open modal\",\n            \"modalId\" : \"createActivity\"\n        },\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-paperclip\\\"></i> <span class=\\\"hidden-xs\\\">Upload</span>\",\n            \"style\" : \"default\",\n            \"action\" : \"Open modal\",\n            \"modalId\" : \"add-document\"\n        },\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-pencil\\\"></i> <span class=\\\"hidden-xs\\\">Comment</span>\",\n            \"style\" : \"default\",\n            \"action\" : \"Open modal\",\n            \"modalId\" : \"add-comment\"\n        }\n    ]\n",
       "exposed" : false
     }
   },
