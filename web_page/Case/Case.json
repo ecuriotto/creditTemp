@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1570348785336,
+  "lastUpdate" : 1570366023989,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -216,7 +216,7 @@
           "propertyValues" : {
             "cssClasses" : {
               "type" : "constant",
-              "value" : "button-bar"
+              "value" : ""
             },
             "hidden" : {
               "type" : "constant",
@@ -233,354 +233,32 @@
           "rows" : [ [ {
             "type" : "component",
             "dimension" : {
-              "xs" : 2,
-              "sm" : 2,
-              "md" : 2,
-              "lg" : 2
+              "xs" : 8,
+              "sm" : 8,
+              "md" : 8,
+              "lg" : 8
             },
             "propertyValues" : {
               "cssClasses" : {
                 "type" : "constant",
-                "value" : "custom-button"
+                "value" : ""
               },
               "hidden" : {
                 "type" : "constant",
                 "value" : false
               },
-              "disabled" : {
+              "buttons" : {
                 "type" : "constant",
-                "value" : false
-              },
-              "label" : {
-                "type" : "interpolation",
-                "value" : "<span class=\"glyphicon glyphicon-plus-sign\" aria-hidden=\"true\"></span> Task"
+                "value" : "buttons"
               },
               "alignment" : {
                 "type" : "constant",
                 "value" : "left"
-              },
-              "buttonStyle" : {
-                "type" : "constant",
-                "value" : "primary"
-              },
-              "action" : {
-                "type" : "constant",
-                "value" : "Open modal"
-              },
-              "assign" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "url" : {
-                "type" : "interpolation"
-              },
-              "responseStatusCode" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "dataToSend" : {
-                "type" : "constant"
-              },
-              "dataFromSuccess" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "closeOnSuccess" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "dataFromError" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "targetUrlOnSuccess" : {
-                "type" : "interpolation"
-              },
-              "collectionToModify" : {
-                "type" : "variable"
-              },
-              "modalId" : {
-                "type" : "constant",
-                "value" : "createActivity"
-              },
-              "collectionPosition" : {
-                "type" : "constant",
-                "value" : "Last"
-              },
-              "valueToAdd" : {
-                "type" : "constant"
-              },
-              "removeItem" : {
-                "type" : "variable"
               }
             },
-            "reference" : "627960df-ea8d-44a0-9a5e-7a958987badf",
+            "reference" : "21d770ac-2eed-4ec0-9bf1-261c8d81732f",
             "hasValidationError" : false,
-            "id" : "pbButton"
-          }, {
-            "type" : "component",
-            "dimension" : {
-              "xs" : 2,
-              "sm" : 2,
-              "md" : 2,
-              "lg" : 2
-            },
-            "propertyValues" : {
-              "cssClasses" : {
-                "type" : "constant",
-                "value" : "custom-button"
-              },
-              "hidden" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "disabled" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "label" : {
-                "type" : "interpolation",
-                "value" : "<span class=\"glyphicon glyphicon-paperclip\"></span> Upload"
-              },
-              "alignment" : {
-                "type" : "constant",
-                "value" : "left"
-              },
-              "buttonStyle" : {
-                "type" : "constant",
-                "value" : "default"
-              },
-              "action" : {
-                "type" : "constant",
-                "value" : "Open modal"
-              },
-              "assign" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "url" : {
-                "type" : "interpolation"
-              },
-              "responseStatusCode" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "dataToSend" : {
-                "type" : "constant"
-              },
-              "dataFromSuccess" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "closeOnSuccess" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "dataFromError" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "targetUrlOnSuccess" : {
-                "type" : "interpolation"
-              },
-              "collectionToModify" : {
-                "type" : "variable"
-              },
-              "modalId" : {
-                "type" : "constant",
-                "value" : "add-document"
-              },
-              "collectionPosition" : {
-                "type" : "constant",
-                "value" : "Last"
-              },
-              "valueToAdd" : {
-                "type" : "constant"
-              },
-              "removeItem" : {
-                "type" : "variable"
-              }
-            },
-            "reference" : "6dd5ac51-adf9-4b34-9cf9-0e262090ecda",
-            "hasValidationError" : false,
-            "id" : "pbButton"
-          }, {
-            "type" : "component",
-            "dimension" : {
-              "xs" : 2,
-              "sm" : 2,
-              "md" : 2,
-              "lg" : 2
-            },
-            "propertyValues" : {
-              "cssClasses" : {
-                "type" : "constant",
-                "value" : "custom-button"
-              },
-              "hidden" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "disabled" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "label" : {
-                "type" : "interpolation",
-                "value" : "<span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"> </span> Comment"
-              },
-              "alignment" : {
-                "type" : "constant",
-                "value" : "left"
-              },
-              "buttonStyle" : {
-                "type" : "constant",
-                "value" : "default"
-              },
-              "action" : {
-                "type" : "constant",
-                "value" : "Open modal"
-              },
-              "assign" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "url" : {
-                "type" : "interpolation"
-              },
-              "responseStatusCode" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "dataToSend" : {
-                "type" : "constant"
-              },
-              "dataFromSuccess" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "closeOnSuccess" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "dataFromError" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "targetUrlOnSuccess" : {
-                "type" : "interpolation"
-              },
-              "collectionToModify" : {
-                "type" : "variable"
-              },
-              "modalId" : {
-                "type" : "constant",
-                "value" : "add-comment"
-              },
-              "collectionPosition" : {
-                "type" : "constant",
-                "value" : "Last"
-              },
-              "valueToAdd" : {
-                "type" : "constant"
-              },
-              "removeItem" : {
-                "type" : "variable"
-              }
-            },
-            "reference" : "321555d2-6fc7-406e-b7f6-a3177a681a69",
-            "hasValidationError" : false,
-            "id" : "pbButton"
-          }, {
-            "type" : "component",
-            "dimension" : {
-              "xs" : 2,
-              "sm" : 2,
-              "md" : 2,
-              "lg" : 2
-            },
-            "propertyValues" : {
-              "cssClasses" : {
-                "type" : "constant",
-                "value" : "custom-button"
-              },
-              "hidden" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "disabled" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "label" : {
-                "type" : "interpolation",
-                "value" : "<span class=\"glyphicon glyphicon-remove-sign\"></span> Dismiss"
-              },
-              "alignment" : {
-                "type" : "constant",
-                "value" : "left"
-              },
-              "buttonStyle" : {
-                "type" : "constant",
-                "value" : "default"
-              },
-              "action" : {
-                "type" : "constant",
-                "value" : "POST"
-              },
-              "assign" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "url" : {
-                "type" : "interpolation",
-                "value" : "../API/extension/userTask"
-              },
-              "responseStatusCode" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "dataToSend" : {
-                "type" : "expression",
-                "value" : "dismissPayload"
-              },
-              "dataFromSuccess" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "closeOnSuccess" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "dataFromError" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "targetUrlOnSuccess" : {
-                "type" : "interpolation",
-                "value" : ".."
-              },
-              "collectionToModify" : {
-                "type" : "variable"
-              },
-              "modalId" : {
-                "type" : "constant",
-                "value" : ""
-              },
-              "collectionPosition" : {
-                "type" : "constant",
-                "value" : "Last"
-              },
-              "valueToAdd" : {
-                "type" : "constant"
-              },
-              "removeItem" : {
-                "type" : "variable"
-              }
-            },
-            "reference" : "05daaab0-54c6-4367-9f2a-e94eb786aeca",
-            "hasValidationError" : false,
-            "id" : "pbButton"
+            "id" : "customButtonGroup"
           }, {
             "type" : "component",
             "dimension" : {
@@ -592,85 +270,24 @@
             "propertyValues" : {
               "cssClasses" : {
                 "type" : "constant",
-                "value" : "custom-button"
+                "value" : ""
               },
               "hidden" : {
                 "type" : "constant",
                 "value" : false
               },
-              "disabled" : {
-                "type" : "expression",
-                "value" : "!case.canResolveCase"
-              },
-              "label" : {
-                "type" : "interpolation",
-                "value" : "<span class=\"glyphicon glyphicon-ok-sign\"> </span> Resolve"
+              "buttons" : {
+                "type" : "constant",
+                "value" : "caseActionButtons"
               },
               "alignment" : {
                 "type" : "constant",
                 "value" : "right"
-              },
-              "buttonStyle" : {
-                "type" : "constant",
-                "value" : "primary"
-              },
-              "action" : {
-                "type" : "constant",
-                "value" : "POST"
-              },
-              "assign" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "url" : {
-                "type" : "interpolation",
-                "value" : "../API/extension/userTask"
-              },
-              "responseStatusCode" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "dataToSend" : {
-                "type" : "expression",
-                "value" : "resolvedPayload"
-              },
-              "dataFromSuccess" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "closeOnSuccess" : {
-                "type" : "constant",
-                "value" : false
-              },
-              "dataFromError" : {
-                "type" : "variable",
-                "value" : ""
-              },
-              "targetUrlOnSuccess" : {
-                "type" : "interpolation",
-                "value" : ".."
-              },
-              "collectionToModify" : {
-                "type" : "variable"
-              },
-              "modalId" : {
-                "type" : "constant",
-                "value" : ""
-              },
-              "collectionPosition" : {
-                "type" : "constant",
-                "value" : "Last"
-              },
-              "valueToAdd" : {
-                "type" : "constant"
-              },
-              "removeItem" : {
-                "type" : "variable"
               }
             },
-            "reference" : "803e6b7d-2369-4c00-9041-ed88f528f51c",
+            "reference" : "3f935e84-c95a-43ee-a8e4-f1991d8a27e8",
             "hasValidationError" : false,
-            "id" : "pbButton"
+            "id" : "customButtonGroup"
           } ] ]
         } ] ]
       } ], [ {
@@ -1666,7 +1283,7 @@
     },
     "dismissPayload" : {
       "type" : "expression",
-      "value" : "return {\n    processInstanceId:$data.caseId,\n    taskId: $data.closeTaskId[0].id,\n    status: 'INVALID'\n}",
+      "value" : "return {\n    taskId: $data.closeTaskId[0].id,\n    status: 'INVALID'\n}",
       "exposed" : false
     },
     "resolvedPayload" : {
@@ -1677,6 +1294,16 @@
     "closeTaskId" : {
       "type" : "url",
       "value" : "../API/bpm/task?c=1&p=0&f=rootContainerId={{caseId}}&f=name=Close",
+      "exposed" : false
+    },
+    "buttons" : {
+      "type" : "expression",
+      "value" : " return [\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-plus-sign\\\"></i> <span class=\\\"hidden-xs\\\">Task</span>\",\n            \"style\" : \"primary\",\n            \"action\" : \"Open modal\",\n            \"modalId\" : \"createActivity\"\n        },\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-paperclip\\\"></i> <span class=\\\"hidden-xs\\\">Upload</span>\",\n            \"style\" : \"default\",\n            \"action\" : \"Open modal\",\n            \"modalId\" : \"add-document\"\n        },\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-pencil\\\"></i> <span class=\\\"hidden-xs\\\">Comment</span>\",\n            \"style\" : \"default\",\n            \"action\" : \"Open modal\",\n            \"modalId\" : \"add-comment\"\n        }\n    ]\n",
+      "exposed" : false
+    },
+    "caseActionButtons" : {
+      "type" : "expression",
+      "value" : "if( $data.dismissPayload && $data.resolvedPayload && $data.case){\n    return [\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-remove-sign\\\"></i> <span class=\\\"hidden-xs\\\">Dismiss</span>\",\n            \"style\" : \"default\",\n            \"action\" : \"POST\",\n            \"url\" : \"../API/extension/userTask\",\n            \"dataToSend\" : $data.dismissPayload,\n            \"targetUrlOnSuccess\" : \"../home\"\n        },\n        {\n            \"label\" : \"<i class=\\\"glyphicon glyphicon-ok-sign\\\"></i> <span class=\\\"hidden-xs\\\">Resolve</span>\",\n            \"style\" : \"primary\",\n            \"disabled\" : !$data.case.canResolveCase,\n            \"action\" : \"POST\",\n            \"url\" : \"../API/extension/userTask\",\n            \"dataToSend\" : $data.resolvedPayload,\n            \"targetUrlOnSuccess\" : \"../home\"\n        }\n    ];\n}\n\n\n",
       "exposed" : false
     }
   },

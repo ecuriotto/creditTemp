@@ -13,7 +13,6 @@ $timeline-border-color: #e6e6e6 !default;
 @import "bonita_pager";
 @import "timeline";
 @import "card";
-@import "button-bar";
 @import "layout";
 
 .info-link {
@@ -28,4 +27,11 @@ $timeline-border-color: #e6e6e6 !default;
 	padding: 5px 35px 5px 35px;
 	margin-top: 20px;
 }
+
+.button-bar {
+	background-color: $light-bg;
+	border-radius: 7px 7px 7px 7px;
+	padding: 5px 10px 5px 10px;
+}
+
 

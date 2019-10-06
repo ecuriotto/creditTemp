@@ -80,6 +80,26 @@ Reuse the default profiles
 
 * HTMLDataTable: The default DataTable with HTML support added in cells.
 * Timeline: A timeline widget used in the _Case_ page.
+* ButtonGroup: Create a bootstrap button group. Group buttons are defined using the `buttons` property.  
+	* JSON format of a button:  
+```
+{
+	"label" : "MyButton",
+	"style" : "primary", /*could be "danger","warning","default" or "info"*/
+	"action" : "POST", /*could be any of the standard button action "Open modal", "Close modal", "PUT", "GET", "DELETE", "Start process", "Submit task", "Add to collection", "Remove from collection"*/
+	"url" : "../API/..", /*When action is GET,POST,PUT or DELETE*/
+	"dataToSend" : {},
+	"modalId" : "anModalId", /*When action is Open modal*/
+	"closeOnSuccess" : true,
+	"targetUrlOnSuccess" : "../home",
+	"collectionToModify" : [], /*When action is Add to collection or Remove from collection*/
+	"valueToAdd" : {},
+	"removeItem" : {},
+	"dataFromSuccess" : {}, /*Set if the request is successful*/
+	"responseStatusCode" : 200, /*Set after the request is executed*/
+	"dataFromError" : {} /*Set if the request is not successful*/
+}
+```
 * ToggleButtons: Toggle buttons used in the _CaseList_ page to switch between active and archived cases.
 
 ### Themes
@@ -91,7 +111,6 @@ Reuse the default profiles
 	* Add custom css rules to constrained maximum page with in `_layout.scss`
 	* Add custom css rules for card style `_card.scss`
 	* Add custom css rules for timeline style `_timeline.scss`
-	* Add custom css rules for the button bar style `_button-bar.scss`
 
 ### Rest API Extensions
 
