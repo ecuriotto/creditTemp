@@ -572,7 +572,7 @@
           </referencedElements>
         </defaultValue>
       </data>
-      <formMapping xmi:type="process:FormMapping" xmi:id="_x5qCE_SMEeeYpYD60oU_zA">
+      <formMapping xmi:type="process:FormMapping" xmi:id="_x5qCE_SMEeeYpYD60oU_zA" type="NONE">
         <targetForm xmi:type="expression:Expression" xmi:id="_YhGckJdQEemS2vHmcHFszw" name="NewDisputeCase" content="cf2691b0-85cf-453c-93fb-5e49cd4b3f44" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
       <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_x5qCFvSMEeeYpYD60oU_zA">

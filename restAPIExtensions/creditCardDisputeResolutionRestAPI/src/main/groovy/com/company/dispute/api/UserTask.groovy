@@ -35,16 +35,10 @@ class UserTask implements RestApiController {
                 build()
             }
         }
-        if(!jsonBody.processInstanceId) {
-            return responseBuilder.with {
-                withResponseStatus(HttpServletResponse.SC_BAD_REQUEST)
-                withResponse("No processInstanceId in payload")
-                build()
-            }
-        }
         processAPI.assignAndExecuteUserTask(context.apiSession.userId, jsonBody.taskId.toLong(), jsonBody)
         if(jsonBody.content) {
-            processAPI.addProcessComment(jsonBody.processInstanceId.toLong(), jsonBody.content)
+			def processInstanceId = processAPI.getProcessInstanceIdFromActivityInstanceId(jsonBody.taskId.toLong())
+            processAPI.addProcessComment(processInstanceId, jsonBody.content)
         }
         return responseBuilder.with {
             withResponseStatus(HttpServletResponse.SC_CREATED)

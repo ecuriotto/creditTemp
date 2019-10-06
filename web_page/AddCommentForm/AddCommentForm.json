@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "AddCommentForm",
   "name" : "AddCommentForm",
-  "lastUpdate" : 1570265687411,
+  "lastUpdate" : 1570354199759,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -311,6 +311,14 @@
           "modalId" : {
             "type" : "constant",
             "value" : ""
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
           }
         },
         "reference" : "a3361cad-dfdc-423c-aee9-4ce025b279f5",
@@ -341,7 +349,7 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "return {\n\t'content': $data.formInput.comment,\n\t'processInstanceId' : $data.task.caseId,\n\t'taskId': $data.taskId\n}",
+      "value" : "return {\n\t'content': $data.formInput.comment,\n\t'taskId': $data.taskId\n}",
       "exposed" : false
     },
     "context" : {

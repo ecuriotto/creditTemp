@@ -39,24 +39,11 @@ class UserTaskTest extends Specification {
         assert restApiResponse.response == 'No taskId in payload'
     }
 
-    def "should return a bad request code when no processInstanceId parameter is found"() {
-        given:
-        def userTask = new UserTask()
-        def reader = new BufferedReader(new StringReader("""{ "taskId" : "1" }"""))
-        request.getReader() >> reader
-
-        when:
-        def restApiResponse = userTask.doHandle(request, new RestApiResponseBuilder() , context)
-
-        then:
-        assert restApiResponse.httpStatus == 400
-        assert restApiResponse.response == 'No processInstanceId in payload'
-    }
-
     def "should execute task with the given taskId"() {
         given:
         def userTask = new UserTask()
-        def reader = new BufferedReader(new StringReader("""{ "processInstanceId" : "42", "taskId" : "1", "content" : "" }"""))
+		processAPI.getProcessInstanceIdFromActivityInstanceId(1) >> 42
+        def reader = new BufferedReader(new StringReader("""{ "taskId" : "1", "content" : "" }"""))
         request.getReader() >> reader
         session.userId >> 5L
 
@@ -64,7 +51,7 @@ class UserTaskTest extends Specification {
         def restApiResponse = userTask.doHandle(request, new RestApiResponseBuilder() , context)
 
         then:
-        1 * processAPI.assignAndExecuteUserTask(5L, 1L, [processInstanceId: "42", taskId: "1", content : ""])
+        1 * processAPI.assignAndExecuteUserTask(5L, 1L, [ taskId: "1", content : ""])
         0 * processAPI.addProcessComment(42L, _)
         assert restApiResponse.httpStatus == 201
     }
@@ -72,7 +59,8 @@ class UserTaskTest extends Specification {
     def "should add a process comment when content is not empty"() {
         given:
         def userTask = new UserTask()
-        def reader = new BufferedReader(new StringReader("""{ "processInstanceId" : "42", "taskId" : "1", "content" : "some notes" }"""))
+		processAPI.getProcessInstanceIdFromActivityInstanceId(1) >> 42
+        def reader = new BufferedReader(new StringReader("""{ "taskId" : "1", "content" : "some notes" }"""))
         request.getReader() >> reader
         session.userId >> 5L
 
@@ -80,7 +68,7 @@ class UserTaskTest extends Specification {
         def restApiResponse = userTask.doHandle(request, new RestApiResponseBuilder() , context)
 
         then:
-        1 * processAPI.assignAndExecuteUserTask(5L, 1L, [processInstanceId: "42", taskId: "1", content : "some notes"])
+        1 * processAPI.assignAndExecuteUserTask(5L, 1L, [ taskId: "1", content : "some notes"])
         1 * processAPI.addProcessComment(42L, "some notes")
         assert restApiResponse.httpStatus == 201
     }

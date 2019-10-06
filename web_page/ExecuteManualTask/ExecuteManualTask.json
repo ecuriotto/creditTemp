@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "ExecuteManualTask",
   "name" : "ExecuteManualTask",
-  "lastUpdate" : 1570265525101,
+  "lastUpdate" : 1570354176506,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -266,6 +266,14 @@
           "modalId" : {
             "type" : "constant",
             "value" : ""
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
           }
         },
         "reference" : "47e01b95-aab7-4c15-a3ba-be99d5112db2",
@@ -301,7 +309,7 @@
     },
     "input" : {
       "type" : "expression",
-      "value" : "if($data.task){\nreturn {\n    \"taskId\" : $data.taskId,\n\t \"processInstanceId\" : $data.task.caseId,\n\t \"content\": $data.comment\n};\n}",
+      "value" : "if($data.task){\n    return {\n        \"taskId\" : $data.taskId,\n    \t\"content\": $data.comment\n    }\n}",
       "exposed" : false
     },
     "comment" : {
