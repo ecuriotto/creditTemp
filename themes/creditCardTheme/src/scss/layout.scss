@@ -1,0 +1,37 @@
+/*
+* Layout specific rules
+*/
+
+%max-page-width {
+	max-width : 1140px;
+	margin: auto;
+	float:none;
+}
+
+.row-max-width {
+	@extend %max-page-width;
+}
+
+.form-container {
+	@extend %max-page-width;
+}
+
+.layout-header{
+	.navbar {
+		.container-fluid {
+			@extend %max-page-width;
+		}
+	}
+	.row-centered {
+		@extend %max-page-width;
+	}
+}
+
+.layout-footer {
+	 @extend %max-page-width;
+}
+
+
+.timeline-container{
+	padding: 5px 15px 10px 35px;
+}
