@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "Tutorial",
   "name" : "Tutorial",
-  "lastUpdate" : 1570265294982,
+  "lastUpdate" : 1570373750516,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -340,8 +340,8 @@
           "value" : ""
         },
         "hidden" : {
-          "type" : "constant",
-          "value" : false
+          "type" : "expression",
+          "value" : "!handlerStatus.eventHandlerEnabled"
         },
         "labelHidden" : {
           "type" : "constant",
@@ -365,7 +365,56 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "<h4>Activate the case management event handler</h4>\nBy default, the case management event handler isn't activated. To activate it, the following argument has to be passed when launching the Tomcat: <br/><br/>\n<i><strong>-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true</strong></i>\n <br/><br/>\nIn the Bonita Studio, you can pass this argument to the engine tomcat by going to <strong>Preferences → Server settings → Tomcat JVM additional arguments</strong>. The parameter is present by default, you just have to set its value to <strong>true</strong>"
+          "value" : "<h4><span class=\"text-success glyphicon glyphicon-ok-circle\" aria-hidden=\"true\"></span> The ACM event handler is already activated</h4>"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "5a5b38fb-7c77-4ca0-b6e8-f8a39e560b84",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "expression",
+          "value" : "handlerStatus.eventHandlerEnabled"
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<h4><span class=\"text-warning glyphicon glyphicon-warning-sign\" aria-hidden=\"true\"></span> Activate the case management event handler</h4>\nBy default, the case management event handler isn't activated. To activate it, the following argument has to be passed when launching the Tomcat: <br/><br/>\n<i><strong>-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true</strong></i>\n <br/><br/>\nIn the Bonita Studio, you can pass this argument to the engine tomcat by going to <strong>Preferences → Server settings → Tomcat JVM additional arguments</strong>. The parameter is present by default, you just have to set its value to <strong>true</strong>"
         },
         "alignment" : {
           "type" : "constant",
@@ -1681,6 +1730,11 @@
     "mainAppsLink" : {
       "type" : "expression",
       "value" : "return \"<a class=\\\"text-info\\\"  href=\\\"http://\" + window.location.host + \"/bonita/apps/cases/home/\\\" target=\\\"_blank\\\">open the main application</a>\";",
+      "exposed" : false
+    },
+    "handlerStatus" : {
+      "type" : "url",
+      "value" : "../API/extension/handlerStatus",
       "exposed" : false
     }
   },
