@@ -70,7 +70,9 @@
             <referencedElements xmi:type="process:Data" xmi:id="_YXBtYLnoEemz85F-pOyg7Q" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
           </stepSummary>
           <data xmi:type="process:Data" xmi:id="_Yn858JzLEemsNbXOsawszg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
-            <defaultValue xmi:type="expression:Expression" xmi:id="_Yn858ZzLEemsNbXOsawszg" name="Discretionary" content="Discretionary" interpreter="GROOVY"/>
+            <defaultValue xmi:type="expression:Expression" xmi:id="_Yn858ZzLEemsNbXOsawszg" name="updateActivityState()" content="import com.company.model.ACMStates&#xD;&#xA;import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;if(dispute.status == DisputeStates.CHARGED_BACK){&#xD;&#xA;&#x9;&#x9;return ACMStates.NOT_AVAILABLE&#xD;&#xA;}&#xD;&#xA;return ACMStates.DISCRETIONARY" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_D_O7MOp3Eemnkprp8pI4Lg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            </defaultValue>
           </data>
           <data xmi:type="process:Data" xmi:id="_cUJ0AJzNEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
             <defaultValue xmi:type="expression:Expression" xmi:id="_cUJ0AZzNEemsNbXOsawszg" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List"/>
@@ -427,6 +429,15 @@
               <operator xmi:type="expression:Operator" xmi:id="_vRirq6IeEemjEO8nbtbzzg" type="ASSIGNMENT"/>
             </outputs>
           </connectors>
+          <operations xmi:type="expression:Operation" xmi:id="_estDkOqcEem2u8zmUD93Qg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_estDkeqcEem2u8zmUD93Qg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gm9w0OqcEem2u8zmUD93Qg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_estDkuqcEem2u8zmUD93Qg" name="updateDisputeStatus()" content="import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;DisputeStates.CHARGED_BACK" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT"/>
+            <operator xmi:type="expression:Operator" xmi:id="_estDk-qcEem2u8zmUD93Qg" type="JAVA_METHOD" expression="setStatus">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_hp26dPUdEeeREboOt7l4UQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_hp26dfUdEeeREboOt7l4UQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_hp26dvUdEeeREboOt7l4UQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
