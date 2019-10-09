@@ -1,5 +1,8 @@
 @Library('github.com/bonitasoft-presales/bonita-jenkins-library@1.0.1') _
 
+//Global variable shared between nodes
+def props //Valuated during Deploy Server stage
+
 node('bcd-790') {
 
     def scenarioFile = "/home/bonita/bonita-continuous-delivery/scenarios/scenario-7.9.0-ec2.yml"
@@ -74,7 +77,6 @@ node('bcd-790') {
             bcd scenario:scenarioFile, args: "${extraVars} ${verbose_mode} stack undeploy", ignore_errors: true
         }
               
-        def props 
         stage("Deploy server") {    
             def json_path = pwd(tmp: true) + '/bcd_stack.json'
             bcd scenario:scenarioFile, args: "${extraVars} ${verbose_mode} -e bcd_stack_json=${json_path} stack deploy"
@@ -90,10 +92,6 @@ node('bcd-790') {
         stage('Deploy LAs') {
             bcd scenario:scenarioFile, args: "${extraVars} livingapp deploy ${debug_flag} -p ${WORKSPACE}/${zip_files[0].path} ${bConfArg}"
         }
-        
-        stage('e2e tests') {
-            sh "echo ${props.bonita_url}"
-        }
 
         stage('Archive') {
             archiveArtifacts artifacts: "target/*.zip, target/*.bconf, target/*.xml, target/*.bar, target/*.bos", fingerprint: true, flatten:true
@@ -101,3 +99,16 @@ node('bcd-790') {
   	} // timestamps
   } // ansiColor
 } // node
+
+//TODO add a cypress node to run e2e test on ci
+//  node('cypress-node'){
+//     stage('e2e tests') {
+//        def cypressConf = readJSON file: 'tests/cypress.json'
+//          cypressConf.baseUrl = props.bonita_url
+//       writeJSON file: 'tests/cypress.json', json: cypressConf, pretty: 4
+           
+//      sh 'mvn -f tests/pom.xml clean verify'
+//   }
+// }
+
+       

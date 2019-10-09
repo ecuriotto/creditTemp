@@ -1,0 +1,12 @@
+{
+  "name": "e2e-cypress-tests",
+  "version": "0.0.1",
+  "description": "Credit card dispute resolution e2e tests",
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "3.4.1"
+  }
+}
