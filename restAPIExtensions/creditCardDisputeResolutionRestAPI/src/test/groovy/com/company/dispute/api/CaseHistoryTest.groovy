@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest
 
 import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
+import org.bonitasoft.engine.bpm.process.ProcessInstance
 import org.bonitasoft.engine.identity.User
 import org.bonitasoft.engine.search.Order
 import org.bonitasoft.engine.search.SearchFilterOperation
@@ -21,7 +22,6 @@ import groovy.json.JsonSlurper
 import spock.lang.Ignore
 import spock.lang.Specification
 
-@Ignore
 class CaseHistoryTest extends Specification {
 
     ProcessAPI processAPI = Mock()
@@ -52,10 +52,14 @@ class CaseHistoryTest extends Specification {
 	def "should query archived tasks with proper search options"() {
 		given:
 		def caseHistory = new CaseHistory()
-		def SearchResult archivedTaskResult = Mock()
+		def SearchResult archivedTaskResult = Mock()	
 		
 		when:
 		request.getParameter('caseId') >> 1L
+		processAPI.getProcessInstance(1L) >> Stub(ProcessInstance){
+            it.startedBy >> 3L
+        }
+		identityAPI.getUser(3L) >> Stub(User)
 		def restApiResponse = caseHistory.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
@@ -114,12 +118,19 @@ class CaseHistoryTest extends Specification {
 		
 		when:
 		request.getParameter('caseId') >> 1L
+		processAPI.getProcessInstance(1L) >> Stub(ProcessInstance){
+			it.startedBy >> 3L
+			it.startDate >> new Date()
+		}
+		identityAPI.getUser(3L) >> Stub(User){
+			it.id >> 3L
+		}
 		def restApiResponse = caseHistory.doHandle(request, new RestApiResponseBuilder() , context)
 
 		then:
 		assert restApiResponse.httpStatus == 200
 		def history = new JsonSlurper().parseText(restApiResponse.response)
-		assert history.size() == 2
+		assert history.size() == 3
 		
 		assert history[0].displayName == 'Hello'
 		assert history[0].displayDescription == ''
@@ -130,6 +141,11 @@ class CaseHistoryTest extends Specification {
 		assert history[1].displayDescription == 'a description'
 		assert history[1].reached_state_date == new JsonSlurper().parseText(new JsonBuilder(Date.parse("yyyy-MM-dd hh:mm:ss", "2019-04-06 4:23:45")).toString())
 		assert history[1].executedBy.id == 5L
+		
+		assert history[2].displayName == 'Case started'
+		assert history[2].displayDescription == ''
+		assert history[2].reached_state_date != null
+		assert history[2].executedBy.id == 3L
 	}
 	
 }
