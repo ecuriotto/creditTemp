@@ -57,15 +57,15 @@ node('bcd-790') {
          stage("Package BOS Archive") {
             sh 'mvn assembly:single'
             sh '''
-				for f in target/credit-card-dispute-resolution-*.zip; do 
-					mv -- "$f" "${f%.zip}.bos"
-				done
-				timestamp=$(date +"%Y%m%d%H%M");
-				for f in target/credit-card-dispute-resolution-*-SNAPSHOT.bos; do 
-       				 if [ -f "$f" ]; then
-               			 mv -- "$f" "${f%-SNAPSHOT.bos}-${timestamp}.bos"
-       				 fi
-				done
+                for f in target/credit-card-dispute-resolution-*.zip; do 
+                    mv -- "$f" "${f%.zip}.bos"
+                done
+                timestamp=$(date +"%Y%m%d%H%M");
+                for f in target/credit-card-dispute-resolution-*-SNAPSHOT.bos; do 
+                    if [ -f "$f" ]; then
+                        mv -- "$f" "${f%-SNAPSHOT.bos}-${timestamp}.bos"
+                    fi
+                done
             '''
         }
 
@@ -100,15 +100,25 @@ node('bcd-790') {
   } // ansiColor
 } // node
 
-//TODO add a cypress node to run e2e test on ci
-//  node('cypress-node'){
-//     stage('e2e tests') {
-//        def cypressConf = readJSON file: 'tests/cypress.json'
-//          cypressConf.baseUrl = props.bonita_url
-//       writeJSON file: 'tests/cypress.json', json: cypressConf, pretty: 4
+node('cypress'){
+	 stage('Checkout') { 
+            checkout scm
+     }
+	
+     stage('E2E Tests') {
+         def cypressConf = readJSON file: 'tests/cypress.json'
+         cypressConf.baseUrl = props.bonita_url
+         writeJSON file: 'tests/cypress.json', json: cypressConf, pretty: 4
            
-//      sh 'mvn -f tests/pom.xml clean verify'
-//   }
-// }
+          dir('tests'){
+             ansiColor('xterm') {
+                 sh 'cypress run'
+	         }
+          }
+    }
 
-       
+    stage('Archive videos') {
+        archiveArtifacts artifacts: "tests/cypress/videos/*.mp4", fingerprint: true
+    }
+}
+
