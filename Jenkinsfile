@@ -5,7 +5,7 @@ def props //Valuated during Deploy Server stage
 
 node('bcd-790') {
 
-    def scenarioFile = "/home/bonita/bonita-continuous-delivery/scenarios/scenario-7.9.0-ec2.yml"
+    def scenarioFile = "/home/bonita/bonita-continuous-delivery/scenarios/scenario-7.9.0-ACM-ec2.yml"
     def bonitaConfiguration = params.environment ?: "Development"
 
     // set to true/false to switch verbose mode
