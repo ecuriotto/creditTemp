@@ -48,6 +48,7 @@ node('bcd-790') {
             checkout scm
             echo "jobBaseName: $jobBaseName"
             echo "gitRepoName: $gitRepoName"
+            stash name: 'tests', includes: 'tests/**'
         }
         
         stage("Build LAs") {
@@ -94,31 +95,40 @@ node('bcd-790') {
         }
 
         stage('Archive') {
-            archiveArtifacts artifacts: "target/*.zip, target/*.bconf, target/*.xml, target/*.bar, target/*.bos", fingerprint: true, flatten:true
+            archiveArtifacts artifacts: "target/*.zip, target/*.bconf, target/*.xml, target/*.bar, target/*.bos", fingerprint: true
         }
   	} // timestamps
   } // ansiColor
 } // node
 
 node('cypress'){
-	 stage('Checkout') { 
-            checkout scm
-     }
+	 
 	
      stage('E2E Tests') {
+     
+         unstash 'tests'
+         
          def cypressConf = readJSON file: 'tests/cypress.json'
          cypressConf.baseUrl = props.bonita_url
          writeJSON file: 'tests/cypress.json', json: cypressConf, pretty: 4
            
           dir('tests'){
              ansiColor('xterm') {
-                 sh 'cypress run'
+                 sh 'npm install && npm test'
 	         }
           }
     }
 
     stage('Archive videos') {
         archiveArtifacts artifacts: "tests/cypress/videos/*.mp4", fingerprint: true
+        publishHTML (target: [
+          allowMissing: false,
+          alwaysLinkToLastBuild: false,
+          keepAll: true,
+          reportDir: 'tests/mochawesome-report',
+          reportFiles: 'mochawesome.html',
+          reportName: "Cypress Report"
+        ])
     }
 }
 

@@ -1,3 +1,9 @@
 {
- "baseUrl" : "http://localhost:8080/bonita"
+ "baseUrl" : "http://localhost:8080/bonita",
+ "reporter": "mochawesome",
+ "reporterOptions": {
+      "overwrite": false,
+      "html": false,
+      "json": true
+    }
 }
