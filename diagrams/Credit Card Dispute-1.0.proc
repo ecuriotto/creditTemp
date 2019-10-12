@@ -395,7 +395,7 @@
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_wAMl0JyWEemqZaueLnuvxA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_wAMl0pyWEemqZaueLnuvxA" name="" content="" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:TextAnnotation" xmi:id="_RKTaQJyXEemqZaueLnuvxA" text="Dispute states:&#xD;&#xA;- PENDING&#xD;&#xA;- INVALID&#xD;&#xA;- INVESTIGATING&#xD;&#xA;- PROCESSING CHARGEBACK&#xD;&#xA;- RESOLVED"/>
+        <elements xmi:type="process:TextAnnotation" xmi:id="_RKTaQJyXEemqZaueLnuvxA" text="Dispute states:&#xD;&#xA;- PENDING&#xD;&#xA;- INVALID&#xD;&#xA;- INVESTIGATING&#xD;&#xA;- PROCESSING CHARGEBACK&#xD;&#xA;- CHARGED BACK&#xD;&#xA;- RESOLVED"/>
       </elements>
       <elements xmi:type="process:Lane" xmi:id="_eD8PUJwMEemz_6GYzsxGrA" name="Dispute Agent" actor="_lJR6UJwMEemz_6GYzsxGrA">
         <elements xmi:type="process:Task" xmi:id="_h4S_EPUdEeeREboOt7l4UQ" name="Chargeback" overrideActorsOfTheLane="false">
@@ -717,6 +717,13 @@
           <fragments xmi:type="configuration:Fragment" xmi:id="_3iC58JzTEemsNbXOsawszg" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" type="GROOVY_SCRIPT"/>
           <fragments xmi:type="configuration:Fragment" xmi:id="_wGqHMJ1nEemTRtqWFynp_g" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" type="GROOVY_SCRIPT"/>
           <fragments xmi:type="configuration:Fragment" xmi:id="_fwkkkJ2eEemQAo5alETTFA" key="com/company/model/ACMStates.groovy" value="com/company/model/ACMStates.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_FwoaAOq8Eem7LpSUm69MmA" key="com/company/util/Condition.groovy" value="com/company/util/Condition.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_wWBnsOq9Eem7LpSUm69MmA" key="com/company/util/scenario/Scenario1.groovy" value="com/company/util/scenario/Scenario1.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_wWCOwOq9Eem7LpSUm69MmA" key="com/company/util/scenario/Scenario2.groovy" value="com/company/util/scenario/Scenario2.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_ibJWUOq_Eem7LpSUm69MmA" key="com/company/util/scenario/ScenarioProvider.groovy" value="com/company/util/scenario/ScenarioProvider.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_lOoksOz7Eemq5vQ0uGkOWQ" key="com/company/util/scenario/Scenario3.groovy" value="com/company/util/scenario/Scenario3.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_TQsREOz-Eemq5vQ0uGkOWQ" key="com/company/util/scenario/Scenario4.groovy" value="com/company/util/scenario/Scenario4.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_00tIYO0AEemq5vQ0uGkOWQ" key="com/company/util/scenario/Scenario5.groovy" value="com/company/util/scenario/Scenario5.groovy" exported="false" type="GROOVY_SCRIPT"/>
         </processDependencies>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFZwMEemz_6GYzsxGrA" id="OTHER"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hFpwMEemz_6GYzsxGrA" id="DATA_TYPES"/>
@@ -724,6 +731,13 @@
           <fragments xmi:type="configuration:Fragment" xmi:id="_3iC58ZzTEemsNbXOsawszg" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" type="GROOVY_SCRIPT"/>
           <fragments xmi:type="configuration:Fragment" xmi:id="_wGqHMZ1nEemTRtqWFynp_g" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" type="GROOVY_SCRIPT"/>
           <fragments xmi:type="configuration:Fragment" xmi:id="_fwkkkZ2eEemQAo5alETTFA" key="com/company/model/ACMStates.groovy" value="com/company/model/ACMStates.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_FwpBEOq8Eem7LpSUm69MmA" key="com/company/util/Condition.groovy" value="com/company/util/Condition.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_wWCOweq9Eem7LpSUm69MmA" key="com/company/util/scenario/Scenario1.groovy" value="com/company/util/scenario/Scenario1.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_wWCOwuq9Eem7LpSUm69MmA" key="com/company/util/scenario/Scenario2.groovy" value="com/company/util/scenario/Scenario2.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_ibJWUeq_Eem7LpSUm69MmA" key="com/company/util/scenario/ScenarioProvider.groovy" value="com/company/util/scenario/ScenarioProvider.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_lOpLwOz7Eemq5vQ0uGkOWQ" key="com/company/util/scenario/Scenario3.groovy" value="com/company/util/scenario/Scenario3.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_TQs4IOz-Eemq5vQ0uGkOWQ" key="com/company/util/scenario/Scenario4.groovy" value="com/company/util/scenario/Scenario4.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_00tIYe0AEemq5vQ0uGkOWQ" key="com/company/util/scenario/Scenario5.groovy" value="com/company/util/scenario/Scenario5.groovy" exported="false" type="GROOVY_SCRIPT"/>
         </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hGJwMEemz_6GYzsxGrA" id="OTHER"/>
         <parameters xmi:type="parameter:Parameter" xmi:id="_tg7HZZzgEemsNbXOsawszg" name="reviewAmountThreshold" value="500" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
