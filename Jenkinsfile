@@ -53,6 +53,15 @@ node('bcd-790') {
         
         stage("Build LAs") {
             bcd scenario:scenarioFile, args: "${extraVars} livingapp build ${debug_flag} -p ${WORKSPACE} --environment ${bonitaConfiguration}"
+            junit allowEmptyResults : true, testResults: 'restAPIExtensions/**/target/*-reports/*.xml'
+            publishHTML (target: [
+              allowMissing: false,
+              alwaysLinkToLastBuild: false,
+              keepAll: true,
+              reportDir: 'restAPIExtensions/creditCardDisputeResolutionRestAPI/target/spock-reports',
+              reportFiles: 'index.html',
+              reportName: "REST API Extension Report"
+            ])
         }
         
          stage("Package BOS Archive") {
