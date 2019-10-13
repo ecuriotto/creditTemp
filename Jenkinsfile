@@ -52,16 +52,19 @@ node('bcd-790') {
         }
         
         stage("Build LAs") {
-            bcd scenario:scenarioFile, args: "${extraVars} livingapp build ${debug_flag} -p ${WORKSPACE} --environment ${bonitaConfiguration}"
-            junit allowEmptyResults : true, testResults: 'restAPIExtensions/**/target/*-reports/*.xml'
-            publishHTML (target: [
-              allowMissing: false,
-              alwaysLinkToLastBuild: false,
-              keepAll: true,
-              reportDir: 'restAPIExtensions/creditCardDisputeResolutionRestAPI/target/spock-reports',
-              reportFiles: 'index.html',
-              reportName: "REST API Extension Report"
-            ])
+            try{
+                bcd scenario:scenarioFile, args: "${extraVars} livingapp build ${debug_flag} -p ${WORKSPACE} --environment ${bonitaConfiguration}"
+            }finally{
+                junit allowEmptyResults : true, testResults: 'restAPIExtensions/**/target/*-reports/*.xml'
+                publishHTML (target: [
+                  allowMissing: true,
+                  alwaysLinkToLastBuild: false,
+                  keepAll: true,
+                  reportDir: 'restAPIExtensions/creditCardDisputeResolutionRestAPI/target/spock-reports',
+                  reportFiles: 'index.html',
+                  reportName: "REST API Extension Report"
+                ])
+            }
         }
         
          stage("Package BOS Archive") {
@@ -111,8 +114,7 @@ node('bcd-790') {
 } // node
 
 node('cypress'){
-	 
-	
+
      stage('E2E Tests') {
      
          unstash 'tests'
@@ -123,21 +125,24 @@ node('cypress'){
            
           dir('tests'){
              ansiColor('xterm') {
-                 sh 'npm install && npm test'
-	         }
-          }
+                 try{
+                      sh 'npm install && npm test'
+                 }finally{
+                      publishHTML (target: [
+                          allowMissing: true,
+                          alwaysLinkToLastBuild: false,
+                          keepAll: true,
+                          reportDir: 'tests/mochawesome-report',
+                          reportFiles: 'mochawesome.html',
+                          reportName: "Cypress Report"
+                        ])
+                 }
+            }
+        }
     }
 
     stage('Archive videos') {
         archiveArtifacts artifacts: "tests/cypress/videos/*.mp4", fingerprint: true
-        publishHTML (target: [
-          allowMissing: false,
-          alwaysLinkToLastBuild: false,
-          keepAll: true,
-          reportDir: 'tests/mochawesome-report',
-          reportFiles: 'mochawesome.html',
-          reportName: "Cypress Report"
-        ])
     }
 }
 
