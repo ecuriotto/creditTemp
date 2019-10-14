@@ -129,7 +129,7 @@ node('cypress'){
                       sh 'npm install && npm test'
                  }finally{
                       publishHTML (target: [
-                          allowMissing: true,
+                          allowMissing: false,
                           alwaysLinkToLastBuild: false,
                           keepAll: true,
                           reportDir: 'tests/mochawesome-report',
