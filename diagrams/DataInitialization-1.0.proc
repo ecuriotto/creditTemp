@@ -55,9 +55,9 @@
             </parameters>
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_77kP1OqvEem7LpSUm69MmA" key="variables"/>
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_77kP1eqvEem7LpSUm69MmA" key="fakeScriptExpression">
-              <expression xmi:type="expression:Expression" xmi:id="_77kP1uqvEem7LpSUm69MmA" name="playScenarii" content="import com.company.util.scenario.ScenarioProvider&#xD;&#xA;&#xD;&#xA;ScenarioProvider.playScenarii(apiAccessor, customers)" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Object" returnTypeFixed="true">
-                <referencedElements xmi:type="expression:Expression" xmi:id="_Xr48IOqwEem7LpSUm69MmA" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
-                <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Xr48IeqwEem7LpSUm69MmA" name="customers" multiple="true" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Customer"/>
+              <expression xmi:type="expression:Expression" xmi:id="_77kP1uqvEem7LpSUm69MmA" name="playScenarii" content="import com.company.scenario.ScenarioExecutor&#xD;&#xA;&#xD;&#xA;new ScenarioExecutor().run(apiAccessor, customers)" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Object" returnTypeFixed="true">
+                <referencedElements xmi:type="expression:Expression" xmi:id="_0tO58O8aEem_WqeTUNtYPA" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+                <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_0tO58e8aEem_WqeTUNtYPA" name="customers" multiple="true" dataType="_8oZuvU8EEeiL57cXslApDw" className="com.company.model.Customer"/>
               </expression>
             </parameters>
           </configuration>
@@ -136,13 +136,15 @@
           <fragments xmi:type="configuration:Fragment" xmi:id="_nxUz8J1nEemTRtqWFynp_g" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" type="GROOVY_SCRIPT"/>
           <fragments xmi:type="configuration:Fragment" xmi:id="_nxUz8Z1nEemTRtqWFynp_g" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" exported="false" type="GROOVY_SCRIPT"/>
           <fragments xmi:type="configuration:Fragment" xmi:id="_VHz-QJ4vEem9LrwhjfOhLw" key="com/company/model/ACMStates.groovy" value="com/company/model/ACMStates.groovy" exported="false" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_HO5HwOq8Eem7LpSUm69MmA" key="com/company/util/Condition.groovy" value="com/company/util/Condition.groovy" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_iQ-YkOq9Eem7LpSUm69MmA" key="com/company/util/scenario/Scenario1.groovy" value="com/company/util/scenario/Scenario1.groovy" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_iQ-Ykeq9Eem7LpSUm69MmA" key="com/company/util/scenario/Scenario2.groovy" value="com/company/util/scenario/Scenario2.groovy" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_jRuZAOq_Eem7LpSUm69MmA" key="com/company/util/scenario/ScenarioProvider.groovy" value="com/company/util/scenario/ScenarioProvider.groovy" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_mUojcOz7Eemq5vQ0uGkOWQ" key="com/company/util/scenario/Scenario3.groovy" value="com/company/util/scenario/Scenario3.groovy" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_R_iyQOz-Eemq5vQ0uGkOWQ" key="com/company/util/scenario/Scenario4.groovy" value="com/company/util/scenario/Scenario4.groovy" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_1ZpBcO0AEemq5vQ0uGkOWQ" key="com/company/util/scenario/Scenario5.groovy" value="com/company/util/scenario/Scenario5.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9U_kgO8bEem_WqeTUNtYPA" key="com/company/scenario/Scenario1.groovy" value="com/company/scenario/Scenario1.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9U_kge8bEem_WqeTUNtYPA" key="com/company/scenario/Scenario2.groovy" value="com/company/scenario/Scenario2.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9U_kgu8bEem_WqeTUNtYPA" key="com/company/scenario/Scenario3.groovy" value="com/company/scenario/Scenario3.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9U_kg-8bEem_WqeTUNtYPA" key="com/company/scenario/Scenario4.groovy" value="com/company/scenario/Scenario4.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9U_khO8bEem_WqeTUNtYPA" key="com/company/scenario/Scenario5.groovy" value="com/company/scenario/Scenario5.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9U_khe8bEem_WqeTUNtYPA" key="com/company/scenario/ScenarioExecutor.groovy" value="com/company/scenario/ScenarioExecutor.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9U_khu8bEem_WqeTUNtYPA" key="com/company/scenario/process/CreditCardDisputeProcess.groovy" value="com/company/scenario/process/CreditCardDisputeProcess.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9U_kh-8bEem_WqeTUNtYPA" key="com/company/scenario/util/Condition.groovy" value="com/company/scenario/util/Condition.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9U_kiO8bEem_WqeTUNtYPA" key="com/company/scenario/util/IdAccessor.groovy" value="com/company/scenario/util/IdAccessor.groovy" type="GROOVY_SCRIPT"/>
         </processDependencies>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5lZwMEemz_6GYzsxGrA" id="OTHER">
           <fragments xmi:type="configuration:Fragment" xmi:id="_V22l8Jy4Eem6Cs5xpESlFw" key="jfairy-0.6.2.jar" value="jfairy-0.6.2.jar" type="JAR"/>
@@ -152,13 +154,15 @@
           <fragments xmi:type="configuration:Fragment" xmi:id="_nxUz8p1nEemTRtqWFynp_g" key="com/company/model/DisputeStates.groovy" value="com/company/model/DisputeStates.groovy" exported="false" type="GROOVY_SCRIPT"/>
           <fragments xmi:type="configuration:Fragment" xmi:id="_nxUz851nEemTRtqWFynp_g" key="com/company/util/DataUpdateRecorder.groovy" value="com/company/util/DataUpdateRecorder.groovy" exported="false" type="GROOVY_SCRIPT"/>
           <fragments xmi:type="configuration:Fragment" xmi:id="_VH4PsJ4vEem9LrwhjfOhLw" key="com/company/model/ACMStates.groovy" value="com/company/model/ACMStates.groovy" exported="false" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_HO5Hweq8Eem7LpSUm69MmA" key="com/company/util/Condition.groovy" value="com/company/util/Condition.groovy" exported="false" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_iQ-Ykuq9Eem7LpSUm69MmA" key="com/company/util/scenario/Scenario1.groovy" value="com/company/util/scenario/Scenario1.groovy" exported="false" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_iQ-Yk-q9Eem7LpSUm69MmA" key="com/company/util/scenario/Scenario2.groovy" value="com/company/util/scenario/Scenario2.groovy" exported="false" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_jRuZAeq_Eem7LpSUm69MmA" key="com/company/util/scenario/ScenarioProvider.groovy" value="com/company/util/scenario/ScenarioProvider.groovy" exported="false" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_mUpKgOz7Eemq5vQ0uGkOWQ" key="com/company/util/scenario/Scenario3.groovy" value="com/company/util/scenario/Scenario3.groovy" exported="false" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_R_iyQez-Eemq5vQ0uGkOWQ" key="com/company/util/scenario/Scenario4.groovy" value="com/company/util/scenario/Scenario4.groovy" exported="false" type="GROOVY_SCRIPT"/>
-          <fragments xmi:type="configuration:Fragment" xmi:id="_1ZpBce0AEemq5vQ0uGkOWQ" key="com/company/util/scenario/Scenario5.groovy" value="com/company/util/scenario/Scenario5.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9VALkO8bEem_WqeTUNtYPA" key="com/company/scenario/Scenario1.groovy" value="com/company/scenario/Scenario1.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9VALke8bEem_WqeTUNtYPA" key="com/company/scenario/Scenario2.groovy" value="com/company/scenario/Scenario2.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9VALku8bEem_WqeTUNtYPA" key="com/company/scenario/Scenario3.groovy" value="com/company/scenario/Scenario3.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9VALk-8bEem_WqeTUNtYPA" key="com/company/scenario/Scenario4.groovy" value="com/company/scenario/Scenario4.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9VALlO8bEem_WqeTUNtYPA" key="com/company/scenario/Scenario5.groovy" value="com/company/scenario/Scenario5.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9VALle8bEem_WqeTUNtYPA" key="com/company/scenario/ScenarioExecutor.groovy" value="com/company/scenario/ScenarioExecutor.groovy" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9VALlu8bEem_WqeTUNtYPA" key="com/company/scenario/process/CreditCardDisputeProcess.groovy" value="com/company/scenario/process/CreditCardDisputeProcess.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9VALl-8bEem_WqeTUNtYPA" key="com/company/scenario/util/Condition.groovy" value="com/company/scenario/util/Condition.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9VALmO8bEem_WqeTUNtYPA" key="com/company/scenario/util/IdAccessor.groovy" value="com/company/scenario/util/IdAccessor.groovy" exported="false" type="GROOVY_SCRIPT"/>
         </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Qvn5mJwMEemz_6GYzsxGrA" id="OTHER"/>
       </configurations>

@@ -50,7 +50,7 @@ Reuse the default profiles
 ### Diagrams
 
 * Credit Card Dispute: The main process for this example.
-* Data Initialization: A helper process used for demonstration and testing purposes. It is a fully automated process that can be start from the _Tutorial_ page instantiating fake _Customers_ and their _Accounts_
+* Data Initialization: A helper process used for demonstration and testing purposes. It is a fully automated process that can be start from the _Tutorial_ page instantiating fake _Customers_, their _Accounts_ and some running cases.
 
 
 ### Groovy scripts
@@ -58,6 +58,7 @@ Reuse the default profiles
 * ACMStates.groovy: Utility class with the ACM states constants
 * DisputeStates.groovy: Utility class with the Dispute states constants
 * DataUpdateRecorder.groovy: Utility class used when updating Dispute data or Parameters to track the values changes.
+* com.company.scenario package: Contains the logic to execute Credit Card Dispute process scenario
 
 ### Forms and Pages
 
