@@ -3,6 +3,10 @@
 This repository contains a Bonita project that leverage Adaptive Case Management with Bonita.
 It is an example application of a credit card dispute resolution application.
 
+## Bonita compatibility
+
+1.x versions are compatible with **Bonita 7.9.0 and above (Enterprise editions only)**.
+
 ## How to contribute
 
 ### Clone this repository
