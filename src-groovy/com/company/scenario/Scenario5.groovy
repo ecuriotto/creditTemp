@@ -26,7 +26,7 @@ class Scenario5 implements IdAccessor {
         process.updateDispute(marcMarseauId, processInstanceId, [disputeInput:disputeInput])
 
         process.callCustomer(marcMarseauId, processInstanceId, """Ask customer to send receipt
-            Putting request in pending until them.""")
+            Putting request in pending until then.""")
 
         disputeInput.status = DisputeStates.PENDING
         process.updateDispute(marcMarseauId, processInstanceId, [disputeInput:disputeInput])
