@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "Tutorial",
   "name" : "Tutorial",
-  "lastUpdate" : 1571751537199,
+  "lastUpdate" : 1571842319715,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -603,7 +603,7 @@
         },
         "hidden" : {
           "type" : "expression",
-          "value" : "dataInitResponse.id"
+          "value" : "initialDataEmpty ? dataInitResponse.id : true"
         },
         "disabled" : {
           "type" : "expression",
@@ -742,7 +742,7 @@
         },
         "hidden" : {
           "type" : "expression",
-          "value" : "!dataInitResponse.id"
+          "value" : "initialDataEmpty ? !dataInitResponse.id : false"
         },
         "repeatedCollection" : {
           "type" : "variable",
@@ -766,8 +766,8 @@
             "value" : "text-success"
           },
           "hidden" : {
-            "type" : "constant",
-            "value" : false
+            "type" : "expression",
+            "value" : "!initialDataEmpty"
           },
           "labelHidden" : {
             "type" : "constant",
@@ -1953,6 +1953,16 @@
     "dataInitError" : {
       "type" : "json",
       "value" : "{}",
+      "exposed" : false
+    },
+    "initialCountCustomer" : {
+      "type" : "url",
+      "value" : "../API/bdm/businessData/com.company.model.Customer?q=countForFind&p=0&c=10",
+      "exposed" : false
+    },
+    "initialDataEmpty" : {
+      "type" : "expression",
+      "value" : "return $data.initialCountCustomer[0] === 0;",
       "exposed" : false
     }
   },
