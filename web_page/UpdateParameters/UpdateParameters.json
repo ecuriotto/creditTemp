@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "UpdateParameters",
   "name" : "UpdateParameters",
-  "lastUpdate" : 1571837084819,
+  "lastUpdate" : 1571838651162,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -179,7 +179,7 @@
         "propertyValues" : {
           "repeatedCollection" : {
             "type" : "variable",
-            "value" : "parameters"
+            "value" : "filteredParameters"
           },
           "labelHidden" : {
             "type" : "constant",
@@ -583,7 +583,7 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "return {\n\tparameters: $data.parameters\n}",
+      "value" : "return {\n\tparameters: $data.filteredParameters\n}",
       "exposed" : false
     },
     "context" : {
@@ -604,6 +604,11 @@
     "cancelUrl" : {
       "type" : "expression",
       "value" : "return {\n    id: $data.task.caseId\n}",
+      "exposed" : false
+    },
+    "filteredParameters" : {
+      "type" : "expression",
+      "value" : "return $data.parameters.filter( p => !p.name.startsWith('_'));",
       "exposed" : false
     }
   },
