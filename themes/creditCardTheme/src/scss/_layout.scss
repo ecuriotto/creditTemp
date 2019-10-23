@@ -35,3 +35,11 @@
 .timeline-container{
 	padding: 5px 15px 10px 35px;
 }
+
+@media (min-width: $screen-md-min) {
+    .panel-fixed-height {
+        .panel {
+            height: 200px;
+        }
+    }
+}
