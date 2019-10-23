@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "Tutorial",
   "name" : "Tutorial",
-  "lastUpdate" : 1571751537199,
+  "lastUpdate" : 1571842319715,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -603,7 +603,7 @@
         },
         "hidden" : {
           "type" : "expression",
-          "value" : "dataInitResponse.id"
+          "value" : "initialDataEmpty ? dataInitResponse.id : true"
         },
         "disabled" : {
           "type" : "expression",
@@ -742,7 +742,7 @@
         },
         "hidden" : {
           "type" : "expression",
-          "value" : "!dataInitResponse.id"
+          "value" : "initialDataEmpty ? !dataInitResponse.id : false"
         },
         "repeatedCollection" : {
           "type" : "variable",
@@ -766,8 +766,8 @@
             "value" : "text-success"
           },
           "hidden" : {
-            "type" : "constant",
-            "value" : false
+            "type" : "expression",
+            "value" : "!initialDataEmpty"
           },
           "labelHidden" : {
             "type" : "constant",
@@ -1324,7 +1324,7 @@
           },
           "level" : {
             "type" : "constant",
-            "value" : "Level 2"
+            "value" : "Level 3"
           },
           "alignment" : {
             "type" : "constant",
@@ -1406,7 +1406,7 @@
           },
           "level" : {
             "type" : "constant",
-            "value" : "Level 2"
+            "value" : "Level 3"
           },
           "alignment" : {
             "type" : "constant",
@@ -1488,7 +1488,7 @@
           },
           "level" : {
             "type" : "constant",
-            "value" : "Level 2"
+            "value" : "Level 3"
           },
           "alignment" : {
             "type" : "constant",
@@ -1694,6 +1694,170 @@
         "reference" : "4463272f-9eb6-47f5-b291-04fbf3a7c1d2",
         "hasValidationError" : false,
         "id" : "pbText"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "IX - Known limitations"
+          },
+          "level" : {
+            "type" : "constant",
+            "value" : "Level 3"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "3097dd5f-1924-40db-9f07-7b6fbc3b1350",
+        "hasValidationError" : false,
+        "id" : "pbTitle"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "This example is using an event handler, as described in II here above. In case you have a big amount of cases and activities, you should monitor overall system performances and potentially do some tuning.\nActivities have dynamic names including an icon, which makes it simpler to create buttons in the application and forms. As a consequence, activity names would not display properly in the Bonita Portal tasklist. Furthermore, case visualization in the Monitoring page of the Bonita Portal would not display acitivity names properly neither."
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "cdb88939-95bf-4b25-a514-94e526618a05",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "X - Further steps"
+          },
+          "level" : {
+            "type" : "constant",
+            "value" : "Level 3"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "0394cae6-a418-47cc-88f4-d526693046fa",
+        "hasValidationError" : false,
+        "id" : "pbTitle"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "Starting from this example, you can go further with the implementation, using all other Bonita capabilities.\nIn case you want to translate the application to other languages, you can use UI Designer multi-language support. You can add localization assets for your forms and pages as explained in Bonita documentation."
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "4e98dec8-13cd-433b-bb24-fb6429192afe",
+        "hasValidationError" : false,
+        "id" : "pbText"
       } ] ]
     } ] ]
   } ], [ {
@@ -1789,6 +1953,16 @@
     "dataInitError" : {
       "type" : "json",
       "value" : "{}",
+      "exposed" : false
+    },
+    "initialCountCustomer" : {
+      "type" : "url",
+      "value" : "../API/bdm/businessData/com.company.model.Customer?q=countForFind&p=0&c=10",
+      "exposed" : false
+    },
+    "initialDataEmpty" : {
+      "type" : "expression",
+      "value" : "return $data.initialCountCustomer[0] === 0;",
       "exposed" : false
     }
   },

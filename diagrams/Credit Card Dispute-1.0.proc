@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:parameter="http://www.bonitasoft.org/ns/studio/parameter" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:parameter="http://www.bonitasoft.org/ns/studio/parameter" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
   <process:MainProcess xmi:id="_x5qBwPSMEeeYpYD60oU_zA" name="Credit Card Dispute" author="Romain" bonitaVersion="7.9.0" bonitaModelVersion="7.9.0-002" configId="ACED000574002343726564697420436172642044697370757465372E392E302D303032372E392E307370">
     <elements xmi:type="process:Pool" xmi:id="_x5qBwfSMEeeYpYD60oU_zA" name="Credit Card Dispute" version="1.0.0">
       <elements xmi:type="process:Lane" xmi:id="_THYTwJwPEemz_6GYzsxGrA" name="Bank employee" actor="_0btbMJwPEemz_6GYzsxGrA">
@@ -399,6 +399,7 @@
       </elements>
       <elements xmi:type="process:Lane" xmi:id="_eD8PUJwMEemz_6GYzsxGrA" name="Dispute Agent" actor="_lJR6UJwMEemz_6GYzsxGrA">
         <elements xmi:type="process:Task" xmi:id="_h4S_EPUdEeeREboOt7l4UQ" name="Chargeback" overrideActorsOfTheLane="false">
+          <textAnnotationAttachment xmi:type="process:TextAnnotationAttachment" xmi:id="_qtnpgPWZEemrley8guFCBw" source="_qtXK0PWZEemrley8guFCBw"/>
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_hp26cfUdEeeREboOt7l4UQ" name="displayName()" content="'&amp;#128179; Chargeback'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_hp26cPUdEeeREboOt7l4UQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_hp26cvUdEeeREboOt7l4UQ" name="" content="" returnTypeFixed="true"/>
@@ -408,26 +409,93 @@
               <referencedElements xmi:type="parameter:Parameter" xmi:id="__lIX0Z2dEemQAo5alETTFA" name="reviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
             </defaultValue>
           </data>
-          <connectors xmi:type="process:Connector" xmi:id="_vRiroKIeEemjEO8nbtbzzg" name="MockCustomerNotification" definitionId="scripting-groovy-script" event="ON_FINISH" definitionVersion="1.0.1">
-            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_vRiroaIeEemjEO8nbtbzzg" definitionId="scripting-groovy-script" version="1.0.1" modelVersion="7.9.0-002">
-              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_vRiroqIeEemjEO8nbtbzzg" key="script">
-                <expression xmi:type="expression:Expression" xmi:id="_vRiro6IeEemjEO8nbtbzzg" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
-              </parameters>
-              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_vRirpKIeEemjEO8nbtbzzg" key="variables"/>
-              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_vRirpaIeEemjEO8nbtbzzg" key="fakeScriptExpression">
-                <expression xmi:type="expression:Expression" xmi:id="_vRirpqIeEemjEO8nbtbzzg" name="mockNotification" content="import java.time.format.DateTimeFormatter&#xA;&#xA;/**&#xA; * This script connector illustrate a notification to the customer,&#xA; * we inform him that the chargeback has been done.&#xA; * Instead of sending an email, we log the notification, in order to simplify the exemple.&#xA; */&#xA; &#xA; def email = customer.email&#xA; def lastName = customer.lastName&#xA; def date = dispute.creationDate.format(DateTimeFormatter.ISO_OFFSET_DATE)&#xA; def amount = dispute.amount&#xA; def currency = dispute.currency&#xA; &#xA;def message = &quot;&quot;&quot;&#xA;Email sent to $email : &#xA;&#xA;    Mrs Mr $lastName,&#xA;    We are pleased to inform you that following the credit card dispute opened the $date,&#xA;    we are charging you back for an amount of  $amount $currency.&#xA;&#xA;    Best regards,&#xA;    Your credit card company&#xA;&quot;&quot;&quot;&#xA; &#xA;println message&#xA; " interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Object" returnTypeFixed="true">
-                  <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_M8Rc4KIkEemjEO8nbtbzzg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
-                  <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_M8Rc4aIkEemjEO8nbtbzzg" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer"/>
+          <connectors xmi:type="process:Connector" xmi:id="_S7oJEPC5Eem30p6PSSKU5A" name="customerNotification" definitionId="email" event="ON_FINISH" ignoreErrors="true" definitionVersion="1.0.0">
+            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_S7oJEfC5Eem30p6PSSKU5A" definitionId="email" version="1.0.0" modelVersion="7.9.0-002">
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJEvC5Eem30p6PSSKU5A" key="smtpHost">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJE_C5Eem30p6PSSKU5A" name="_smtpHost" content="_smtpHost" type="TYPE_PARAMETER" returnTypeFixed="true">
+                  <referencedElements xmi:type="parameter:Parameter" xmi:id="_I0V6kPC6Eem30p6PSSKU5A" name="_smtpHost" typeClassname="java.lang.String" description="Hostname of your SMTP server"/>
                 </expression>
               </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJFPC5Eem30p6PSSKU5A" key="smtpPort">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJFfC5Eem30p6PSSKU5A" name="_smtpPort" content="_smtpPort" type="TYPE_PARAMETER" returnType="java.lang.Integer" returnTypeFixed="true">
+                  <referencedElements xmi:type="parameter:Parameter" xmi:id="_I0V6kfC6Eem30p6PSSKU5A" name="_smtpPort" typeClassname="java.lang.Integer" description="Port number of your SMTP server"/>
+                </expression>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJFvC5Eem30p6PSSKU5A" key="sslSupport">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJF_C5Eem30p6PSSKU5A" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJGPC5Eem30p6PSSKU5A" key="starttlsSupport">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJGfC5Eem30p6PSSKU5A" name="false" content="false" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJGvC5Eem30p6PSSKU5A" key="userName">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJG_C5Eem30p6PSSKU5A" name="_smtpUsername" content="_smtpUsername" type="TYPE_PARAMETER" returnTypeFixed="true">
+                  <referencedElements xmi:type="parameter:Parameter" xmi:id="_I0V6kvC6Eem30p6PSSKU5A" name="_smtpUsername" typeClassname="java.lang.String" description="Username of the account used for the SMTP authentication"/>
+                </expression>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJHPC5Eem30p6PSSKU5A" key="password">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJHfC5Eem30p6PSSKU5A" name="_smtpPassword" content="_smtpPassword" type="TYPE_PARAMETER" returnTypeFixed="true">
+                  <referencedElements xmi:type="parameter:Parameter" xmi:id="_I0V6k_C6Eem30p6PSSKU5A" name="_smtpPassword" typeClassname="java.lang.String" description="Password used for SMTP authentication"/>
+                </expression>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJHvC5Eem30p6PSSKU5A" key="from">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJH_C5Eem30p6PSSKU5A" name="_fromEmail" content="_fromEmail" type="TYPE_PARAMETER" returnTypeFixed="true">
+                  <referencedElements xmi:type="parameter:Parameter" xmi:id="_jTytgPC9Eem30p6PSSKU5A" name="_fromEmail" typeClassname="java.lang.String" description="the email address used as &quot;From&quot; for the notifications"/>
+                </expression>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJIPC5Eem30p6PSSKU5A" key="to">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJIfC5Eem30p6PSSKU5A" name="customer - Customer#getEmail" content="getEmail" interpreter="GROOVY" type="TYPE_JAVA_METHOD_CALL" returnTypeFixed="true">
+                  <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_ZFbDwPWZEemrley8guFCBw" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer"/>
+                </expression>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJIvC5Eem30p6PSSKU5A" key="bcc">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJI_C5Eem30p6PSSKU5A" content="" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJJPC5Eem30p6PSSKU5A" key="cc">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJJfC5Eem30p6PSSKU5A" content="" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJJvC5Eem30p6PSSKU5A" key="subject">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJJ_C5Eem30p6PSSKU5A" name="Credit Card Dispute notification" content="Credit Card Dispute notification" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJKPC5Eem30p6PSSKU5A" key="html">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJKfC5Eem30p6PSSKU5A" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJKvC5Eem30p6PSSKU5A" key="message">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJK_C5Eem30p6PSSKU5A" name="&lt;pattern-expression>" content="&lt;html>&#xA;&lt;body>&#xA;&#xD;&#xA;&lt;P  style=&quot;margin: 4;&quot;align = &quot;left&quot;>Mrs/Mr ${customer.lastName},&lt;/P>&#xD;&#xA;&lt;P  style=&quot;margin: 4;&quot;align = &quot;left&quot;># #We are pleased to inform you that following the credit card dispute opened on the ${dispute.creationDate},&lt;/P>&#xD;&#xA;&lt;P  style=&quot;margin: 4;&quot;align = &quot;left&quot;># #we are charging you back for an amount of #${dispute.amount}${dispute.currency}.&lt;/P>&#xD;&#xA;&lt;br>&#xD;&#xA;&lt;P  style=&quot;margin: 4;&quot;align = &quot;left&quot;># #Best regards,&lt;/P>&#xD;&#xA;&lt;P  style=&quot;margin: 4;&quot;align = &quot;left&quot;># #Your credit card company&lt;/P>&#xD;&#xA;&#xD;&#xA;&lt;/body>&lt;/html>&#xD;&#xA;" type="TYPE_PATTERN" returnTypeFixed="true">
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_rinJEPC9Eem30p6PSSKU5A" name="customer.lastName" content="customer.lastName" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_rinJEfC9Eem30p6PSSKU5A" name="customer" content="customer" type="TYPE_VARIABLE" returnType="com.company.model.Customer">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rinJEvC9Eem30p6PSSKU5A" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer"/>
+                    </referencedElements>
+                  </referencedElements>
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_rinJE_C9Eem30p6PSSKU5A" name="dispute.creationDate" content="dispute.creationDate" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_rinJFPC9Eem30p6PSSKU5A" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rinJFfC9Eem30p6PSSKU5A" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+                    </referencedElements>
+                  </referencedElements>
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_rinJFvC9Eem30p6PSSKU5A" name="dispute.amount" content="dispute.amount" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_rinJF_C9Eem30p6PSSKU5A" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rinJGPC9Eem30p6PSSKU5A" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+                    </referencedElements>
+                  </referencedElements>
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_rinJGfC9Eem30p6PSSKU5A" name="dispute.currency" content="dispute.currency" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_rinJGvC9Eem30p6PSSKU5A" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rinJG_C9Eem30p6PSSKU5A" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+                    </referencedElements>
+                  </referencedElements>
+                </expression>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJLPC5Eem30p6PSSKU5A" key="headers">
+                <expression xmi:type="expression:TableExpression" xmi:id="_S7oJLfC5Eem30p6PSSKU5A"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJLvC5Eem30p6PSSKU5A" key="charset">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJL_C5Eem30p6PSSKU5A" name="UTF-8" content="UTF-8" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJMPC5Eem30p6PSSKU5A" key="replyTo">
+                <expression xmi:type="expression:Expression" xmi:id="_S7oJMfC5Eem30p6PSSKU5A" content="" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJMvC5Eem30p6PSSKU5A" key="attachments">
+                <expression xmi:type="expression:ListExpression" xmi:id="_S7oJM_C5Eem30p6PSSKU5A"/>
+              </parameters>
             </configuration>
-            <outputs xmi:type="expression:Operation" xmi:id="_vRirp6IeEemjEO8nbtbzzg">
-              <leftOperand xmi:type="expression:Expression" xmi:id="_vRirqKIeEemjEO8nbtbzzg" content=""/>
-              <rightOperand xmi:type="expression:Expression" xmi:id="_vRirqaIeEemjEO8nbtbzzg" name="result" content="result" type="CONNECTOR_OUTPUT_TYPE" returnType="java.lang.Object">
-                <referencedElements xmi:type="definition:Output" xmi:id="_vRirqqIeEemjEO8nbtbzzg" name="result" type="java.lang.Object"/>
-              </rightOperand>
-              <operator xmi:type="expression:Operator" xmi:id="_vRirq6IeEemjEO8nbtbzzg" type="ASSIGNMENT"/>
-            </outputs>
           </connectors>
           <operations xmi:type="expression:Operation" xmi:id="_estDkOqcEem2u8zmUD93Qg">
             <leftOperand xmi:type="expression:Expression" xmi:id="_estDkeqcEem2u8zmUD93Qg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
@@ -467,6 +535,7 @@
           <contract xmi:type="process:Contract" xmi:id="_x5qB5_SMEeeYpYD60oU_zA"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_x5qB6PSMEeeYpYD60oU_zA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
+        <elements xmi:type="process:TextAnnotation" xmi:id="_qtXK0PWZEemrley8guFCBw" text="An email connector is configured using example values.&#xD;&#xA;This connector is configured to ignore errors."/>
       </elements>
       <elements xmi:type="process:Lane" xmi:id="_flS6AJzgEemsNbXOsawszg" name="Dispute Supervisor" actor="_o5SN4JzgEemsNbXOsawszg">
         <elements xmi:type="process:Task" xmi:id="_h5eYkJzfEemsNbXOsawszg" name="Review" overrideActorsOfTheLane="false">
@@ -565,7 +634,7 @@
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_t58em52UEemQAo5alETTFA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:TextAnnotation" xmi:id="_4-72AJ2UEemQAo5alETTFA" text="The supervisor can modify application business parameter like amount thresholds"/>
+        <elements xmi:type="process:TextAnnotation" xmi:id="_4-72AJ2UEemQAo5alETTFA" text="The supervisor can modify application business parameter like amount thresholds&#xD;&#xA;&#xD;&#xA;Only business parameters can be updated. All parameters starting with a '_' prefix are considered technical parameters and must be updated using the Adminstration Portal"/>
       </elements>
       <data xmi:type="process:BusinessObjectData" xmi:id="_mRGqAPUrEeeJbuCjYn0Nqw" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer">
         <defaultValue xmi:type="expression:Expression" xmi:id="_mRGqAfUrEeeJbuCjYn0Nqw" name="init_customer()" content="customerDAO.findByCustomerId(customerId)" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Customer">
@@ -705,11 +774,12 @@
             <users xmi:type="actormapping:Users" xmi:id="_tg7HZJzgEemsNbXOsawszg"/>
           </actorMapping>
         </actorMappings>
-        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_v4aeYKIeEemjEO8nbtbzzg" type="CONNECTOR" definitionId="scripting-groovy-script" definitionVersion="1.0.1" implementationId="scripting-groovy-script-impl" implementationVersion="1.1.0"/>
+        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_8qa-kPC9Eem30p6PSSKU5A" type="CONNECTOR" definitionId="email" definitionVersion="1.0.0" implementationId="email-impl" implementationVersion="1.1.0"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hEZwMEemz_6GYzsxGrA" id="ACTOR_FILTER"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hEpwMEemz_6GYzsxGrA" id="CONNECTOR">
-          <children xmi:type="configuration:FragmentContainer" xmi:id="_v9PUAKIeEemjEO8nbtbzzg" id="scripting-groovy-script-impl-1.1.0">
-            <fragments xmi:type="configuration:Fragment" xmi:id="_v9i2AKIeEemjEO8nbtbzzg" key="scripting-groovy-script-impl -- 1.1.0" value="bonita-connector-scripting-1.1.0.jar" type="CONNECTOR"/>
+          <children xmi:type="configuration:FragmentContainer" xmi:id="_8qyyAPC9Eem30p6PSSKU5A" id="email-impl-1.1.0">
+            <fragments xmi:type="configuration:Fragment" xmi:id="_8q_mUPC9Eem30p6PSSKU5A" key="email-impl -- 1.1.0" value="bonita-connector-email-1.1.0.jar" type="CONNECTOR"/>
+            <fragments xmi:type="configuration:Fragment" xmi:id="_8rANYPC9Eem30p6PSSKU5A" key="email-impl -- 1.1.0" value="mail-1.4.7.jar" type="CONNECTOR"/>
           </children>
         </processDependencies>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hE5wMEemz_6GYzsxGrA" id="DATA_TYPES"/>
@@ -745,8 +815,18 @@
         </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_Gv5hGJwMEemz_6GYzsxGrA" id="OTHER"/>
         <parameters xmi:type="parameter:Parameter" xmi:id="_tg7HZZzgEemsNbXOsawszg" name="reviewAmountThreshold" value="500" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_8r0FsPC9Eem30p6PSSKU5A" name="_smtpHost" value="company.smtp.server" typeClassname="java.lang.String" description="Hostname of your SMTP server"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_8r0FsfC9Eem30p6PSSKU5A" name="_smtpPort" value="25" typeClassname="java.lang.Integer" description="Port number of your SMTP server"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_8r0FsvC9Eem30p6PSSKU5A" name="_smtpUsername" value="smtp_username" typeClassname="java.lang.String" description="Username of the account used for the SMTP authentication"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_8r0Fs_C9Eem30p6PSSKU5A" name="_smtpPassword" value="a_secret_password" typeClassname="java.lang.String" description="Password used for SMTP authentication"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_8r0FtPC9Eem30p6PSSKU5A" name="_fromEmail" value="noreply@company.com" typeClassname="java.lang.String" description="the email address used as &quot;From&quot; for the notifications"/>
       </configurations>
       <parameters xmi:type="parameter:Parameter" xmi:id="_FP4sgJzgEemsNbXOsawszg" name="reviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
+      <parameters xmi:type="parameter:Parameter" xmi:id="_cUbrgPC5Eem30p6PSSKU5A" name="_smtpHost" typeClassname="java.lang.String" description="Hostname of your SMTP server"/>
+      <parameters xmi:type="parameter:Parameter" xmi:id="_jKRh8PC5Eem30p6PSSKU5A" name="_smtpPort" typeClassname="java.lang.Integer" description="Port number of your SMTP server"/>
+      <parameters xmi:type="parameter:Parameter" xmi:id="_mbnW4PC5Eem30p6PSSKU5A" name="_smtpUsername" typeClassname="java.lang.String" description="Username of the account used for the SMTP authentication"/>
+      <parameters xmi:type="parameter:Parameter" xmi:id="_pM_SUPC5Eem30p6PSSKU5A" name="_smtpPassword" typeClassname="java.lang.String" description="Password used for SMTP authentication"/>
+      <parameters xmi:type="parameter:Parameter" xmi:id="_dDQjkPC9Eem30p6PSSKU5A" name="_fromEmail" typeClassname="java.lang.String" description="the email address used as &quot;From&quot; for the notifications"/>
       <contract xmi:type="process:Contract" xmi:id="_x5qCJPSMEeeYpYD60oU_zA">
         <inputs xmi:type="process:ContractInput" xmi:id="_RjVZMJdQEemS2vHmcHFszw" name="customerId">
           <mapping xmi:type="process:ContractInputMapping" xmi:id="_RjVZMZdQEemS2vHmcHFszw"/>
@@ -845,6 +925,13 @@
               <children xmi:type="notation:DecorationNode" xmi:id="_x5qCVPSMEeeYpYD60oU_zA" type="5005" element="_x5qB2fSMEeeYpYD60oU_zA"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x5qCVfSMEeeYpYD60oU_zA" x="131" y="118" width="120" height="60"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_qtgUwPWZEemrley8guFCBw" type="3015" element="_qtXK0PWZEemrley8guFCBw">
+              <children xmi:type="notation:DecorationNode" xmi:id="_qtg70PWZEemrley8guFCBw" type="5010"/>
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_qtgUwfWZEemrley8guFCBw"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_qtgUwvWZEemrley8guFCBw" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_qtgUw_WZEemrley8guFCBw"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qtgUxPWZEemrley8guFCBw" x="555" y="104" width="210" height="96"/>
+            </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_eD-EgZwMEemz_6GYzsxGrA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_eD-EgpwMEemz_6GYzsxGrA" fontName="Segoe UI"/>
@@ -925,7 +1012,7 @@
               <styles xmi:type="notation:DescriptionStyle" xmi:id="_4-8dEZ2UEemQAo5alETTFA"/>
               <styles xmi:type="notation:FontStyle" xmi:id="_4-8dEp2UEemQAo5alETTFA" fontName="Segoe UI"/>
               <styles xmi:type="notation:LineStyle" xmi:id="_4-8dE52UEemQAo5alETTFA"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4-8dFJ2UEemQAo5alETTFA" x="669" y="47" width="245" height="95"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4-8dFJ2UEemQAo5alETTFA" x="679" y="33" width="371" height="138"/>
             </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_flUvMZzgEemsNbXOsawszg"/>
@@ -986,6 +1073,10 @@
     <edges xmi:type="notation:Connector" xmi:id="_J0ZBIJ2eEemQAo5alETTFA" type="4003" element="_J0YaEJ2eEemQAo5alETTFA" source="_J0Wk4J2eEemQAo5alETTFA" target="_UNoUYJ1zEemTRtqWFynp_g">
       <styles xmi:type="notation:FontStyle" xmi:id="_J0ZBIZ2eEemQAo5alETTFA" fontName="Segoe UI"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_J0ZBIp2eEemQAo5alETTFA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_qto3oPWZEemrley8guFCBw" type="4003" element="_qtnpgPWZEemrley8guFCBw" source="_qtgUwPWZEemrley8guFCBw" target="_h4UNNvUdEeeREboOt7l4UQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_qto3ofWZEemrley8guFCBw" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qto3ovWZEemrley8guFCBw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>
