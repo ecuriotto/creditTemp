@@ -34,3 +34,7 @@ input[type='number'].ng-invalid.ng-dirty, input[type='password'].ng-invalid.ng-d
 .modal-open .timepicker {
     z-index: 9999;
 }
+
+.input-height textarea  {
+    height: 400px;
+}

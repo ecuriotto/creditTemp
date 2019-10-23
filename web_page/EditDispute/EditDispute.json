@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "EditDispute",
   "name" : "EditDispute",
-  "lastUpdate" : 1570265509411,
+  "lastUpdate" : 1571848442909,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -34,6 +34,30 @@
       "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
+        "type" : "fragment",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : "mt-20"
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          }
+        },
+        "reference" : "36155548-26a7-4e59-877f-41ccc7aba380",
+        "hasValidationError" : false,
+        "id" : "DisputeData",
+        "binding" : {
+          "caseId" : "task.rootContainerId"
+        }
+      } ], [ {
         "type" : "container",
         "dimension" : {
           "md" : 12,
@@ -59,7 +83,7 @@
           },
           "cssClasses" : {
             "type" : "constant",
-            "value" : "card"
+            "value" : "well"
           },
           "readOnly" : {
             "type" : "constant",
@@ -85,30 +109,6 @@
         "hasValidationError" : false,
         "id" : "pbContainer",
         "rows" : [ [ {
-          "type" : "fragment",
-          "dimension" : {
-            "xs" : 12,
-            "sm" : 12,
-            "md" : 12,
-            "lg" : 12
-          },
-          "propertyValues" : {
-            "cssClasses" : {
-              "type" : "constant",
-              "value" : ""
-            },
-            "hidden" : {
-              "type" : "constant",
-              "value" : false
-            }
-          },
-          "reference" : "36155548-26a7-4e59-877f-41ccc7aba380",
-          "hasValidationError" : false,
-          "id" : "DisputeData",
-          "binding" : {
-            "caseId" : "task.rootContainerId"
-          }
-        } ], [ {
           "type" : "component",
           "dimension" : {
             "md" : 12,
@@ -750,6 +750,12 @@
     "name" : "style.css",
     "type" : "css",
     "order" : 0,
+    "external" : false
+  }, {
+    "id" : "69053334-b3b4-4320-87bd-ecd2f79c537c",
+    "name" : "moment.js",
+    "type" : "js",
+    "order" : 2,
     "external" : false
   }, {
     "id" : "53980bab-1566-4140-8452-506386eb2d4b",

@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CustomerData",
   "name" : "CustomerData",
-  "lastUpdate" : 1565274096780,
+  "lastUpdate" : 1571847860524,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -30,7 +30,7 @@
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
-      "type" : "container",
+      "type" : "component",
       "dimension" : {
         "xs" : 12,
         "sm" : 12,
@@ -40,157 +40,28 @@
       "propertyValues" : {
         "cssClasses" : {
           "type" : "constant",
-          "value" : "card"
+          "value" : "panel-fixed-height"
         },
         "hidden" : {
           "type" : "constant",
           "value" : false
         },
-        "repeatedCollection" : {
-          "type" : "variable",
-          "value" : ""
+        "style" : {
+          "type" : "constant",
+          "value" : "primary"
+        },
+        "title" : {
+          "type" : "interpolation",
+          "value" : "Customer information"
+        },
+        "panelContent" : {
+          "type" : "expression",
+          "value" : "panelContent"
         }
       },
-      "reference" : "5706e9a9-a0d1-42c1-aa19-e81526f0f13a",
+      "reference" : "b083f10f-0e7b-4dad-941f-bb5482a9f587",
       "hasValidationError" : false,
-      "id" : "pbContainer",
-      "rows" : [ [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "<h4>Customer information</h4>\n<dl  class=\"dl-horizontal\">\n<dt><span class=\"glyphicon glyphicon-user\"> </span> Customer</dt><dd>{{customer.firstName}} {{customer.lastName}} ({{customer.customerId}})</dd>\n<dt> <span class=\"glyphicon glyphicon-envelope\"> </span></p> Email</dt><dd><a class=\"text-info\" href=\"mailto:{{customer.email}}\">{{customer.email}} </a></dd>\n<dt> <span class=\"glyphicon glyphicon-earphone\"> </span></p> Phone</dt><dd><a class=\"text-info\" href=\"tel:{{customer.phoneNumber}}\">{{customer.phoneNumber}}</a></dd>\n<dt> <span class=\"glyphicon glyphicon-piggy-bank\"> </span></p> Account</dt><dd>{{customer.accountId}}</dd>\n</dl>"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "0a14f16b-7f97-4a61-9feb-262b0f8a4908",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 6,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : "info-link margin-top-minus-30 margin-left-minus-13"
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "disabled" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "<dl  class=\"dl-horizontal\"><dd> account details</dd></dl>"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          },
-          "buttonStyle" : {
-            "type" : "constant",
-            "value" : "link"
-          },
-          "action" : {
-            "type" : "constant",
-            "value" : "Open modal"
-          },
-          "assign" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "url" : {
-            "type" : "interpolation"
-          },
-          "responseStatusCode" : {
-            "type" : "variable",
-            "value" : ""
-          },
-          "dataToSend" : {
-            "type" : "constant"
-          },
-          "dataFromSuccess" : {
-            "type" : "variable",
-            "value" : ""
-          },
-          "closeOnSuccess" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "dataFromError" : {
-            "type" : "variable",
-            "value" : ""
-          },
-          "targetUrlOnSuccess" : {
-            "type" : "interpolation"
-          },
-          "collectionToModify" : {
-            "type" : "variable"
-          },
-          "modalId" : {
-            "type" : "constant",
-            "value" : "customerTransactions"
-          },
-          "collectionPosition" : {
-            "type" : "constant",
-            "value" : "Last"
-          },
-          "valueToAdd" : {
-            "type" : "constant"
-          },
-          "removeItem" : {
-            "type" : "variable"
-          }
-        },
-        "reference" : "8ed8ce3f-1fad-4c08-abc0-1d2f191d6438",
-        "hasValidationError" : false,
-        "id" : "pbButton"
-      } ] ]
+      "id" : "customPanel"
     } ] ]
   } ] ],
   "assets" : [ ],
@@ -199,6 +70,11 @@
     "customer" : {
       "type" : "constant",
       "exposed" : true
+    },
+    "panelContent" : {
+      "type" : "expression",
+      "value" : "return [\n    {\n        \"dt\" : \"<span class=\\\"glyphicon glyphicon-user\\\"> </span> Customer\",\n        \"dd\" : $data.customer.firstName + ' ' + $data.customer.lastName + ' (' + $data.customer.customerId + ')'\n    },\n    {\n        \"dt\" : \"<span class=\\\"glyphicon glyphicon-envelope\\\"> </span> Email\",\n        \"dd\" : \"<a class=\\\"text-info\\\" href=\\\"mailto:\" + $data.customer.email + \"\\\">\" + $data.customer.email + \"</a>\"\n    },\n    {\n        \"dt\" : \"<span class=\\\"glyphicon glyphicon-earphone\\\"> </span> Phone\",\n        \"dd\" : \"<a class=\\\"text-info\\\" href=\\\"tel:\" + $data.customer.phoneNumber + \"\\\">\" + $data.customer.phoneNumber + \"</a>\"\n    },\n    {\n        \"dt\" : \"<span class=\\\"glyphicon glyphicon-piggy-bank\\\"> </span> Account\",\n        \"action\" : {\n            \"label\" : $data.customer.accountId,\n            \"buttonStyle\" : \"link\",\n\t        \"action\" : \"Open modal\",\n        \t\"modalId\" : \"customerTransactions\",\n        \t\"closeOnSuccess\" : true\n        }\n    }\n]\n",
+      "exposed" : false
     }
   },
   "hasValidationError" : false,

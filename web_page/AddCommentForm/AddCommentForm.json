@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "AddCommentForm",
   "name" : "AddCommentForm",
-  "lastUpdate" : 1570354199759,
+  "lastUpdate" : 1571849209481,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -178,6 +178,54 @@
           "id" : "pbText"
         } ] ]
       } ], [ {
+        "type" : "fragment",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 6,
+          "lg" : 6
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          }
+        },
+        "reference" : "7ed64647-2f5a-474b-a6cb-2572f8d70040",
+        "hasValidationError" : false,
+        "id" : "CustomerData",
+        "binding" : {
+          "customer" : "customer"
+        }
+      }, {
+        "type" : "fragment",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 6,
+          "lg" : 6
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          }
+        },
+        "reference" : "6d9c5ec3-f54c-42ed-ac90-5cf2cf0fbef8",
+        "hasValidationError" : false,
+        "id" : "DisputeData",
+        "binding" : {
+          "caseId" : "task.rootContainerId"
+        }
+      } ], [ {
         "type" : "component",
         "dimension" : {
           "xs" : 12,
@@ -339,6 +387,12 @@
     "type" : "css",
     "order" : 0,
     "external" : false
+  }, {
+    "id" : "5b03b6fb-495c-44ba-8bc8-62be9ef25b6d",
+    "name" : "moment.js",
+    "type" : "js",
+    "order" : 1,
+    "external" : false
   } ],
   "inactiveAssets" : [ ],
   "data" : {
@@ -365,6 +419,11 @@
     "task" : {
       "type" : "url",
       "value" : "../API/bpm/humanTask/{{taskId}}",
+      "exposed" : false
+    },
+    "customer" : {
+      "type" : "url",
+      "value" : "../API/extension/customerInfo?caseId={{task.caseId}}",
       "exposed" : false
     }
   },

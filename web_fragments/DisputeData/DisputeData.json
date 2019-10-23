@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "DisputeData",
   "name" : "DisputeData",
-  "lastUpdate" : 1570270419700,
+  "lastUpdate" : 1571849312459,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -30,7 +30,7 @@
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
-      "type" : "container",
+      "type" : "component",
       "dimension" : {
         "xs" : 12,
         "sm" : 12,
@@ -40,167 +40,28 @@
       "propertyValues" : {
         "cssClasses" : {
           "type" : "constant",
-          "value" : "card"
+          "value" : "panel-fixed-height"
         },
         "hidden" : {
           "type" : "constant",
           "value" : false
         },
-        "repeatedCollection" : {
-          "type" : "variable",
-          "value" : ""
+        "style" : {
+          "type" : "constant",
+          "value" : "primary"
+        },
+        "title" : {
+          "type" : "interpolation",
+          "value" : "Dispute information"
+        },
+        "panelContent" : {
+          "type" : "expression",
+          "value" : "panelContent"
         }
       },
-      "reference" : "1527ad59-d7cd-4945-ade2-c2a706bbf64d",
+      "reference" : "f56a8f00-3a70-4844-8423-252a42eea323",
       "hasValidationError" : false,
-      "id" : "pbContainer",
-      "rows" : [ [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "<h4>Dispute information</h4>"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "82f2bdd5-14fb-40ac-941f-33816f1285cc",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 6,
-          "sm" : 6,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "<dl  class=\"dl-horizontal\">\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Opened</dt><dd>{{dispute.creationDate | uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Last updated</dt><dd>{{dispute.lastUpdateDate | uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-console\"> </span> Status</dt><dd>{{dispute.status | labelized }}</dd></a></dd>\n</dl>"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "f39a27f3-d9a7-459d-bf7c-6176020efa4a",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      }, {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 6,
-          "sm" : 6,
-          "md" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "<dl  class=\"dl-horizontal\">\n<dt> <span class=\"glyphicon glyphicon-{{dispute.currency | lowercase}}\"> </span></p> Amount</dt><dd>{{dispute.amount |  number : 2}} {{dispute.currency}}</dd>\n<dt><span class=\"glyphicon glyphicon-calendar\"> </span> Transaction Date</dt><dd>{{dispute.txDate| uiDate}}</dd></a></dd>\n<dt><span class=\"glyphicon glyphicon-info-sign\"> </span><abbr title=\"Merchant Identification Number\"> MIN </abbr></dt><dd>{{dispute.merchantIdNumber}}</dd></a></dd>\n</dl>"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "c446477d-941c-43bf-8e10-1a9552715073",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ] ]
+      "id" : "customPanel"
     } ] ]
   } ] ],
   "assets" : [ ],
@@ -213,6 +74,16 @@
     "dispute" : {
       "type" : "url",
       "value" : "../API/extension/dispute?caseId={{caseId}}",
+      "exposed" : false
+    },
+    "panelContent" : {
+      "type" : "expression",
+      "value" : "return [\n        {\n            \"dt\" : \"<span class=\\\"glyphicon glyphicon-calendar\\\"> </span> Opened\",\n            \"dd\" : moment($data.dispute.creationDate).format($data.dateFormat)\n        },\n        {\n            \"dt\" : \"<span class=\\\"glyphicon glyphicon-calendar\\\"> </span> Last updated\",\n            \"dd\" : moment($data.dispute.lastUpdateDate).format($data.dateFormat)\n        },\n        {\n            \"dt\" : \"<span class=\\\"glyphicon glyphicon-console\\\"> </span> Status\",\n            \"dd\" : \"<span class=\\\"label label-\"+severity($data.dispute.status)+\"\\\">\"+$data.dispute.status+\"</span>\"\n        },\n        {\n            \"dt\" : \"<span class=\\\"glyphicon glyphicon-\"+ $data.dispute.currency.toLowerCase()+\"\\\"> </span> Amount\",\n            \"dd\" : $data.dispute.amount.toFixed(2) + ' ' +  $data.dispute.currency\n        },\n        {\n            \"dt\" : \"<span class=\\\"glyphicon glyphicon-calendar\\\"> </span> Transaction Date\",\n            \"dd\" : moment($data.dispute.txDate).format($data.dateFormat)\n        },\n        {\n            \"dt\" : \"<span class=\\\"glyphicon glyphicon-info-sign\\\"> </span> <abbr title=\\\"Merchant Identification Number\\\"> MIN </abbr>\",\n            \"dd\" : $data.dispute.merchantIdNumber\n        }\n]\n\nfunction severity(status){\n    switch(status) {\n     case \"Discretionary\": return \"primary\";\n     case \"completed\": return \"success\";\n     case \"error\": return \"danger\";\n     case \"Completed\": return \"success\";\n     case \"Required\": return \"danger\";\n     case \"Optional\": return \"primary\";\n     case \"PENDING\": return \"warning\";\n     case \"RESOLVED\": return \"success\";\n     case \"INVALID\": return \"danger\";\n     case \"INVESTIGATING\": return \"primary\";\n     case \"PROCESSING CHARGEBACK\": return \"primary\";\n     case \"CHARGED BACK\": return \"success\"\n     default:\n       return \"default\";\n   }\n}\n",
+      "exposed" : false
+    },
+    "dateFormat" : {
+      "type" : "constant",
+      "value" : "MMM D, YYYY hh:mm:ss A",
       "exposed" : false
     }
   },
