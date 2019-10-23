@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "UpdateParameters",
   "name" : "UpdateParameters",
-  "lastUpdate" : 1570265663159,
+  "lastUpdate" : 1571837084819,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -238,7 +238,7 @@
             },
             "cssClasses" : {
               "type" : "constant",
-              "value" : ""
+              "value" : "max-input-width-300"
             },
             "readOnly" : {
               "type" : "constant",
@@ -250,7 +250,7 @@
             },
             "label" : {
               "type" : "interpolation",
-              "value" : "<abbr title=\"{{$item.description}}\">{{$item.name}}</abbr> <small>({{$item.type}})</small>"
+              "value" : "<abbr title=\"{{$item.description}}\">{{$item.name | wordCase }}</abbr> <small>({{$item.type}})</small>"
             },
             "type" : {
               "type" : "constant",
@@ -313,8 +313,8 @@
       } ], [ {
         "type" : "component",
         "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
+          "xs" : 6,
+          "sm" : 6,
           "md" : 6,
           "lg" : 6
         },
@@ -382,8 +382,8 @@
         "type" : "component",
         "dimension" : {
           "md" : 6,
-          "sm" : 12,
-          "xs" : 12,
+          "sm" : 6,
+          "xs" : 6,
           "lg" : 6
         },
         "propertyValues" : {
@@ -546,6 +546,12 @@
     }
   } ] ],
   "assets" : [ {
+    "id" : "9771ec1b-cbb8-4065-b6bc-bd40d828dbb1",
+    "name" : "filters.js",
+    "type" : "js",
+    "order" : 1,
+    "external" : false
+  }, {
     "id" : "8d42c5df-ca60-483f-8262-6f0687626ee3",
     "name" : "style.css",
     "type" : "css",

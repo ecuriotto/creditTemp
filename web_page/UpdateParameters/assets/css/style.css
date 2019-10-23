@@ -35,3 +35,7 @@ input[type='number'].ng-invalid.ng-dirty, input[type='password'].ng-invalid.ng-d
     z-index: 9999;
 }
 
+.max-input-width-300 input {
+    max-width: 300px;
+}
+
