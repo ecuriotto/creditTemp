@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "Tutorial",
   "name" : "Tutorial",
-  "lastUpdate" : 1571915015017,
+  "lastUpdate" : 1571919362769,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -1684,7 +1684,7 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "Log in with  <i>Joseph Hovell</i>, and perform the action <Strong>Chargeback</strong>. <br/>\nThe customer has been charged back, you can now resolve the dispute by clicking on the <strong>Resolve</strong> button."
+            "value" : "Log in with  <i>Joseph Hovell</i>, and perform the action <Strong>Chargeback</strong>. <br/>\nThe customer has been charged back, and an email notification has been sent to its inbox. If the email connector has not been properly configured, the failure is just ignored. You may <a class=\"text-info\" target=\"_self\" href=\"../../../../../../portal.js/#/admin/processes/details/{{creditCardDisputeProcessId[0].id}}/params\">configure a valid smtp server in the process administration panel</a>.\n<br/>\nYou can now resolve the dispute by clicking on the <strong>Resolve</strong> button."
           },
           "alignment" : {
             "type" : "constant",
@@ -1963,6 +1963,11 @@
     "initialDataEmpty" : {
       "type" : "expression",
       "value" : "return $data.initialCountCustomer[0] === 0;",
+      "exposed" : false
+    },
+    "creditCardDisputeProcessId" : {
+      "type" : "url",
+      "value" : "../API/bpm/process?p=0&c=1&f=name=Credit%20Card%20Dispute",
       "exposed" : false
     }
   },
