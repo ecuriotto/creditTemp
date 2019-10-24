@@ -4,7 +4,8 @@ bin
 /src-providedGroovy
 /template
 /h2_database
-/process_configurations
+#Do not ignore local configuration for this specific project
+#/process_configurations
 /META-INF
 .settings
 target/

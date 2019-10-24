@@ -20,7 +20,6 @@ Go in the preference of your Studio, in the Server settings category, in Tomcat 
 
 ### Deploy the application
 
-1. Set the default environment to `Development` (Right click on Environments > Development.xml file and Set as active environment)
 1. Deploy the Rest API extension
 1. Deploy all the processes
 1. Open the credit-card-dispute-resolution.xml application descriptors and click on the overview URL

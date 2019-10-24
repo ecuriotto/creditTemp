@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "Tutorial",
   "name" : "Tutorial",
-  "lastUpdate" : 1571842319715,
+  "lastUpdate" : 1571915015017,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -496,7 +496,7 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "In order to be able to use this example, check that, in the Project Explorer, the <strong><i>Development</i></strong> environment is set as active, and then that the following artifacts have been deployed in that environment:\n<ol>\n<li>Business Data Model <strong><i>bom.xml</i></strong></li>\n<li>Organization <strong><i>ACME.organization</i></strong></li>\n<li>Processes<strong> <i>Credit Card Dispute</i></strong>  and <strong> <i>Data initialization</i></strong></li>\n<li>REST API extension<strong> <i>creditCardDisputeResolutionRestAPI</i></strong></li>\n<li>Application descriptor <strong><i>credit-card-dispute-resolution</i></strong></li>\n<li>Finally, refresh this web page</li>\n</ol>"
+          "value" : "In order to be able to use this example, check that the following artifacts have been deployed:\n<ol>\n<li>Business Data Model <strong><i>bom.xml</i></strong></li>\n<li>Organization <strong><i>ACME.organization</i></strong></li>\n<li>Processes<strong> <i>Credit Card Dispute</i></strong>  and <strong> <i>Data initialization</i></strong></li>\n<li>REST API extension<strong> <i>creditCardDisputeResolutionRestAPI</i></strong></li>\n<li>Application descriptor <strong><i>credit-card-dispute-resolution</i></strong></li>\n<li>Finally, refresh this web page</li>\n</ol>"
         },
         "alignment" : {
           "type" : "constant",
