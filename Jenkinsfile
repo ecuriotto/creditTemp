@@ -3,6 +3,8 @@
 //Global variable shared between nodes
 def props //Valuated during Deploy Server stage
 
+    
+lock('bcdBuildLock'){
 node('bcd-790') {
 
     def scenarioFile = "/home/bonita/bonita-continuous-delivery/scenarios/scenario-7.9.0-ACM-ec2.yml"
@@ -145,4 +147,4 @@ node('cypress'){
         archiveArtifacts artifacts: "tests/cypress/videos/*.mp4", fingerprint: true
     }
 }
-
+} //lock
