@@ -1,5 +1,5 @@
 <a name="1.0.0 RC"></a>
-# [1.0.0 RC](https://github.com/bonitasoft/credit-card-dispute-resolution/compare/1.0.0-Beta...7.9.0) (2019-10-28)
+# [1.0.0 RC](https://github.com/bonitasoft/credit-card-dispute-resolution/compare/1.0.0-Beta...1.0.0-RC) (2019-10-28)
 
 
 ### Bug Fixes
