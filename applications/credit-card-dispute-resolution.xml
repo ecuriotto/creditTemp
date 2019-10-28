@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <applications xmlns="http://documentation.bonitasoft.com/application-xml-schema/1.0">
-    <application token="cases" version="1.0.0" profile="User" homePage="intro" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_creditCardTheme">
+    <application token="cases" version="1.0.0-RC" profile="User" homePage="intro" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_creditCardTheme">
         <displayName>Credit Card Dispute Resolution</displayName>
         <description></description>
         <applicationPages>
