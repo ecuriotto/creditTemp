@@ -30,7 +30,6 @@
 				<include>src-connectors/**</include>
 				<include>applications/**</include>
 				<include>attachments/**</include>
-				<include>database_connectors_properties/**</include>
 				<include>diagrams/**</include>
 				<include>environements/**</include>
 				<include>filters-conf/**</include>
