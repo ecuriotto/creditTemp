@@ -16,9 +16,14 @@ Clone this repository in your workspace (Team menu -> Git -> Clone) and paste th
 
 ### Enable ACM event handler
 
-Go in the preference of your Studio, in the Server settings category, in Tomcat JVM arguments, set the `com.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER` property to `true` (`false` by default)
+In 7.9.x:  
+Go in the preference of your Studio, in the Server settings category, in Tomcat JVM arguments, set the `com.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER` property to `true` (`false` by default)  
+In 7.10+:  
+Go in the preference of your Studio, in the Server settings category, check Enable ACM event handler  
 
 ### Deploy the application
+
+In 7.10+ just use the Deploy... action to deploy the project.
 
 1. Deploy the Rest API extension
 1. Deploy all the processes
@@ -104,6 +109,7 @@ Reuse the default profiles
 	"dataFromError" : {} /*Set if the request is not successful*/
 }
 ```
+* Panel: Create a bootstrap panel container.
 * ToggleButtons: Toggle buttons used in the _CaseList_ page to switch between active and archived cases.
 
 ### Themes
@@ -113,7 +119,6 @@ Reuse the default profiles
 	* Customize the link button color
 	* Add custom css rule to define a light background container style
 	* Add custom css rules to constrained maximum page with in `_layout.scss`
-	* Add custom css rules for card style `_card.scss`
 	* Add custom css rules for timeline style `_timeline.scss`
 
 ### Rest API Extensions
@@ -130,7 +135,5 @@ Reuse the default profiles
 * **GET** `API/extension/customerInfo?caseId=<LONG>`: Retrieves the Customer informations for a given case.
 * **GET** `API/extension/createDisputeAuthorization`: Return if the logged user can start a new dispute case.
 * **POST** `API/extension/userTask`: Submit the task with `taskId` and add a comment to the case `content` is provided. Payload: ```{ "taskId", "content" }```
-		
-### Environments
+* **GET** `API/extension/handlerStatus` : Return the activation state of the ACM event handler.
 
-Development.xml : a configured environment with example values (actor mapping, parameters...)
