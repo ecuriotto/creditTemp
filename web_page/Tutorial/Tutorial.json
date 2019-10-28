@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "Tutorial",
   "name" : "Tutorial",
-  "lastUpdate" : 1572249674639,
+  "lastUpdate" : 1572261774422,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -758,7 +758,7 @@
         },
         "label" : {
           "type" : "interpolation",
-          "value" : "Create customers, accounts, transactions, and disputes"
+          "value" : "Create customers, accounts, transactions and disputes"
         },
         "alignment" : {
           "type" : "constant",
