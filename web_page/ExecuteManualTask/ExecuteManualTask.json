@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "ExecuteManualTask",
   "name" : "ExecuteManualTask",
-  "lastUpdate" : 1570354176506,
+  "lastUpdate" : 1572269137129,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -143,7 +143,7 @@
         "propertyValues" : {
           "cssClasses" : {
             "type" : "constant",
-            "value" : ""
+            "value" : "input-height"
           },
           "hidden" : {
             "type" : "constant",

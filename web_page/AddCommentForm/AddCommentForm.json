@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "AddCommentForm",
   "name" : "AddCommentForm",
-  "lastUpdate" : 1571849209481,
+  "lastUpdate" : 1572265693124,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -236,7 +236,7 @@
         "propertyValues" : {
           "cssClasses" : {
             "type" : "constant",
-            "value" : ""
+            "value" : "input-height"
           },
           "hidden" : {
             "type" : "constant",

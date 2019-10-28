@@ -4,7 +4,7 @@
 
 ### Bug Fixes
 
-* **Dependencies:** jfairy jar dependency has been updated to remove Guava from the uber jar. Guava 19.0 is provided in parent classloader.
+* **Dependencies:** [jfairy](https://github.com/Devskiller/jfairy) jar dependency has been updated to remove Guava from the uber jar. Guava 19.0 is provided in the parent Classloader.
 
 ### Features/Improvements
 
@@ -13,6 +13,7 @@
 * **Tutorial:** Depending on the Bonita version, the deployment and handler activation instructions change.
 * **Tutorial:** Bonita and application version is displayed.
 * **Tutorial:** Do not display the _Data initialization_ section if data is already initialized.
+* **Generic forms:** Increase text area default height.
 * **Update parameters:** Use a word case for parameter names.
 * **Update parameters:** Only display business parameters. Technical parameters must be prefixed by an `_`.
 * **Credit Card Dispute Process:** Add an email connector on the _Chargeback_ task to notify the customer.
