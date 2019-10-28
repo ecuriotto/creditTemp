@@ -1,6 +1,6 @@
-package com.company.scenario.util
+package com.company.creditcard.dispute.scenario.util
 
-import static com.company.scenario.util.Condition.loop
+import static com.company.creditcard.dispute.scenario.util.Condition.loop
 
 import org.bonitasoft.engine.bpm.flownode.ActivityStates
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor

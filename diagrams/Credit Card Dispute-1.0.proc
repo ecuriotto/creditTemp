@@ -70,22 +70,22 @@
             <referencedElements xmi:type="process:Data" xmi:id="_YXBtYLnoEemz85F-pOyg7Q" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
           </stepSummary>
           <data xmi:type="process:Data" xmi:id="_Yn858JzLEemsNbXOsawszg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
-            <defaultValue xmi:type="expression:Expression" xmi:id="_Yn858ZzLEemsNbXOsawszg" name="updateActivityState()" content="import com.company.model.ACMStates&#xD;&#xA;import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;if(dispute.status == DisputeStates.CHARGED_BACK){&#xD;&#xA;&#x9;&#x9;return ACMStates.NOT_AVAILABLE&#xD;&#xA;}&#xD;&#xA;return ACMStates.DISCRETIONARY" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_D_O7MOp3Eemnkprp8pI4Lg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <defaultValue xmi:type="expression:Expression" xmi:id="_Yn858ZzLEemsNbXOsawszg" name="updateActivityState()" content="import com.company.creditcard.dispute.model.ACMStates&#xD;&#xA;import com.company.creditcard.dispute.model.DisputeStates&#xD;&#xA;&#xD;&#xA;if(dispute.status == DisputeStates.CHARGED_BACK){&#xD;&#xA;&#x9;&#x9;return ACMStates.NOT_AVAILABLE&#xD;&#xA;}&#xD;&#xA;return ACMStates.DISCRETIONARY" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_D_O7MOp3Eemnkprp8pI4Lg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </defaultValue>
           </data>
           <data xmi:type="process:Data" xmi:id="_cUJ0AJzNEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
             <defaultValue xmi:type="expression:Expression" xmi:id="_cUJ0AZzNEemsNbXOsawszg" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List"/>
           </data>
           <operations xmi:type="expression:Operation" xmi:id="_gC6Pp5zLEemsNbXOsawszg">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PqJzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6PqZzLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PqJzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6PqZzLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PqpzLEemsNbXOsawszg" name="disputeInput.status" content="import com.company.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI,activityInstanceId, 'Status', dispute.status,  disputeInput?.status, 'updates', updates)&#xD;&#xA;disputeInput?.status" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PqpzLEemsNbXOsawszg" name="disputeInput.status" content="import com.company.creditcard.dispute.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI,activityInstanceId, 'Status', dispute.status,  disputeInput?.status, 'updates', updates)&#xD;&#xA;disputeInput?.status" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
               <referencedElements xmi:type="expression:Expression" xmi:id="_G90EYJzUEemsNbXOsawszg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
               <referencedElements xmi:type="process:Data" xmi:id="_G90EYZzUEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
               <referencedElements xmi:type="expression:Expression" xmi:id="_G90EYpzUEemsNbXOsawszg" name="activityInstanceId" content="activityInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_fXIOEJzTEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_fXIOEJzTEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
               <referencedElements xmi:type="process:ContractInput" xmi:id="_fXIOEZzTEemsNbXOsawszg" name="disputeInput" type="COMPLEX" createMode="false"/>
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_gC6PrJzLEemsNbXOsawszg" type="JAVA_METHOD" expression="setStatus">
@@ -93,12 +93,12 @@
             </operator>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_gC6PrZzLEemsNbXOsawszg">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PrpzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6Pr5zLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PrpzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6Pr5zLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PsJzLEemsNbXOsawszg" name="disputeInput.amount" content="import com.company.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI, activityInstanceId, 'Amount', dispute.amount, disputeInput?.amount, 'updates', updates)&#xD;&#xA;disputeInput?.amount" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Double">
+            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PsJzLEemsNbXOsawszg" name="disputeInput.amount" content="import com.company.creditcard.dispute.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI, activityInstanceId, 'Amount', dispute.amount, disputeInput?.amount, 'updates', updates)&#xD;&#xA;disputeInput?.amount" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Double">
               <referencedElements xmi:type="process:ContractInput" xmi:id="_WuXzEJzUEemsNbXOsawszg" name="disputeInput" type="COMPLEX" createMode="false"/>
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_WuXzEZzUEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_WuXzEZzUEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
               <referencedElements xmi:type="expression:Expression" xmi:id="_WuXzEpzUEemsNbXOsawszg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
               <referencedElements xmi:type="expression:Expression" xmi:id="_WuXzE5zUEemsNbXOsawszg" name="activityInstanceId" content="activityInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
               <referencedElements xmi:type="process:Data" xmi:id="_WuXzFJzUEemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
@@ -108,14 +108,14 @@
             </operator>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_gC6Ps5zLEemsNbXOsawszg">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PtJzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6PtZzLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PtJzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6PtZzLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PtpzLEemsNbXOsawszg" name="disputeInput.currency" content="import com.company.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI, activityInstanceId, 'Currency', dispute.currency, disputeInput?.currency, 'updates', updates)&#xD;&#xA;disputeInput?.currency" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PtpzLEemsNbXOsawszg" name="disputeInput.currency" content="import com.company.creditcard.dispute.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI, activityInstanceId, 'Currency', dispute.currency, disputeInput?.currency, 'updates', updates)&#xD;&#xA;disputeInput?.currency" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
               <referencedElements xmi:type="expression:Expression" xmi:id="_SQxGsJzREemsNbXOsawszg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
               <referencedElements xmi:type="expression:Expression" xmi:id="_SQxGsZzREemsNbXOsawszg" name="activityInstanceId" content="activityInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
               <referencedElements xmi:type="process:Data" xmi:id="_SQxGspzREemsNbXOsawszg" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_CjYdQJzQEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_CjYdQJzQEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
               <referencedElements xmi:type="process:ContractInput" xmi:id="_gC6Pt5zLEemsNbXOsawszg" name="disputeInput" type="COMPLEX" createMode="false"/>
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_gC6PuJzLEemsNbXOsawszg" type="JAVA_METHOD" expression="setCurrency">
@@ -123,11 +123,11 @@
             </operator>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_gC6PuZzLEemsNbXOsawszg">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PupzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6Pu5zLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PupzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6Pu5zLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PvJzLEemsNbXOsawszg" name="disputeInput.merchantIdNumber" content="import com.company.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI, activityInstanceId, 'MIN', dispute.merchantIdNumber, disputeInput?.merchantIdNumber, 'updates', updates)&#xD;&#xA;disputeInput?.merchantIdNumber" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_XP3d8JzREemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PvJzLEemsNbXOsawszg" name="disputeInput.merchantIdNumber" content="import com.company.creditcard.dispute.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI, activityInstanceId, 'MIN', dispute.merchantIdNumber, disputeInput?.merchantIdNumber, 'updates', updates)&#xD;&#xA;disputeInput?.merchantIdNumber" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_XP3d8JzREemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
               <referencedElements xmi:type="expression:Expression" xmi:id="_XP4FAJzREemsNbXOsawszg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
               <referencedElements xmi:type="process:ContractInput" xmi:id="_XP4FAZzREemsNbXOsawszg" name="disputeInput" type="COMPLEX" createMode="false"/>
               <referencedElements xmi:type="expression:Expression" xmi:id="_XP4FApzREemsNbXOsawszg" name="activityInstanceId" content="activityInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
@@ -138,13 +138,13 @@
             </operator>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_gC6Pv5zLEemsNbXOsawszg">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PwJzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6PwZzLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_gC6PwJzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gC6PwZzLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PwpzLEemsNbXOsawszg" name="disputeInput.txDate" content="import java.time.format.DateTimeFormatter&#xD;&#xA;&#xD;&#xA;import com.company.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI, activityInstanceId, 'Transacation date', dispute.txDate?.format(DateTimeFormatter.RFC_1123_DATE_TIME), disputeInput?.txDate?.format(DateTimeFormatter.RFC_1123_DATE_TIME), 'updates', updates)&#xD;&#xA;disputeInput?.txDate" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime">
+            <rightOperand xmi:type="expression:Expression" xmi:id="_gC6PwpzLEemsNbXOsawszg" name="disputeInput.txDate" content="import java.time.format.DateTimeFormatter&#xD;&#xA;&#xD;&#xA;import com.company.creditcard.dispute.util.DataUpdateRecorder&#xD;&#xA;&#xD;&#xA;DataUpdateRecorder.recordUpdate(apiAccessor.processAPI, activityInstanceId, 'Transacation date', dispute.txDate?.format(DateTimeFormatter.RFC_1123_DATE_TIME), disputeInput?.txDate?.format(DateTimeFormatter.RFC_1123_DATE_TIME), 'updates', updates)&#xD;&#xA;disputeInput?.txDate" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime">
               <referencedElements xmi:type="process:ContractInput" xmi:id="_MNuLAKoKEemgRuGmCdy98A" name="disputeInput" type="COMPLEX" createMode="false"/>
               <referencedElements xmi:type="process:Data" xmi:id="_MNuLAaoKEemgRuGmCdy98A" name="updates" multiple="true" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA"/>
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_oxbv4JzUEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_oxbv4JzUEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
               <referencedElements xmi:type="expression:Expression" xmi:id="_oxbv4ZzUEemsNbXOsawszg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
               <referencedElements xmi:type="expression:Expression" xmi:id="_oxcW8ZzUEemsNbXOsawszg" name="activityInstanceId" content="activityInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
             </rightOperand>
@@ -153,8 +153,8 @@
             </operator>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_iKLeIJzLEemsNbXOsawszg">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_iKLeIZzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_ih2-UJzLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_iKLeIZzLEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_ih2-UJzLEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_iKLeIpzLEemsNbXOsawszg" name="now()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;OffsetDateTime.now()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime"/>
             <operator xmi:type="expression:Operator" xmi:id="_iKLeI5zLEemsNbXOsawszg" type="JAVA_METHOD" expression="setLastUpdateDate">
@@ -212,12 +212,12 @@
           <textAnnotationAttachment xmi:type="process:TextAnnotationAttachment" xmi:id="_J0YaEJ2eEemQAo5alETTFA" source="_J0V90J2eEemQAo5alETTFA"/>
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_UNkC8Z1zEemTRtqWFynp_g" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_UNkC8J1zEemTRtqWFynp_g" name="" content="" returnTypeFixed="true"/>
-          <stepSummary xmi:type="expression:Expression" xmi:id="_UNkC8p1zEemTRtqWFynp_g" name="descriptionAfterCompletion()" content="import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;dispute.status == DisputeStates.INVALID ? 'Dispute case has been dismissed' : 'Dispute case has been resolved' " interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
-            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Iu_psJ16EemTRtqWFynp_g" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_UNkC8p1zEemTRtqWFynp_g" name="descriptionAfterCompletion()" content="import com.company.creditcard.dispute.model.DisputeStates&#xD;&#xA;&#xD;&#xA;dispute.status == DisputeStates.INVALID ? 'Dispute case has been dismissed' : 'Dispute case has been resolved' " interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Iu_psJ16EemTRtqWFynp_g" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
           </stepSummary>
           <operations xmi:type="expression:Operation" xmi:id="_WahF4J13EemTRtqWFynp_g">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_WahF4Z13EemTRtqWFynp_g" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_XB2LoJ13EemTRtqWFynp_g" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_WahF4Z13EemTRtqWFynp_g" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_XB2LoJ13EemTRtqWFynp_g" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_WahF4p13EemTRtqWFynp_g" name="status" content="status" type="TYPE_CONTRACT_INPUT">
               <referencedElements xmi:type="process:ContractInput" xmi:id="_YNRc8J13EemTRtqWFynp_g" name="status">
@@ -273,8 +273,8 @@
             <defaultValue xmi:type="expression:Expression" xmi:id="_oka_8ZwWEemz_6GYzsxGrA" name="Required" content="Required"/>
           </data>
           <operations xmi:type="expression:Operation" xmi:id="_7aia0ZyZEemqZaueLnuvxA">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_7aia0pyZEemqZaueLnuvxA" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_7aia05yZEemqZaueLnuvxA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_7aia0pyZEemqZaueLnuvxA" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_7aia05yZEemqZaueLnuvxA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_7aia1JyZEemqZaueLnuvxA" name="disputeInput.status" content="disputeInput?.status" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
               <referencedElements xmi:type="process:ContractInput" xmi:id="_Ga_wIJ1hEemTRtqWFynp_g" name="disputeInput" type="COMPLEX" createMode="false"/>
@@ -284,8 +284,8 @@
             </operator>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_7aia15yZEemqZaueLnuvxA">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_7aia2JyZEemqZaueLnuvxA" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_7aia2ZyZEemqZaueLnuvxA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_7aia2JyZEemqZaueLnuvxA" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_7aia2ZyZEemqZaueLnuvxA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_7aia2pyZEemqZaueLnuvxA" name="disputeInput.amount" content="disputeInput?.amount" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Double">
               <referencedElements xmi:type="process:ContractInput" xmi:id="_7aia25yZEemqZaueLnuvxA" name="disputeInput" type="COMPLEX" createMode="false"/>
@@ -295,8 +295,8 @@
             </operator>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_7aia3ZyZEemqZaueLnuvxA">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_7aia3pyZEemqZaueLnuvxA" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_7aia35yZEemqZaueLnuvxA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_7aia3pyZEemqZaueLnuvxA" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_7aia35yZEemqZaueLnuvxA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_7aia4JyZEemqZaueLnuvxA" name="disputeInput.currency" content="disputeInput?.currency" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
               <referencedElements xmi:type="process:ContractInput" xmi:id="_7aia4ZyZEemqZaueLnuvxA" name="disputeInput" type="COMPLEX" createMode="false"/>
@@ -306,8 +306,8 @@
             </operator>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_7aia45yZEemqZaueLnuvxA">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_7aia5JyZEemqZaueLnuvxA" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_7aia5ZyZEemqZaueLnuvxA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_7aia5JyZEemqZaueLnuvxA" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_7aia5ZyZEemqZaueLnuvxA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_7aia5pyZEemqZaueLnuvxA" name="disputeInput.merchantIdNumber" content="disputeInput?.merchantIdNumber" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
               <referencedElements xmi:type="process:ContractInput" xmi:id="_7aia55yZEemqZaueLnuvxA" name="disputeInput" type="COMPLEX" createMode="false"/>
@@ -317,8 +317,8 @@
             </operator>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_jYy0EJzQEemsNbXOsawszg">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_jYy0EZzQEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_kIkrMJzQEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_jYy0EZzQEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_kIkrMJzQEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_jYy0EpzQEemsNbXOsawszg" name="disputeInput.txDate" content="disputeInput?.txDate" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime">
               <referencedElements xmi:type="process:ContractInput" xmi:id="_n8eaoJzQEemsNbXOsawszg" name="disputeInput" type="COMPLEX" createMode="false"/>
@@ -328,8 +328,8 @@
             </operator>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_FgylMJyyEem6Cs5xpESlFw">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_FgylMZyyEem6Cs5xpESlFw" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Fz4gUJyyEem6Cs5xpESlFw" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_FgylMZyyEem6Cs5xpESlFw" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Fz4gUJyyEem6Cs5xpESlFw" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_FgylMpyyEem6Cs5xpESlFw" name="updateLastUpdateDate()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;OffsetDateTime.now()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime"/>
             <operator xmi:type="expression:Operator" xmi:id="_FgylM5yyEem6Cs5xpESlFw" type="JAVA_METHOD" expression="setLastUpdateDate">
@@ -404,8 +404,8 @@
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_hp26cPUdEeeREboOt7l4UQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_hp26cvUdEeeREboOt7l4UQ" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_8F-54AHUEeiNfNN2BDEehQ" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
-            <defaultValue xmi:type="expression:Expression" xmi:id="_2bDBQAHdEeiNfNN2BDEehQ" name="updateActivityState()" content="import com.company.model.ACMStates&#xD;&#xA;import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;if(dispute.status == DisputeStates.PROCESSING_CHARGEBACK){&#xD;&#xA;&#x9;if(dispute.amount &lt; reviewAmountThreshold || dispute.supervisorApproval){&#xD;&#xA;&#x9;&#x9;return ACMStates.REQUIRED&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;return ACMStates.NOT_AVAILABLE" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="__lIX0J2dEemQAo5alETTFA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <defaultValue xmi:type="expression:Expression" xmi:id="_2bDBQAHdEeiNfNN2BDEehQ" name="updateActivityState()" content="import com.company.creditcard.dispute.model.ACMStates&#xD;&#xA;import com.company.creditcard.dispute.model.DisputeStates&#xD;&#xA;&#xD;&#xA;if(dispute.status == DisputeStates.PROCESSING_CHARGEBACK){&#xD;&#xA;&#x9;if(dispute.amount &lt; reviewAmountThreshold || dispute.supervisorApproval){&#xD;&#xA;&#x9;&#x9;return ACMStates.REQUIRED&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;return ACMStates.NOT_AVAILABLE" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="__lIX0J2dEemQAo5alETTFA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
               <referencedElements xmi:type="parameter:Parameter" xmi:id="__lIX0Z2dEemQAo5alETTFA" name="reviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
             </defaultValue>
           </data>
@@ -444,7 +444,7 @@
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJIPC5Eem30p6PSSKU5A" key="to">
                 <expression xmi:type="expression:Expression" xmi:id="_S7oJIfC5Eem30p6PSSKU5A" name="customer - Customer#getEmail" content="getEmail" interpreter="GROOVY" type="TYPE_JAVA_METHOD_CALL" returnTypeFixed="true">
-                  <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_ZFbDwPWZEemrley8guFCBw" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer"/>
+                  <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_ZFbDwPWZEemrley8guFCBw" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Customer"/>
                 </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJIvC5Eem30p6PSSKU5A" key="bcc">
@@ -462,23 +462,23 @@
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_S7oJKvC5Eem30p6PSSKU5A" key="message">
                 <expression xmi:type="expression:Expression" xmi:id="_S7oJK_C5Eem30p6PSSKU5A" name="&lt;pattern-expression>" content="&lt;html>&#xA;&lt;body>&#xA;&#xD;&#xA;&lt;P  style=&quot;margin: 4;&quot;align = &quot;left&quot;>Mrs/Mr ${customer.lastName},&lt;/P>&#xD;&#xA;&lt;P  style=&quot;margin: 4;&quot;align = &quot;left&quot;># #We are pleased to inform you that following the credit card dispute opened on the ${dispute.creationDate},&lt;/P>&#xD;&#xA;&lt;P  style=&quot;margin: 4;&quot;align = &quot;left&quot;># #we are charging you back for an amount of #${dispute.amount}${dispute.currency}.&lt;/P>&#xD;&#xA;&lt;br>&#xD;&#xA;&lt;P  style=&quot;margin: 4;&quot;align = &quot;left&quot;># #Best regards,&lt;/P>&#xD;&#xA;&lt;P  style=&quot;margin: 4;&quot;align = &quot;left&quot;># #Your credit card company&lt;/P>&#xD;&#xA;&#xD;&#xA;&lt;/body>&lt;/html>&#xD;&#xA;" type="TYPE_PATTERN" returnTypeFixed="true">
                   <referencedElements xmi:type="expression:Expression" xmi:id="_rinJEPC9Eem30p6PSSKU5A" name="customer.lastName" content="customer.lastName" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-                    <referencedElements xmi:type="expression:Expression" xmi:id="_rinJEfC9Eem30p6PSSKU5A" name="customer" content="customer" type="TYPE_VARIABLE" returnType="com.company.model.Customer">
-                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rinJEvC9Eem30p6PSSKU5A" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer"/>
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_rinJEfC9Eem30p6PSSKU5A" name="customer" content="customer" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Customer">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rinJEvC9Eem30p6PSSKU5A" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Customer"/>
                     </referencedElements>
                   </referencedElements>
                   <referencedElements xmi:type="expression:Expression" xmi:id="_rinJE_C9Eem30p6PSSKU5A" name="dispute.creationDate" content="dispute.creationDate" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-                    <referencedElements xmi:type="expression:Expression" xmi:id="_rinJFPC9Eem30p6PSSKU5A" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rinJFfC9Eem30p6PSSKU5A" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_rinJFPC9Eem30p6PSSKU5A" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rinJFfC9Eem30p6PSSKU5A" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
                     </referencedElements>
                   </referencedElements>
                   <referencedElements xmi:type="expression:Expression" xmi:id="_rinJFvC9Eem30p6PSSKU5A" name="dispute.amount" content="dispute.amount" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-                    <referencedElements xmi:type="expression:Expression" xmi:id="_rinJF_C9Eem30p6PSSKU5A" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rinJGPC9Eem30p6PSSKU5A" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_rinJF_C9Eem30p6PSSKU5A" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rinJGPC9Eem30p6PSSKU5A" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
                     </referencedElements>
                   </referencedElements>
                   <referencedElements xmi:type="expression:Expression" xmi:id="_rinJGfC9Eem30p6PSSKU5A" name="dispute.currency" content="dispute.currency" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-                    <referencedElements xmi:type="expression:Expression" xmi:id="_rinJGvC9Eem30p6PSSKU5A" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rinJG_C9Eem30p6PSSKU5A" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_rinJGvC9Eem30p6PSSKU5A" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rinJG_C9Eem30p6PSSKU5A" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
                     </referencedElements>
                   </referencedElements>
                 </expression>
@@ -498,10 +498,10 @@
             </configuration>
           </connectors>
           <operations xmi:type="expression:Operation" xmi:id="_estDkOqcEem2u8zmUD93Qg">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_estDkeqcEem2u8zmUD93Qg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gm9w0OqcEem2u8zmUD93Qg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_estDkeqcEem2u8zmUD93Qg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gm9w0OqcEem2u8zmUD93Qg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_estDkuqcEem2u8zmUD93Qg" name="updateDisputeStatus()" content="import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;DisputeStates.CHARGED_BACK" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT"/>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_estDkuqcEem2u8zmUD93Qg" name="updateDisputeStatus()" content="import com.company.creditcard.dispute.model.DisputeStates&#xD;&#xA;&#xD;&#xA;DisputeStates.CHARGED_BACK" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT"/>
             <operator xmi:type="expression:Operator" xmi:id="_estDk-qcEem2u8zmUD93Qg" type="JAVA_METHOD" expression="setStatus">
               <inputTypes>java.lang.String</inputTypes>
             </operator>
@@ -542,17 +542,17 @@
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_h5jREJzfEemsNbXOsawszg" name="displayName()" content="'&amp;#x1f441; Review'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_h5iqAJzfEemsNbXOsawszg" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_h5jREZzfEemsNbXOsawszg" name="descriptionAfterCompletion()" content="dispute.isSupervisorApproval() ? &quot;Approved after review&quot; : &quot;Rejected after review&quot;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
-            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_hn2dkOdQEemmMO4zgVlItg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_hn2dkOdQEemmMO4zgVlItg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
           </stepSummary>
           <data xmi:type="process:Data" xmi:id="_3KSq0JzfEemsNbXOsawszg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_x5qCOfSMEeeYpYD60oU_zA">
-            <defaultValue xmi:type="expression:Expression" xmi:id="_3KSq0ZzfEemsNbXOsawszg" name="updateActivityState()" content="import com.company.model.ACMStates&#xD;&#xA;import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;if(dispute.status == DisputeStates.PROCESSING_CHARGEBACK){&#xD;&#xA;&#x9;return dispute.amount >= reviewAmountThreshold ? ACMStates.REQUIRED : ACMStates.OPTIONAL&#xD;&#xA;}&#xD;&#xA;return ACMStates.NOT_AVAILABLE" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_EzEcUJ2eEemQAo5alETTFA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <defaultValue xmi:type="expression:Expression" xmi:id="_3KSq0ZzfEemsNbXOsawszg" name="updateActivityState()" content="import com.company.creditcard.dispute.model.ACMStates&#xD;&#xA;import com.company.creditcard.dispute.model.DisputeStates&#xD;&#xA;&#xD;&#xA;if(dispute.status == DisputeStates.PROCESSING_CHARGEBACK){&#xD;&#xA;&#x9;return dispute.amount >= reviewAmountThreshold ? ACMStates.REQUIRED : ACMStates.OPTIONAL&#xD;&#xA;}&#xD;&#xA;return ACMStates.NOT_AVAILABLE" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_EzEcUJ2eEemQAo5alETTFA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
               <referencedElements xmi:type="parameter:Parameter" xmi:id="_EzEcUZ2eEemQAo5alETTFA" name="reviewAmountThreshold" typeClassname="java.lang.Double" description="The amount value above which a supervisor need to review the dispute"/>
             </defaultValue>
           </data>
           <operations xmi:type="expression:Operation" xmi:id="_6NgAUJzjEemsNbXOsawszg">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_6NgAUZzjEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_6mgWMJzjEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_6NgAUZzjEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_6mgWMJzjEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_6NgAUpzjEemsNbXOsawszg" name="approveDisputedAmount" content="approveDisputedAmount" type="TYPE_CONTRACT_INPUT" returnType="java.lang.Boolean">
               <referencedElements xmi:type="process:ContractInput" xmi:id="_BQW_EJzkEemsNbXOsawszg" name="approveDisputedAmount" type="BOOLEAN">
@@ -564,8 +564,8 @@
             </operator>
           </operations>
           <operations xmi:type="expression:Operation" xmi:id="_CE1I8JzkEemsNbXOsawszg">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_CE1I8ZzkEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.model.Dispute">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_CdDbsJzkEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+            <leftOperand xmi:type="expression:Expression" xmi:id="_CE1I8ZzkEemsNbXOsawszg" name="dispute" content="dispute" type="TYPE_VARIABLE" returnType="com.company.creditcard.dispute.model.Dispute">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_CdDbsJzkEemsNbXOsawszg" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
             </leftOperand>
             <rightOperand xmi:type="expression:Expression" xmi:id="_CE1I8pzkEemsNbXOsawszg" name="updateLastUpdateDate()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;OffsetDateTime.now()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime"/>
             <operator xmi:type="expression:Operator" xmi:id="_CE1I85zkEemsNbXOsawszg" type="JAVA_METHOD" expression="setLastUpdateDate">
@@ -634,19 +634,19 @@
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_t58em52UEemQAo5alETTFA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:TextAnnotation" xmi:id="_4-72AJ2UEemQAo5alETTFA" text="The supervisor can modify application business parameter like amount thresholds&#xD;&#xA;&#xD;&#xA;Only business parameters can be updated. All parameters starting with a '_' prefix are considered technical parameters and must be updated using the Adminstration Portal"/>
+        <elements xmi:type="process:TextAnnotation" xmi:id="_4-72AJ2UEemQAo5alETTFA" text="The supervisor can modify application business parameter like amount thresholds&#xD;&#xA;&#xD;&#xA;Only business parameters can be updated in this task. All parameters starting with an '_' prefix are considered technical parameters and must be updated using the Administration Portal"/>
       </elements>
-      <data xmi:type="process:BusinessObjectData" xmi:id="_mRGqAPUrEeeJbuCjYn0Nqw" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer">
-        <defaultValue xmi:type="expression:Expression" xmi:id="_mRGqAfUrEeeJbuCjYn0Nqw" name="init_customer()" content="customerDAO.findByCustomerId(customerId)" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Customer">
+      <data xmi:type="process:BusinessObjectData" xmi:id="_mRGqAPUrEeeJbuCjYn0Nqw" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Customer">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_mRGqAfUrEeeJbuCjYn0Nqw" name="init_customer()" content="customerDAO.findByCustomerId(customerId)" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.creditcard.dispute.model.Customer">
           <referencedElements xmi:type="process:ContractInput" xmi:id="_UTxggJdQEemS2vHmcHFszw" name="customerId">
             <mapping xmi:type="process:ContractInputMapping" xmi:id="_UTxggZdQEemS2vHmcHFszw"/>
           </referencedElements>
-          <referencedElements xmi:type="expression:Expression" xmi:id="_GVluYJdQEemS2vHmcHFszw" name="customerDAO" content="customerDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.CustomerDAO" returnTypeFixed="true"/>
+          <referencedElements xmi:type="expression:Expression" xmi:id="_GVluYJdQEemS2vHmcHFszw" name="customerDAO" content="customerDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.creditcard.dispute.model.CustomerDAO" returnTypeFixed="true"/>
         </defaultValue>
       </data>
-      <data xmi:type="process:BusinessObjectData" xmi:id="__3lJIJdPEemS2vHmcHFszw" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute">
-        <defaultValue xmi:type="expression:Expression" xmi:id="__3lJIZdPEemS2vHmcHFszw" name="init_dispute()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;import com.company.model.DisputeStates&#xD;&#xA;&#xD;&#xA;def now = OffsetDateTime.now()&#xD;&#xA;disputeDAO.newInstance(customerId , DisputeStates.PENDING, now).with {&#xD;&#xA;    setCurrency('USD')&#xD;&#xA;    setLastUpdateDate(now)&#xD;&#xA;    it&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.model.Dispute">
-          <referencedElements xmi:type="expression:Expression" xmi:id="_1NgKoJ8nEemRQJIVczXf1w" name="disputeDAO" content="disputeDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.model.DisputeDAO" returnTypeFixed="true"/>
+      <data xmi:type="process:BusinessObjectData" xmi:id="__3lJIJdPEemS2vHmcHFszw" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute">
+        <defaultValue xmi:type="expression:Expression" xmi:id="__3lJIZdPEemS2vHmcHFszw" name="init_dispute()" content="import java.time.OffsetDateTime&#xD;&#xA;&#xD;&#xA;import com.company.creditcard.dispute.model.DisputeStates&#xD;&#xA;&#xD;&#xA;def now = OffsetDateTime.now()&#xD;&#xA;disputeDAO.newInstance(customerId , DisputeStates.PENDING, now).with {&#xD;&#xA;    setCurrency('USD')&#xD;&#xA;    setLastUpdateDate(now)&#xD;&#xA;    it&#xD;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.company.creditcard.dispute.model.Dispute">
+          <referencedElements xmi:type="expression:Expression" xmi:id="_1NgKoJ8nEemRQJIVczXf1w" name="disputeDAO" content="disputeDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.company.creditcard.dispute.model.DisputeDAO" returnTypeFixed="true"/>
           <referencedElements xmi:type="process:ContractInput" xmi:id="_EcvHMZyyEem6Cs5xpESlFw" name="customerId">
             <mapping xmi:type="process:ContractInputMapping" xmi:id="_EcvHMpyyEem6Cs5xpESlFw"/>
           </referencedElements>
@@ -665,7 +665,7 @@
       <connections xmi:type="process:SequenceFlow" xmi:id="_saVSYJyWEemqZaueLnuvxA" name="Follow up" target="_x5qB2fSMEeeYpYD60oU_zA" source="_rcTj4JyWEemqZaueLnuvxA">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_saVSYZyWEemqZaueLnuvxA"/>
         <condition xmi:type="expression:Expression" xmi:id="_saVSYpyWEemqZaueLnuvxA" name="validDisputeRequest()" content="dispute.status != 'INVALID'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
-          <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_C26NIJyXEemqZaueLnuvxA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Dispute"/>
+          <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_C26NIJyXEemqZaueLnuvxA" name="dispute" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Dispute"/>
         </condition>
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_wAT6kJyWEemqZaueLnuvxA" name="Not a billing error" target="_wALXsJyWEemqZaueLnuvxA" source="_rcTj4JyWEemqZaueLnuvxA" isDefault="true">
@@ -844,12 +844,12 @@
       <searchIndexes xmi:type="process:SearchIndex" xmi:id="_x5qCKPSMEeeYpYD60oU_zA">
         <name xmi:type="expression:Expression" xmi:id="_x5qCKfSMEeeYpYD60oU_zA" name="customerName" content="customerName" returnTypeFixed="true"/>
         <value xmi:type="expression:Expression" xmi:id="_x5qCKvSMEeeYpYD60oU_zA" name="initCustomer" content="customer.firstName + &quot; &quot; + customer.lastName" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
-          <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_niNfUJ8nEemRQJIVczXf1w" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.model.Customer"/>
+          <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_niNfUJ8nEemRQJIVczXf1w" name="customer" dataType="_x5qCPPSMEeeYpYD60oU_zA" className="com.company.creditcard.dispute.model.Customer"/>
         </value>
       </searchIndexes>
       <searchIndexes xmi:type="process:SearchIndex" xmi:id="_x5qCK_SMEeeYpYD60oU_zA">
         <name xmi:type="expression:Expression" xmi:id="_x5qCLPSMEeeYpYD60oU_zA" name="status" content="status" returnTypeFixed="true"/>
-        <value xmi:type="expression:Expression" xmi:id="_x5qCLfSMEeeYpYD60oU_zA" name="initStatus" content="import com.company.model.DisputeStates&#xA;&#xA;DisputeStates.PENDING" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_x5qCLfSMEeeYpYD60oU_zA" name="initStatus" content="import com.company.creditcard.dispute.model.DisputeStates&#xA;&#xA;DisputeStates.PENDING" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true"/>
       </searchIndexes>
       <searchIndexes xmi:type="process:SearchIndex" xmi:id="_x5qCLvSMEeeYpYD60oU_zA">
         <name xmi:type="expression:Expression" xmi:id="_x5qCL_SMEeeYpYD60oU_zA" content="" returnTypeFixed="true"/>

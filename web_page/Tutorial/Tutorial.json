@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "Tutorial",
   "name" : "Tutorial",
-  "lastUpdate" : 1572269237299,
+  "lastUpdate" : 1572273371535,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -1008,7 +1008,7 @@
           },
           "apiUrl" : {
             "type" : "constant",
-            "value" : "../API/bdm/businessData/com.company.model.Customer"
+            "value" : "../API/bdm/businessData/com.company.creditcard.dispute.model.Customer"
           },
           "params" : {
             "type" : "expression",
@@ -2104,7 +2104,7 @@
     },
     "initialCountCustomer" : {
       "type" : "url",
-      "value" : "../API/bdm/businessData/com.company.model.Customer?q=countForFind&p=0&c=10",
+      "value" : "../API/bdm/businessData/com.company.creditcard.dispute.model.Customer?q=countForFind&p=0&c=10",
       "exposed" : false
     },
     "initialDataEmpty" : {

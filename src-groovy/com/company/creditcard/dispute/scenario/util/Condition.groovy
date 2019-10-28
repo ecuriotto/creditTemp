@@ -1,4 +1,4 @@
-package com.company.scenario.util
+package com.company.creditcard.dispute.scenario.util
 
 import java.util.concurrent.TimeoutException
 

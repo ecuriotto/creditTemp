@@ -1,8 +1,8 @@
-package com.company.scenario.process
+package com.company.creditcard.dispute.scenario.process
 
 import com.bonitasoft.engine.api.APIAccessor
-import com.company.model.DisputeStates
-import com.company.scenario.util.IdAccessor
+import com.company.creditcard.dispute.model.DisputeStates
+import com.company.creditcard.dispute.scenario.util.IdAccessor
 
 class CreditCardDisputeProcess implements IdAccessor {
 

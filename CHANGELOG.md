@@ -16,7 +16,8 @@
 * **Generic forms:** Increase text area default height.
 * **Update parameters:** Use a word case for parameter names.
 * **Update parameters:** Only display business parameters. Technical parameters must be prefixed by an `_`.
+* **Dispute and Customer info fragments:** Use a custom Panel widget based on bootstrap panel that supports buttons (for customer account details)
 * **Credit Card Dispute Process:** Add an email connector on the _Chargeback_ task to notify the customer.
 * **Environment:** use the _Local_ environment instead of the _Development_ to ease the first Deploy operation.
-
+* **Packages:** use a unique package name `com.company.creditcard.dispute` for BDM and sources
 

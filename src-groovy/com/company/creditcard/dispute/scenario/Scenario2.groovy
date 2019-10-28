@@ -1,9 +1,9 @@
-package com.company.scenario
+package com.company.creditcard.dispute.scenario
 
-import com.company.model.AccountTx
-import com.company.model.DisputeStates
-import com.company.scenario.process.CreditCardDisputeProcess
-import com.company.scenario.util.IdAccessor
+import com.company.creditcard.dispute.model.AccountTx
+import com.company.creditcard.dispute.model.DisputeStates
+import com.company.creditcard.dispute.scenario.process.CreditCardDisputeProcess
+import com.company.creditcard.dispute.scenario.util.IdAccessor
 
 class Scenario2 implements IdAccessor {
 

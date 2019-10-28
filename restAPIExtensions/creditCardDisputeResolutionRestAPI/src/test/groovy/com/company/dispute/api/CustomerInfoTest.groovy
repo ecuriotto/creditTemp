@@ -8,9 +8,9 @@ import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 import com.bonitasoft.engine.api.APIClient
 import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.web.extension.rest.RestAPIContext
-import com.company.model.Account
-import com.company.model.Customer
-import com.company.model.CustomerDAO
+import com.company.creditcard.dispute.model.Account
+import com.company.creditcard.dispute.model.Customer
+import com.company.creditcard.dispute.model.CustomerDAO
 
 import groovy.json.JsonSlurper
 import spock.lang.Specification

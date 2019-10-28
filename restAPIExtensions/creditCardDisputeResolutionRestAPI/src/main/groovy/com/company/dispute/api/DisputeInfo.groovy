@@ -20,7 +20,8 @@ import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
-import com.company.model.DisputeDAO
+import com.company.creditcard.dispute.model.Dispute
+import com.company.creditcard.dispute.model.DisputeDAO
 
 import groovy.json.JsonBuilder
 
@@ -35,7 +36,7 @@ class DisputeInfo implements RestApiController, CaseActivityHelper, BPMNamesCons
 
         def processAPI = context.apiClient.getProcessAPI()
         def searcBusinessData = newSearchBusinessData(processAPI)
-        def com.company.model.Dispute dispute = searcBusinessData.search(caseId.toLong(), 'dispute_ref', context.apiClient.getDAO(DisputeDAO))
+        def Dispute dispute = searcBusinessData.search(caseId.toLong(), 'dispute_ref', context.apiClient.getDAO(DisputeDAO))
         if(!dispute) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_NOT_FOUND,"""{"error" : "no dispute found for case $caseId"}""")
         }

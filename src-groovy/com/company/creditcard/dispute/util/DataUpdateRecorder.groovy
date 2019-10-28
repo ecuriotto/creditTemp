@@ -1,4 +1,4 @@
-package com.company.util
+package com.company.creditcard.dispute.util
 
 import com.bonitasoft.engine.api.ProcessAPI
 

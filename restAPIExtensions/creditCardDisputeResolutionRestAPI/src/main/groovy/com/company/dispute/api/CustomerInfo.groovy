@@ -18,8 +18,8 @@ import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
-import com.company.model.Customer
-import com.company.model.CustomerDAO
+import com.company.creditcard.dispute.model.Customer
+import com.company.creditcard.dispute.model.CustomerDAO
 
 import groovy.json.JsonBuilder
 

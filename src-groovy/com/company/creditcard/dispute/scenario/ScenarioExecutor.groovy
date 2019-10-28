@@ -1,12 +1,12 @@
-package com.company.scenario
+package com.company.creditcard.dispute.scenario
 
 import java.util.concurrent.ThreadLocalRandom
 
 import com.bonitasoft.engine.api.APIAccessor
-import com.company.model.Account
-import com.company.model.AccountTx
-import com.company.model.Customer
-import com.company.scenario.process.CreditCardDisputeProcess
+import com.company.creditcard.dispute.model.Account
+import com.company.creditcard.dispute.model.AccountTx
+import com.company.creditcard.dispute.model.Customer
+import com.company.creditcard.dispute.scenario.process.CreditCardDisputeProcess
 
 class ScenarioExecutor {
 

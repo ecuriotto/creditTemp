@@ -24,8 +24,8 @@ import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.engine.bpm.process.impl.ProcessInstanceSearchDescriptor
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
-import com.company.model.CustomerDAO
-import com.company.model.DisputeDAO
+import com.company.creditcard.dispute.model.CustomerDAO
+import com.company.creditcard.dispute.model.DisputeDAO
 
 import groovy.json.JsonBuilder
 

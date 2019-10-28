@@ -13,8 +13,8 @@ import org.bonitasoft.engine.session.APISession
 import com.bonitasoft.engine.api.APIClient
 import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.web.extension.rest.RestAPIContext
-import com.company.model.Customer
-import com.company.model.Dispute
+import com.company.creditcard.dispute.model.Customer
+import com.company.creditcard.dispute.model.Dispute
 
 import spock.lang.Specification
 

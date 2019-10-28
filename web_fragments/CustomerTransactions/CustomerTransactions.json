@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "CustomerTransactions",
   "name" : "CustomerTransactions",
-  "lastUpdate" : 1570630494878,
+  "lastUpdate" : 1572272846187,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -281,7 +281,7 @@
   "data" : {
     "account" : {
       "type" : "url",
-      "value" : "../API/bdm/businessData/com.company.model.Account?p=0&c=1&q=findById&f=id={{customer.accountId}}",
+      "value" : "../API/bdm/businessData/com.company.creditcard.dispute.model.Account?p=0&c=1&q=findById&f=id={{customer.accountId}}",
       "exposed" : false
     },
     "customer" : {

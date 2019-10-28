@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <businessObjectModel modelVersion="1.0" productVersion="7.7.0-SNAPSHOT">
     <businessObjects>
-        <businessObject qualifiedName="com.company.model.Account">
+        <businessObject qualifiedName="com.company.creditcard.dispute.model.Account">
             <fields>
                 <field type="STRING" length="255" name="id" nullable="false" collection="false"/>
-                <relationField type="COMPOSITION" reference="com.company.model.AccountTx" fetchType="EAGER" name="transactions" nullable="true" collection="true"/>
+                <relationField type="COMPOSITION" reference="com.company.creditcard.dispute.model.AccountTx" fetchType="EAGER" name="transactions" nullable="true" collection="true"/>
             </fields>
             <uniqueConstraints>
                 <uniqueConstraint name="UNIQUE_ID_CONSTRAINT">
@@ -22,7 +22,7 @@
                 </index>
             </indexes>
         </businessObject>
-        <businessObject qualifiedName="com.company.model.AccountTx">
+        <businessObject qualifiedName="com.company.creditcard.dispute.model.AccountTx">
             <fields>
                 <field type="DOUBLE" length="255" name="amount" nullable="false" collection="false"/>
                 <field type="STRING" length="255" name="currency" nullable="false" collection="false"/>
@@ -33,7 +33,7 @@
             <queries/>
             <indexes/>
         </businessObject>
-        <businessObject qualifiedName="com.company.model.Address">
+        <businessObject qualifiedName="com.company.creditcard.dispute.model.Address">
             <fields>
                 <field type="STRING" length="255" name="street" nullable="true" collection="false"/>
                 <field type="STRING" length="255" name="postalCode" nullable="true" collection="false"/>
@@ -47,15 +47,15 @@
             <queries/>
             <indexes/>
         </businessObject>
-        <businessObject qualifiedName="com.company.model.Customer">
+        <businessObject qualifiedName="com.company.creditcard.dispute.model.Customer">
             <fields>
                 <field type="STRING" length="255" name="customerId" nullable="true" collection="false"/>
                 <field type="STRING" length="255" name="firstName" nullable="false" collection="false"/>
                 <field type="STRING" length="255" name="lastName" nullable="false" collection="false"/>
                 <field type="STRING" length="50" name="phoneNumber" nullable="false" collection="false"/>
                 <field type="STRING" length="255" name="email" nullable="false" collection="false"/>
-                <relationField type="AGGREGATION" reference="com.company.model.Account" fetchType="EAGER" name="account" nullable="true" collection="false"/>
-                <relationField type="COMPOSITION" reference="com.company.model.Address" fetchType="EAGER" name="address" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.creditcard.dispute.model.Account" fetchType="EAGER" name="account" nullable="true" collection="false"/>
+                <relationField type="COMPOSITION" reference="com.company.creditcard.dispute.model.Address" fetchType="EAGER" name="address" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints>
                 <uniqueConstraint name="UNQ_ID_CONSTRAINT">
@@ -73,7 +73,7 @@
                 </index>
             </indexes>
         </businessObject>
-        <businessObject qualifiedName="com.company.model.Dispute">
+        <businessObject qualifiedName="com.company.creditcard.dispute.model.Dispute">
             <description></description>
             <fields>
                 <field type="STRING" length="255" name="customerId" nullable="false" collection="false"/>
