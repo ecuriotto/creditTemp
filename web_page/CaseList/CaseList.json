@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1570891889236,
+  "lastUpdate" : 1572278924248,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -946,7 +946,7 @@
     },
     "validCustomerId" : {
       "type" : "url",
-      "value" : "../API/bdm/businessData/com.company.model.Customer?p=0&c=1&q=findByCustomerId&f=customerId={{customerId}}",
+      "value" : "../API/bdm/businessData/com.company.creditcard.dispute.model.Customer?p=0&c=1&q=findByCustomerId&f=customerId={{customerId}}",
       "exposed" : false
     },
     "customerId" : {
