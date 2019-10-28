@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "Tutorial",
   "name" : "Tutorial",
-  "lastUpdate" : 1571919362769,
+  "lastUpdate" : 1572249674639,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -29,6 +29,55 @@
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<small><span class=\"text-muted\">App version: </span><em>{{application[0].version}}</em> <span class=\"text-muted\">|</span> <span class=\"text-muted\">Bonita version: </span><em>{{session.version}}</em></small>"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "right"
+        }
+      },
+      "reference" : "7fc7ecb6-f5ff-4b12-a32b-20803a1b024e",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
       "type" : "component",
       "dimension" : {
         "xs" : 12,
@@ -390,7 +439,56 @@
         },
         "hidden" : {
           "type" : "expression",
-          "value" : "handlerStatus.eventHandlerEnabled"
+          "value" : "handlerStatus.eventHandlerEnabled || session.version.startsWith(\"7.9\")"
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<h4><span class=\"text-warning glyphicon glyphicon-warning-sign\" aria-hidden=\"true\"></span> Activate the Case Management event handler</h4>\nBy default, the Case Management event handler is not activated. To activate it, the following argument has to be passed when launching the Tomcat: <br/><br/>\n<i><strong>-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true</strong></i>\n <br/><br/>\nIn Bonita Studio, you can enable the event handler by going to <strong>Preferences → Server settings → </strong><em>Check </em><strong>Enable ACM event handler</strong>."
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "05639bcf-4128-4f4d-8f0a-1bd3d3c342ab",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "expression",
+          "value" : "handlerStatus.eventHandlerEnabled || !session.version.startsWith(\"7.9\")"
         },
         "labelHidden" : {
           "type" : "constant",
@@ -421,7 +519,7 @@
           "value" : "left"
         }
       },
-      "reference" : "05639bcf-4128-4f4d-8f0a-1bd3d3c342ab",
+      "reference" : "a39b6f7f-de5d-48e5-82b3-d475c1c16e02",
       "hasValidationError" : false,
       "id" : "pbText"
     } ], [ {
@@ -471,8 +569,8 @@
           "value" : ""
         },
         "hidden" : {
-          "type" : "constant",
-          "value" : false
+          "type" : "expression",
+          "value" : "!session.version.startsWith(\"7.9\")"
         },
         "labelHidden" : {
           "type" : "constant",
@@ -504,6 +602,55 @@
         }
       },
       "reference" : "2a08aaad-e595-4d77-9f6d-0ea46f4773e5",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "expression",
+          "value" : "session.version.startsWith(\"7.9\")"
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "In order to be able to use this example, there is a couple of artifacts to deploy. <br/>All the artifacts can be deployed from the Bonita Studio using the Deploy action: Right click on the project → <em>Deploy...</em> or click on the <em>Deploy...</em> icon in the toolbar</br>\n<ol>\n<li>Select all the artifacts</li>\n<li>Choose the <em>Local</em> environment</li>\n<li>Use <em>daniela.angelo</em> as default username (or any user mapped to the process initiator actor for a case)</li>\n<li>Click on <b>Deploy</b></li>\n<li>Open the <em>Credit Card Dispute Resolution</em> application</li>\n</ol>"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "7fbd193e-7a2c-46d2-856c-d1fc8bd964e4",
       "hasValidationError" : false,
       "id" : "pbText"
     } ], [ {
@@ -964,7 +1111,7 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "<i>We simulate here a situation where a customer calls the Customer Service to dispute a transaction, and a the Customer Service employee starts a new dispute case with the ID of the calling customer</i>. <br/>\nThe database now contains the required data to start a case of the <i>Credit Card Dispute</i> process. <br/><br/>\nYou can now {{mainAppsLink}}(second tab of this application example). <br/>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> This page displays the list of the opened disputes."
+            "value" : "<i>We simulate here a situation where a customer calls the Customer Service to dispute a transaction, and a the Customer Service employee starts a new dispute case with the ID of the calling customer</i>. <br/>\nThe database now contains the required data to start a case of the <i>Credit Card Dispute</i> process. <br/><br/>\nYou can now {{mainAppsLink}} (second tab of this application example). <br/>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> This page displays the list of the opened disputes."
           },
           "alignment" : {
             "type" : "constant",
@@ -1968,6 +2115,16 @@
     "creditCardDisputeProcessId" : {
       "type" : "url",
       "value" : "../API/bpm/process?p=0&c=1&f=name=Credit%20Card%20Dispute",
+      "exposed" : false
+    },
+    "session" : {
+      "type" : "url",
+      "value" : "../API/system/session/unusedId",
+      "exposed" : false
+    },
+    "application" : {
+      "type" : "url",
+      "value" : "../API/living/application?f=token%3dcases",
       "exposed" : false
     }
   },
