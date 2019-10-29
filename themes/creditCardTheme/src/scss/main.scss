@@ -6,8 +6,9 @@ $card-bg: #fafafa !default;
 $light-bg: #f9f9f9 !default;
 $timeline-border-color: #e6e6e6 !default;
 
-// Bootstrap
+
 @import "bootstrap";
+@import "font-awesome";
 
 @import "bonita_buttons";
 @import "bonita_pager";
