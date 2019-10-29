@@ -66,7 +66,8 @@ Reuse the default profiles
 * ACMStates.groovy: Utility class with the ACM states constants
 * DisputeStates.groovy: Utility class with the Dispute states constants
 * DataUpdateRecorder.groovy: Utility class used when updating Dispute data or Parameters to track the values changes.
-* ScenarioExecutor.groovy: Contains the logic to execute Credit Card Dispute process scenario
+* ScenarioExecutor.groovy: Contains the logic to execute scenario
+* CreditCardDisputeProcess.groovy: Contains the logic to execute Credit Card Dispute process scenario
 
 ### Forms and Pages
 
