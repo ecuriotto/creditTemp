@@ -92,7 +92,7 @@ Reuse the default profiles
 * Timeline: A timeline widget used in the _Case_ page.
 * ButtonGroup: Create a bootstrap button group. Group buttons are defined using the `buttons` property.  
 	* JSON format of a button:  
-```
+~~~~
 {
 	"label" : "MyButton",
 	"style" : "primary", /*could be "danger","warning","default" or "info"*/
@@ -109,7 +109,7 @@ Reuse the default profiles
 	"responseStatusCode" : 200, /*Set after the request is executed*/
 	"dataFromError" : {} /*Set if the request is not successful*/
 }
-```
+~~~~
 * Panel: Create a bootstrap panel container.
 * ToggleButtons: Toggle buttons used in the _CaseList_ page to switch between active and archived cases.
 
