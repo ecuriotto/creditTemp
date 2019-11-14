@@ -119,16 +119,12 @@ node('cypress'){
 
      stage('E2E Tests') {
      
-         unstash 'tests'
+          unstash 'tests'
          
-         def cypressConf = readJSON file: 'tests/cypress.json'
-         cypressConf.baseUrl = props.bonita_url
-         writeJSON file: 'tests/cypress.json', json: cypressConf, pretty: 4
-           
           dir('tests'){
              ansiColor('xterm') {
                  try{
-                      sh 'npm install && npm test'
+                      sh "npm install && cypress run --config baseUrl=${props.bonita_url}"
                  }finally{
                       publishHTML (target: [
                           allowMissing: true,
@@ -144,7 +140,7 @@ node('cypress'){
     }
 
     stage('Archive videos') {
-        archiveArtifacts artifacts: "tests/cypress/videos/*.mp4", fingerprint: true
+        archiveArtifacts artifacts: "tests/cypress/videos/*.mp4,tests/cypress/screenshots/*", fingerprint: true
     }
 }
 } //lock

@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "Tutorial",
   "name" : "Tutorial",
-  "lastUpdate" : 1572273371535,
+  "lastUpdate" : 1573743195883,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -2089,7 +2089,7 @@
     },
     "mainAppsLink" : {
       "type" : "expression",
-      "value" : "return \"<a class=\\\"text-info\\\"  href=\\\"http://\" + window.location.host + \"/bonita/apps/cases/home/\\\" target=\\\"_blank\\\">open the main application</a>\";",
+      "value" : "function getPortalUrl() {\n    console.log(window.location);\n    var locationHref = window.location.href;\n    var indexOfPortal = locationHref.indexOf('/portal');\n    if (indexOfPortal >= 0) {\n      return locationHref.substring(0, indexOfPortal);\n    } else {\n      //Make the link work in case we are in the preview and the target process is deployed in the portal\n      return '/bonita';\n    }\n}\n\nreturn `<a class=\"text-info\"  href=\"${getPortalUrl()}/apps/cases/home\" target=\"_blank\">open the main application</a>`;",
       "exposed" : false
     },
     "handlerStatus" : {
