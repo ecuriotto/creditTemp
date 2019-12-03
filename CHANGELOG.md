@@ -1,9 +1,9 @@
 <a name="1.0.0"></a>
-# [1.0.0](https://github.com/bonitasoft/credit-card-dispute-resolution/compare/1.0.0-RC...1.0.0) (2019-XX-XX)
+# [1.0.0](https://github.com/bonitasoft/credit-card-dispute-resolution/compare/1.0.0-RC...1.0.0) (2019-12-03)
 
 ### Bug Fixes
 
-* **Theme:** Add font-awesome in custom theme to properly display the default layout page in Bonita 7.10+
+* **Theme:** Add font-awesome in custom theme to properly display the default layout page in Bonita 7.9.1 and above
 
 
 <a name="1.0.0 RC"></a>

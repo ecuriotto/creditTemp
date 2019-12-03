@@ -25,6 +25,7 @@ Go in the preference of your Studio, in the Server settings category, check Enab
 
 In 7.10+ just use the Deploy... action to deploy the project.
 
+In 7.9.x:  
 1. Deploy the Rest API extension
 1. Deploy all the processes
 1. Open the credit-card-dispute-resolution.xml application descriptors and click on the overview URL

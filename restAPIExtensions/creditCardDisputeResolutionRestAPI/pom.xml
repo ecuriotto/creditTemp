@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.company.dispute</groupId>
 	<artifactId>creditCardDisputeResolutionRestAPI</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<name>Credit Card Dispute Resolution API Extension</name>
 	<description>REST API extensions for Credit Card Dispute Resolution Application</description>
