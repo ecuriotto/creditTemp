@@ -1,3 +1,6 @@
+<a name="1.0.1"></a>
+# [1.0.1](https://github.com/bonitasoft/credit-card-dispute-resolution/compare/1.0.0...1.0.1) (YYYY-MM-DD)
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/bonitasoft/credit-card-dispute-resolution/compare/1.0.0-RC...1.0.0) (2019-12-03)
 
