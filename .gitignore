@@ -1,4 +1,5 @@
 
+
 bin
 .classpath
 /src-providedGroovy
@@ -33,3 +34,7 @@ target/
 
 node/
 node_modules/
+
+
+/process_configurations
+!/web_widgets/*/*.ctrl.js

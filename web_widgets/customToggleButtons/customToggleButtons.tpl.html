@@ -1,0 +1,17 @@
+<div class="text-{{ properties.alignment }}">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-xs-{{ 12 - (!properties.labelHidden && properties.labelPosition === 'left' ? properties.labelWidth : 0) }}">
+               <div ng-class="ctrl.groupAlignement()" >
+                <label ng-class="'btn btn-' + properties.buttonStyle"
+                       ng-model="properties.selectedValue"
+                       ng-repeat="option in properties.availableValues track by $index" 
+                       btn-radio="ctrl.getValue(option)"
+                       ng-bind-html="ctrl.getLabel(option)">
+                </label>
+                </div>
+            </div>
+            <div ng-messages="$form[ctrl.name].$dirty && $form[ctrl.name].$error " ng-messages-include="forms-generic-errors.html" role="alert"></div>
+        </div>
+    </div>
+</div>

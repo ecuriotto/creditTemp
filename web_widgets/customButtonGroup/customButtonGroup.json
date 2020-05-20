@@ -1,27 +1,35 @@
 {
-  "designerVersion" : "1.9.45",
+  "designerVersion" : "1.10.12",
+  "previousDesignerVersion" : "1.9.45",
   "id" : "customButtonGroup",
   "name" : "ButtonGroup",
-  "lastUpdate" : 1570367223853,
-  "template" : "<div class=\"text-{{ properties.alignment }}\">\n    <div class=\"btn-group\" role=\"group\" aria-label=\"...\">\n      <button type=\"button\" \n         ng-repeat=\"button in properties.buttons\"  \n          ng-click=\"ctrl.action(button)\"\n         ng-class=\"'btn btn-' + button.style\" \n         ng-disabled=\"button.disabled || ctrl.busy\"\n         ng-bind-html=\"button.label | uiTranslate\"></button>\n    </div>\n</div>\n",
-  "controller" : "function ButtonBarCtrl($scope, $http, $location, $log, $window, localStorageService, modalService) {\n  'use strict';\n\n  var vm = this;\n\n  this.action = function action(button) {\n    if (button.action === 'Remove from collection') {\n      removeFromCollection(button);\n      closeModal(button.closeOnSuccess);\n    } else if (button.action === 'Add to collection') {\n      addToCollection(button);\n      closeModal(button.closeOnSuccess);\n    } else if (button.action === 'Start process') {\n      startProcess(button);\n    } else if (button.action === 'Submit task') {\n      submitTask(button);\n    } else if (button.action === 'Open modal') {\n      closeModal(button.closeOnSuccess);\n      openModal(button.modalId);\n    } else if (button.action === 'Close modal') {\n      closeModal(true);\n    } else if (button.url) {\n      doRequest(button, button.action, button.url);\n    }\n  };\n\n  function openModal(modalId) {\n    modalService.open(modalId);\n  }\n\n  function closeModal(shouldClose) {\n    if(shouldClose)\n      modalService.close();\n  }\n\n  function removeFromCollection(button) {\n    if (button.collectionToModify) {\n      if (!Array.isArray(button.collectionToModify)) {\n        throw 'Collection property for widget button should be an array, but was ' + button.collectionToModify;\n      }\n      var index = -1;\n      if (button.collectionPosition === 'First') {\n        index = 0;\n      } else if (button.collectionPosition === 'Last') {\n        index = button.collectionToModify.length - 1;\n      } else if (button.collectionPosition === 'Item') {\n        index = button.collectionToModify.indexOf(button.removeItem);\n      }\n\n      // Only remove element for valid index\n      if (index !== -1) {\n         button.collectionToModify.splice(index, 1);\n      }\n    }\n  }\n\n  function addToCollection(button) {\n    if (!button.collectionToModify) {\n      button.collectionToModify = [];\n    }\n    if (!Array.isArray(button.collectionToModify)) {\n      throw 'Collection property for widget button should be an array, but was ' + button.collectionToModify;\n    }\n    var item = angular.copy(button.valueToAdd);\n\n    if (button.collectionPosition === 'First') {\n      button.collectionToModify.unshift(item);\n    } else {\n     button.collectionToModify.push(item);\n    }\n  }\n\n  function startProcess(button) {\n    var id = getUrlParam('id');\n    if (id) {\n      var prom = doRequest(button, 'POST', '../API/bpm/process/' + id + '/instantiation', getUserParam()).then(function() {\n        localStorageService.delete($window.location.href);\n      });\n\n    } else {\n      $log.log('Impossible to retrieve the process definition id value from the URL');\n    }\n  }\n\n  /**\n   * Execute a get/post request to an URL\n   * It also bind custom data from success|error to a data\n   * @return {void}\n   */\n  function doRequest(button, method, url, params) {\n    vm.busy = true;\n    var req = {\n      method: method,\n      url: url,\n      data: angular.copy(button.dataToSend),\n      params: params\n    };\n    return $http(req)\n      .success(function(data, status) {\n        button.dataFromSuccess = data;\n        button.responseStatusCode = status;\n        button.dataFromError = undefined;\n        notifyParentFrame(button, { message: 'success', status: status, dataFromSuccess: data, dataFromError: undefined, responseStatusCode: status});\n        if (button.targetUrlOnSuccess && method !== 'GET') {\n          redirectIfNeeded(button);\n        }\n        closeModal(button.closeOnSuccess);\n      })\n      .error(function(data, status) {\n        button.dataFromError = data;\n        button.responseStatusCode = status;\n        button.dataFromSuccess = undefined;\n        notifyParentFrame(button, { message: 'error', status: status, dataFromError: data, dataFromSuccess: undefined, responseStatusCode: status});\n      })\n      .finally(function() {\n        vm.busy = false;\n      });\n  }\n\n  function redirectIfNeeded(button) {\n    var iframeId = $window.frameElement ? $window.frameElement.id : null;\n    //Redirect only if we are not in the portal or a living app\n    if (!iframeId || iframeId && iframeId.indexOf('bonitaframe') !== 0) {\n      $window.location.assign(button.targetUrlOnSuccess);\n    }\n  }\n\n  function notifyParentFrame(button, additionalProperties) {\n    if ($window.parent !== $window.self) {\n      var dataToSend = angular.extend({}, button, additionalProperties);\n      $window.parent.postMessage(JSON.stringify(dataToSend), '*');\n    }\n  }\n\n  function getUserParam() {\n    var userId = getUrlParam('user');\n    if (userId) {\n      return { 'user': userId };\n    }\n    return {};\n  }\n\n  /**\n   * Extract the param value from a URL query\n   * e.g. if param = \"id\", it extracts the id value in the following cases:\n   *  1. http://localhost/bonita/portal/resource/process/ProcName/1.0/content/?id=8880000\n   *  2. http://localhost/bonita/portal/resource/process/ProcName/1.0/content/?param=value&id=8880000&locale=en\n   *  3. http://localhost/bonita/portal/resource/process/ProcName/1.0/content/?param=value&id=8880000&locale=en#hash=value\n   * @returns {id}\n   */\n  function getUrlParam(param) {\n    var paramValue = $location.absUrl().match('[//?&]' + param + '=([^&#]*)($|[&#])');\n    if (paramValue) {\n      return paramValue[1];\n    }\n    return '';\n  }\n\n  function submitTask(button) {\n    var id;\n    id = getUrlParam('id');\n    if (id) {\n      var params = getUserParam();\n\t    params.assign = button.assign;\n        doRequest(button, 'POST', '../API/bpm/userTask/' + getUrlParam('id') + '/execution', params).then(function() {\n        localStorageService.delete($window.location.href);\n      });\n    } else {\n      $log.log('Impossible to retrieve the task id value from the URL');\n    }\n  }\n}",
+  "lastUpdate" : 1589990292953,
+  "template" : "@customButtonGroup.tpl.html",
+  "controller" : "@customButtonGroup.ctrl.js",
   "custom" : true,
-  "properties" : [ {
-    "label" : "Button list",
-    "name" : "buttons",
-    "caption" : "",
-    "help" : "Expected JSON format for a button:\n{ \n    \"label\" : \"ButtonLabel\" ,\n    \"style\" : \"primary\",\n    \"action\" : \"POST\",\n    \"url\" : \"../API/..\",\n    \"dataToSend\" : {..},\n    \"targetUrlOnSuccess\" : \"../home\",\n    ... all standard button properties \n}",
-    "type" : "collection",
-    "defaultValue" : [ ],
-    "bond" : "expression"
-  }, {
-    "label" : "Alignment",
-    "name" : "alignment",
-    "type" : "choice",
-    "defaultValue" : "left",
-    "choiceValues" : [ "left", "center", "right" ],
-    "bond" : "constant"
-  } ],
+  "properties" : [
+    {
+      "label" : "Button list",
+      "name" : "buttons",
+      "caption" : "",
+      "help" : "Expected JSON format for a button:\n{ \n    \"label\" : \"ButtonLabel\" ,\n    \"style\" : \"primary\",\n    \"action\" : \"POST\",\n    \"url\" : \"../API/..\",\n    \"dataToSend\" : {..},\n    \"targetUrlOnSuccess\" : \"../home\",\n    ... all standard button properties \n}",
+      "type" : "collection",
+      "defaultValue" : [ ],
+      "bond" : "expression"
+    },
+    {
+      "label" : "Alignment",
+      "name" : "alignment",
+      "type" : "choice",
+      "defaultValue" : "left",
+      "choiceValues" : [
+        "left",
+        "center",
+        "right"
+      ],
+      "bond" : "constant"
+    }
+  ],
   "assets" : [ ],
   "requiredModules" : [ ],
   "type" : "widget",

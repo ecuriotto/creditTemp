@@ -1,906 +1,13 @@
 {
-  "designerVersion" : "1.9.45",
+  "designerVersion" : "1.10.18",
+  "previousDesignerVersion" : "1.9.45",
   "id" : "Tutorial",
   "name" : "Tutorial",
-  "lastUpdate" : 1573743195883,
-  "rows" : [ [ {
-    "type" : "container",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : "row-max-width"
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "repeatedCollection" : {
-        "type" : "variable",
-        "value" : ""
-      }
-    },
-    "reference" : "6293d9b9-7e29-4b0a-8094-010cb78e6a5b",
-    "hasValidationError" : false,
-    "id" : "pbContainer",
-    "rows" : [ [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "<small><span class=\"text-muted\">App version: </span><em>{{application[0].version}}</em> <span class=\"text-muted\">|</span> <span class=\"text-muted\">Bonita version: </span><em>{{session.version}}</em></small>"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "right"
-        }
-      },
-      "reference" : "7fc7ecb6-f5ff-4b12-a32b-20803a1b024e",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "Credit card dispute resolution: A Bonita Case Management example"
-        },
-        "level" : {
-          "type" : "constant",
-          "value" : "Level 2"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "center"
-        }
-      },
-      "reference" : "ea7b90d7-7fb0-48d6-8e97-54f82b181799",
-      "hasValidationError" : false,
-      "id" : "pbTitle"
-    } ], [ {
-      "type" : "container",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "repeatedCollection" : {
-          "type" : "variable",
-          "value" : ""
-        }
-      },
-      "reference" : "c5040b24-92e4-4957-b974-543beb02a813",
-      "hasValidationError" : false,
-      "id" : "pbContainer",
-      "rows" : [ [ ] ]
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "Welcome to this tutorial! <br/>\nYou will get here an overview of how Bonita can be used to answer Case Management business needs. <br/>\nLearn how it works, how to use it, and eventually <strong>how to create your own Case Management application</strong>! <br/>\nEnjoy the reading!"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "8ff8df79-4a82-40ef-b8aa-2655f9204987",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "container",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "repeatedCollection" : {
-          "type" : "variable",
-          "value" : ""
-        }
-      },
-      "reference" : "c9f1dcc0-ed52-4897-aed0-c18d46461e5e",
-      "hasValidationError" : false,
-      "id" : "pbContainer",
-      "rows" : [ [ ] ]
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "I- Purpose of the example"
-        },
-        "level" : {
-          "type" : "constant",
-          "value" : "Level 3"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "f373348a-45af-4a00-aefb-8f1e9af78f49",
-      "hasValidationError" : false,
-      "id" : "pbTitle"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "The purpose of this <i>Credit card dispute resolution application</i> is to provide a complete Case Management example created with Bonita. <br/>Case Management offers users a choice of tasks to perform according to their states (Required, Discretionary, Optional), as well as the possibility to create their own tasks when needed. <br/>\nThis example is meant to illustrate the power of the Bonita platform to implement and execute <i>Case Management-based</i> applications.<br/>\nUsing this example, you will be able to understand the main concepts and implement them in your own <i>Case Management-based</i> Bonita application."
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "d9979d50-22df-4b72-b992-aa8c8bb01598",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "II- The case management event handler"
-        },
-        "level" : {
-          "type" : "constant",
-          "value" : "Level 3"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "8fb9308f-d9cc-4b01-9696-b42611137bf1",
-      "hasValidationError" : false,
-      "id" : "pbTitle"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "Bonita Case Management capabilities rely on an <strong>Event Handler</strong> embedded in Bonita Engine.<br/>\nThe event handler is triggered every time a human task is completed, and has the following effect: <br/>\n<i><strong>All the human tasks <u>transient</u> variables whose name starts with `$` are re-evaluated.</strong></i> <br/>\nThose transient variables contain the <i>state logic</i>. This means that you must define such a transiant variable on each human task whose state must be re-evaluated.<br/> \nThe value of a variable should reflect the state of the associated human task (Required, Discretionary, Optional, Not Available, Completed), depending on the execution state of the process (a given task has been completed, a given business data has been valuated, ...). <br/>\nWhen the event handler is triggered, the values of those variables are re-evaluated, and so the state of each human task.<br/>\nThe state of each task is displayed in the page provided (the next <i>Disputes</i> tab). Only available tasks can be executed. This logic of task display is computed in a REST API extension also provided in this example."
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "800179c3-6cf0-44d6-84f1-5ca5ab4e4d06",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "expression",
-          "value" : "!handlerStatus.eventHandlerEnabled"
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "<h4><span class=\"text-success glyphicon glyphicon-ok-circle\" aria-hidden=\"true\"></span> The Case Management event handler is already activated</h4>"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "5a5b38fb-7c77-4ca0-b6e8-f8a39e560b84",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "expression",
-          "value" : "handlerStatus.eventHandlerEnabled || session.version.startsWith(\"7.9\")"
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "<h4><span class=\"text-warning glyphicon glyphicon-warning-sign\" aria-hidden=\"true\"></span> Activate the Case Management event handler</h4>\nBy default, the Case Management event handler is not activated. To activate it, the following argument has to be passed when launching the Tomcat: <br/><br/>\n<i><strong>-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true</strong></i>\n <br/><br/>\nIn Bonita Studio, you can enable the event handler by going to <strong>Preferences → Server settings → </strong><em>Check </em><strong>Enable ACM event handler</strong>."
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "05639bcf-4128-4f4d-8f0a-1bd3d3c342ab",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "expression",
-          "value" : "handlerStatus.eventHandlerEnabled || !session.version.startsWith(\"7.9\")"
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "<h4><span class=\"text-warning glyphicon glyphicon-warning-sign\" aria-hidden=\"true\"></span> Activate the Case Management event handler</h4>\nBy default, the Case Management event handler is not activated. To activate it, the following argument has to be passed when launching the Tomcat: <br/><br/>\n<i><strong>-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true</strong></i>\n <br/><br/>\nIn Bonita Studio, you can pass this argument to the engine Tomcat by going to <strong>Preferences → Server settings → Tomcat JVM additional arguments</strong>. The parameter is present by default, you just have to set its value to <strong>true</strong>."
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "a39b6f7f-de5d-48e5-82b3-d475c1c16e02",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "III- Set up the example"
-        },
-        "level" : {
-          "type" : "constant",
-          "value" : "Level 3"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "d96d79fb-06fd-4bd1-8ded-b5e3b78a5403",
-      "hasValidationError" : false,
-      "id" : "pbTitle"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "expression",
-          "value" : "!session.version.startsWith(\"7.9\")"
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "In order to be able to use this example, check that the following artifacts have been deployed:\n<ol>\n<li>Business Data Model <strong><i>bom.xml</i></strong></li>\n<li>Organization <strong><i>ACME.organization</i></strong></li>\n<li>Processes<strong> <i>Credit Card Dispute</i></strong>  and <strong> <i>Data initialization</i></strong></li>\n<li>REST API extension<strong> <i>creditCardDisputeResolutionRestAPI</i></strong></li>\n<li>Application descriptor <strong><i>credit-card-dispute-resolution</i></strong></li>\n<li>Finally, refresh this web page</li>\n</ol>"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "2a08aaad-e595-4d77-9f6d-0ea46f4773e5",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "expression",
-          "value" : "session.version.startsWith(\"7.9\")"
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "In order to be able to use this example, there is a couple of artifacts to deploy. <br/>All the artifacts can be deployed from the Bonita Studio using the Deploy action: Right click on the project → <em>Deploy...</em> or click on the <em>Deploy...</em> icon in the toolbar</br>\n<ol>\n<li>Select all the artifacts</li>\n<li>Choose the <em>Local</em> environment</li>\n<li>Use <em>daniela.angelo</em> as default username (or any user mapped to the process initiator actor for a case)</li>\n<li>Click on <b>Deploy</b></li>\n<li>Open the <em>Credit Card Dispute Resolution</em> application</li>\n</ol>"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "7fbd193e-7a2c-46d2-856c-d1fc8bd964e4",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "IV- Data initialization"
-        },
-        "level" : {
-          "type" : "constant",
-          "value" : "Level 3"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "3ca14ee8-9e13-45be-9d6a-dfdc80eea7a3",
-      "hasValidationError" : false,
-      "id" : "pbTitle"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "The <i>Credit Card Dispute</i> process requires the pre-existence of some data: <br/>\n<ul>\n<li>An <strong>account</strong> contains all the <strong>transactions</strong> of a given <strong>customer</strong></li>\n<li>A <strong>dispute</strong> is started following the call of an <strong>existing customer</strong> who wants to dispute a <strong>transaction</strong> on its <strong>account</strong> </li>\n</ul>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> The database must be populated with some customers, accounts, and transactions before a new dispute can be started. We thought that existing disputes would also be nice to exist in the dispute list to offer a sense of reality. <br/>\nSo we have implemented a process that creates those data: <i>DataInitialization</i>."
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "14a554c5-467c-4e76-a214-a91aac6cf4a6",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "expression",
-          "value" : "initialDataEmpty ? dataInitResponse.id : true"
-        },
-        "disabled" : {
-          "type" : "expression",
-          "value" : "!dataInitPayload && !dataInitPayload.processDefinitionId"
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Create customers, accounts, transactions and disputes"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "center"
-        },
-        "buttonStyle" : {
-          "type" : "constant",
-          "value" : "success"
-        },
-        "action" : {
-          "type" : "constant",
-          "value" : "POST"
-        },
-        "assign" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "url" : {
-          "type" : "interpolation",
-          "value" : "../API/bpm/case"
-        },
-        "responseStatusCode" : {
-          "type" : "variable",
-          "value" : ""
-        },
-        "dataToSend" : {
-          "type" : "expression",
-          "value" : "dataInitPayload"
-        },
-        "dataFromSuccess" : {
-          "type" : "variable",
-          "value" : "dataInitResponse"
-        },
-        "closeOnSuccess" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "dataFromError" : {
-          "type" : "variable",
-          "value" : "dataInitError"
-        },
-        "targetUrlOnSuccess" : {
-          "type" : "interpolation",
-          "value" : "{{nextTaskLink}}"
-        },
-        "collectionToModify" : {
-          "type" : "variable"
-        },
-        "modalId" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "collectionPosition" : {
-          "type" : "constant",
-          "value" : "Last"
-        },
-        "valueToAdd" : {
-          "type" : "constant"
-        },
-        "removeItem" : {
-          "type" : "variable"
-        }
-      },
-      "reference" : "9139e466-1578-4a16-a5d4-f60d62d01279",
-      "hasValidationError" : false,
-      "id" : "pbButton"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : "alert alert-danger"
-        },
-        "hidden" : {
-          "type" : "expression",
-          "value" : "!dataInitError.message"
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Default label"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "allowHTML" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "<span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span> <strong>Something bad happened</strong>\n<br/>\n{{dataInitError.message}}"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        }
-      },
-      "reference" : "ee03dc12-2296-45c0-8537-8dfd7e1db285",
-      "hasValidationError" : false,
-      "id" : "pbText"
-    } ], [ {
-      "type" : "container",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "expression",
-          "value" : "initialDataEmpty ? !dataInitResponse.id : false"
-        },
-        "repeatedCollection" : {
-          "type" : "variable",
-          "value" : ""
-        }
-      },
-      "reference" : "13cd1589-c1eb-423a-af2d-5efac6f7cded",
-      "hasValidationError" : false,
-      "id" : "pbContainer",
-      "rows" : [ [ {
-        "type" : "component",
+  "lastUpdate" : 1589990293333,
+  "rows" : [
+    [
+      {
+        "type" : "container",
         "dimension" : {
           "xs" : 12,
           "sm" : 12,
@@ -910,1221 +17,2326 @@
         "propertyValues" : {
           "cssClasses" : {
             "type" : "constant",
-            "value" : "text-success"
-          },
-          "hidden" : {
-            "type" : "expression",
-            "value" : "!initialDataEmpty"
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "Data created <i class=\"glyphicon glyphicon-ok\"></i>"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "f9e21505-eec9-434c-a278-64fd76c6f580",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
+            "value" : "row-max-width"
           },
           "hidden" : {
             "type" : "constant",
             "value" : false
           },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "Customers"
-          },
-          "level" : {
-            "type" : "constant",
-            "value" : "Level 4"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "087653d7-29c1-4687-b107-bce383074393",
-        "hasValidationError" : false,
-        "id" : "pbTitle"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "headers" : {
-            "type" : "constant",
-            "value" : [ "First name", "Last name", "Customer ID" ]
-          },
-          "type" : {
-            "type" : "constant",
-            "value" : "Bonita API"
-          },
-          "apiUrl" : {
-            "type" : "constant",
-            "value" : "../API/bdm/businessData/com.company.creditcard.dispute.model.Customer"
-          },
-          "params" : {
-            "type" : "expression",
-            "value" : "{\"q\" : \"find\", \"reload\" : dataInitResponse.id}"
-          },
-          "content" : {
-            "type" : "constant"
-          },
-          "columnsKey" : {
-            "type" : "constant",
-            "value" : [ "firstName", "lastName", "customerId" ]
-          },
-          "sortColumns" : {
-            "type" : "constant"
-          },
-          "selectedRow" : {
+          "repeatedCollection" : {
             "type" : "variable",
             "value" : ""
-          },
-          "pageSize" : {
-            "type" : "constant",
-            "value" : 3
-          },
-          "filter" : {
-            "type" : "constant"
           }
         },
-        "reference" : "e9359e07-048d-4b4a-8087-52e0a3778ecc",
+        "reference" : "6293d9b9-7e29-4b0a-8094-010cb78e6a5b",
         "hasValidationError" : false,
-        "id" : "pbDataTable"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "V- Open the application and create a dispute"
-          },
-          "level" : {
-            "type" : "constant",
-            "value" : "Level 3"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "d12fc70d-3a52-4543-81a8-08000ee032b0",
-        "hasValidationError" : false,
-        "id" : "pbTitle"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "<i>We simulate here a situation where a customer calls the Customer Service to dispute a transaction, and a the Customer Service employee starts a new dispute case with the ID of the calling customer</i>. <br/>\nThe database now contains the required data to start a case of the <i>Credit Card Dispute</i> process. <br/><br/>\nYou can now {{mainAppsLink}} (second tab of this application example). <br/>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> This page displays the list of the opened disputes."
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "69eeef57-9812-4d0c-9754-c3c417c7a495",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "Only members of the actor <strong><i>Customer Service</i></strong>, mapped to the group acme/sales, can start a new credit card dispute.<br/><br/>\n <i>Daniela Angelo</i> answers this criterion. If you are not already logged with <i>Daniela Angelo</i>, log out and log in with:<br/>\n<strong>User:</strong> daniela.angelo<br/>\n<strong>Password:</strong> bpm"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "b6807698-01cd-4e68-8a26-91b59c10e996",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "Create a new dispute <strong>by clicking on the <i>New dispute</i> button</strong> (top right hand corner).<br/>\nA<strong> customer ID</strong> will be asked to start the dispute. You can pick one from the customer list above.<br/>\n"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "4a445d13-a74b-429d-a194-07b00c4fd054",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "The User Interface"
-          },
-          "level" : {
-            "type" : "constant",
-            "value" : "Level 4"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "03074de6-e984-4bda-b1ff-5f7016e4772d",
-        "hasValidationError" : false,
-        "id" : "pbTitle"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "The main User Interface of the dispute resolution is organized in several zones:"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "eda4e13b-988d-4d4b-8d07-7666758be92f",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "An the top, information about the customer and the current dispute. This information is updated when actions are performed."
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "e715b458-fa54-42a9-a75f-c0f4505290e6",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "<br/>\nIn the mid-left zone, the task list. It contains all available actions for the current user, and their states. <br/>\nEach action corresponds to a human task in the <i>Credit Card Dispute</i> process. <br/>The state of a task can be <span class=\"label label-danger\">Required</span> <span class=\"label label-primary\">Discretionary</span> <span class=\"label label-primary\">Optional</span> <span class=\"label label-default\"> N/A (not available)</span>  or <span class=\"label label-success\">Completed</span> <br/>\nIf you look at the process, you can see on each task a transient data named <strong><i>$activityState</i></strong>, that computes the state of its task via the event handler.<br/>\nAs explained above, depending on its state, the task can be performed or not, by clicking on its name.<br/>\n\nAbove this list,the <strong>buttons</strong> zone. Among them, the special <strong>Task</strong> button. It is used to <strong>create an unplanned action that needs to be performed for this particular case</strong> (send a mail to someone, call a customer, ...). <br/>\nOnce created, the new action is available in the task list, and can be performed at any time."
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "99515bd6-6f37-4c31-a962-66d88ca8b4d1",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "In the mid-right zone, the <strong>History</strong> of the case. It contains a summary of all the tasks performed during the dispute resolution. <br/>\nAt the bottom of the page, the <strong>Comments</strong> zone contains all the comments added during the dispute resolution (report of a call with the customer for example)<br/>\nFurther down, the <strong>Documents</strong> zone contains all the documents added during the dispute resolution (Customer bills for example)"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "c1c65376-978d-4d84-886d-2dd4c249e195",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "VI- Gather dispute details"
-          },
-          "level" : {
-            "type" : "constant",
-            "value" : "Level 3"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "9bcc28b6-d67f-41a0-a8c1-2fd2107898c9",
-        "hasValidationError" : false,
-        "id" : "pbTitle"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "The first required action of the <strong>Credit Cart Dispute</strong> process is the <i>Gather Dispute Details</i> task: the customer is on the phone with Daniela Angelo, and explains the issue to her.<br/>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> As <i>Daniela Angelo</i> still, click on the task <i><strong>Gather Dispute Details</strong></i>.<br/><br/>\nYou have here the possibility to enter details about the dispute <i>(according to what the customer on the phone is telling you)</i>, and then to <strong>Reject</strong> or <strong>Follow-up</strong> on the dispute, depending on whether you consider it valid or not.<br/>\nThe <strong>Merchant Identification Number (MIN)</strong> corresponds to the identifier of the merchant who performed the transaction the customer is disputing. If the customer doesn't know it, it can be retrieved later, during the <i>Dispute Investigation</i>.<br/>\nFor the sake of this tutorial, enter an amount of <strong>600 USD</strong>, a random date in the past, and <strong>follow-up</strong> on the dispute."
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "fa017d6d-d777-425f-bbcd-b03715737386",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "VII- Investigate transaction"
-          },
-          "level" : {
-            "type" : "constant",
-            "value" : "Level 3"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "15413be3-2a51-4e09-b268-1463db9cf522",
-        "hasValidationError" : false,
-        "id" : "pbTitle"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "The next required action to perform is the action <strong>Investigate Transaction</strong>.  The customer gave details about the dispute during the first call, a <strong><i>Dispute Agent</i></strong> has now to investigate. <br/><br/>\n <i>Joseph Hovell</i> is a Dispute Agent (the actor mapped to the group acme/production). Log out and log in with:<br/>\n<strong>User:</strong> joseph.hovell<br/>\n<strong>Password:</strong>  bpm \n<br/><br/>\nDuring the investigation, the Dispute Agent will, for exemple, find the <i><b>M</b>erchant <b>I</b>dentification <b>N</b>umber</i> associated with the disputed transaction.</br>\n<ul>\n<li>Perform the action <i><strong>Investigate Transaction</strong></i>, add the following comment: <i>MIN found using customer transaction date </i></li>\n<li>Perform the action <i><strong>Update Dispute</strong></i> and add a Merchant identification Number (Exemple: 10-0002363) </li>\n</ul>\n<i class=\"text-info\"><i class=\"glyphicon glyphicon-info-sign\"></i> The database has been populated with transactions, you can find the MIN of a transaction by looking into the <strong>account details</strong>, if you want to simulate a real investigation</i>"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "61466216-9d5e-43ad-be35-b0f76608f97e",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "VIII- Chargeback"
-          },
-          "level" : {
-            "type" : "constant",
-            "value" : "Level 3"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "1f218fe3-abd4-4c27-86b3-5a504fa4f0d8",
-        "hasValidationError" : false,
-        "id" : "pbTitle"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "After the investigation, the Dispute Agent decides to <strong>Charge back</strong> the customer. <br/><br/>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> Perform the action <strong>Update Dispute</strong>, and set the status to <strong>PROCESSING CHARGEBACK</strong><br/><br/>\nThe action <strong>Chargeback</strong> should still be unavailable, because the amount to charge back is higher than the <strong><i>Review amount threshold</i></strong> (default value: 500) <i class=\"glyphicon glyphicon-arrow-right\"></i> A <strong>Dispute Supervisor</strong> has to perform a review to authorize the chargeback."
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "b7ceeccf-4940-41bf-b934-6ba28eaf6e84",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "<i>Zachary Williamson</i> is a Dispute Supervisor (the actor mapped with the group acme/finance). Log out and log in with:<br/>\n<strong>User:</strong> zachary.williamson<br/>\n<strong>Password:</strong>  bpm"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "fa4c036f-6af9-4332-aa5f-c1a0f639128c",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "<i class=\"glyphicon glyphicon-arrow-right\"></i> Perform the action <strong>Review</strong>, with the following comment: <i>Review done, chargeback authorized.</i> <br/>\n<i class=\"text-info\"><i class=\"glyphicon glyphicon-info-sign\"></i> The dispute supervisor has also the possibility to change the review amount threshold, by performing the action <strong>Update parameters</strong>. If you set the threshold to a value higher than the amount to charge back, then the review is not required anymore.</i>"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "777d68d1-0267-4f56-8a35-912b363a7146",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "Log in with  <i>Joseph Hovell</i>, and perform the action <Strong>Chargeback</strong>. <br/>\nThe customer has been charged back, and an email notification has been sent to its inbox. If the email connector has not been properly configured, the failure is just ignored. You may <a class=\"text-info\" target=\"_self\" href=\"../../../../../../portal.js/#/admin/processes/details/{{creditCardDisputeProcessId[0].id}}/params\">configure a valid smtp server in the process administration panel</a>.\n<br/>\nYou can now resolve the dispute by clicking on the <strong>Resolve</strong> button."
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "4463272f-9eb6-47f5-b291-04fbf3a7c1d2",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "IX - Known limitations"
-          },
-          "level" : {
-            "type" : "constant",
-            "value" : "Level 3"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "3097dd5f-1924-40db-9f07-7b6fbc3b1350",
-        "hasValidationError" : false,
-        "id" : "pbTitle"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "This example is using an event handler, as described in II here above. In case you have a big amount of cases and activities, you should monitor overall system performances and potentially do some tuning.\nActivities have dynamic names including an icon, which makes it simpler to create buttons in the application and forms. As a consequence, activity names would not display properly in the Bonita Portal tasklist. Furthermore, case visualization in the Monitoring page of the Bonita Portal would not display acitivity names properly neither."
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "cdb88939-95bf-4b25-a514-94e526618a05",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "X - Further steps"
-          },
-          "level" : {
-            "type" : "constant",
-            "value" : "Level 3"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "0394cae6-a418-47cc-88f4-d526693046fa",
-        "hasValidationError" : false,
-        "id" : "pbTitle"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "Starting from this example, you can go further with the implementation, using all other Bonita capabilities.\nIn case you want to translate the application to other languages, you can use UI Designer multi-language support. You can add localization assets for your forms and pages as explained in Bonita documentation."
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "4e98dec8-13cd-433b-bb24-fb6429192afe",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ] ]
-    } ] ]
-  } ], [ {
-    "type" : "component",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "labelHidden" : {
-        "type" : "constant",
-        "value" : true
-      },
-      "label" : {
-        "type" : "interpolation",
-        "value" : "Default label"
-      },
-      "labelPosition" : {
-        "type" : "constant",
-        "value" : "top"
-      },
-      "labelWidth" : {
-        "type" : "constant",
-        "value" : 4
-      },
-      "allowHTML" : {
-        "type" : "constant",
-        "value" : true
-      },
-      "text" : {
-        "type" : "interpolation",
-        "value" : "<br/><br/><br/>"
-      },
-      "alignment" : {
-        "type" : "constant",
-        "value" : "left"
+        "id" : "pbContainer",
+        "rows" : [
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "labelHidden" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "label" : {
+                  "type" : "interpolation",
+                  "value" : "Default label"
+                },
+                "labelPosition" : {
+                  "type" : "constant",
+                  "value" : "top"
+                },
+                "labelWidth" : {
+                  "type" : "constant",
+                  "value" : 4
+                },
+                "allowHTML" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "<small><span class=\"text-muted\">App version: </span><em>{{application[0].version}}</em> <span class=\"text-muted\">|</span> <span class=\"text-muted\">Bonita version: </span><em>{{session.version}}</em></small>"
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "right"
+                }
+              },
+              "reference" : "7fc7ecb6-f5ff-4b12-a32b-20803a1b024e",
+              "hasValidationError" : false,
+              "id" : "pbText"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "Credit card dispute resolution: A Bonita Case Management example"
+                },
+                "level" : {
+                  "type" : "constant",
+                  "value" : "Level 2"
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "center"
+                }
+              },
+              "reference" : "ea7b90d7-7fb0-48d6-8e97-54f82b181799",
+              "hasValidationError" : false,
+              "id" : "pbTitle"
+            }
+          ],
+          [
+            {
+              "type" : "container",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "repeatedCollection" : {
+                  "type" : "variable",
+                  "value" : ""
+                }
+              },
+              "reference" : "c5040b24-92e4-4957-b974-543beb02a813",
+              "hasValidationError" : false,
+              "id" : "pbContainer",
+              "rows" : [
+                [ ]
+              ]
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "labelHidden" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "label" : {
+                  "type" : "interpolation",
+                  "value" : "Default label"
+                },
+                "labelPosition" : {
+                  "type" : "constant",
+                  "value" : "top"
+                },
+                "labelWidth" : {
+                  "type" : "constant",
+                  "value" : 4
+                },
+                "allowHTML" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "Welcome to this tutorial! <br/>\nYou will get here an overview of how Bonita can be used to answer Case Management business needs. <br/>\nLearn how it works, how to use it, and eventually <strong>how to create your own Case Management application</strong>! <br/>\nEnjoy the reading!"
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "8ff8df79-4a82-40ef-b8aa-2655f9204987",
+              "hasValidationError" : false,
+              "id" : "pbText"
+            }
+          ],
+          [
+            {
+              "type" : "container",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "repeatedCollection" : {
+                  "type" : "variable",
+                  "value" : ""
+                }
+              },
+              "reference" : "c9f1dcc0-ed52-4897-aed0-c18d46461e5e",
+              "hasValidationError" : false,
+              "id" : "pbContainer",
+              "rows" : [
+                [ ]
+              ]
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "I- Purpose of the example"
+                },
+                "level" : {
+                  "type" : "constant",
+                  "value" : "Level 3"
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "f373348a-45af-4a00-aefb-8f1e9af78f49",
+              "hasValidationError" : false,
+              "id" : "pbTitle"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "labelHidden" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "label" : {
+                  "type" : "interpolation",
+                  "value" : "Default label"
+                },
+                "labelPosition" : {
+                  "type" : "constant",
+                  "value" : "top"
+                },
+                "labelWidth" : {
+                  "type" : "constant",
+                  "value" : 4
+                },
+                "allowHTML" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "The purpose of this <i>Credit card dispute resolution application</i> is to provide a complete Case Management example created with Bonita. <br/>Case Management offers users a choice of tasks to perform according to their states (Required, Discretionary, Optional), as well as the possibility to create their own tasks when needed. <br/>\nThis example is meant to illustrate the power of the Bonita platform to implement and execute <i>Case Management-based</i> applications.<br/>\nUsing this example, you will be able to understand the main concepts and implement them in your own <i>Case Management-based</i> Bonita application."
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "d9979d50-22df-4b72-b992-aa8c8bb01598",
+              "hasValidationError" : false,
+              "id" : "pbText"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "II- The case management event handler"
+                },
+                "level" : {
+                  "type" : "constant",
+                  "value" : "Level 3"
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "8fb9308f-d9cc-4b01-9696-b42611137bf1",
+              "hasValidationError" : false,
+              "id" : "pbTitle"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "labelHidden" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "label" : {
+                  "type" : "interpolation",
+                  "value" : "Default label"
+                },
+                "labelPosition" : {
+                  "type" : "constant",
+                  "value" : "top"
+                },
+                "labelWidth" : {
+                  "type" : "constant",
+                  "value" : 4
+                },
+                "allowHTML" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "Bonita Case Management capabilities rely on an <strong>Event Handler</strong> embedded in Bonita Engine.<br/>\nThe event handler is triggered every time a human task is completed, and has the following effect: <br/>\n<i><strong>All the human tasks <u>transient</u> variables whose name starts with `$` are re-evaluated.</strong></i> <br/>\nThose transient variables contain the <i>state logic</i>. This means that you must define such a transiant variable on each human task whose state must be re-evaluated.<br/> \nThe value of a variable should reflect the state of the associated human task (Required, Discretionary, Optional, Not Available, Completed), depending on the execution state of the process (a given task has been completed, a given business data has been valuated, ...). <br/>\nWhen the event handler is triggered, the values of those variables are re-evaluated, and so the state of each human task.<br/>\nThe state of each task is displayed in the page provided (the next <i>Disputes</i> tab). Only available tasks can be executed. This logic of task display is computed in a REST API extension also provided in this example."
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "800179c3-6cf0-44d6-84f1-5ca5ab4e4d06",
+              "hasValidationError" : false,
+              "id" : "pbText"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "expression",
+                  "value" : "!handlerStatus.eventHandlerEnabled"
+                },
+                "labelHidden" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "label" : {
+                  "type" : "interpolation",
+                  "value" : "Default label"
+                },
+                "labelPosition" : {
+                  "type" : "constant",
+                  "value" : "top"
+                },
+                "labelWidth" : {
+                  "type" : "constant",
+                  "value" : 4
+                },
+                "allowHTML" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "<h4><span class=\"text-success glyphicon glyphicon-ok-circle\" aria-hidden=\"true\"></span> The Case Management event handler is already activated</h4>"
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "5a5b38fb-7c77-4ca0-b6e8-f8a39e560b84",
+              "hasValidationError" : false,
+              "id" : "pbText"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "expression",
+                  "value" : "handlerStatus.eventHandlerEnabled || session.version.startsWith(\"7.9\")"
+                },
+                "labelHidden" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "label" : {
+                  "type" : "interpolation",
+                  "value" : "Default label"
+                },
+                "labelPosition" : {
+                  "type" : "constant",
+                  "value" : "top"
+                },
+                "labelWidth" : {
+                  "type" : "constant",
+                  "value" : 4
+                },
+                "allowHTML" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "<h4><span class=\"text-warning glyphicon glyphicon-warning-sign\" aria-hidden=\"true\"></span> Activate the Case Management event handler</h4>\nBy default, the Case Management event handler is not activated. To activate it, the following argument has to be passed when launching the Tomcat: <br/><br/>\n<i><strong>-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true</strong></i>\n <br/><br/>\nIn Bonita Studio, you can enable the event handler by going to <strong>Preferences → Server settings → </strong><em>Check </em><strong>Enable ACM event handler</strong>."
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "05639bcf-4128-4f4d-8f0a-1bd3d3c342ab",
+              "hasValidationError" : false,
+              "id" : "pbText"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "expression",
+                  "value" : "handlerStatus.eventHandlerEnabled || !session.version.startsWith(\"7.9\")"
+                },
+                "labelHidden" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "label" : {
+                  "type" : "interpolation",
+                  "value" : "Default label"
+                },
+                "labelPosition" : {
+                  "type" : "constant",
+                  "value" : "top"
+                },
+                "labelWidth" : {
+                  "type" : "constant",
+                  "value" : 4
+                },
+                "allowHTML" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "<h4><span class=\"text-warning glyphicon glyphicon-warning-sign\" aria-hidden=\"true\"></span> Activate the Case Management event handler</h4>\nBy default, the Case Management event handler is not activated. To activate it, the following argument has to be passed when launching the Tomcat: <br/><br/>\n<i><strong>-Dcom.bonitasoft.engine.plugin.acm.REGISTER_ACM_HANDLER=true</strong></i>\n <br/><br/>\nIn Bonita Studio, you can pass this argument to the engine Tomcat by going to <strong>Preferences → Server settings → Tomcat JVM additional arguments</strong>. The parameter is present by default, you just have to set its value to <strong>true</strong>."
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "a39b6f7f-de5d-48e5-82b3-d475c1c16e02",
+              "hasValidationError" : false,
+              "id" : "pbText"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "III- Set up the example"
+                },
+                "level" : {
+                  "type" : "constant",
+                  "value" : "Level 3"
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "d96d79fb-06fd-4bd1-8ded-b5e3b78a5403",
+              "hasValidationError" : false,
+              "id" : "pbTitle"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "expression",
+                  "value" : "!session.version.startsWith(\"7.9\")"
+                },
+                "labelHidden" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "label" : {
+                  "type" : "interpolation",
+                  "value" : "Default label"
+                },
+                "labelPosition" : {
+                  "type" : "constant",
+                  "value" : "top"
+                },
+                "labelWidth" : {
+                  "type" : "constant",
+                  "value" : 4
+                },
+                "allowHTML" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "In order to be able to use this example, check that the following artifacts have been deployed:\n<ol>\n<li>Business Data Model <strong><i>bom.xml</i></strong></li>\n<li>Organization <strong><i>ACME.organization</i></strong></li>\n<li>Processes<strong> <i>Credit Card Dispute</i></strong>  and <strong> <i>Data initialization</i></strong></li>\n<li>REST API extension<strong> <i>creditCardDisputeResolutionRestAPI</i></strong></li>\n<li>Application descriptor <strong><i>credit-card-dispute-resolution</i></strong></li>\n<li>Finally, refresh this web page</li>\n</ol>"
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "2a08aaad-e595-4d77-9f6d-0ea46f4773e5",
+              "hasValidationError" : false,
+              "id" : "pbText"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "expression",
+                  "value" : "session.version.startsWith(\"7.9\")"
+                },
+                "labelHidden" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "label" : {
+                  "type" : "interpolation",
+                  "value" : "Default label"
+                },
+                "labelPosition" : {
+                  "type" : "constant",
+                  "value" : "top"
+                },
+                "labelWidth" : {
+                  "type" : "constant",
+                  "value" : 4
+                },
+                "allowHTML" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "In order to be able to use this example, there is a couple of artifacts to deploy. <br/>All the artifacts can be deployed from the Bonita Studio using the Deploy action: Right click on the project → <em>Deploy...</em> or click on the <em>Deploy...</em> icon in the toolbar</br>\n<ol>\n<li>Select all the artifacts</li>\n<li>Choose the <em>Local</em> environment</li>\n<li>Use <em>daniela.angelo</em> as default username (or any user mapped to the process initiator actor for a case)</li>\n<li>Click on <b>Deploy</b></li>\n<li>Open the <em>Credit Card Dispute Resolution</em> application</li>\n</ol>"
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "7fbd193e-7a2c-46d2-856c-d1fc8bd964e4",
+              "hasValidationError" : false,
+              "id" : "pbText"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "IV- Data initialization"
+                },
+                "level" : {
+                  "type" : "constant",
+                  "value" : "Level 3"
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "3ca14ee8-9e13-45be-9d6a-dfdc80eea7a3",
+              "hasValidationError" : false,
+              "id" : "pbTitle"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "labelHidden" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "label" : {
+                  "type" : "interpolation",
+                  "value" : "Default label"
+                },
+                "labelPosition" : {
+                  "type" : "constant",
+                  "value" : "top"
+                },
+                "labelWidth" : {
+                  "type" : "constant",
+                  "value" : 4
+                },
+                "allowHTML" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "The <i>Credit Card Dispute</i> process requires the pre-existence of some data: <br/>\n<ul>\n<li>An <strong>account</strong> contains all the <strong>transactions</strong> of a given <strong>customer</strong></li>\n<li>A <strong>dispute</strong> is started following the call of an <strong>existing customer</strong> who wants to dispute a <strong>transaction</strong> on its <strong>account</strong> </li>\n</ul>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> The database must be populated with some customers, accounts, and transactions before a new dispute can be started. We thought that existing disputes would also be nice to exist in the dispute list to offer a sense of reality. <br/>\nSo we have implemented a process that creates those data: <i>DataInitialization</i>."
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "14a554c5-467c-4e76-a214-a91aac6cf4a6",
+              "hasValidationError" : false,
+              "id" : "pbText"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "expression",
+                  "value" : "initialDataEmpty ? dataInitResponse.id : true"
+                },
+                "disabled" : {
+                  "type" : "expression",
+                  "value" : "!dataInitPayload && !dataInitPayload.processDefinitionId"
+                },
+                "label" : {
+                  "type" : "interpolation",
+                  "value" : "Create customers, accounts, transactions and disputes"
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "center"
+                },
+                "buttonStyle" : {
+                  "type" : "constant",
+                  "value" : "success"
+                },
+                "action" : {
+                  "type" : "constant",
+                  "value" : "POST"
+                },
+                "assign" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "url" : {
+                  "type" : "interpolation",
+                  "value" : "../API/bpm/case"
+                },
+                "responseStatusCode" : {
+                  "type" : "variable",
+                  "value" : ""
+                },
+                "dataToSend" : {
+                  "type" : "expression",
+                  "value" : "dataInitPayload"
+                },
+                "dataFromSuccess" : {
+                  "type" : "variable",
+                  "value" : "dataInitResponse"
+                },
+                "closeOnSuccess" : {
+                  "type" : "constant",
+                  "value" : false
+                },
+                "dataFromError" : {
+                  "type" : "variable",
+                  "value" : "dataInitError"
+                },
+                "targetUrlOnSuccess" : {
+                  "type" : "interpolation",
+                  "value" : "{{nextTaskLink}}"
+                },
+                "collectionToModify" : {
+                  "type" : "variable"
+                },
+                "modalId" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "collectionPosition" : {
+                  "type" : "constant",
+                  "value" : "Last"
+                },
+                "valueToAdd" : {
+                  "type" : "constant"
+                },
+                "removeItem" : {
+                  "type" : "variable"
+                }
+              },
+              "reference" : "9139e466-1578-4a16-a5d4-f60d62d01279",
+              "hasValidationError" : false,
+              "id" : "pbButton"
+            }
+          ],
+          [
+            {
+              "type" : "component",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : "alert alert-danger"
+                },
+                "hidden" : {
+                  "type" : "expression",
+                  "value" : "!dataInitError.message"
+                },
+                "labelHidden" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "label" : {
+                  "type" : "interpolation",
+                  "value" : "Default label"
+                },
+                "labelPosition" : {
+                  "type" : "constant",
+                  "value" : "top"
+                },
+                "labelWidth" : {
+                  "type" : "constant",
+                  "value" : 4
+                },
+                "allowHTML" : {
+                  "type" : "constant",
+                  "value" : true
+                },
+                "text" : {
+                  "type" : "interpolation",
+                  "value" : "<span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span> <strong>Something bad happened</strong>\n<br/>\n{{dataInitError.message}}"
+                },
+                "alignment" : {
+                  "type" : "constant",
+                  "value" : "left"
+                }
+              },
+              "reference" : "ee03dc12-2296-45c0-8537-8dfd7e1db285",
+              "hasValidationError" : false,
+              "id" : "pbText"
+            }
+          ],
+          [
+            {
+              "type" : "container",
+              "dimension" : {
+                "xs" : 12,
+                "sm" : 12,
+                "md" : 12,
+                "lg" : 12
+              },
+              "propertyValues" : {
+                "cssClasses" : {
+                  "type" : "constant",
+                  "value" : ""
+                },
+                "hidden" : {
+                  "type" : "expression",
+                  "value" : "initialDataEmpty ? !dataInitResponse.id : false"
+                },
+                "repeatedCollection" : {
+                  "type" : "variable",
+                  "value" : ""
+                }
+              },
+              "reference" : "13cd1589-c1eb-423a-af2d-5efac6f7cded",
+              "hasValidationError" : false,
+              "id" : "pbContainer",
+              "rows" : [
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : "text-success"
+                      },
+                      "hidden" : {
+                        "type" : "expression",
+                        "value" : "!initialDataEmpty"
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "Data created <i class=\"glyphicon glyphicon-ok\"></i>"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "f9e21505-eec9-434c-a278-64fd76c6f580",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "Customers"
+                      },
+                      "level" : {
+                        "type" : "constant",
+                        "value" : "Level 4"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "087653d7-29c1-4687-b107-bce383074393",
+                    "hasValidationError" : false,
+                    "id" : "pbTitle"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "headers" : {
+                        "type" : "constant",
+                        "value" : [
+                          "First name",
+                          "Last name",
+                          "Customer ID"
+                        ]
+                      },
+                      "type" : {
+                        "type" : "constant",
+                        "value" : "Bonita API"
+                      },
+                      "apiUrl" : {
+                        "type" : "constant",
+                        "value" : "../API/bdm/businessData/com.company.creditcard.dispute.model.Customer"
+                      },
+                      "params" : {
+                        "type" : "expression",
+                        "value" : "{\"q\" : \"find\", \"reload\" : dataInitResponse.id}"
+                      },
+                      "content" : {
+                        "type" : "constant"
+                      },
+                      "columnsKey" : {
+                        "type" : "constant",
+                        "value" : [
+                          "firstName",
+                          "lastName",
+                          "customerId"
+                        ]
+                      },
+                      "sortColumns" : {
+                        "type" : "constant"
+                      },
+                      "selectedRow" : {
+                        "type" : "variable",
+                        "value" : ""
+                      },
+                      "pageSize" : {
+                        "type" : "constant",
+                        "value" : 3
+                      },
+                      "filter" : {
+                        "type" : "constant"
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "striped" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "condensed" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "bordered" : {
+                        "type" : "constant",
+                        "value" : false
+                      }
+                    },
+                    "reference" : "e9359e07-048d-4b4a-8087-52e0a3778ecc",
+                    "hasValidationError" : false,
+                    "id" : "pbDataTable"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "V- Open the application and create a dispute"
+                      },
+                      "level" : {
+                        "type" : "constant",
+                        "value" : "Level 3"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "d12fc70d-3a52-4543-81a8-08000ee032b0",
+                    "hasValidationError" : false,
+                    "id" : "pbTitle"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "<i>We simulate here a situation where a customer calls the Customer Service to dispute a transaction, and a the Customer Service employee starts a new dispute case with the ID of the calling customer</i>. <br/>\nThe database now contains the required data to start a case of the <i>Credit Card Dispute</i> process. <br/><br/>\nYou can now {{mainAppsLink}} (second tab of this application example). <br/>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> This page displays the list of the opened disputes."
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "69eeef57-9812-4d0c-9754-c3c417c7a495",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "Only members of the actor <strong><i>Customer Service</i></strong>, mapped to the group acme/sales, can start a new credit card dispute.<br/><br/>\n <i>Daniela Angelo</i> answers this criterion. If you are not already logged with <i>Daniela Angelo</i>, log out and log in with:<br/>\n<strong>User:</strong> daniela.angelo<br/>\n<strong>Password:</strong> bpm"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "b6807698-01cd-4e68-8a26-91b59c10e996",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "Create a new dispute <strong>by clicking on the <i>New dispute</i> button</strong> (top right hand corner).<br/>\nA<strong> customer ID</strong> will be asked to start the dispute. You can pick one from the customer list above.<br/>\n"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "4a445d13-a74b-429d-a194-07b00c4fd054",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "The User Interface"
+                      },
+                      "level" : {
+                        "type" : "constant",
+                        "value" : "Level 4"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "03074de6-e984-4bda-b1ff-5f7016e4772d",
+                    "hasValidationError" : false,
+                    "id" : "pbTitle"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "The main User Interface of the dispute resolution is organized in several zones:"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "eda4e13b-988d-4d4b-8d07-7666758be92f",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "An the top, information about the customer and the current dispute. This information is updated when actions are performed."
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "e715b458-fa54-42a9-a75f-c0f4505290e6",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "<br/>\nIn the mid-left zone, the task list. It contains all available actions for the current user, and their states. <br/>\nEach action corresponds to a human task in the <i>Credit Card Dispute</i> process. <br/>The state of a task can be <span class=\"label label-danger\">Required</span> <span class=\"label label-primary\">Discretionary</span> <span class=\"label label-primary\">Optional</span> <span class=\"label label-default\"> N/A (not available)</span>  or <span class=\"label label-success\">Completed</span> <br/>\nIf you look at the process, you can see on each task a transient data named <strong><i>$activityState</i></strong>, that computes the state of its task via the event handler.<br/>\nAs explained above, depending on its state, the task can be performed or not, by clicking on its name.<br/>\n\nAbove this list,the <strong>buttons</strong> zone. Among them, the special <strong>Task</strong> button. It is used to <strong>create an unplanned action that needs to be performed for this particular case</strong> (send a mail to someone, call a customer, ...). <br/>\nOnce created, the new action is available in the task list, and can be performed at any time."
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "99515bd6-6f37-4c31-a962-66d88ca8b4d1",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "In the mid-right zone, the <strong>History</strong> of the case. It contains a summary of all the tasks performed during the dispute resolution. <br/>\nAt the bottom of the page, the <strong>Comments</strong> zone contains all the comments added during the dispute resolution (report of a call with the customer for example)<br/>\nFurther down, the <strong>Documents</strong> zone contains all the documents added during the dispute resolution (Customer bills for example)"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "c1c65376-978d-4d84-886d-2dd4c249e195",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "VI- Gather dispute details"
+                      },
+                      "level" : {
+                        "type" : "constant",
+                        "value" : "Level 3"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "9bcc28b6-d67f-41a0-a8c1-2fd2107898c9",
+                    "hasValidationError" : false,
+                    "id" : "pbTitle"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "The first required action of the <strong>Credit Cart Dispute</strong> process is the <i>Gather Dispute Details</i> task: the customer is on the phone with Daniela Angelo, and explains the issue to her.<br/>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> As <i>Daniela Angelo</i> still, click on the task <i><strong>Gather Dispute Details</strong></i>.<br/><br/>\nYou have here the possibility to enter details about the dispute <i>(according to what the customer on the phone is telling you)</i>, and then to <strong>Reject</strong> or <strong>Follow-up</strong> on the dispute, depending on whether you consider it valid or not.<br/>\nThe <strong>Merchant Identification Number (MIN)</strong> corresponds to the identifier of the merchant who performed the transaction the customer is disputing. If the customer doesn't know it, it can be retrieved later, during the <i>Dispute Investigation</i>.<br/>\nFor the sake of this tutorial, enter an amount of <strong>600 USD</strong>, a random date in the past, and <strong>follow-up</strong> on the dispute."
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "fa017d6d-d777-425f-bbcd-b03715737386",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "VII- Investigate transaction"
+                      },
+                      "level" : {
+                        "type" : "constant",
+                        "value" : "Level 3"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "15413be3-2a51-4e09-b268-1463db9cf522",
+                    "hasValidationError" : false,
+                    "id" : "pbTitle"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "The next required action to perform is the action <strong>Investigate Transaction</strong>.  The customer gave details about the dispute during the first call, a <strong><i>Dispute Agent</i></strong> has now to investigate. <br/><br/>\n <i>Joseph Hovell</i> is a Dispute Agent (the actor mapped to the group acme/production). Log out and log in with:<br/>\n<strong>User:</strong> joseph.hovell<br/>\n<strong>Password:</strong>  bpm \n<br/><br/>\nDuring the investigation, the Dispute Agent will, for exemple, find the <i><b>M</b>erchant <b>I</b>dentification <b>N</b>umber</i> associated with the disputed transaction.</br>\n<ul>\n<li>Perform the action <i><strong>Investigate Transaction</strong></i>, add the following comment: <i>MIN found using customer transaction date </i></li>\n<li>Perform the action <i><strong>Update Dispute</strong></i> and add a Merchant identification Number (Exemple: 10-0002363) </li>\n</ul>\n<i class=\"text-info\"><i class=\"glyphicon glyphicon-info-sign\"></i> The database has been populated with transactions, you can find the MIN of a transaction by looking into the <strong>account details</strong>, if you want to simulate a real investigation</i>"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "61466216-9d5e-43ad-be35-b0f76608f97e",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "VIII- Chargeback"
+                      },
+                      "level" : {
+                        "type" : "constant",
+                        "value" : "Level 3"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "1f218fe3-abd4-4c27-86b3-5a504fa4f0d8",
+                    "hasValidationError" : false,
+                    "id" : "pbTitle"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "After the investigation, the Dispute Agent decides to <strong>Charge back</strong> the customer. <br/><br/>\n<i class=\"glyphicon glyphicon-arrow-right\"></i> Perform the action <strong>Update Dispute</strong>, and set the status to <strong>PROCESSING CHARGEBACK</strong><br/><br/>\nThe action <strong>Chargeback</strong> should still be unavailable, because the amount to charge back is higher than the <strong><i>Review amount threshold</i></strong> (default value: 500) <i class=\"glyphicon glyphicon-arrow-right\"></i> A <strong>Dispute Supervisor</strong> has to perform a review to authorize the chargeback."
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "b7ceeccf-4940-41bf-b934-6ba28eaf6e84",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "<i>Zachary Williamson</i> is a Dispute Supervisor (the actor mapped with the group acme/finance). Log out and log in with:<br/>\n<strong>User:</strong> zachary.williamson<br/>\n<strong>Password:</strong>  bpm"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "fa4c036f-6af9-4332-aa5f-c1a0f639128c",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "<i class=\"glyphicon glyphicon-arrow-right\"></i> Perform the action <strong>Review</strong>, with the following comment: <i>Review done, chargeback authorized.</i> <br/>\n<i class=\"text-info\"><i class=\"glyphicon glyphicon-info-sign\"></i> The dispute supervisor has also the possibility to change the review amount threshold, by performing the action <strong>Update parameters</strong>. If you set the threshold to a value higher than the amount to charge back, then the review is not required anymore.</i>"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "777d68d1-0267-4f56-8a35-912b363a7146",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "Log in with  <i>Joseph Hovell</i>, and perform the action <Strong>Chargeback</strong>. <br/>\nThe customer has been charged back, and an email notification has been sent to its inbox. If the email connector has not been properly configured, the failure is just ignored. You may <a class=\"text-info\" target=\"_self\" href=\"../../../../../../portal.js/#/admin/processes/details/{{creditCardDisputeProcessId[0].id}}/params\">configure a valid smtp server in the process administration panel</a>.\n<br/>\nYou can now resolve the dispute by clicking on the <strong>Resolve</strong> button."
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "4463272f-9eb6-47f5-b291-04fbf3a7c1d2",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "IX - Known limitations"
+                      },
+                      "level" : {
+                        "type" : "constant",
+                        "value" : "Level 3"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "3097dd5f-1924-40db-9f07-7b6fbc3b1350",
+                    "hasValidationError" : false,
+                    "id" : "pbTitle"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "This example is using an event handler, as described in II here above. In case you have a big amount of cases and activities, you should monitor overall system performances and potentially do some tuning.\nActivities have dynamic names including an icon, which makes it simpler to create buttons in the application and forms. As a consequence, activity names would not display properly in the Bonita Portal tasklist. Furthermore, case visualization in the Monitoring page of the Bonita Portal would not display acitivity names properly neither."
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "cdb88939-95bf-4b25-a514-94e526618a05",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "X - Further steps"
+                      },
+                      "level" : {
+                        "type" : "constant",
+                        "value" : "Level 3"
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "0394cae6-a418-47cc-88f4-d526693046fa",
+                    "hasValidationError" : false,
+                    "id" : "pbTitle"
+                  }
+                ],
+                [
+                  {
+                    "type" : "component",
+                    "dimension" : {
+                      "xs" : 12,
+                      "sm" : 12,
+                      "md" : 12,
+                      "lg" : 12
+                    },
+                    "propertyValues" : {
+                      "cssClasses" : {
+                        "type" : "constant",
+                        "value" : ""
+                      },
+                      "hidden" : {
+                        "type" : "constant",
+                        "value" : false
+                      },
+                      "labelHidden" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "label" : {
+                        "type" : "interpolation",
+                        "value" : "Default label"
+                      },
+                      "labelPosition" : {
+                        "type" : "constant",
+                        "value" : "top"
+                      },
+                      "labelWidth" : {
+                        "type" : "constant",
+                        "value" : 4
+                      },
+                      "allowHTML" : {
+                        "type" : "constant",
+                        "value" : true
+                      },
+                      "text" : {
+                        "type" : "interpolation",
+                        "value" : "Starting from this example, you can go further with the implementation, using all other Bonita capabilities.\nIn case you want to translate the application to other languages, you can use UI Designer multi-language support. You can add localization assets for your forms and pages as explained in Bonita documentation."
+                      },
+                      "alignment" : {
+                        "type" : "constant",
+                        "value" : "left"
+                      }
+                    },
+                    "reference" : "4e98dec8-13cd-433b-bb24-fb6429192afe",
+                    "hasValidationError" : false,
+                    "id" : "pbText"
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
       }
-    },
-    "reference" : "15e3a10e-a351-4c11-ac5d-a460109f625f",
-    "hasValidationError" : false,
-    "id" : "pbText"
-  } ] ],
-  "assets" : [ {
-    "id" : "f2595a5c-e1e3-4619-8e60-c4f4604d481f",
-    "name" : "localization.json",
-    "type" : "json",
-    "order" : 0,
-    "external" : false
-  }, {
-    "id" : "d4f779b3-3017-4240-9404-d6023decc662",
-    "name" : "style.css",
-    "type" : "css",
-    "order" : 0,
-    "external" : false
-  } ],
-  "inactiveAssets" : [ ],
-  "data" : {
-    "dataInitializationProcessId" : {
-      "type" : "url",
-      "value" : "../API/bpm/process?p=0&c=1&f=name=DataInitialization",
-      "exposed" : false
-    },
-    "dataInitPayload" : {
-      "type" : "expression",
-      "value" : "return  {\n\t \"processDefinitionId\" : $data.dataInitializationProcessId[0].id\n}",
-      "exposed" : false
-    },
-    "dataInitResponse" : {
+    ],
+    [
+      {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<br/><br/><br/>"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "15e3a10e-a351-4c11-ac5d-a460109f625f",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      }
+    ]
+  ],
+  "assets" : [
+    {
+      "id" : "f2595a5c-e1e3-4619-8e60-c4f4604d481f",
+      "name" : "localization.json",
       "type" : "json",
-      "value" : "{}",
-      "exposed" : false
+      "order" : 0,
+      "external" : false
     },
-    "mainAppsLink" : {
-      "type" : "expression",
-      "value" : "function getPortalUrl() {\n    console.log(window.location);\n    var locationHref = window.location.href;\n    var indexOfPortal = locationHref.indexOf('/portal');\n    if (indexOfPortal >= 0) {\n      return locationHref.substring(0, indexOfPortal);\n    } else {\n      //Make the link work in case we are in the preview and the target process is deployed in the portal\n      return '/bonita';\n    }\n}\n\nreturn `<a class=\"text-info\"  href=\"${getPortalUrl()}/apps/cases/home\" target=\"_blank\">open the main application</a>`;",
-      "exposed" : false
-    },
+    {
+      "id" : "d4f779b3-3017-4240-9404-d6023decc662",
+      "name" : "style.css",
+      "type" : "css",
+      "order" : 0,
+      "external" : false
+    }
+  ],
+  "inactiveAssets" : [ ],
+  "variables" : {
     "handlerStatus" : {
       "type" : "url",
-      "value" : "../API/extension/handlerStatus",
-      "exposed" : false
-    },
-    "dataInitError" : {
-      "type" : "json",
-      "value" : "{}",
-      "exposed" : false
-    },
-    "initialCountCustomer" : {
-      "type" : "url",
-      "value" : "../API/bdm/businessData/com.company.creditcard.dispute.model.Customer?q=countForFind&p=0&c=10",
-      "exposed" : false
-    },
-    "initialDataEmpty" : {
-      "type" : "expression",
-      "value" : "return $data.initialCountCustomer[0] === 0;",
+      "value" : [
+        "../API/extension/handlerStatus"
+      ],
       "exposed" : false
     },
     "creditCardDisputeProcessId" : {
       "type" : "url",
-      "value" : "../API/bpm/process?p=0&c=1&f=name=Credit%20Card%20Dispute",
+      "value" : [
+        "../API/bpm/process?p=0&c=1&f=name=Credit%20Card%20Dispute"
+      ],
       "exposed" : false
     },
-    "session" : {
-      "type" : "url",
-      "value" : "../API/system/session/unusedId",
+    "dataInitError" : {
+      "type" : "json",
+      "value" : [
+        "{}"
+      ],
       "exposed" : false
     },
     "application" : {
       "type" : "url",
-      "value" : "../API/living/application?f=token%3dcases",
+      "value" : [
+        "../API/living/application?f=token%3dcases"
+      ],
+      "exposed" : false
+    },
+    "dataInitPayload" : {
+      "type" : "expression",
+      "value" : [
+        "return  {",
+        "\t \"processDefinitionId\" : $data.dataInitializationProcessId[0].id",
+        "}"
+      ],
+      "exposed" : false
+    },
+    "mainAppsLink" : {
+      "type" : "expression",
+      "value" : [
+        "function getPortalUrl() {",
+        "    console.log(window.location);",
+        "    var locationHref = window.location.href;",
+        "    var indexOfPortal = locationHref.indexOf('/portal');",
+        "    if (indexOfPortal >= 0) {",
+        "      return locationHref.substring(0, indexOfPortal);",
+        "    } else {",
+        "      //Make the link work in case we are in the preview and the target process is deployed in the portal",
+        "      return '/bonita';",
+        "    }",
+        "}",
+        "",
+        "return `<a class=\"text-info\"  href=\"${getPortalUrl()}/apps/cases/home\" target=\"_blank\">open the main application</a>`;"
+      ],
+      "exposed" : false
+    },
+    "initialDataEmpty" : {
+      "type" : "expression",
+      "value" : [
+        "return $data.initialCountCustomer[0] === 0;"
+      ],
+      "exposed" : false
+    },
+    "session" : {
+      "type" : "url",
+      "value" : [
+        "../API/system/session/unusedId"
+      ],
+      "exposed" : false
+    },
+    "initialCountCustomer" : {
+      "type" : "url",
+      "value" : [
+        "../API/bdm/businessData/com.company.creditcard.dispute.model.Customer?q=countForFind&p=0&c=10"
+      ],
+      "exposed" : false
+    },
+    "dataInitResponse" : {
+      "type" : "json",
+      "value" : [
+        "{}"
+      ],
+      "exposed" : false
+    },
+    "dataInitializationProcessId" : {
+      "type" : "url",
+      "value" : [
+        "../API/bpm/process?p=0&c=1&f=name=DataInitialization"
+      ],
       "exposed" : false
     }
   },

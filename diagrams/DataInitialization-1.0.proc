@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
-  <process:MainProcess xmi:id="_8oZHcE8EEeiL57cXslApDw" name="DataInitialization" author="Romain" bonitaVersion="7.9.0" bonitaModelVersion="7.9.0-002" configId="ACED000574002244617461496E697469616C697A6174696F6E372E392E302D303032372E392E307370">
+  <process:MainProcess xmi:id="_8oZHcE8EEeiL57cXslApDw" name="DataInitialization" author="Romain" bonitaVersion="7.10.4" bonitaModelVersion="7.10.0-001" configId="ACED000574002444617461496E697469616C697A6174696F6E372E31302E302D303031372E31302E347370">
     <elements xmi:type="process:Pool" xmi:id="_8oZugE8EEeiL57cXslApDw" documentation="Initialize 10 random customers in BDM database. The random values are computed using link:https://github.com/Devskiller/jfairy[Java fake data generator]." name="DataInitialization" version="1.0.0">
       <elements xmi:type="process:StartEvent" xmi:id="_8oZugk8EEeiL57cXslApDw" name="Start" outgoing="_8oZuoU8EEeiL57cXslApDw">
         <dynamicLabel xmi:type="expression:Expression" xmi:id="_8oZuhE8EEeiL57cXslApDw" name="" content="" returnTypeFixed="true"/>
@@ -142,11 +142,11 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cO-6sU8FEeiL57cXslApDw" x="863" y="70"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_Z2wB4JdFEemS2vHmcHFszw" type="3027" element="_Z2lp0JdFEemS2vHmcHFszw" fontName="Segoe UI" fillColor="14334392" lineColor="10710316">
-          <children xmi:type="notation:DecorationNode" xmi:id="_Z2wo8JdFEemS2vHmcHFszw" type="5017"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_Z2wo8JdFEemS2vHmcHFszw" type="5017" element="_Z2lp0JdFEemS2vHmcHFszw"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z2wB4ZdFEemS2vHmcHFszw" x="152" y="60" width="100" height="50"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_lYwxQOqvEem7LpSUm69MmA" type="3027" element="_lYlyIOqvEem7LpSUm69MmA" fontName="Segoe UI" fillColor="14334392" lineColor="10710316">
-          <children xmi:type="notation:DecorationNode" xmi:id="_lYxYUOqvEem7LpSUm69MmA" type="5017"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_lYxYUOqvEem7LpSUm69MmA" type="5017" element="_lYlyIOqvEem7LpSUm69MmA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lYwxQeqvEem7LpSUm69MmA" x="445" y="55" width="120" height="60"/>
         </children>
       </children>
@@ -175,7 +175,7 @@
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Vps24KoCEemgRuGmCdy98A" id="(1.0,0.5)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_lZBP8OqvEem7LpSUm69MmA" type="4001" element="_lZAB0OqvEem7LpSUm69MmA" source="_lYwxQOqvEem7LpSUm69MmA" target="_cO-6sE8FEeiL57cXslApDw" roundedBendpointsRadius="10" routing="Rectilinear">
-      <children xmi:type="notation:DecorationNode" xmi:id="_lZB3AOqvEem7LpSUm69MmA" type="6001">
+      <children xmi:type="notation:DecorationNode" xmi:id="_lZB3AOqvEem7LpSUm69MmA" type="6001" element="_lZAB0OqvEem7LpSUm69MmA">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_lZB3AeqvEem7LpSUm69MmA" y="-10"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_lZBP8eqvEem7LpSUm69MmA" fontName="Segoe UI"/>
